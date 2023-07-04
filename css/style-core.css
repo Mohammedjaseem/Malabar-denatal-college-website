@@ -1046,7 +1046,9 @@ input[type="reset"]:focus {
 	padding-bottom: 12px;
 }
 
-
+.kingster-navigation .sf-menu>.kingster-normal-menu li li {
+	/* padding-left: 0; */
+}
 
 .kingster-navigation .sf-menu>.kingster-normal-menu li>a {
 	display: block;
@@ -5773,6 +5775,7 @@ html.mm-opening.kingster-mmenu-right .kingster-mobile-header {
 	text-decoration: none;
 }
 
+.sf-menu>.kingster-normal-menu li>a.sf-with-ul-pre {}
 
 .sf-menu>.kingster-normal-menu li>a.sf-with-ul-pre:after {
 	content: '>';
