@@ -1,7 +1,9 @@
-.kingster-page-title-wrap{ background-image: url(../upload/page-title.jpg); }.kingster-header-wrap.kingster-header-style-plain{ box-shadow: 0px 1px 4px rgba(0,0,0,0.1); -webkit-box-shadow: 0px 1px 4px rgba(0,0,0,0.1); }.kingster-top-bar-right-button{ padding-bottom: 19px; margin-bottom: -19px; }.kingster-body h1, .kingster-body h2, .kingster-body h3, .kingster-body h4, .kingster-body h5, .kingster-body h6{ margin-top: 0px; margin-bottom: 20px; line-height: 1.2; font-weight: 700; }
+.kingster-page-title-wrap{ background-image: url(../upload/coming_soon.jpg); }.kingster-header-wrap.kingster-header-style-plain{ box-shadow: 0px 1px 4px rgba(0,0,0,0.1); -webkit-box-shadow: 0px 1px 4px rgba(0,0,0,0.1); }.kingster-top-bar-right-button{ padding-bottom: 19px; margin-bottom: -19px; }.kingster-body h1, .kingster-body h2, .kingster-body h3, .kingster-body h4, .kingster-body h5, .kingster-body h6{ margin-top: 0px; margin-bottom: 20px; line-height: 1.2; font-weight: 700; }
 #poststuff .gdlr-core-page-builder-body h2{ padding: 0px; margin-bottom: 20px; line-height: 1.2; font-weight: 700; }
 #poststuff .gdlr-core-page-builder-body h1{ padding: 0px; font-weight: 700; }
-
+ .journals{
+	background-image: url(../upload/col-bg-1.jpg);
+}
 .gdlr-core-button, .kingster-button, 
 input[type="button"], input[type="submit"], input[type="reset"]{ text-transform: none; font-weight: 700; }
 input, textarea{ border-bottom-width: 1px; }
@@ -15,6 +17,64 @@ input, textarea{ border-bottom-width: 1px; }
 	opacity: 1;
 	
 }
+.chairman-achieve{
+	margin-bottom: 0px!important;
+}
+@media only screen and (max-width: 767px) {
+
+	.grievance_img {
+			content: " ";
+			display: block;
+			clear: both;
+			visibility: hidden;
+			line-height: 0;
+			height: 0;
+		}
+}
+@media only screen and (max-width: 767px) {
+
+	.rank-holders {
+			padding-top: 0px !important;
+		}
+}
+@media only screen and (max-width: 1227px) {
+
+	.gri-button-padding {
+			margin: 0px 10px 10px 10px!important;
+		}
+}
+@media only screen and (min-width: 767px) {
+
+	.gri-button-padding {
+			margin: 0px 10px 10px 0px;
+		}
+}
+@media only screen and (max-width: 767px) {
+
+	.border-chairman {
+			border-width: 0px 0px 3px 0px;
+				border-color: #3db166!important;
+				border-style: solid;
+		}
+}
+.chairman-title{
+	
+			text-transform: none;
+			align-items: center;
+			justify-content: center;
+			display: flex;
+			/* padding-bottom: 30px; */
+		
+}
+.principal-message{
+	max-width: 1590px!important;
+
+}
+.principal-img-message{
+	margin-left: -99px!important;
+
+}
+
 .directors-image{
 	max-width: 100%;
 	height: 350px !important;
