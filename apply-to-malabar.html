@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Kingster &#8211; School, College &amp; University HTML Template</title>
+    <title>Malabar Dental College & Research Center</title>
  <link
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
       rel="stylesheet"
@@ -409,47 +409,77 @@
                                             <div class="gdlr-core-pbf-element">
                                                 <div class="gdlr-core-contact-form-7-item gdlr-core-item-pdlr gdlr-core-item-pdb ">
                                                     <div role="form" class="wpcf7" id="wpcf7-f1979-p1964-o1" lang="en-US" dir="ltr">
-                                                        <!-- <div class="screen-reader-response"></div> -->
-                                                        <form class="quform" id="quform" onclick="gotowhatsapp()">
-
-                                                            <div class="quform-elements">
-                                                                <div class="quform-element">
-                                                                    <p>Your Name (required)
-                                                                        <br>
-                                                                        <span class="wpcf7-form-control-wrap your-name">
-                                                                            <input id="name" type="text" name="name" size="40" class="input1" aria-required="true" aria-invalid="false">
-                                                                        </span> 
-                                                                    </p>
-                                                                </div>
-                                                                <div class="quform-element">
-                                                                    <p>Your Email (required)
-                                                                        <br>
-                                                                        <span class="wpcf7-form-control-wrap your-email">
-                                                                            <input id="email" type="text" name="email" size="40" class="input1" aria-required="true" aria-invalid="false">
-                                                                        </span> 
-                                                                    </p>
-                                                                </div>
-                                                                <div class="quform-element">
-                                                                    <p>Your Contact (required)
-                                                                        <br>
-                                                                        <span class="wpcf7-form-control-wrap your-email">
-                                                                            <input id="phone" type="tel" name="phone" size="40" class="input1" aria-required="true" aria-invalid="false">
-                                                                        </span> 
-                                                                    </p>
-                                                                </div>
-                                                                
-                                                                <p>
-                                                                    <!-- Begin Submit button -->
-                                                                    <div class="quform-submit">
-                                                                        <div class="quform-submit-inner">
-                                                                            <button form="quform" type="submit" class="submit-button" onclick="gotowhatsapp()"><span>Send</span></button>
-                                                                            
-                                                                        </div>
-                                                                        <div class="quform-loading-wrap"><span class="quform-loading"></span></div>
-                                                                    </div>
-                                                                </p>
-                                                            </div>
-                                                        </form>
+                                                        <div class="row register-form">
+              <div class="col-md-12">
+                <form autocomplete="off">
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      name="Name"
+                      id="name"
+                      class="form-control"
+                      placeholder="Your Name *"
+                      value=""
+                      required=""
+                    />
+                  </div>
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      name="Email"
+                      id="email"
+                      class="form-control"
+                      placeholder="Your Email *"
+                      value=""
+                      required=""
+                    />
+                  </div>
+                  <div class="form-group">
+                    <input
+                      type="number"
+                      name="Phone"
+                      id="phone"
+                      class="form-control"
+                      placeholder="Your Contact Number *"
+                      value=""
+                      required=""
+                    />
+                  </div>
+                   <div class="form-group">
+                    <input
+                      type="number"
+                      name="test1"
+                      id="test1"
+                      class="form-control"
+                      placeholder="Your Contact Number *"
+                      value=""
+                      required=""
+                    />
+                  </div>
+                  <div class="form-group">
+                    <select class="form-control" id="service">
+                      <option>Default select</option>
+                      <option>Website Development</option>
+                      <option>Mobile App Development</option>
+                      <option>Web and Mobile Application</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <input
+                      type="submit"
+                      name="submit"
+                      class="btnSubmit btn-block"
+                      value="Submit" onclick="gotowhatsapp()"
+                    />
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+                                                        
                                                     </div>
                                                 </div>
                                             </div>
@@ -665,29 +695,24 @@
     </div>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script>
-      function gotowhatsapp() {
-        var name = document.getElementById("name").value;
-        var phone = document.getElementById("phone").value;
-        var email = document.getElementById("email").value;
-        var service = document.getElementById("service").value;
-
-        var url =
-          "https://wa.me/918086500023?text=" +
-          "Name: " +
-          name +
-          "%0a" +
-          "Phone: " +
-          phone +
-          "%0a" +
-          "Email: " +
-          email +
-          "%0a" +
-          "Service: " +
-          service;
-
-        window.open(url, "_blank").focus();
-      }
+   <script>
+        function gotowhatsapp() {
+            
+            var name = document.getElementById("name").value;
+            var phone = document.getElementById("phone").value;
+            var email = document.getElementById("email").value; 
+            var service = document.getElementById("service").value;
+            var test1 = document.getElementById("test1").value;
+        
+            var url = "https://wa.me/918086500023?text=" 
+            + "Name: " + name + "%0a"
+            + "Phone: " + phone + "%0a" 
+            + "Email: " + email  + "%0a" 
+            + "Email: " + email  + "%0a" 
+            + "Service: " + service; 
+        
+            window.open(url, '_blank').focus();
+        }
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script type='text/javascript' src='js/jquery/jquery.js'></script>
