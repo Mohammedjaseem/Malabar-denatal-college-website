@@ -17,6 +17,16 @@ input, textarea{ border-bottom-width: 1px; }
 	opacity: 1;
 	
 }
+.nirf-buttons{
+	margin-right: 20px;
+	margin-top:40px;
+	padding: 16px 27px 18px;
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	
+
+}
 .chairman-achieve{
 	margin-bottom: 0px!important;
 }
@@ -35,6 +45,18 @@ input, textarea{ border-bottom-width: 1px; }
 
 	.rank-holders {
 			padding-top: 0px !important;
+		}
+}
+@media only screen and (min-width: 826px) {
+
+	.nirf-button1 {
+			margin-left: 230px;
+		}
+}
+@media only screen and (min-width: 767px) and (max-width:825px) {
+
+	.nirf-button1 {
+			margin-left: 130px;
 		}
 }
 @media only screen and (max-width: 1227px) {
