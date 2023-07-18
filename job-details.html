@@ -1066,21 +1066,10 @@
                           <div
                             class="gdlr-core-button-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-left-align"
                           >
-                            <a
-                              class="gdlr-core-button gdlr-core-button-solid gdlr-core-button-no-border"
-                              href="#"
-                              style="
-                                font-size: 13px;
-                                padding: 11px 24px 15px 27px;
-                                border-radius: 2px;
-                                -moz-border-radius: 2px;
-                                -webkit-border-radius: 2px;
-                              "
-                              ><span class="gdlr-core-content">Apply Now</span
-                              ><i
-                                class="gdlr-core-pos-right fa fa-external-link"
-                              ></i
-                            ></a>
+                            <a id="applyButton" class="gdlr-core-button gdlr-core-button-solid gdlr-core-button-no-border apply" href="#" style="font-size: 13px; padding: 11px 24px 15px 27px; border-radius: 2px; -moz-border-radius: 2px; -webkit-border-radius: 2px;">
+  <span class="gdlr-core-content">Apply Now</span>
+  <i class="gdlr-core-pos-right fa fa-external-link"></i>
+</a>
                           </div>
                         </div>
                       </div>
@@ -1605,7 +1594,16 @@ function showLoadingBuffer() {
   function showContent() {
   document.getElementById("loading").style.display = "none";
   document.getElementById("content").style.display = "block";
-}
+} const applyButton = document.getElementById("applyButton");
+
+  // Add an event listener to the apply button
+  applyButton.addEventListener("click", function() {
+    // Construct the URL with the job ID
+    const url = `job-apply.html?jobId=${jobId}`;
+
+    // Redirect to the job-apply.html page
+    window.location.href = url;
+  });
 // Fetch the job data from the API
 fetch(apiUrl)
   .then(response => response.json())
@@ -1614,7 +1612,8 @@ fetch(apiUrl)
     const organizationLogoImg = document.querySelector('.organization_logo');
     organizationLogoImg.src = data.organization.organization_logo;
     organizationLogoImg.alt = data.organization.organization_name;
-
+   
+    organizationLogoImg.href = `job-apply.html?id=${jobId}`;
     updateElementContent(".job_title", data.job_title);
     updateElementContent(".organization_logo", data.organization.organization_logo);
     updateElementContent(".organization_name", data.organization.organization_name);

@@ -510,107 +510,68 @@
                                     <div class="gdlr-core-pbf-column-content-margin gdlr-core-js ">
                                         <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js " style="max-width: 760px ;">
                                             <div class="gdlr-core-pbf-element">
-                                                <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix  gdlr-core-center-align gdlr-core-title-item-caption-bottom gdlr-core-item-pdlr" style="padding-bottom: 60px ;">
+                                                <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix  gdlr-core-center-align gdlr-core-title-item-caption-bottom gdlr-core-item-pdlr" style="padding-bottom: 40px ;">
                                                     <div class="gdlr-core-title-item-title-wrap clearfix">
-                                                        <h3 class="gdlr-core-title-item-title gdlr-core-skin-title " style="font-size: 50px ;">Leave us your info</h3></div><span class="gdlr-core-title-item-caption gdlr-core-info-font gdlr-core-skin-caption" style="font-size: 19px ;font-style: normal ;text-transform: uppercase ;">and we will get back to you.</span></div>
+                                                        <h3 class="gdlr-core-title-item-title gdlr-core-skin-title " style="font-size: 50px ;">Apply to US</h3></div><span class="gdlr-core-title-item-caption gdlr-core-info-font gdlr-core-skin-caption" style="font-size: 14px ;font-style: normal ;text-transform: uppercase ;">Fill the form below, and we will get back to you</span></div>
                                             </div>
                                             <div class="gdlr-core-pbf-element">
                                                 <div class="gdlr-core-contact-form-7-item gdlr-core-item-pdlr gdlr-core-item-pdb ">
                                                     <div role="form" class="wpcf7" id="wpcf7-f1979-p1964-o1" lang="en-US" dir="ltr">
                                                         <div class="row register-form">
               <div class="col-md-12">
-                <form >
-                  <div class="form-group">
-                    
-                    <input
-                      type="text"
-                      name="Name"
-                      id="name"
-                      class="form-control"
-                      placeholder="Your Full Name"
-                      value=""
-                      required="true"
-                    />
-                  </div>
-                  <div class="form-group">
-                    <input
-                      type="email"
-                      name="Email"
-                      id="email"
-                      class="form-control"
-                      placeholder="Your Email"
-                      value=""
-                      required="true"
-                    />
-                  </div>
-                  <div class="form-group">
-                    <input
-                      type="number"
-                      name="Phone"
-                      id="phone"
-                      class="form-control"
-                      placeholder="Your Contact Number"
-                      value=""
-                      required="true"
-                    />
-                  </div>
-                   <div class="form-group">
-                    <input
-                      type="number"
-                      name="neet1"
-                      id="neet1"
-                      class="form-control"
-                      placeholder="NEET Mark"
-                      value=""
-                      required="true"
-                    />
-                  </div>
-                   <div class="form-group">
-                    <input
-                      type="number"
-                      name="neet2"
-                      id="neet2"
-                      class="form-control"
-                      placeholder="NEET Rank"
-                      value=""
-                      required="true"
-                    />
-                  </div>
-                   <div class="form-group">
-                          <label>Keam Registration Status:</label>
-                          <select style="height: calc(3.25rem + 2px);" class="form-control" id="keam">
-                            <option>Registered</option>
-                            <option>Not Registered</option>
-                          </select>
-                        </div>
+           <div id="successPopup" style="display: none;">
+  <p>Job application submitted successfully!</p>
+</div>
+           <div id="failPopup" style="display: none;">
+  <p>Job application Has Failed!</p>
+</div>
 
-                        <div class="form-group">
-                          <label>Please chose your Category</label>
-                          <select style="height: calc(3.25rem + 2px);" class="form-control" id="category">
-                            <option>General</option>
-                            <option>OBC</option>
-                            <option>SC</option>
-                            <option>ST</option>
-                            <option>OEC</option>
-                            <option>Others</option>
-                          </select>
-                        </div>
-                  <div class="form-group">
-                                                                        <div class="quform-submit-inner">
-                                                                            <button  type="submit"
-                      name="submit" onclick="gotowhatsapp()" class="submit-button"><span>Send</span></button>
-                                                                        </div>
-                                                                        <div class="quform-loading-wrap"><span class="quform-loading"></span></div>
-                                                                    </div>
-                  <!-- <div class="form-group">
-                    <input
-                      type="submit"
-                      name="submit"
-                      class="btnSubmit btn-block"
-                      value="Submit" onclick="gotowhatsapp()"
-                    />
-                  </div> -->
-                </form>
+<form id="jobApplicationForm">
+  <div class="form-group">
+    <input
+      type="text"
+      name="Name"
+      id="name"
+      class="form-control"
+      placeholder="Your Full Name"
+      value=""
+      required="true"
+    />
+  </div>
+  <div class="form-group">
+    <input
+      type="email"
+      name="Email"
+      id="email"
+      class="form-control"
+      placeholder="Your Email"
+      value=""
+      required="true"
+    />
+  </div>
+  <div class="form-group">
+    <input
+      type="file"
+      name="resume"
+      id="resume"
+      class="form-control"
+      accept=".pdf,.doc,.docx"
+      required="true"
+    />
+  </div>
+  <div class="form-group">
+    <div class="quform-submit-inner">
+      <button type="submit" name="submit" onclick="applyJob()" class="submit-button">
+        <span>Send</span>
+      </button>
+    </div>
+    <div class="quform-loading-wrap">
+      <span class="quform-loading"></span>
+    </div>
+  </div>
+</form>
+
+
               </div>
             </div>
           </div>
@@ -833,30 +794,56 @@
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
    <script>
-        function gotowhatsapp() {
-            
-            var name = document.getElementById("name").value;
-            var phone = document.getElementById("phone").value;
-            var email = document.getElementById("email").value; 
-            var neet1 = document.getElementById("neet1").value;
-            var neet2 = document.getElementById("neet2").value;
-            var keam = document.getElementById("keam").value;
-            var category = document.getElementById("category").value;
-        
-            var url = "https://wa.me/917034555521?text=" 
-            + "Name: " + name + "%0a"
-            + "Phone: " + phone + "%0a" 
-            + "Email: " + email  + "%0a" 
-            + "NEET Mark: " + neet1  + "%0a" 
-            + "NEET Rank: " + neet2  + "%0a" 
-            + "Category: " + category  + "%0a" 
-            + "KEAM: " + keam + "%0a%0a" 
-            + "Instagram: https://www.instagram.com/malabar_dental_college/" ; 
+function applyJob(event) {
+  event.preventDefault(); // Prevent the default form submission
+  
+  // Get form input values
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const resumeFile = document.getElementById('resume').files[0];
+  
+  // Get the jobId from the URL query parameters
+  const urlParams = new URLSearchParams(window.location.search);
+  const jobId = urlParams.get('id');
+  
+  // Create form data object
+  const formData = new FormData();
+  formData.append('full_name', name);
+  formData.append('email_address', email);
+  formData.append('resume', resumeFile);
+  formData.append('job_applied_id', jobId);
+  
+  // Define the API URL with the dynamic Job ID
+  const apiUrl = `https://app.conext.in/job/job_apply/${jobId}/`;
+  
+  // Send the form data to the API using the POST method
+  fetch(apiUrl, {
+    method: 'POST',
+    body: formData
+  })
+    .then(response => response.json())
+    .then(data => {
+      // Handle the API response here
+      showSuccessPopup();
+    })
+    .catch(error => {
+      console.error("Error submitting job application:", error);
+      // Handle the error case here
+    });
+}
 
-            
-        
-            window.open(url, '_blank').focus();
-        }
+function showSuccessPopup() {
+  const successPopup = document.getElementById('successPopup');
+  successPopup.style.display = 'block';
+}
+function showFailerPopup() {
+  const successPopup = document.getElementById('failPopup');
+  successPopup.style.display = 'block';
+}
+// Add event listener to the form submit event
+const form = document.getElementById('jobApplicationForm');
+form.addEventListener('submit', applyJob);
+
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script type='text/javascript' src='js/jquery/jquery.js'></script>
