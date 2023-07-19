@@ -805,6 +805,7 @@ function applyJob(event) {
   // Get the jobId from the URL query parameters
   const urlParams = new URLSearchParams(window.location.search);
   const jobId = urlParams.get('id');
+  console.log("this is job id: ", jobId)
   
   // Create form data object
   const formData = new FormData();
