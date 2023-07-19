@@ -805,7 +805,12 @@ function applyJob(event) {
   // Get the jobId from the URL query parameters
   const urlParams = new URLSearchParams(window.location.search);
   const jobId = urlParams.get('jobId');
-  console.log("this is job id: ", jobId);
+  
+  // Check if jobId is null or empty
+  if (!jobId) {
+    console.error('No jobId found in the URL.');
+    return; // Exit the function or handle the error case
+  }
   
   // Create form data object
   const formData = new FormData();
@@ -830,6 +835,7 @@ function applyJob(event) {
     .catch(error => {
       console.error("Error submitting job application:", error);
       // Handle the error case here
+      showFailerPopup();
     });
 }
 
@@ -837,13 +843,16 @@ function showSuccessPopup() {
   const successPopup = document.getElementById('successPopup');
   successPopup.style.display = 'block';
 }
+
 function showFailerPopup() {
-  const successPopup = document.getElementById('failPopup');
-  successPopup.style.display = 'block';
+  const failPopup = document.getElementById('failPopup');
+  failPopup.style.display = 'block';
 }
+
 // Add event listener to the form submit event
 const form = document.getElementById('jobApplicationForm');
 form.addEventListener('submit', applyJob);
+
 
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
