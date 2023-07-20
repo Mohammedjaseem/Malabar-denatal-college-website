@@ -21,7 +21,32 @@
 
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700%2C400" rel="stylesheet" property="stylesheet" type="text/css" media="all">
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2Cregular%2Citalic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CABeeZee%3Aregular%2Citalic&amp;subset=latin%2Clatin-ext%2Cdevanagari&amp;ver=5.0.3' type='text/css' media='all' />
+<style>
+    .custom-alert {
+            position: fixed;
+            top: 15%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 9999;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            max-width: 400px;
+            display: none;
+        }
 
+        .custom-alert p {
+            margin: 0;
+        }
+
+        .custom-alert .close-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+        }
+</style>
 </head>
 
 <body class="home page-template-default page page-id-2039 gdlr-core-body woocommerce-no-js tribe-no-js kingster-body kingster-body-front kingster-full  kingster-with-sticky-navigation  kingster-blockquote-style-1 gdlr-core-link-to-lightbox">
@@ -519,12 +544,7 @@
                                                     <div role="form" class="wpcf7" id="wpcf7-f1979-p1964-o1" lang="en-US" dir="ltr">
                                                         <div class="row register-form">
               <div class="col-md-12">
-           <div id="successPopup" style="display: none;">
-  <p>Job application submitted successfully!</p>
-</div>
-           <div id="failPopup" style="display: none;">
-  <p>Job application Has Failed!</p>
-</div>
+
 
 <form id="jobApplicationForm">
   <div class="form-group">
@@ -561,8 +581,8 @@
   </div>
   <div class="form-group">
     <div class="quform-submit-inner">
-      <button type="submit" name="submit" onclick="applyJob()" class="submit-button">
-        <span>Send</span>
+       <button type="submit" name="submit" onclick="event.preventDefault(); applyJob(event);" class="submit-button">
+        <span id="sendButtonText">Send</span>
       </button>
     </div>
     <div class="quform-loading-wrap">
@@ -791,11 +811,21 @@
             </footer>
         </div>
     </div>
+ <div id="successPopup" class="custom-alert">
+    <H3>Successful  <span class="close-button" onclick="closeCustomAlert('successPopup')">&times;</span></H3>
+        <p>Job application submitted successfully!</p>
+       
+    </div>
 
+    <div id="failPopup" class="custom-alert">
+         <H3>Failed!  <span class="close-button" onclick="closeCustomAlert('failPopup')">&times;</span></H3>
+        <p>Job application Has Failed!</p>
+    </div>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-   <script>
+      <script>
 function applyJob(event) {
-  event.preventDefault(); // Prevent the default form submission
+  event.preventDefault(); 
+// Prevent the default form submission
   
   // Get form input values
   const name = document.getElementById('name').value;
@@ -821,7 +851,7 @@ function applyJob(event) {
   
   // Define the API URL with the dynamic Job ID
   const apiUrl = `https://app.conext.in/job/job_apply/${jobId}/`;
-  
+  showLoading();
   // Send the form data to the API using the POST method
   fetch(apiUrl, {
     method: 'POST',
@@ -829,8 +859,12 @@ function applyJob(event) {
   })
     .then(response => response.json())
     .then(data => {
-      // Handle the API response here
-      showSuccessPopup();
+      if (response.statuscode==200) {
+        showSuccessPopup();
+      } else {
+         showFailerPopup();
+      }
+      
     })
     .catch(error => {
       console.error("Error submitting job application:", error);
@@ -839,15 +873,37 @@ function applyJob(event) {
     });
 }
 
-function showSuccessPopup() {
-  const successPopup = document.getElementById('successPopup');
-  successPopup.style.display = 'block';
+function showLoading() {
+  const submitButton = document.querySelector(".submit-button");
+  submitButton.disabled = true;
+  submitButton.innerHTML = 'Submitting...';
 }
 
-function showFailerPopup() {
-  const failPopup = document.getElementById('failPopup');
-  failPopup.style.display = 'block';
+function hideLoading() {
+  const submitButton = document.querySelector(".submit-button");
+  submitButton.disabled = true;
+  submitButton.innerHTML = 'Submitted';
 }
+//  function showSuccessPopup() {
+//     hideLoading();
+//         alert("Successful.\n " +
+//             "Your job application submitted successfully!");
+//     }
+  function showSuccessPopup() {
+    hideLoading();
+    document.getElementById('successPopup').style.display = 'block';
+  }
+
+  function showFailerPopup() {
+    hideLoading();
+    document.getElementById('failPopup').style.display = 'block';
+  }
+
+  function closeCustomAlert() {
+    document.getElementById('successPopup').style.display = 'none';
+    document.getElementById('failPopup').style.display = 'none';
+  }
+
 
 // Add event listener to the form submit event
 const form = document.getElementById('jobApplicationForm');

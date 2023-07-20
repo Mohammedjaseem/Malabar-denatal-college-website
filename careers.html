@@ -51,6 +51,11 @@
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+  .gdlr-core-course-item-subtitle {
+    font-size: 14px;
+    color: #888;
+    padding-left: 50px;
+  }
 </style>
 </head>
 
@@ -962,6 +967,7 @@ fetch(apiUrl)
       const organization = courseData.organization;
       const organizationLogo = organization.organization_logo;
       const courseTitle = courseData.job_title;
+      const courseSubTitle =courseData.application_last_date;
 
       // Create the necessary elements dynamically
       const courseItemDiv = document.createElement("div");
@@ -976,20 +982,27 @@ fetch(apiUrl)
       organizationLogoImg.classList.add("gdlr-core-course-item-logo");
       organizationLogoImg.src = organizationLogo;
       organizationLogoImg.alt = courseTitle;
+       
 
       const courseTitleSpan = document.createElement("span");
       courseTitleSpan.classList.add("gdlr-core-course-item-title", "gdlr-core-skin-title");
       courseTitleSpan.textContent = courseTitle;
 
+       const courseSubTitleSpan = document.createElement("span");
+        courseSubTitleSpan.classList.add("gdlr-core-course-item-subtitle", "gdlr-core-skin-caption");
+        courseSubTitleSpan.textContent = 'Last Date: '+courseSubTitle; 
+
       const courseIcon = document.createElement("i");
       courseIcon.classList.add("gdlr-core-course-item-icon", "gdlr-core-skin-icon", "fa", "fa-long-arrow-right");
 
       // Assemble the elements
-      courseLink.appendChild(organizationLogoImg);
-      courseLink.appendChild(courseTitleSpan);
-      courseLink.appendChild(courseIcon);
-      courseItemDiv.appendChild(courseLink);
-      courseContainer.appendChild(courseItemDiv);
+        courseLink.appendChild(organizationLogoImg);
+        courseLink.appendChild(courseTitleSpan);
+        courseItemDiv.appendChild(courseLink);
+        // Add a line break (space) between the title and subtitle
+        courseItemDiv.appendChild(courseSubTitleSpan); // Add the subtitle span after the line break
+        courseItemDiv.appendChild(courseIcon);
+        courseContainer.appendChild(courseItemDiv);
     });
      showContent();
   })
