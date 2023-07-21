@@ -122,6 +122,29 @@
     width: 100%;
   }
 }
+.wrapper {
+  /* Previous styles */
+  position: relative;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #bbb;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.active {
+  background-color: #3db166;
+}
 
 </style>
 </head>
@@ -1349,6 +1372,7 @@ One of the main attractions of the college is the water filled quarry which is a
     </div>
    
   </div>
+   <div class="dots"></div>
 </div>
                    
                     <div class="gdlr-core-pbf-wrapper "  id="gdlr-core-wrapper-3">
@@ -1826,27 +1850,46 @@ One of the main attractions of the college is the water filled quarry which is a
             }
         }; /*]]>*/
     </script>
-    <script>
-let slideIndex = 0;
-showSlides();
+<script>
+  const slider = document.querySelector('.slider');
+  const testimonials = document.querySelectorAll('.testimonial');
+  const dotsContainer = document.querySelector('.dots');
 
-function showSlides() {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
-  let dots = document.getElementsByClassName("dot");
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";  
+  // Create pagination dots
+  testimonials.forEach((_, index) => {
+    const dot = document.createElement('div');
+    dot.classList.add('dot');
+    dotsContainer.appendChild(dot);
+
+    dot.addEventListener('click', () => {
+      scrollToTestimonial(index);
+    });
+  });
+
+  let activeIndex = 0;
+
+  function scrollToTestimonial(index) {
+    testimonials[index].scrollIntoView({
+      behavior: 'smooth',
+      block: 'center',
+      inline: 'center',
+    });
+
+    activeIndex = index;
+    updateActiveDot();
   }
-  slideIndex++;
-  if (slideIndex > slides.length) {slideIndex = 1}    
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
+
+  function updateActiveDot() {
+    const dots = document.querySelectorAll('.dot');
+    dots.forEach((dot, index) => {
+      dot.classList.toggle('active', index === activeIndex);
+    });
   }
-  slides[slideIndex-1].style.display = "block";  
-  dots[slideIndex-1].className += " active";
-  setTimeout(showSlides, 3000); // Change image every 2 seconds
-}
+
+  // Initially set the first dot as active
+  updateActiveDot();
 </script>
+
     <script>
         (function(body) {
             'use strict';
