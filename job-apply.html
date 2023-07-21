@@ -970,7 +970,7 @@ function applyJob(event) {
   })
     .then(response => response.json())
     .then(data => {
-      if (response.statuscode==200) {
+      if (data.message=="Application submitted successfully.") {
         showSuccessPopup();
       } else {
          showFailerPopup();
