@@ -15,87 +15,115 @@
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700%2C400" rel="stylesheet" property="stylesheet" type="text/css" media="all">
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2Cregular%2Citalic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CABeeZee%3Aregular%2Citalic&amp;subset=latin%2Clatin-ext%2Cdevanagari&amp;ver=5.0.3' type='text/css' media='all' />
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-*{
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
 
-::selection{
-  background: rgba(23,162,184,0.3);
+::selection {
+  background: rgba(23, 162, 184, 0.3);
 }
-.wrapper{
-  max-width: 1200px;
+
+.wrapper {
+  max-width: 1300px;
   margin: auto;
-  padding: 0 20px;
+
+}
+
+.slider {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 20px;
 }
-.wrapper .box{
+
+.testimonial {
+    margin: 10px 20px 10px 10px;
   background: #fff;
-  width: calc(33% - 10px);
-  padding: 25px;
+  width: 40%;
+  flex-shrink: 0;
+  padding: 25px; /* Added padding to the left and right */
   border-radius: 3px;
-  box-shadow: 0px 4px 8px rgba(0,0,0,0.15);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+  margin-right: 10px;
+  scroll-snap-align: start;
 }
-.wrapper .box i.quote{
+
+.testimonial:last-child {
+  margin-right: 0;
+}
+
+.testimonial i.quote {
   font-size: 20px;
   color: #3db166;
 }
-.wrapper .box .content{
+
+.testimonial .content {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   padding-top: 10px;
 }
-.box .info .name{
+
+.testimonial .info .name {
   font-weight: 600;
   font-size: 17px;
 }
-.box .info .job{
+
+.testimonial .info .job {
   font-size: 16px;
   font-weight: 500;
   color: #3db166;
 }
-.box .info .stars{
+
+.testimonial .info .stars {
   margin-top: 2px;
 }
-.box .info .stars i{
+
+.testimonial .info .stars i {
   color: #3db166;
 }
-.box .content .image{
+
+.testimonial .content .image {
   height: 75px;
   width: 75px;
   padding: 3px;
   background: #3db166;
   border-radius: 50%;
 }
-.content .image img{
+
+.content .image img {
   height: 100%;
   width: 100%;
   object-fit: cover;
   border-radius: 50%;
   border: 2px solid #fff;
 }
-.box:hover .content .image img{
+
+.testimonial:hover .content .image img {
   border-color: #fff;
 }
+
 @media (max-width: 1045px) {
-  .wrapper .box{
+  .testimonial {
     width: calc(50% - 10px);
     margin: 10px 0;
   }
 }
+
 @media (max-width: 702px) {
-  .wrapper .box{
+  .testimonial {
     width: 100%;
   }
-}</style>
+}
+
+</style>
 </head>
 <body class="home page-template-default page page-id-2039 gdlr-core-body woocommerce-no-js tribe-no-js kingster-body kingster-body-front kingster-full  kingster-with-sticky-navigation  kingster-blockquote-style-1 gdlr-core-link-to-lightbox">
     <div class="kingster-mobile-header-wrap">
@@ -1185,9 +1213,10 @@ One of the main attractions of the college is the water filled quarry which is a
                         </div>
                     </div>
                     <div style="margin-top: 70px;margin-bottom: 50px;"><h3 class="gdlr-core-title-item-title gdlr-core-skin-title " style="font-size: 34; text-transform: none ;align-items: center;justify-content: center;display: flex;">Student Testimonials</h3></div>
-                    <div class="wrapper" >
-                        
-    <div class="box" style="margin-bottom: 60px;">
+                  <div class="wrapper">
+  <div class="slider">
+    <div class="testimonial">
+        <div class="box">
       <i class="fas fa-quote-left quote"></i>
       <p>The college has one of the best infrastructure and facilities in the city. The college hospital which is affordable for the public gives the students relevant field exposure and internship opportunities which helps them to excel in academics. Frequently organised festivities and events will be the perfect gateway for your colourful campus life .</p>
       <div class="content">
@@ -1207,7 +1236,9 @@ One of the main attractions of the college is the water filled quarry which is a
         </div>
       </div>
     </div>
-    <div class="box">
+    </div>
+    <div class="testimonial">
+      <div class="box">
       <i class="fas fa-quote-left quote"></i>
       <p>I’m really happy and proud to be a former student of this institution which was a turning point in my life. Really proud of the teachers who were of great support and guidance.</p>
       <div class="content">
@@ -1227,7 +1258,9 @@ One of the main attractions of the college is the water filled quarry which is a
         </div>
       </div>
     </div>
-    <div class="box">
+    </div>
+    <div class="testimonial">
+       <div class="box">
       <i class="fas fa-quote-left  quote"></i>
       <p>MDC has provided me with a number of opportunities to grow and explore my skills. Grateful to be taught under such renowed teaching faculties and their guidance has really helped me in my practice.</p>
       <div class="content">
@@ -1247,7 +1280,77 @@ One of the main attractions of the college is the water filled quarry which is a
         </div>
       </div>
     </div>
+    </div>
+    <div class="testimonial">
+        <div class="box">
+      <i class="fas fa-quote-left quote"></i>
+      <p>The college has one of the best infrastructure and facilities in the city. The college hospital which is affordable for the public gives the students relevant field exposure and internship opportunities which helps them to excel in academics. Frequently organised festivities and events will be the perfect gateway for your colourful campus life .</p>
+      <div class="content">
+        <div class="info">
+          <div class="name">Dr. Sneha T.E</div>
+          <div class="job">Student</div>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
+        </div>
+        <div class="image">
+          <img src="upload/testimonial3.jpg" alt="">
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="testimonial">
+      <div class="box">
+      <i class="fas fa-quote-left quote"></i>
+      <p>I’m really happy and proud to be a former student of this institution which was a turning point in my life. Really proud of the teachers who were of great support and guidance.</p>
+      <div class="content">
+        <div class="info">
+          <div class="name">Dr. Neema K</div>
+          <div class="job">Student</div>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
+        </div>
+        <div class="image">
+          <img src="upload/testimonial1.jpg" alt="">
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="testimonial">
+       <div class="box">
+      <i class="fas fa-quote-left  quote"></i>
+      <p>MDC has provided me with a number of opportunities to grow and explore my skills. Grateful to be taught under such renowed teaching faculties and their guidance has really helped me in my practice.</p>
+      <div class="content">
+        <div class="info">
+          <div class="name">Dr. Vismaya</div>
+          <div class="job">Student</div>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
+        </div>
+        <div class="image">
+          <img src="upload/testimonial2.jpg" alt="">
+        </div>
+      </div>
+    </div>
+    </div>
+   
   </div>
+</div>
+                   
                     <div class="gdlr-core-pbf-wrapper "  id="gdlr-core-wrapper-3">
                         <div class="gdlr-core-pbf-background-wrap"></div>
                         <div class="gdlr-core-pbf-wrapper-content gdlr-core-js ">
@@ -1599,7 +1702,7 @@ One of the main attractions of the college is the water filled quarry which is a
                                         <br /> <span class="gdlr-core-space-shortcode" id="span_1dd7_10"></span>
                                         <br /> Manoor - Chekanoor Road,  
                                         <br /> Manoor, Edappal, Malappuram,
-                                        <br /> Kerala 679582</p>
+                                        <br /> Kerala 679578</p>
                                     <p><span id="span_1dd7_11"> Toll free:<a href="tel:18008430066"> 18008430066</a> </span>
                                        <!-- <br> <span id="span_1dd7_11"> Hospital/Clinic:<a href="tel:0494 269720"> 0494 269720, 21</a> </span> | <span id="span_1dd7_11"> <a href="tel:7034555514">+91 7034555514</a></span> -->
                                         <br /> <span class="gdlr-core-space-shortcode" id="span_1dd7_12"></span>
