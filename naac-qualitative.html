@@ -87,14 +87,9 @@
         color: #999;
       }
       #loading-animation {
-        position: fixed;
-        top: 80%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: transparent;
-        padding: 20px;
-        border-radius: 5px;
         display: flex;
+        text-align: center;
+        align-self: center;
         align-items: center;
         justify-content: center;
       }
@@ -821,9 +816,9 @@
                           <table id="dynamic-table">
                             <thead>
                               <tr>
-                                <th>&emsp;&emsp; CRITERIA &emsp;&emsp;</th>
+                                <th>&emsp; CRITERIA &emsp;</th>
                                 <th>TITLE</th>
-                                <th>&emsp;&emsp; LAST UPDATED &emsp;&emsp;</th>
+                                <th>&emsp; LAST UPDATED &emsp;</th>
                                 <th>&emsp; VIEW PDF &emsp;</th>
                               </tr>
                             </thead>
@@ -1111,9 +1106,9 @@
           const formattedDate = formatDate(item.updated_on);
           const row = `
                 <tr>
-                    <td class="sub_crt" style="color: #000;">${item.criteria.sub_crt}</td>
-                    <td class="title"><a class="doc_file" target="_blank" href="${item.doc_file}">${item.title}</a></td>
-                    <td class="updated_on" style="color: #000;">${formattedDate}</td>
+                    <td class="sub_crt" style="color: #000;"><b>${item.criteria.sub_crt}</b></td>
+                    <td class="title"><a class="doc_file" target="_blank" href="${item.doc_file}"><b>${item.title}</b></a></td>
+                    <td class="updated_on" style="color: #000;font-weight:300">${formattedDate}</td>
                     <td class="view_pdf"><a class="doc_file" target="_blank" href="${item.doc_file}"><i class="fas fa-external-link-alt"></i></a></td>
                 </tr>
             `;
