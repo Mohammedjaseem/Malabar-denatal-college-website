@@ -1,0 +1,250 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PlushCV - One Page Two Column Resume
+% LaTeX Template
+% Version 1.0 (11/28/2021)
+%
+% Author:
+% Shubham Mazumder (http://mazumder.me)
+%
+% Hacked together from:
+% https://github.com/deedydas/Deedy-Resume
+%
+% IMPORTANT: THIS TEMPLATE NEEDS TO BE COMPILED WITH XeLaTeX
+%
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 
+% TODO:
+% 1. Figure out a smoother way for the document to flow onto the next page.
+% 3. Add more icon options 
+% 4. Fix hacky left alignment on contact line
+% 5. Remove Hacky fix for awkward extra vertical space
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% CHANGELOG:
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Known Issues:
+% 1. Overflows onto second page if any column's contents are more than the vertical limit.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%Icons:
+%%Main: https://icons8.com/icons/carbon-copy
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[]{plushcv}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%     TITLE NAME
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\namesection{Mohammed}{Jaseem}{Back End Software Engineer}{\contactline{\href{https://www.jassy.in}{www.jassy.in}}{\href{https://github.com/Mohammedjaseem}{Mohammedjaseem}}{\href{https://www.linkedin.com/in/mohammedjaseemtp/}{mohammedjaseemtp}}{\href{mailto:mail@jassy.in}{mail@jassy.in}}{\href{tel:+918086500023}{8086500023}}}
+
+% \namesection{Firstname}{Lastname}{Full Stack Software Engineer}{\contactline{\href{https://www.mazumder.me}{mazumder.me}}{\href{https://www.github.com/sansquoi}{sansquoi}}{\href{https://www.linkedin.com/mazumders}{mazumders}}{\href{mailto:shubham.mazumder@gmail.com}{first.last@email.com}}{\href{tel:+1999999999}{9999999999}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%     COLUMN ONE
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{minipage}[t]{0.70\textwidth} 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     EXPERIENCE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Experience}
+\runsubsection{Eduport Pvt Ltd}
+\descript{| Back End Lead}
+\location{March 2023 – Current | KSUM, Kochi}
+\vspace{\topsep} % Hacky fix for awkward extra vertical space
+\begin{tightemize}
+\sectionsep
+\item Managed and led the back-end team, overseeing their tasks and ensuring timely project completion.
+\item Implemented Continuous Integration and Continuous Deployment (CI/CD) pipelines for efficient hosting and deployments.  \item Implemented queue-based Python Celery with Redis server for various functions, including invoice payment reminders and automated report systems.
+\item Integrated a payment gateway \item Set up Zoho Books for improved invoice and tax systems.
+\end{tightemize}
+\sectionsep
+
+\runsubsection{Malabar Academic City}
+\descript{| Software Engineer }
+\location{Oct 2021 – Feb 2023 | Manoor, Edappal.}
+\begin{tightemize}
+\sectionsep
+\item Head of the IT Department with expertise in developing and managing web applications to handle daily administrative tasks, from data collection to project deployment and training. \item 
+Proficient in website maintenance and hosting, ensuring seamless functionality and user experience. \item 
+Demonstrated skills in creating APIs for front-end teams and coordinating the entire tech team with Google work Space\item 
+Recognized for innovative thinking and initiative, resulting in the introduction of new features to the web application that led to significant paper savings of 50,000 in just four months.
+\end{tightemize}
+\sectionsep
+
+\runsubsection{Wincept Technologies Pvt Ltd}
+\descript{| Software Engineer }
+\location{Nov 2020 – Sep 2021 | Metropolis}
+\begin{tightemize}
+\sectionsep
+\item Front-end Development 
+\item Analysis of software requirements
+\item Configuration management
+\item Web Application Development
+\item Unit testing of software modules
+\item Integration testing of full software solutions
+\end{tightemize}
+\sectionsep
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     Projects
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Projects}
+
+\runsubsection{Othello Dive | Billing Software}
+\descript{| Python Django}
+\location{2021}
+\begin{tightemize}
+\item Efficient stock management and streamlined sales billing processes.
+\item Implemented automatic billing delivery to customers via WhatsApp.
+\item Utilized Django, Ajax, HTML, Bootstrap, PostgreSQL, and AWS technologies.
+\end{tightemize}
+\sectionsep
+
+\runsubsection{Employee Slot Booker}
+\descript{| ReactJs - Python Django}
+\location{2022}
+\begin{tightemize}
+\item The project involves Django handling the reset API, which requires front-end integration. The front end is hosted on Firebase, while the back end is hosted on Apache servers.
+\end{tightemize}
+\sectionsep
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     AWARDS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \section{Awards} 
+% \begin{tabular}{rll}
+% 2020	     & Finalist & Lorem Ipsum\\
+% 2018	     & $2^{nd}$ & Dolor Sit Amet\\
+% 2015	     & Finalist  & Cras posuere\\
+% \\
+% \end{tabular}
+% \sectionsep
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%     COLUMN TWO
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{minipage} 
+\hfill
+\begin{minipage}[t]{0.25\textwidth} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     SKILLS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Skills}
+\subsection{Programming}
+\sectionsep
+\location{Proficient:}
+ \textbullet{} C \textbullet{} JavaScript \textbullet{}   \\ SQL \textbullet{} CSS \textbullet{} ReactJs  \\
+\sectionsep
+\location{Experienced:}
+Python \textbullet{} Django \textbullet{}  C  \\
+\sectionsep
+\location{Familiar:}
+Flutter \textbullet{}  Shell \textbullet{} NextJs \\
+\sectionsep
+\sectionsep
+\subsection{Libraries/Frameworks}
+\sectionsep
+Django \textbullet{} ReactJs \textbullet{} NextJs \textbullet{} React \\
+\sectionsep
+\sectionsep
+\subsection{Tools/Platforms}
+\sectionsep
+Git \textbullet{} Aws \textbullet{} Apache \textbullet{} Celery    \\ Zoho Books \textbullet{} Docker \\
+
+\sectionsep
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     EDUCATION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Education} 
+\subsection{APJ Abdul Kalam Technological University}
+\descript{Computer Science and Engineering}
+\location{June 2016 - Oct 2020 | Manjeri}
+Ekctc Manjeri \\
+\location{ Cum. GPA: 6.68 }
+
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %     REFERENCES
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{References} 
+\href{https://www.linkedin.com/company/john-doe/}{\textbf{Arpith Mathew}, General Manager, Macity}
+\begingroup
+\setbox0=\hbox{
+\includegraphics[scale=0.1,trim={0 1cm 0cm 0cm}]{icons/main/mail.png}\hspace{0.3cm} gmquality@macity.edu.in
+}
+\parbox{\wd0}{\box0}
+\endgroup
+\begingroup
+\setbox0=\hbox{
+\includegraphics[scale=0.1,trim={0 1.25cm -0.4cm 0cm}]{icons/main/phone.png}\hspace{0.3cm}+91 9460921301
+}
+\parbox{\wd0}{\box0}\endgroup
+\\
+\sectionsep
+\href{https://www.linkedin.com/company/john-doe/}{\textbf{Faraz Ms}}, Product Manager, Eduport Pvt Ltd 
+\\
+\begingroup
+\setbox0=\hbox{
+\includegraphics[scale=0.1,trim={0 1cm 0cm 0cm}]{icons/main/mail.png}\hspace{0.3cm} faraz@eduport.app
+}
+\parbox{\wd0}{\box0}
+\endgroup
+\begingroup
+\setbox0=\hbox{
+\includegraphics[scale=0.1,trim={0 1.25cm -0.4cm 0cm}]{icons/main/phone.png}\hspace{0.3cm}+91 7593872234
+}
+\parbox{\wd0}{\box0}\endgroup
+\\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     COURSEWORK
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \section{Coursework}
+
+% \subsection{Graduate}
+% Graduate Algorithms \textbullet{}\\ 
+% Advanced Computer Architecture \textbullet{}\\ 
+% Operating Systems \textbullet{}\\ 
+% Artificial Intelligence \textbullet{}\\
+% Visualization For Scientific Data \\
+% \sectionsep
+
+% \subsection{Undergraduate}
+
+% Database Management Systems \textbullet{}\\
+% Object Oriented Analysis and Design \textbullet{}\\
+% Artificial Intelligence and Expert Systems \textbullet{}\\
+% Scripting Languages and Web Tech \textbullet{}\\
+% Software Engineering \\
+
+\end{minipage} 
+\end{document}  \documentclass[]{article}
+
