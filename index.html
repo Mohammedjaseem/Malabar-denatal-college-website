@@ -34,18 +34,21 @@
 
 }
 
-.slider {
-  display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  padding-bottom: 20px;
-}
+
+  .slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    transform: translateX(-20px); /* Add negative left translation to create space */
+    align-items: flex-start; 
+     padding: 0 20px; /* Add padding to the left and right */
+  }
 
 .testimonial {
     margin: 10px 20px 10px 10px;
   background: #fff;
-  width: 40%;
+  width: 45%;
   flex-shrink: 0;
   padding: 25px; /* Added padding to the left and right */
   border-radius: 3px;
@@ -145,6 +148,20 @@
 .active {
   background-color: #3db166;
 }
+
+  .slider-container {
+    overflow: hidden;
+  }
+
+  .slider {
+    display: flex;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 20px;
+    transform: translateX(-20px); /* Add negative left translation to create space */
+  }
+
+
 
 </style>
 </head>
@@ -1239,8 +1256,33 @@ One of the main attractions of the college is the water filled quarry which is a
                     </div>
                     <div style="margin-top: 70px;margin-bottom: 50px;"><h3 class="gdlr-core-title-item-title gdlr-core-skin-title " style="font-size: 34; text-transform: none ;align-items: center;justify-content: center;display: flex;">Student Testimonials</h3></div>
                   <div class="wrapper">
-  <div class="slider">
+                    <div class="slider-container">
+                         <div class="slider">
     <div class="testimonial">
+      <div class="box">
+      <i class="fas fa-quote-left quote"></i>
+      <p>
+
+As a second-year BDS student at Malabar Dental College in Kerala, my experience has been exceptional. The college offers excellent infrastructure, supportive faculties, and well-maintained labs. Though patient opportunities had some limitations, the college took steps to improve by organizing dental camps and health programs. Hostel facilities are commendable, and extracurricular activities are actively supported. I look forward to creating more cherished memories at this esteemed institution.</p>
+      <div class="content">
+        <div class="info">
+          <div class="name">Nora C Pulayath </div>
+          <div class="job">Student</div>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
+        </div>
+        <div class="image">
+          <img src="upload/testimonial5.jpg" alt="">
+        </div>
+      </div>
+    </div>
+    </div>
+                            <div class="testimonial">
         <div class="box">
       <i class="fas fa-quote-left quote"></i>
       <p>The college has one of the best infrastructure and facilities in the city. The college hospital which is affordable for the public gives the students relevant field exposure and internship opportunities which helps them to excel in academics. Frequently organised festivities and events will be the perfect gateway for your colourful campus life .</p>
@@ -1257,7 +1299,53 @@ One of the main attractions of the college is the water filled quarry which is a
           </div>
         </div>
         <div class="image">
+          <img src="upload/testimonial1.jpg" alt="">
+        </div>
+      </div>
+    </div>
+    </div>   <div class="testimonial">
+       <div class="box">
+      <i class="fas fa-quote-left  quote"></i>
+      <p>MDC has provided me with a number of opportunities to grow and explore my skills. Grateful to be taught under such renowed teaching faculties and their guidance has really helped me in my practice.</p>
+      <div class="content">
+        <div class="info">
+          <div class="name">Dr. Vismaya</div>
+          <div class="job">Student</div>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
+        </div>
+        <div class="image">
           <img src="upload/testimonial3.jpg" alt="">
+        </div>
+      </div>
+    </div>
+    </div> <div class="testimonial">
+        <div class="box">
+      <i class="fas fa-quote-left quote"></i>
+      <p>My experience at Malabar Dental College has been nothing short of extraordinary.
+
+The faculties are not only highly knowledgeable but also incredibly supportive and approachable. They are always willing to go the extra mile to ensure that students grasp the concepts thoroughly.
+
+Apart from academics, Malabar Dental College also focuses on holistic development. There are numerous extracurricular activities, and events that are conducted by college union which allow students to nurture their talents.</p>
+      <div class="content">
+        <div class="info">
+          <div class="name">Akash Suresh</div>
+          <div class="job">Student</div>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
+        </div>
+        <div class="image">
+          <img src="upload/testimonial4.jpg" alt="">
         </div>
       </div>
     </div>
@@ -1279,102 +1367,69 @@ One of the main attractions of the college is the water filled quarry which is a
           </div>
         </div>
         <div class="image">
-          <img src="upload/testimonial1.jpg" alt="">
-        </div>
-      </div>
-    </div>
-    </div>
-    <div class="testimonial">
-       <div class="box">
-      <i class="fas fa-quote-left  quote"></i>
-      <p>MDC has provided me with a number of opportunities to grow and explore my skills. Grateful to be taught under such renowed teaching faculties and their guidance has really helped me in my practice.</p>
-      <div class="content">
-        <div class="info">
-          <div class="name">Dr. Vismaya</div>
-          <div class="job">Student</div>
-          <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="far fa-star"></i>
-          </div>
-        </div>
-        <div class="image">
           <img src="upload/testimonial2.jpg" alt="">
         </div>
       </div>
     </div>
     </div>
-    <div class="testimonial">
-        <div class="box">
-      <i class="fas fa-quote-left quote"></i>
-      <p>The college has one of the best infrastructure and facilities in the city. The college hospital which is affordable for the public gives the students relevant field exposure and internship opportunities which helps them to excel in academics. Frequently organised festivities and events will be the perfect gateway for your colourful campus life .</p>
-      <div class="content">
-        <div class="info">
-          <div class="name">Dr. Sneha T.E</div>
-          <div class="job">Student</div>
-          <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="far fa-star"></i>
-            <i class="far fa-star"></i>
-          </div>
-        </div>
-        <div class="image">
-          <img src="upload/testimonial3.jpg" alt="">
-        </div>
-      </div>
-    </div>
-    </div>
-    <div class="testimonial">
-      <div class="box">
-      <i class="fas fa-quote-left quote"></i>
-      <p>I’m really happy and proud to be a former student of this institution which was a turning point in my life. Really proud of the teachers who were of great support and guidance.</p>
-      <div class="content">
-        <div class="info">
-          <div class="name">Dr. Neema K</div>
-          <div class="job">Student</div>
-          <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="far fa-star"></i>
-          </div>
-        </div>
-        <div class="image">
-          <img src="upload/testimonial1.jpg" alt="">
-        </div>
-      </div>
-    </div>
-    </div>
-    <div class="testimonial">
-       <div class="box">
-      <i class="fas fa-quote-left  quote"></i>
-      <p>MDC has provided me with a number of opportunities to grow and explore my skills. Grateful to be taught under such renowed teaching faculties and their guidance has really helped me in my practice.</p>
-      <div class="content">
-        <div class="info">
-          <div class="name">Dr. Vismaya</div>
-          <div class="job">Student</div>
-          <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="far fa-star"></i>
-          </div>
-        </div>
-        <div class="image">
-          <img src="upload/testimonial2.jpg" alt="">
-        </div>
-      </div>
-    </div>
-    </div>
+ 
    
+   
+    <div class="testimonial">
+       <div class="box">
+      <i class="fas fa-quote-left  quote"></i>
+      <p>I am currently pursuing my first year BDS at Malabar Dental College in Malappuram,Kerala.From the moment I stepped into the college,I was greeted with a warm and welcoming ambience that made it feel like my second home.This institution has provided me with a positive and enriching experience during my first year of bds.The friendly staff,down to earth faculty,comfortable senior-junior dynamics and very well equipped and modern laboratory facilities have all contributed to making this institution a remarkable place for learning and personal growth.</p>
+      <div class="content">
+        <div class="info">
+          <div class="name">Saliha Hassan</div>
+          <div class="job">Student</div>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
+        </div>
+        <div class="image">
+          <img src="upload/testimonial6.jpg" alt="">
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="testimonial">
+       <div class="box">
+      <i class="fas fa-quote-left  quote"></i>
+      <p>The infrastructure is the main highlight of this college. The college campus has a peaceful ambience. 
+MDC provides quality education ,opportunity to learn and inculcate new skills.</p>
+      <div class="content">
+        <div class="info">
+          <div class="name">Aliya Jacob </div>
+          <div class="job">Student</div>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
+        </div>
+        <div class="image">
+          <img src="upload/testimonial7.jpg" alt="">
+        </div>
+      </div>
+    </div>
+    </div>
+  
   </div>
-   <div class="dots"></div>
+                    </div>
+ 
+    <div class="dots">
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </div>
 </div>
                    
                     <div class="gdlr-core-pbf-wrapper "  id="gdlr-core-wrapper-3">
@@ -1852,17 +1907,16 @@ One of the main attractions of the college is the water filled quarry which is a
             }
         }; /*]]>*/
     </script>
+
 <script>
   const slider = document.querySelector('.slider');
   const testimonials = document.querySelectorAll('.testimonial');
   const dotsContainer = document.querySelector('.dots');
+  let intervalId;
 
   // Create pagination dots
-  testimonials.forEach((_, index) => {
-    const dot = document.createElement('div');
-    dot.classList.add('dot');
-    dotsContainer.appendChild(dot);
-
+  const dots = dotsContainer.querySelectorAll('.dot');
+  dots.forEach((dot, index) => {
     dot.addEventListener('click', () => {
       scrollToTestimonial(index);
     });
@@ -1871,25 +1925,39 @@ One of the main attractions of the college is the water filled quarry which is a
   let activeIndex = 0;
 
   function scrollToTestimonial(index) {
-    testimonials[index].scrollIntoView({
-      behavior: 'smooth',
-      block: 'center',
-      inline: 'center',
-    });
+    const offset = index * (slider.offsetWidth + 20); // 20 is the left padding value
+    slider.scrollLeft = offset;
 
     activeIndex = index;
     updateActiveDot();
   }
 
   function updateActiveDot() {
-    const dots = document.querySelectorAll('.dot');
     dots.forEach((dot, index) => {
       dot.classList.toggle('active', index === activeIndex);
     });
   }
 
-  // Initially set the first dot as active
+  function startAutoScroll() {
+    intervalId = setInterval(() => {
+      activeIndex = (activeIndex + 1) % testimonials.length;
+      scrollToTestimonial(activeIndex);
+    }, 5000); // 5000 milliseconds (5 seconds) interval for automatic scrolling
+  }
+
+  function stopAutoScroll() {
+    clearInterval(intervalId);
+  }
+
+  slider.addEventListener('mouseenter', stopAutoScroll);
+  slider.addEventListener('mouseleave', startAutoScroll);
+
+  // Initially set the first dot as active and start auto-scrolling
   updateActiveDot();
+  startAutoScroll();
+
+  // Set initial scroll position to show the first testimonial on the left
+  slider.scrollLeft = 0;
 </script>
 
     <script>
