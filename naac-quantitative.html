@@ -53,12 +53,55 @@
       type="text/css"
       media="all"
     />
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+        table {
+            min-width: 600px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        .sub_crt, .updated_on {
+            color: #000;
+        }
+
+        /* Loading animation */
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 300px;
+        }
+
+        /* Placeholder message for error or no response */
+        .placeholder {
+            text-align: center;
+            padding: 30px;
+            font-size: 18px;
+            color: #999;
+        }
+         #loading-animation {
+        position: fixed;
+        top: 80%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: transparent;
+        padding: 20px;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
   </head>
 
   <body
     class="home page-template-default page page-id-2039 gdlr-core-body woocommerce-no-js tribe-no-js kingster-body kingster-body-front kingster-full kingster-with-sticky-navigation kingster-blockquote-style-1 gdlr-core-link-to-lightbox"
   >
-  <div class="kingster-mobile-header-wrap">
+     <div class="kingster-mobile-header-wrap">
         <div class="kingster-mobile-header kingster-header-background kingster-style-slide kingster-sticky-mobile-navigation " id="kingster-mobile-header">
             <div class="kingster-mobile-header-container kingster-container clearfix">
                 <div class="kingster-logo  kingster-item-pdlr">
@@ -180,7 +223,7 @@ All Kerala Univeristy of Health & Science (KUHS)
                     </div>
                 </div>
             </div> 
-      <header class="kingster-header-wrap kingster-header-style-plain  kingster-style-menu-right kingster-sticky-navigation kingster-style-fixed" data-navigation-offset="75px">
+   <header class="kingster-header-wrap kingster-header-style-plain  kingster-style-menu-right kingster-sticky-navigation kingster-style-fixed" data-navigation-offset="75px">
                 <div class="kingster-header-background"></div>
                 <div class="kingster-header-container  kingster-container">
                     <div class="kingster-header-container-inner clearfix">
@@ -458,6 +501,7 @@ All Kerala Univeristy of Health & Science (KUHS)
                     </div>
                 </div>
             </header>
+
         <div
           class="kingster-page-title-wrap kingster-style-medium kingster-left-align"
         >
@@ -470,260 +514,53 @@ All Kerala Univeristy of Health & Science (KUHS)
             </div>
           </div>
         </div>
-       
         <div class="kingster-page-wrapper" id="kingster-page-wrapper">
           <div class="gdlr-core-page-builder-body">
             <div class="gdlr-core-pbf-section">
               <div
                 class="gdlr-core-pbf-section-container gdlr-core-container clearfix"
-              >
-                <div class="gdlr-core-pbf-element">
-                  <div
-                    class="gdlr-core-blog-item gdlr-core-item-pdb clearfix gdlr-core-style-blog-image"
-                    style="padding-bottom: 40px"
-                  >
-                  
-                    <div
-                      class="gdlr-core-blog-item-holder gdlr-core-js-2 clearfix"
-                      data-layout="fitrows"
-                    >
-                      <div
-                        class="gdlr-core-item-list gdlr-core-item-pdlr gdlr-core-item-mgb gdlr-core-column-20"
-                      >
-                        <div
-                          class="gdlr-core-blog-modern gdlr-core-with-image gdlr-core-hover-overlay-content gdlr-core-opacity-on-hover gdlr-core-zoom-on-hover"
-                        >
-                          <div class="gdlr-core-blog-modern-inner">
-                            <div
-                              class="gdlr-core-blog-thumbnail gdlr-core-media-image"
-                            >
-                              <img
-                                src="upload/naac-1.jpg"
-                              
-                                height="560"
-                                alt=""
-                              />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div
-                        class="gdlr-core-item-list gdlr-core-item-pdlr gdlr-core-item-mgb gdlr-core-column-20"
-                      >
-                        <div
-                          class="gdlr-core-blog-modern gdlr-core-with-image gdlr-core-hover-overlay-content gdlr-core-opacity-on-hover gdlr-core-zoom-on-hover"
-                        >
-                          <div class="gdlr-core-blog-modern-inner">
-                            <div
-                              class="gdlr-core-blog-thumbnail gdlr-core-media-image"
-                            >
-                              <img
-                                src="upload/naac-2.jpg"
-                              
-                                height="560"
-                                alt=""
-                              />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div
-                        class="gdlr-core-item-list gdlr-core-item-pdlr gdlr-core-item-mgb gdlr-core-column-20"
-                      >
-                        <div
-                          class="gdlr-core-blog-modern gdlr-core-with-image gdlr-core-hover-overlay-content gdlr-core-opacity-on-hover gdlr-core-zoom-on-hover"
-                        >
-                          <div class="gdlr-core-blog-modern-inner">
-                            <div
-                              class="gdlr-core-blog-thumbnail gdlr-core-media-image"
-                            >
-                              <img
-                                src="upload/naac-3.jpg"
-                              
-                                height="560"
-                                alt=""
-                              />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div
-                        class="gdlr-core-item-list gdlr-core-item-pdlr gdlr-core-item-mgb gdlr-core-column-20"
-                      >
-                        <div
-                          class="gdlr-core-blog-modern gdlr-core-with-image gdlr-core-hover-overlay-content gdlr-core-opacity-on-hover gdlr-core-zoom-on-hover"
-                        >
-                          <div class="gdlr-core-blog-modern-inner">
-                            <div
-                              class="gdlr-core-blog-thumbnail gdlr-core-media-image"
-                            >
-                              <img
-                                src="upload/naac-4.jpg"
-                              
-                                height="560"
-                                alt=""
-                              />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div
-                        class="gdlr-core-item-list gdlr-core-item-pdlr gdlr-core-item-mgb gdlr-core-column-20"
-                      >
-                        <div
-                          class="gdlr-core-blog-modern gdlr-core-with-image gdlr-core-hover-overlay-content gdlr-core-opacity-on-hover gdlr-core-zoom-on-hover"
-                        >
-                          <div class="gdlr-core-blog-modern-inner">
-                            <div
-                              class="gdlr-core-blog-thumbnail gdlr-core-media-image"
-                            >
-                              <img
-                                src="upload/naac-5.jpg"
-                              
-                                height="560"
-                                alt=""
-                              />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div
-                        class="gdlr-core-item-list gdlr-core-item-pdlr gdlr-core-item-mgb gdlr-core-column-20"
-                      >
-                        <div
-                          class="gdlr-core-blog-modern gdlr-core-with-image gdlr-core-hover-overlay-content gdlr-core-opacity-on-hover gdlr-core-zoom-on-hover"
-                        >
-                          <div class="gdlr-core-blog-modern-inner">
-                            <div
-                              class="gdlr-core-blog-thumbnail gdlr-core-media-image"
-                            >
-                              <img
-                                src="upload/naac-6.jpg"
-                              
-                                height="560"
-                                alt=""
-                              />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      
-                    </div>
-                     <!-- <div  class="gdlr-core-item-list gdlr-core-item-pdlr gdlr-core-item-mgb gdlr-core-column-50">
-
-
-                                                <div class="gdlr-core-widget-box-shortcode-content" style="display: flex;align-items: center;justify-content: center;">
-                                                    
-                                                        <br /> <a class="gdlr-core-button nirf-buttons nirf-button1 gdlr-core-button-shortcode  gdlr-core-button-gradient gdlr-core-button-no-border" href="https://mdcrc.edu.in/NIRF/2023/NIRF_2023.pdf" target="_blank" style="font-size: 20px;" ><span class="gdlr-core-content" >NIRF 2023</span></a>  <a class="gdlr-core-button nirf-buttons gdlr-core-button-shortcode  gdlr-core-button-gradient gdlr-core-button-no-border" href="https://mdcrc.edu.in/NIRF/2022/NIRF_2022.pdf" target="_blank" ><span class="gdlr-core-content" style="font-size: 20px;">NIRF 2022</span></a>
-                                                </div>
-                                            
-                                  
-                                    </div> -->
-                  </div>
-                  
-                </div>
-
-                
-               <div
-                class="gdlr-core-pbf-section-container gdlr-core-container clearfix"
-              > <div class="gdlr-core-pbf-element">
-                                                <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix  gdlr-core-left-align gdlr-core-title-item-caption-top gdlr-core-item-pdlr" style="padding-bottom: 40px ;">
-                                                    <div class="gdlr-core-title-item-title-wrap clearfix">
-                                                        <h3 class="gdlr-core-title-item-title gdlr-core-skin-title " style="font-size: 20px ;font-weight: 600 ;">QUICK LINKS</h3></div>
-                                                </div>
-                                            </div>
-                <div class="gdlr-core-pbf-element">
-                  <div
-                    class="gdlr-core-blog-item gdlr-core-item-pdb clearfix gdlr-core-style-blog-image"
-                    style="padding-bottom: 40px"
-                  >
-                    <div
-                      class="gdlr-core-blog-item-holder gdlr-core-js-2 clearfix"
-                      data-layout="fitrows"
-                    >
-                      <div
-                        class="gdlr-core-item-list gdlr-core-item-pdlr gdlr-core-item-mgb gdlr-core-column-30 gdlr-core-column-first"
-                      >
-                         <div class="gdlr-core-course-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-course-style-list" style="padding-bottom: 45px ;">
-                                                    <div class="gdlr-core-course-item-list"><a class="gdlr-core-course-item-link" href="naac-qualitative.html"><span class="gdlr-core-course-item-title gdlr-core-skin-title" >NAAC Qualitative</span><i class="gdlr-core-course-item-icon gdlr-core-skin-icon fa fa-long-arrow-right" ></i></a></div>
-                                                    <div class="gdlr-core-course-item-list"><a class="gdlr-core-course-item-link" href="naac-quantitative.html"><span class="gdlr-core-course-item-title gdlr-core-skin-title" >NAAC Quantitative</span><i class="gdlr-core-course-item-icon gdlr-core-skin-icon fa fa-long-arrow-right" ></i></a></div>
-                                                    <div class="gdlr-core-course-item-list"><a class="gdlr-core-course-item-link" href="https://mdcrc.edu.in/pdf/HR-POLICY.pdf" target="_blank" ><span class="gdlr-core-course-item-title gdlr-core-skin-title" >Institution Policy / Guidelines</span><i class="gdlr-core-course-item-icon gdlr-core-skin-icon fa fa-long-arrow-right" ></i></a></div>
-                                                    <div class="gdlr-core-course-item-list"><a class="gdlr-core-course-item-link" href="https://mdcrc.edu.in/pdf/AUDIT-STATEMENT_.pdf" target="_blank" ><span class="gdlr-core-course-item-title gdlr-core-skin-title" >Academic Audit</span><i class="gdlr-core-course-item-icon gdlr-core-skin-icon fa fa-long-arrow-right" ></i></a></div>
-                                                    <div class="gdlr-core-course-item-list"><a class="gdlr-core-course-item-link" href="https://mdcrc.edu.in/pdf/BEST-PRACTICES.pdf" target="_blank" ><span class="gdlr-core-course-item-title gdlr-core-skin-title" >Institution Best Practices</span><i class="gdlr-core-course-item-icon gdlr-core-skin-icon fa fa-long-arrow-right" ></i></a></div>
-                                                    <div class="gdlr-core-course-item-list"><a class="gdlr-core-course-item-link" href="https://mdcrc.edu.in/pdf/1.4.1-STACK-HOLDER-FEEDBACK-REPORTS.pdf" target="_blank" ><span class="gdlr-core-course-item-title gdlr-core-skin-title" >Feedback Report</span><i class="gdlr-core-course-item-icon gdlr-core-skin-icon fa fa-long-arrow-right" ></i></a></div>
-                                                </div>
-                      </div>
-                      <div
-                        class="gdlr-core-item-list gdlr-core-item-pdlr gdlr-core-item-mgb gdlr-core-column-30"
-                      >
-                      <div class="gdlr-core-course-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-course-style-list" style="padding-bottom: 45px ;">
-                                                    <div class="gdlr-core-course-item-list"><a class="gdlr-core-course-item-link" href="https://mdcrc.edu.in/pdf/5.2.2_-rpt.pdf" target="_blank" ><span class="gdlr-core-course-item-title gdlr-core-skin-title" >Annual Report</span><i class="gdlr-core-course-item-icon gdlr-core-skin-icon fa fa-long-arrow-right" ></i></a></div>
-                                                    <div class="gdlr-core-course-item-list"><a class="gdlr-core-course-item-link" href="https://mdcrc.edu.in/pdf/AUDIT-STATEMENT_.pdf" target="_blank" ><span class="gdlr-core-course-item-title gdlr-core-skin-title" >Capability Enhancement And Development Schemes</span><i class="gdlr-core-course-item-icon gdlr-core-skin-icon fa fa-long-arrow-right" ></i></a></div>
-                                                    <div class="gdlr-core-course-item-list"><a class="gdlr-core-course-item-link" href="https://mdcrc.edu.in/pdf/6.2.1-MINUTES-OF-COLLEGE-COUNCIL.pdf" target="_blank" ><span class="gdlr-core-course-item-title gdlr-core-skin-title" >Strategic Plan</span><i class="gdlr-core-course-item-icon gdlr-core-skin-icon fa fa-long-arrow-right" ></i></a></div>
-                                                    <div class="gdlr-core-course-item-list"><a class="gdlr-core-course-item-link" href="https://mdcrc.edu.in/pdf/institutional-distinctiveness/" target="_blank" ><span class="gdlr-core-course-item-title gdlr-core-skin-title" >Institution Distinctiveness</span><i class="gdlr-core-course-item-icon gdlr-core-skin-icon fa fa-long-arrow-right" ></i></a></div>
-                                                    <div class="gdlr-core-course-item-list"><a class="gdlr-core-course-item-link" href="https://mdcrc.edu.in/pdf/6.4.2-PERTAINING-TO-INTERNAL-AND-EXTERNAL.pdf" target="_blank" ><span class="gdlr-core-course-item-title gdlr-core-skin-title" >Internal And External Audit Statements</span><i class="gdlr-core-course-item-icon gdlr-core-skin-icon fa fa-long-arrow-right" ></i></a></div>
-                                                    <div class="gdlr-core-course-item-list"><a class="gdlr-core-course-item-link" href="https://mdcrc.edu.in/pdf/IQAC-MINUTES-OF-MEETING-AND-ACTION-TAKEN-REPORT.pdf" target="_blank" ><span class="gdlr-core-course-item-title gdlr-core-skin-title" >Internal Quality Assurance Cell (IQAC)</span><i class="gdlr-core-course-item-icon gdlr-core-skin-icon fa fa-long-arrow-right" ></i></a></div>
-                                                </div>
-                      </div>
-                     
-                    </div>
-                    <!-- <div
-                      class="gdlr-core-load-more-wrap gdlr-core-js gdlr-core-center-align gdlr-core-item-pdlr"
-                      data-ajax="gdlr_core_post_ajax"
-                      data-target="gdlr-core-blog-item-holder"
-                      data-target-action="append"
-                    >
-                      <a
-                        href="#"
-                        class="gdlr-core-load-more gdlr-core-button-color"
-                        data-ajax-name="paged"
-                        data-ajax-value="2"
-                        >Load More</a
-                      >
-                    </div> -->
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-          </div>
-          <div class="gdlr-core-pbf-wrapper " id="div_1dd7_107">
-                        <div class="gdlr-core-pbf-background-wrap" id="div_1dd7_108"></div>
-                        <div class="gdlr-core-pbf-wrapper-content gdlr-core-js ">
-                            <div class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container-custom" id="div_1dd7_109">
-                                <div class="gdlr-core-pbf-element">
-                                    <div class="gdlr-core-gallery-item gdlr-core-item-pdb clearfix  gdlr-core-gallery-item-style-grid" id="div_1dd7_110">
-                                        <div class="gdlr-core-gallery-item-holder gdlr-core-js-2 clearfix" data-layout="fitrows">
-                                            <!-- <div class="gdlr-core-item-list gdlr-core-gallery-column  gdlr-core-column-10 gdlr-core-column-first gdlr-core-item-pdlr gdlr-core-item-mgb">
-                                                <div class="gdlr-core-gallery-list gdlr-core-media-image"><img src="upload/banner-0.png" alt="" width="120" height="120" title="banner-1" /></div>
-                                            </div> -->
-                                              <div class="gdlr-core-item-list gdlr-core-gallery-column  gdlr-core-column-10 gdlr-core-column-first gdlr-core-item-pdlr gdlr-core-item-mgb">
-                                                <div class="gdlr-core-gallery-list gdlr-core-media-image"><img src="upload/banner-1.png" style="padding-top: 20px;" alt="" width="240" height="120" title="banner-1" /></div>
-                                            </div>
-                                            <div class="gdlr-core-item-list gdlr-core-gallery-column  gdlr-core-column-10 gdlr-core-item-pdlr gdlr-core-item-mgb">
-                                                <div class="gdlr-core-gallery-list gdlr-core-media-image"><img src="upload/banner-2.png" alt="" width="120" height="120" title="banner-2" /></div>
-                                            </div>
-                                            <div class="gdlr-core-item-list gdlr-core-gallery-column  gdlr-core-column-10 gdlr-core-item-pdlr gdlr-core-item-mgb">
-                                                <div class="gdlr-core-gallery-list gdlr-core-media-image"><img src="upload/banner-3.png" alt="" width="120" height="120" title="banner-3" /></div>
-                                            </div>
-                                            <div class="gdlr-core-item-list gdlr-core-gallery-column  gdlr-core-column-10 gdlr-core-item-pdlr gdlr-core-item-mgb">
-                                                <div class="gdlr-core-gallery-list gdlr-core-media-image"><img src="upload/banner-4.png" style="padding-top: 25px;" alt="" width="240" height="120" title="banner-4" /></div>
-                                            </div>
-                                             <div class="gdlr-core-item-list gdlr-core-gallery-column  gdlr-core-column-10 gdlr-core-item-pdlr gdlr-core-item-mgb">
-                                                <div class="gdlr-core-gallery-list gdlr-core-media-image"><img src="upload/dme.png" alt="" style="padding-top:10px;" width="170" height="200" title="banner-4" /></div>
-                                            </div>
-                                             <div class="gdlr-core-item-list gdlr-core-gallery-column  gdlr-core-column-10 gdlr-core-item-pdlr gdlr-core-item-mgb">
-                                                <div class="gdlr-core-gallery-list gdlr-core-media-image"><img src="upload/aimst-logo.png" alt="" width="110" height="200" title="banner-4" /></div>
-                                            </div>
-                                            </div>
+              > <div class="gdlr-core-title-item-title-wrap clearfix">
+                                                <h3 class="gdlr-core-title-item-title gdlr-core-skin-title " style="font-size: 40px ;font-weight: 700 ;letter-spacing: 0px ;text-transform: none ;color: #293a5b ;margin-bottom:  40px;text-align: center;">Quantitative</h3>
+<div class="gdlr-core-pbf-element">
+                            <div class="gdlr-core-text-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-left-align" style="padding-bottom: 40px;">
+                                <div class="gdlr-core-text-box-item-content" style="text-transform: none;">
+                                    <div style="overflow-x: auto;">
+                                        <!-- Add the loading animation div -->
+                                        <div id="loading-animation" class="loading" style="display: none;">
+                                            <i class="fas fa-spinner fa-spin"></i> Loading...
+                                        </div>
+                                        <!-- Add a wrapper div for the table, initially hidden -->
+                                        <div id="table-wrapper" style="display: none;">
+                                            <!-- Add a message div for no data available -->
+                                            <div id="no-data-message" class="placeholder"  style="
+                            display: none;
+                            font-size: 24px;
+                            color: #3db166;
+                            font-weight: 500;
+                          ">No data available.</div>
+                                            <table id="dynamic-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>&emsp;&emsp; CRITERIA &emsp;&emsp;</th>
+                                                        <th>TITLE</th>
+                                                        <th>&emsp;&emsp; LAST UPDATED &emsp;&emsp;</th>
+                                                        <th>&emsp; VIEW PDF &emsp;</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <!-- Table body rows will be added here dynamically -->
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-        </div>
 
-       <footer>
+            </div>
+          </div>
+        </div>
+    <footer>
                 <div class="kingster-footer-wrapper ">
                     <div class="kingster-footer-container kingster-container clearfix">
                          <div class="kingster-footer-column kingster-item-pdlr kingster-column-15">
@@ -828,6 +665,70 @@ All Kerala Univeristy of Health & Science (KUHS)
         },
         ajax_url: "#",
       };
+    </script>
+      <script>
+      const apiUrl = "https://app.conext.in/Docs/naac-files/ListQuantitative";
+
+      function formatDate(dateString) {
+        const date = new Date(dateString);
+        const options = { year: "numeric", month: "long", day: "numeric" };
+        return date.toLocaleDateString("en-US", options);
+      }
+
+      function populateTable(apiData) {
+        const tableBody = document.querySelector("#dynamic-table tbody");
+
+        apiData.forEach((item) => {
+          const formattedDate = formatDate(item.updated_on);
+          const row = `
+                <tr>
+                    <td class="sub_crt" style="color: #000;">${item.criteria.sub_crt}</td>
+                    <td class="title"><a class="doc_file" target="_blank" href="${item.doc_file}">${item.title}</a></td>
+                    <td class="updated_on" style="color: #000;">${formattedDate}</td>
+                    <td class="view_pdf"><a class="doc_file" target="_blank" href="${item.doc_file}"><i class="fas fa-external-link-alt"></i></a></td>
+                </tr>
+            `;
+          tableBody.insertAdjacentHTML("beforeend", row);
+        });
+      }
+      showLoadingAnimation();
+
+      function showLoadingAnimation() {
+        const loadingAnimation = document.getElementById("loading-animation");
+        loadingAnimation.style.display = "block";
+      }
+
+      // Hide loading animation and show the table when the API request is complete
+      function hideLoadingAnimation() {
+        const loadingAnimation = document.getElementById("loading-animation");
+        loadingAnimation.style.display = "none";
+
+        const tableWrapper = document.getElementById("table-wrapper");
+        tableWrapper.style.display = "block";
+      }
+
+      // Show message when there is no data in the API response
+      function showNoDataMessage() {
+        const noDataMessage = document.getElementById("no-data-message");
+        noDataMessage.style.display = "block";
+        const table = document.querySelector("#dynamic-table");
+        table.style.display='none';
+      }
+      fetch(apiUrl)
+        .then((response) => response.json())
+        .then((data) => {
+          hideLoadingAnimation();
+          if (data && data.length > 0) {
+            populateTable(data);
+          } else {
+            showNoDataMessage();
+          }
+        })
+        .catch((error) => {
+          console.error("Error fetching data:", error);
+          hideLoadingAnimation();
+          showNoDataMessage();
+        });
     </script>
     <script
       type="text/javascript"
