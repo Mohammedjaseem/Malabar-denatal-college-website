@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-US" class="no-js">
-  <!-- Mirrored from max-themes.net/demos/kingster/kingster/course-list-1.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 09 Mar 2022 06:34:57 GMT -->
+  <!-- Mirrored from max-themes.net/demos/kingster/kingster/blog-grid-4-columns.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 09 Mar 2022 06:34:14 GMT -->
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -51,6 +51,33 @@
       type="text/css"
       media="all"
     />
+    <style>
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 20px;
+      }
+
+      /* Ensure each news item is centered in its column */
+      .gdlr-core-blog-item {
+        display: flex;
+        justify-content: center;
+      }
+
+      /* CSS to style the images with max height and cover */
+      .image_urls {
+        max-height: 450px;
+        object-fit: cover;
+      }
+
+      /* Media query for smaller screen sizes to adjust image height */
+      @media (max-width: 768px) {
+        .image_urls {
+          max-height: 450px;
+          max-width: 450px !important;
+        }
+      }
+    </style>
   </head>
 
   <body
@@ -90,9 +117,7 @@
                   <li class="menu-item">
                     <a href="about-us.html">About Us</a>
                   </li>
-                  <li
-                    class="menu-item menu-item-has-children current-menu-item"
-                  >
+                  <li class="menu-item menu-item-has-children">
                     <a>Academics</a>
                     <ul class="sub-menu">
                       <li class="menu-item menu-item-has-children">
@@ -239,7 +264,9 @@
                       </li>
                     </ul>
                   </li>
-                  <li class="menu-item menu-item-has-children">
+                  <li
+                    class="menu-item menu-item-has-children current-menu-item"
+                  >
                     <a>Activities</a>
                     <ul class="sub-menu">
                       <li class="menu-item">
@@ -444,7 +471,7 @@
                                     </li>
                                      -->
                     <li
-                      class="menu-item menu-item-has-children current-menu-item kingster-normal-menu"
+                      class="menu-item menu-item-has-children kingster-normal-menu"
                     >
                       <a class="sf-with-ul-pre">Academics</a>
                       <ul class="sub-menu">
@@ -453,11 +480,7 @@
                             class="menu-item menu-item-has-children"
                             data-size="60"
                           >
-                            <a
-                              href="blog-full-right-sidebar-with-frame.html"
-                              class="sf-with-ul-pre"
-                              >Courses</a
-                            >
+                            <a class="sf-with-ul-pre">Courses</a>
                             <ul class="sub-menu">
                               <li class="menu-item menu-item-has-children">
                                 <a class="sf-with-ul-pre">UG & PG</a>
@@ -636,40 +659,10 @@
                         </ul>
                       </div>
                     </li>
-                    <li
-                      class="menu-item menu-item-has-children kingster-normal-menu"
-                    >
-                      <a href="apply-to-kingster.html" class="sf-with-ul-pre"
-                        >Admissions</a
-                      >
-                      <ul class="sub-menu">
-                        <b>
-                          <li class="menu-item" data-size="60">
-                            <a href="apply-to-kingster.html">Apply To MDCRC</a>
-                          </li>
-                          <li class="menu-item" data-size="60">
-                            <a href="campus-tour.html">Campus Tour</a>
-                          </li>
-                          <li class="menu-item" data-size="60">
-                            <a href="scholarships.html">Scholarships</a>
-                          </li>
-                          <li class="menu-item" data-size="60">
-                            <a>Activities</a>
-                          </li>
-                          <li class="menu-item" data-size="60">
-                            <a href="give-to-kingster.html">Give To Kingster</a>
-                          </li>
-                          <li class="menu-item" data-size="60">
-                            <a href="alumni.html">Alumni</a>
-                          </li>
-                          <li class="menu-item" data-size="60">
-                            <a href="event-calendar.html">Event Calendar</a>
-                          </li></b
-                        >
-                      </ul>
-                    </li>
 
-                    <li class="menu-item kingster-normal-menu">
+                    <li
+                      class="menu-item current-menu-item kingster-normal-menu"
+                    >
                       <a>Activities</a>
                       <ul class="sub-menu">
                         <b>
@@ -729,6 +722,9 @@
                         >
                       </ul>
                     </li>
+                    <li class="menu-item" data-size="60">
+                      <a href="careers.html">Careers</a>
+                    </li>
                   </ul>
                   <div
                     class="kingster-navigation-slide-bar"
@@ -747,234 +743,35 @@
           <div class="kingster-page-title-overlay"></div>
           <div class="kingster-page-title-container kingster-container">
             <div class="kingster-page-title-content kingster-item-pdlr">
-              <h1 class="kingster-page-title">Feedbacks</h1>
+              <div class="kingster-page-caption">MDCRC</div>
+              <h1 class="kingster-page-title">News & Updates</h1>
             </div>
           </div>
         </div>
         <div class="kingster-page-wrapper" id="kingster-page-wrapper">
-          <div class="kingster-content-container kingster-container">
-            <div
-              class="kingster-sidebar-wrap clearfix kingster-line-height-0 kingster-sidebar-style-right"
-            >
+          <div class="gdlr-core-page-builder-body">
+            <div class="gdlr-core-pbf-section">
               <div
-                class="kingster-sidebar-center kingster-column-60 kingster-line-height"
+                class="gdlr-core-pbf-section-container gdlr-core-container clearfix"
               >
-                <div class="gdlr-core-page-builder-body">
-                  <div class="gdlr-core-pbf-wrapper">
-                    <div class="gdlr-core-pbf-wrapper-content gdlr-core-js">
-                      <div
-                        class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container"
-                      >
-                        <div class="gdlr-core-pbf-element">
-                          <div
-                            class="gdlr-core-title-item gdlr-core-item-pdb clearfix gdlr-core-left-align gdlr-core-title-item-caption-top gdlr-core-item-pdlr"
-                            style="padding-bottom: 40px"
-                          >
-                            <div
-                              class="gdlr-core-title-item-title-wrap clearfix"
-                            >
-                              <h3
-                                class="gdlr-core-title-item-title gdlr-core-skin-title"
-                                style="font-size: 20px; font-weight: 600"
-                              >
-                                Feedback forms
-                              </h3>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="gdlr-core-pbf-element">
-                          <div
-                            class="gdlr-core-course-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-course-style-list"
-                            style="padding-bottom: 45px"
-                          >
-                            <div class="gdlr-core-course-item-list">
-                              <a class="gdlr-core-course-item-link" href="#"
-                                ><span
-                                  class="gdlr-core-course-item-id gdlr-core-skin-caption"
-                                  >General Feedback</span
-                                ><i
-                                  class="gdlr-core-course-item-icon gdlr-core-skin-icon fa fa-long-arrow-right"
-                                ></i
-                              ></a>
-                            </div>
-                            <div class="gdlr-core-course-item-list">
-                              <a class="gdlr-core-course-item-link" href="#"
-                                ><span
-                                  class="gdlr-core-course-item-id gdlr-core-skin-caption"
-                                  >Faculty Feedback</span
-                                ><i
-                                  class="gdlr-core-course-item-icon gdlr-core-skin-icon fa fa-long-arrow-right"
-                                ></i
-                              ></a>
-                            </div>
-                            <div class="gdlr-core-course-item-list">
-                              <a class="gdlr-core-course-item-link" href="#"
-                                ><span
-                                  class="gdlr-core-course-item-id gdlr-core-skin-caption"
-                                  >Professional Feedback</span
-                                ><i
-                                  class="gdlr-core-course-item-icon gdlr-core-skin-icon fa fa-long-arrow-right"
-                                ></i
-                              ></a>
-                            </div>
-                            <div class="gdlr-core-course-item-list">
-                              <a class="gdlr-core-course-item-link" href="#"
-                                ><span
-                                  class="gdlr-core-course-item-id gdlr-core-skin-caption"
-                                  >Employer Feedback</span
-                                ><i
-                                  class="gdlr-core-course-item-icon gdlr-core-skin-icon fa fa-long-arrow-right"
-                                ></i
-                              ></a>
-                            </div>
-                            <div class="gdlr-core-course-item-list">
-                              <a class="gdlr-core-course-item-link" href="#"
-                                ><span
-                                  class="gdlr-core-course-item-id gdlr-core-skin-caption"
-                                  >Students Feedback</span
-                                ><i
-                                  class="gdlr-core-course-item-icon gdlr-core-skin-icon fa fa-long-arrow-right"
-                                ></i
-                              ></a>
-                            </div>
-                            <div class="gdlr-core-course-item-list">
-                              <a class="gdlr-core-course-item-link" href="#"
-                                ><span
-                                  class="gdlr-core-course-item-id gdlr-core-skin-caption"
-                                  >Alumni Feedback</span
-                                ><i
-                                  class="gdlr-core-course-item-icon gdlr-core-skin-icon fa fa-long-arrow-right"
-                                ></i
-                              ></a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                <div class="gdlr-core-pbf-element">
+                  <div id="newsContainer"></div>
                 </div>
               </div>
-            </div>
-            <div class="gdlr-core-pbf-wrapper" id="div_1dd7_107">
-              <div
-                class="gdlr-core-pbf-background-wrap"
-                id="div_1dd7_108"
-              ></div>
-              <div class="gdlr-core-pbf-wrapper-content gdlr-core-js">
-                <div
-                  class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container-custom"
-                  id="div_1dd7_109"
-                >
-                  <div class="gdlr-core-pbf-element">
-                    <div
-                      class="gdlr-core-gallery-item gdlr-core-item-pdb clearfix gdlr-core-gallery-item-style-grid"
-                      id="div_1dd7_110"
+              <!-- <div
+                      class="gdlr-core-load-more-wrap gdlr-core-js gdlr-core-center-align gdlr-core-item-pdlr"
+                      data-ajax="gdlr_core_post_ajax"
+                      data-target="gdlr-core-blog-item-holder"
+                      data-target-action="append"
                     >
-                      <div
-                        class="gdlr-core-gallery-item-holder gdlr-core-js-2 clearfix"
-                        data-layout="fitrows"
+                      <a
+                        href="#"
+                        class="gdlr-core-load-more gdlr-core-button-color"
+                        data-ajax-name="paged"
+                        data-ajax-value="2"
+                        >Load More</a
                       >
-                        <!-- <div class="gdlr-core-item-list gdlr-core-gallery-column  gdlr-core-column-10 gdlr-core-column-first gdlr-core-item-pdlr gdlr-core-item-mgb">
-                                                <div class="gdlr-core-gallery-list gdlr-core-media-image"><img src="upload/banner-0.png" alt="" width="120" height="120" title="banner-1" /></div>
-                                            </div> -->
-                        <div
-                          class="gdlr-core-item-list gdlr-core-gallery-column gdlr-core-column-10 gdlr-core-column-first gdlr-core-item-pdlr gdlr-core-item-mgb"
-                        >
-                          <div
-                            class="gdlr-core-gallery-list gdlr-core-media-image"
-                          >
-                            <img
-                              src="upload/banner-1.png"
-                              style="padding-top: 20px"
-                              alt=""
-                              width="240"
-                              height="120"
-                              title="banner-1"
-                            />
-                          </div>
-                        </div>
-                        <div
-                          class="gdlr-core-item-list gdlr-core-gallery-column gdlr-core-column-10 gdlr-core-item-pdlr gdlr-core-item-mgb"
-                        >
-                          <div
-                            class="gdlr-core-gallery-list gdlr-core-media-image"
-                          >
-                            <img
-                              src="upload/banner-2.png"
-                              alt=""
-                              width="120"
-                              height="120"
-                              title="banner-2"
-                            />
-                          </div>
-                        </div>
-                        <div
-                          class="gdlr-core-item-list gdlr-core-gallery-column gdlr-core-column-10 gdlr-core-item-pdlr gdlr-core-item-mgb"
-                        >
-                          <div
-                            class="gdlr-core-gallery-list gdlr-core-media-image"
-                          >
-                            <img
-                              src="upload/banner-3.png"
-                              alt=""
-                              width="120"
-                              height="120"
-                              title="banner-3"
-                            />
-                          </div>
-                        </div>
-                        <div
-                          class="gdlr-core-item-list gdlr-core-gallery-column gdlr-core-column-10 gdlr-core-item-pdlr gdlr-core-item-mgb"
-                        >
-                          <div
-                            class="gdlr-core-gallery-list gdlr-core-media-image"
-                          >
-                            <img
-                              src="upload/banner-4.png"
-                              style="padding-top: 25px"
-                              alt=""
-                              width="240"
-                              height="120"
-                              title="banner-4"
-                            />
-                          </div>
-                        </div>
-                        <div
-                          class="gdlr-core-item-list gdlr-core-gallery-column gdlr-core-column-10 gdlr-core-item-pdlr gdlr-core-item-mgb"
-                        >
-                          <div
-                            class="gdlr-core-gallery-list gdlr-core-media-image"
-                          >
-                            <img
-                              src="upload/dme.png"
-                              alt=""
-                              style="padding-top: 10px"
-                              width="170"
-                              height="200"
-                              title="banner-4"
-                            />
-                          </div>
-                        </div>
-                        <div
-                          class="gdlr-core-item-list gdlr-core-gallery-column gdlr-core-column-10 gdlr-core-item-pdlr gdlr-core-item-mgb"
-                        >
-                          <div
-                            class="gdlr-core-gallery-list gdlr-core-media-image"
-                          >
-                            <img
-                              src="upload/aimst-logo.png"
-                              alt=""
-                              width="110"
-                              height="200"
-                              title="banner-4"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                    </div> -->
             </div>
           </div>
         </div>
@@ -1223,6 +1020,75 @@
       type="text/javascript"
       src="plugins/goodlayers-core/plugins/combine/script.js"
     ></script>
+    <script>
+      // Function to create and append a news item element to the container
+      function createNewsItem(newsData, index) {
+        // Create a new div element with the class "gdlr-core-pbf-element"
+        const newsItemDiv = document.createElement("div");
+        newsItemDiv.className = `gdlr-core-item-list gdlr-core-item-pdlr gdlr-core-item-mgb gdlr-core-column-20 ${
+          index % 4 == 0 ? "gdlr-core-column-first" : ""
+        }`;
+        const newsDate = new Date(newsData.news_date);
+        const newsId = newsData.id;
+        let img = "upload/clg.jpg";
+        if (newsData.image_urls.length != 0) {
+          img = newsData.image_urls[0];
+        } else {
+          img = "upload/clg.jpg";
+        }
+        const formattedDate = newsDate.toLocaleDateString("en-US", {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        });
+
+        // Set the HTML content of the news item div based on the provided template
+        newsItemDiv.innerHTML = `
+    <div class="gdlr-core-blog-modern gdlr-core-with-image gdlr-core-hover-overlay-content gdlr-core-opacity-on-hover gdlr-core-zoom-on-hover">
+      <div class="gdlr-core-blog-modern-inner">
+        <div class="gdlr-core-blog-thumbnail gdlr-core-media-image">
+          <img class="image_urls" width="450px" height="450px" src="${img}" alt="">
+        </div>
+        <div class="gdlr-core-blog-modern-content gdlr-core-center-align">
+          <h3 class="gdlr-core-blog-title gdlr-core-skin-title" style="font-size: 22px; font-weight: 700; letter-spacing: 0px;">
+            <a href='news-single-page.html?id=${newsId}' class="news_subject">${newsData.news_subject}</a>
+          </h3>
+          <div class="gdlr-core-blog-info-wrapper gdlr-core-skin-divider">
+            <span class="gdlr-core-blog-info gdlr-core-blog-info-font gdlr-core-skin-caption gdlr-core-blog-info-date">
+              <a href='news-single-page.html?id=${newsId}' class="news_date">${formattedDate}</a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+
+        return newsItemDiv;
+      }
+
+      // Function to fetch data from the API and render news items in a grid
+      function fetchAndRenderNewsItems() {
+        // Replace 'YOUR_API_URL_HERE' with the actual API endpoint
+        const apiUrl = "https://app.conext.in/news/api/news/";
+
+        fetch(apiUrl)
+          .then((response) => response.json())
+          .then((apiResponse) => {
+            const container = document.getElementById("newsContainer");
+
+            apiResponse.forEach((item) => {
+              const newsItemElement = createNewsItem(item);
+              container.appendChild(newsItemElement);
+            });
+          })
+          .catch((error) => {
+            console.error("Error fetching data from the API:", error);
+          });
+      }
+
+      // Call the function to fetch and render news items
+      fetchAndRenderNewsItems();
+    </script>
     <script type="text/javascript">
       var gdlr_core_pbf = {
         admin: "",
@@ -1246,5 +1112,5 @@
     <script type="text/javascript" src="js/plugins.min.js"></script>
   </body>
 
-  <!-- Mirrored from max-themes.net/demos/kingster/kingster/course-list-1.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 09 Mar 2022 06:34:57 GMT -->
+  <!-- Mirrored from max-themes.net/demos/kingster/kingster/blog-grid-4-columns.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 09 Mar 2022 06:34:14 GMT -->
 </html>
