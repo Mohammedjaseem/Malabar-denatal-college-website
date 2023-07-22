@@ -815,26 +815,10 @@
                               >
                                 About MDCRC
                               </h5>
-                              <p>
-                                MDCRC is specifically designed for all dental
-                                care aspirants who want to land in the
-                                profession of dental care with smart and quality
-                                education. This educational institution was
-                                started in 2007 under the University of Calicut.
-                                In 2010, it was truly blessed to come under the
-                                aegis of Kerala University of Health Science,
-                                Thrissur. The beautiful campus situated near to
-                                the banks of Bharathapuzha adds to the beauty of
-                                the campus, which spreads over 25 acres of land.
-                                Its lush green and pollution-free campus is well
-                                designed and graciously equipped with all modern
-                                facilities. MDC offers academic programs from
-                                undergraduate to postgraduate program in seven
-                                specialties. Collectively, our students and
-                                residents also benefit from the skills and
-                                experience of our highly devoted faculty, and a
-                                rich collaborative environment.
-                              </p>
+
+                              <span
+                                  class="gdlr-core-port-info-value news_content" style="font-size:larger; line-height:2em"
+                                > </span>
                             </div>
                           </div>
                         </div>
@@ -1160,7 +1144,16 @@
           document.querySelector(".location").textContent = data.location;
           document.querySelector(".news_date").textContent = data.news_date;
           document.querySelector(".staff_name").textContent = data.staff_name;
-          document.querySelector(".about_mdcrc").textContent = data.about_mdcrc;
+
+          // Create a temporary div to parse the HTML content
+          let tempDiv = document.createElement("div");
+          tempDiv.innerHTML = data.news_content;
+
+          // Extract the text content from the temporary div
+          let extractedText = tempDiv.textContent;
+
+          // Set the extracted text content to the element with class "news_content"
+          document.querySelector(".news_content").textContent = extractedText;
         })
         .catch((error) => console.error("Error fetching data:", error));
     </script>
