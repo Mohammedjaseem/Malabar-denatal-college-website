@@ -55,7 +55,7 @@
       .grid-container {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        grid-gap: 20px;
+        grid-gap: 0px;
       }
 
       /* Ensure each news item is centered in its column */
@@ -75,6 +75,24 @@
         .image_urls {
           max-height: 450px;
           max-width: 450px !important;
+        }
+      }
+      .loading-animation {
+        border: 4px solid #f3f3f3;
+        border-top: 4px solid #3db166;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        animation: spin 2s linear infinite;
+        margin: 20px auto;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
         }
       }
     </style>
@@ -755,10 +773,14 @@
                 class="gdlr-core-pbf-section-container gdlr-core-container clearfix"
               >
                 <div class="gdlr-core-pbf-element">
-                  <div id="newsContainer"></div>
+                  <div id="loadingAnimation" class="loading-animation"></div>
+                  <div id="newsContainer" style="display: none"></div>
                 </div>
               </div>
-              <!-- <div
+            </div>
+          </div>
+        </div>
+        <!-- <div
                       class="gdlr-core-load-more-wrap gdlr-core-js gdlr-core-center-align gdlr-core-item-pdlr"
                       data-ajax="gdlr_core_post_ajax"
                       data-target="gdlr-core-blog-item-holder"
@@ -772,10 +794,6 @@
                         >Load More</a
                       >
                     </div> -->
-            </div>
-          </div>
-        </div>
-
         <footer>
           <div class="kingster-footer-wrapper">
             <div class="kingster-footer-container kingster-container clearfix">
@@ -1025,9 +1043,7 @@
       function createNewsItem(newsData, index) {
         // Create a new div element with the class "gdlr-core-pbf-element"
         const newsItemDiv = document.createElement("div");
-        newsItemDiv.className = `gdlr-core-item-list gdlr-core-item-pdlr gdlr-core-item-mgb gdlr-core-column-20 ${
-          index % 4 == 0 ? "gdlr-core-column-first" : ""
-        }`;
+        newsItemDiv.className = `gdlr-core-item-list gdlr-core-item-pdlr gdlr-core-item-mgb gdlr-core-column-30`;
         const newsDate = new Date(newsData.news_date);
         const newsId = newsData.id;
         let img = "upload/clg.jpg";
@@ -1044,23 +1060,24 @@
 
         // Set the HTML content of the news item div based on the provided template
         newsItemDiv.innerHTML = `
-    <div class="gdlr-core-blog-modern gdlr-core-with-image gdlr-core-hover-overlay-content gdlr-core-opacity-on-hover gdlr-core-zoom-on-hover">
-      <div class="gdlr-core-blog-modern-inner">
-        <div class="gdlr-core-blog-thumbnail gdlr-core-media-image">
-          <img class="image_urls" width="450px" height="450px" src="${img}" alt="">
-        </div>
-        <div class="gdlr-core-blog-modern-content gdlr-core-center-align">
-          <h3 class="gdlr-core-blog-title gdlr-core-skin-title" style="font-size: 22px; font-weight: 700; letter-spacing: 0px;">
-            <a href='news-single-page.html?id=${newsId}' class="news_subject">${newsData.news_subject}</a>
-          </h3>
-          <div class="gdlr-core-blog-info-wrapper gdlr-core-skin-divider">
-            <span class="gdlr-core-blog-info gdlr-core-blog-info-font gdlr-core-skin-caption gdlr-core-blog-info-date">
-              <a href='news-single-page.html?id=${newsId}' class="news_date">${formattedDate}</a>
-            </span>
+       <div class="gdlr-core-blog-modern gdlr-core-with-image gdlr-core-hover-overlay-content gdlr-core-opacity-on-hover gdlr-core-zoom-on-hover">
+        <div class="gdlr-core-blog-modern-inner">
+          <div class="gdlr-core-blog-thumbnail gdlr-core-media-image">
+              <a class="news_subject" href='news-single-page.html?id=${newsId}'><img class="image_urls" src="${img}" width="1280" height="580" alt=""></a>
+        
+          </div>
+          <div class="gdlr-core-blog-modern-content gdlr-core-center-align">
+            <h3 class="gdlr-core-blog-title gdlr-core-skin-title" style="font-size: 22px; font-weight: 700; letter-spacing: 0px;">
+              <a class="news_subject" href='news-single-page.html?id=${newsId}'>${newsData.news_subject}</a>
+            </h3>
+            <div class="gdlr-core-blog-info-wrapper gdlr-core-skin-divider">
+              <span class="gdlr-core-blog-info gdlr-core-blog-info-font gdlr-core-skin-caption gdlr-core-blog-info-date">
+                <a class="news_date" href='news-single-page.html?id=${newsId}'>${formattedDate}</a>
+              </span>
+            </div>
           </div>
         </div>
       </div>
-    </div>
   `;
 
         return newsItemDiv;
@@ -1070,7 +1087,8 @@
       function fetchAndRenderNewsItems() {
         // Replace 'YOUR_API_URL_HERE' with the actual API endpoint
         const apiUrl = "https://app.conext.in/news/api/news/";
-
+        loadingAnimation.style.display = "block";
+        newsContainer.style.display = "none";
         fetch(apiUrl)
           .then((response) => response.json())
           .then((apiResponse) => {
@@ -1079,10 +1097,13 @@
             apiResponse.forEach((item) => {
               const newsItemElement = createNewsItem(item);
               container.appendChild(newsItemElement);
+              loadingAnimation.style.display = "none";
+              newsContainer.style.display = "block";
             });
           })
           .catch((error) => {
             console.error("Error fetching data from the API:", error);
+            loadingAnimation.style.display = "none";
           });
       }
 
