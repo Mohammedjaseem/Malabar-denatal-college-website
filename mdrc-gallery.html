@@ -790,6 +790,44 @@
         ></div>
         <div class="kingster-page-wrapper" id="kingster-page-wrapper">
           <div class="gdlr-core-page-builder-body">
+            <div
+              class="gdlr-core-pbf-wrapper"
+              style="padding: 50px 0px 30px 0px"
+            >
+              <div class="gdlr-core-pbf-background-wrap"></div>
+              <div class="gdlr-core-pbf-wrapper-content gdlr-core-js">
+                <div
+                  class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container"
+                >
+                  <div class="gdlr-core-title-item-title-wrap clearfix">
+                    <h3
+                      class="gdlr-core-title-item-title gdlr-core-skin-title"
+                      style="
+                        text-transform: none;
+                        text-align: center;
+                        font-size: 40px;
+                        padding-bottom: 30px;
+                      "
+                    >
+                      Uploaded By Staff & Students
+                    </h3>
+                  </div>
+                  <div class="gdlr-core-pbf-element">
+                    <div
+                      class="gdlr-core-portfolio-item gdlr-core-item-pdb clearfix gdlr-core-portfolio-item-style-metro"
+                      style="padding-bottom: 10px"
+                    >
+                      <div
+                        class="gdlr-core-portfolio-item-holder gdlr-core-js-2 clearfix"
+                        data-layout="masonry"
+                      >
+                        <div id="portfolio-container"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div class="gdlr-core-pbf-section">
               <div
                 class="gdlr-core-pbf-section-container gdlr-core-container clearfix"
@@ -1820,7 +1858,49 @@
         document.getElementById("popupContainer").style.display = "block";
       };
     </script>
+    <script>
+      // Function to fetch data from the API
+      function fetchDataFromApi() {
+        fetch("https://app.conext.in/Events/gallery/")
+          .then((response) => response.json())
+          .then((data) => displayData(data))
+          .catch((error) => console.error("Error fetching data:", error));
+      }
 
+      // Function to dynamically display data
+      function displayData(items) {
+        const portfolioContainer = document.getElementById(
+          "portfolio-container"
+        );
+
+        items.forEach((item) => {
+          const portfolioItem = document.createElement("div");
+          portfolioItem.className =
+            "gdlr-core-item-list gdlr-core-item-pdlr gdlr-core-item-mgb gdlr-core-column-15";
+          portfolioItem.innerHTML = `
+          <div class="gdlr-core-portfolio-metro">
+            <div class="gdlr-core-portfolio-thumbnail gdlr-core-media-image gdlr-core-style-title-icon gdlr-core-metro-rvpdlr">
+              <div class="gdlr-core-portfolio-thumbnail-image-wrap gdlr-core-zoom-on-hover">
+                <img class="uploaded_image_url" src="${item.pictures[0].uploaded_image_url}" alt="" onload="this.style.opacity = 1;" style="opacity: 0; transition: opacity 0.3s ease;" />
+                <span class="gdlr-core-image-overlay gdlr-core-portfolio-overlay gdlr-core-image-overlay-center-icon gdlr-core-js">
+                  <span class="gdlr-core-image-overlay-content">
+                    <span class="gdlr-core-portfolio-title gdlr-core-title-font" style="font-size: 22px; font-weight: 600; letter-spacing: 0px; text-transform: none;">
+                      <a class="title">${item.title}</a>
+                    </span>
+                    <span class="gdlr-core-lightgallery gdlr-core-js full_name" data-lightbox-group="gdlr-core-img-group-1">by: ${item.full_name}</span>
+                  </span>
+                </span>
+              </div>
+            </div>
+          </div>
+        `;
+          portfolioContainer.appendChild(portfolioItem);
+        });
+      }
+
+      // Call the function to fetch and display data when the DOM is loaded
+      document.addEventListener("DOMContentLoaded", fetchDataFromApi);
+    </script>
     <script
       type="text/javascript"
       src="plugins/goodlayers-core/include/js/page-builder.js"
