@@ -46,6 +46,35 @@
             right: 20px;
             cursor: pointer;
         }
+          .progress-bar {
+            margin-bottom: 20px;
+    width: 100%;
+    height: 20px;
+    background-color: #f2f2f2;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  #progressBar {
+    height: 100%;
+    background-color: #163877;
+    width: 0;
+  }
+    .select-with-arrow {
+      position: relative;
+      justify-content: center;
+  }
+
+  .select-with-arrow::after {
+    content: "\f0d7"; /* Unicode character for the arrow (FontAwesome) */
+    font-family: FontAwesome;
+    position: absolute;
+    top: 65%;
+    right: 20px; /* Adjust the position of the arrow */
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
 </style>
 </head>
 
@@ -510,21 +539,21 @@ All Kerala Univeristy of Health & Science (KUHS)
                       required="true"
                     />
                   </div>
-                   <div class="form-group">
-                          <label>Gallery Type</label>
-                          <select style="height: calc(3.25rem + 2px);" class="form-control" id="gallery_type">
-                            <option>Life at MDC</option>
-                            <option>Arts</option>
-                            <option>Sports</option>
-                            <option>Graduation</option>
-                            <option>Clinic</option>
-                            <option>Outing</option>
-                            <option>Coffee Lab</option>
-                            <option>College Tour</option>
-                            <option>Out Posting</option>
-                            <option>MDC Events</option>
-                          </select>
-                        </div>
+                 <div class="form-group select-with-arrow">
+  <label>Choose Gallery Type</label>
+  <select style="height: calc(3.25rem + 2px);"  class="form-control " id="gallery_type">
+    <option>Life at MDC</option>
+    <option>Arts</option>
+    <option>Sports</option>
+    <option>Graduation</option>
+    <option>Clinic</option>
+    <option>Outing</option>
+    <option>Coffee Lab</option>
+    <option>College Tour</option>
+    <option>Out Posting</option>
+    <option>MDC Events</option>
+  </select>
+</div>
                  
                    <div class="form-group">  <p class="note">You can pick multiple images.
                     <input
@@ -534,11 +563,13 @@ All Kerala Univeristy of Health & Science (KUHS)
                       class="form-control"
                       placeholder="Add Images"
                       multiple accept="image/*"
-                      required="true"
+                      required
                     />
                    </p>
                   </div>
-                 
+                                                                                 <div class="progress-bar" style="display: none;">
+  <div id="progressBar"></div>
+</div>
                   <div class="form-group">
                                                                         <div class="quform-submit-inner">
                                                                             <button  type="submit"
@@ -547,6 +578,9 @@ All Kerala Univeristy of Health & Science (KUHS)
                                                                         <div class="quform-loading-wrap"><span class="quform-loading"></span></div>
                                                                     </div>
                                                                 </div>
+
+
+
                 </form>
               </div>
             </div>
@@ -856,6 +890,9 @@ const name = document.getElementById('full_name').value;
       // If only one image is selected, append the single file to the form data
       formData.append("uploaded_images", imageInput.files[0]);
     }
+    if (!name || !title || !selectedGalleryType || imageInput.files.length === 0) {
+    return; // Prevent form submission if validation fails
+  }
  function showCustomAlert(popupId) {
     const popup = document.getElementById(popupId);
     popup.style.display = "block";
@@ -866,49 +903,68 @@ const name = document.getElementById('full_name').value;
     const popup = document.getElementById(popupId);
     popup.style.display = "none";
   }
+   const progressBar = document.getElementById("progressBar");
+  progressBar.style.width = "0";
+  progressBar.parentElement.style.display = "block";
 showLoading();
 function showLoading() {
   const submitButton = document.querySelector(".submit-button");
   submitButton.disabled = true;
-  submitButton.innerHTML = 'Sending...';
+  submitButton.innerHTML = 'Uploading please wait...';
 }
 
 function hideLoading(string) {
   const submitButton = document.querySelector(".submit-button");
-  submitButton.disabled = true;
+  submitButton.disabled = false;
   submitButton.innerHTML = string;
+  document.getElementById("progressBar").parentElement.style.display = "none";
 }
     // Make a POST request to the API endpoint
-   fetch("https://app.conext.in/Events/add_gallery/", {
-      method: "POST",
-      body: formData
-    })
-      .then(response => response.json())
-      .then(data => {
-        if (data.status=="success") {
-            showCustomAlert('successPopup');
+   const xhr = new XMLHttpRequest();
+
+  // Set up the progress event listener to update the progress bar
+  xhr.upload.addEventListener("progress", function (event) {
+    if (event.lengthComputable) {
+      const progress = (event.loaded / event.total) * 100;
+      progressBar.style.width = progress + "%";
+    }
+  });
+
+  xhr.open("POST", "https://app.conext.in/Events/add_gallery/");
+  xhr.onload = function () {
+    if ((xhr.status === 200 || xhr.status === 201) && xhr.readyState === XMLHttpRequest.DONE) {
+      progressBar.parentElement.style.display = "none";
+       showCustomAlert('successPopup');
         hideLoading('Successful');
-          console.log(data, 'ohjkhjkj')
-      } else {
-            showCustomAlert('failPopup');
+          console.log(xhr, 'ohjkhjkj')
+    } else {
+      progressBar.parentElement.style.display = "none";
+        showCustomAlert('failPopup');
          hideLoading('Failed!!!');
-         console.log(data, 'sdfasdfas')
-      }
-      })
-      .catch(error => {
-          hideLoading('Failed!!!');
-        console.error("Error:", error);
-      });
+         console.log(xhr, 'sdfasdfas')
+    }
+  };
+
+  xhr.onerror = function () {
+    progressBar.parentElement.style.display = "none";
+    hideLoading('Failed!!!');
+    showCustomAlert("failPopup");
+  };
+
+  xhr.send(formData);
   }
 
   // Add event listener to the form's submit event
-    const formElement = document.getElementById("galleryForm");
-  formElement.addEventListener("submit", (event) => submitForm(event));
+   const formElement = document.getElementById("galleryForm");
+formElement.addEventListener("submit", (event) => {
+  event.preventDefault(); // Prevent the default form submission behavior
+  submitForm();
+  });
     function closeCustomAlert(popupId) {
     document.getElementById('successPopup').style.display='none';
     document.getElementById('failPopup').style.display='none';
      const submitButton = document.querySelector(".submit-button");
-  submitButton.disabled = true;
+  submitButton.disabled = false;
   submitButton.innerHTML = 'Send';
   document.getElementById('galleryForm').reset();
 
