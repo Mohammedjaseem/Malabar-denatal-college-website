@@ -1876,34 +1876,31 @@
         const portfolioContainer = document.getElementById("portfolio-container");
     
         items.forEach((item) => {
-          const portfolioItem = document.createElement("div");
-          portfolioItem.className =
-            "gdlr-core-item-list gdlr-core-item-pdlr gdlr-core-item-mgb gdlr-core-column-15";
-          portfolioItem.innerHTML = `
-            <div class="gdlr-core-portfolio-metro">
-              <div class="gdlr-core-portfolio-thumbnail gdlr-core-media-image gdlr-core-style-title-icon gdlr-core-metro-rvpdlr">
-                <div class="gdlr-core-portfolio-thumbnail-image-wrap gdlr-core-zoom-on-hover">
-                  <div class="image-gallery">
-                    ${item.pictures
-                      .map(
-                        (picture) =>
-                          `<img class="uploaded_image_url" src="${picture.uploaded_image_url}" alt="" style="opacity: 1; transition: opacity 0.3s ease;" />`
-                      )
-                      .join("")}
-                  </div>
-                  <span class="gdlr-core-image-overlay gdlr-core-portfolio-overlay gdlr-core-image-overlay-center-icon gdlr-core-js">
-                    <span class="gdlr-core-image-overlay-content">
-                      <span class="gdlr-core-portfolio-title gdlr-core-title-font" style="font-size: 22px; font-weight: 600; letter-spacing: 0px; text-transform: none;">
-                        <a class="title">${item.title}</a>
+          item.pictures.forEach((picture) => {
+            const portfolioItem = document.createElement("div");
+            portfolioItem.className =
+              "gdlr-core-item-list gdlr-core-item-pdlr gdlr-core-item-mgb gdlr-core-column-15";
+            portfolioItem.innerHTML = `
+              <div class="gdlr-core-portfolio-metro">
+                <div class="gdlr-core-portfolio-thumbnail gdlr-core-media-image gdlr-core-style-title-icon gdlr-core-metro-rvpdlr">
+                  <div class="gdlr-core-portfolio-thumbnail-image-wrap gdlr-core-zoom-on-hover">
+                    <div class="image-gallery">
+                      <img class="uploaded_image_url" src="${picture.uploaded_image_url}" alt="" style="opacity: 1; transition: opacity 0.3s ease;" />
+                    </div>
+                    <span class="gdlr-core-image-overlay gdlr-core-portfolio-overlay gdlr-core-image-overlay-center-icon gdlr-core-js">
+                      <span class="gdlr-core-image-overlay-content">
+                        <span class="gdlr-core-portfolio-title gdlr-core-title-font" style="font-size: 22px; font-weight: 600; letter-spacing: 0px; text-transform: none;">
+                          <a class="title">${item.title}</a>
+                        </span>
+                        <span class="gdlr-core-lightgallery gdlr-core-js full_name" data-lightbox-group="gdlr-core-img-group-1">by: ${item.full_name}</span>
                       </span>
-                      <span class="gdlr-core-lightgallery gdlr-core-js full_name" data-lightbox-group="gdlr-core-img-group-1">by: ${item.full_name}</span>
                     </span>
-                  </span>
+                  </div>
                 </div>
               </div>
-            </div>
-          `;
-          portfolioContainer.appendChild(portfolioItem);
+            `;
+            portfolioContainer.appendChild(portfolioItem);
+          });
         });
       }
     
