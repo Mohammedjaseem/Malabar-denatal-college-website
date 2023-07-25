@@ -51,6 +51,73 @@
       type="text/css"
       media="all"
     />
+    <style>
+      /* Add this CSS style to your existing styles or in a <style> tag in the <head> of your HTML document */
+      .popup-close {
+        position: absolute;
+        top: 10px;
+        padding-right: 10px;
+        right: 10px;
+        font-size: 1.6rem;
+        font-weight: bold;
+        color: #555;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+      }
+
+      .popup-close:hover {
+        color: red; /* Change close button color on hover if desired */
+      }
+      .popup-container {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: 9999;
+      }
+
+      .popup-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        padding: 30px 50px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        max-width: 500px;
+        width: 80%;
+      }
+
+      .popup-title {
+        font-size: 10px;
+        font-weight: bold;
+        margin-bottom: 40px !important;
+      }
+
+      .popup-buttons {
+        display: flex;
+        justify-content: center;
+      }
+
+      .popup-button {
+        padding: 8px 16px;
+        margin: 0 5px;
+        border: none;
+        background-color: #3db166;
+        color: #fff;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      .popup-button:hover {
+        background-color: #309a55;
+      }
+    </style>
   </head>
 
   <body
@@ -703,6 +770,19 @@
             </div>
           </div>
         </header>
+        <div id="popupContainer" class="popup-container">
+          <div class="popup-content">
+            <button class="popup-close" onclick="closePopup()">&times;</button>
+            <!-- Close button (cross) -->
+            <h6 class="popup-title">Do you want to add your memories?</h6>
+            <div class="popup-buttons">
+              <button class="popup-button" onclick="redirectToAddImage()">
+                Yes
+              </button>
+              <button class="popup-button" onclick="closePopup()">No</button>
+            </div>
+          </div>
+        </div>
 
         <div
           class="kingster-page-title-wrap kingster-style-medium kingster-center-align"
@@ -1721,6 +1801,26 @@
         ajax_url: "#",
       };
     </script>
+    <script type="text/javascript">
+      function redirectToAddImage() {
+        // Close the popup first
+        closePopup();
+        // Set a flag in local storage to indicate that the user has clicked "Yes"
+
+        // Redirect to the desired page
+        window.location.href = "add-image.html";
+      }
+
+      function closePopup() {
+        document.getElementById("popupContainer").style.display = "none";
+      }
+
+      // Show the popup on page load if it hasn't been closed before
+      window.onload = function () {
+        document.getElementById("popupContainer").style.display = "block";
+      };
+    </script>
+
     <script
       type="text/javascript"
       src="plugins/goodlayers-core/include/js/page-builder.js"
