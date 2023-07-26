@@ -118,8 +118,11 @@
         background-color: #309a55;
       }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
   </head>
 
   <body
@@ -815,19 +818,15 @@
                     </h3>
                   </div>
                   <div class="gdlr-core-pbf-element">
-                    
                     <div
                       class="gdlr-core-portfolio-item gdlr-core-item-pdb clearfix gdlr-core-portfolio-item-style-metro"
                       style="padding-bottom: 10px"
                     >
-                    <div id="portfolio-container"></div>
+                      <div id="portfolio-container"></div>
                       <div
                         class="gdlr-core-portfolio-item-holder gdlr-core-js-2 clearfix"
                         data-layout="masonry"
-                      >
-                      
-                        
-                      </div>
+                      ></div>
                     </div>
                   </div>
                 </div>
@@ -1863,7 +1862,7 @@
         document.getElementById("popupContainer").style.display = "block";
       };
     </script>
-    
+
     <script>
       // Function to fetch data from the API
       function fetchDataFromApi() {
@@ -1872,19 +1871,24 @@
           .then((data) => displayData(data))
           .catch((error) => console.error("Error fetching data:", error));
       }
-    
+
       // Function to dynamically display data in reverse order
       function displayData(items) {
-        const portfolioContainer = document.getElementById("portfolio-container");
-    
+        const portfolioContainer = document.getElementById(
+          "portfolio-container"
+        );
+
         // Reverse the items array to display the most recent images first
         items.reverse();
-    
-        items.forEach((item) => {
+
+        items.forEach((item, index) => {
+          const isMultipleOf3 = index % 3 === 0;
+          const columnNumber = isMultipleOf3 ? 30 : 15;
+          console.log(columnNumber, "column number");
+
           item.pictures.forEach((picture) => {
             const portfolioItem = document.createElement("div");
-            portfolioItem.className =
-              "gdlr-core-item-list gdlr-core-item-pdlr gdlr-core-item-mgb gdlr-core-column-15";
+            portfolioItem.className = `gdlr-core-item-list gdlr-core-item-pdlr gdlr-core-item-mgb gdlr-core-column-${columnNumber}`;
             portfolioItem.innerHTML = `
               <div class="gdlr-core-portfolio-metro">
                 <div class="gdlr-core-portfolio-thumbnail gdlr-core-media-image gdlr-core-style-title-icon gdlr-core-metro-rvpdlr">
@@ -1908,12 +1912,10 @@
           });
         });
       }
-    
+
       // Call the function to fetch and display data when the DOM is loaded
       document.addEventListener("DOMContentLoaded", fetchDataFromApi);
     </script>
-    
-
 
     <script
       type="text/javascript"
