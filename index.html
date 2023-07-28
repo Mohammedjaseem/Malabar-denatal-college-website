@@ -291,6 +291,39 @@
           cursor: pointer;
         }
       }
+      #imageList {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between; /* Adjust as needed */
+        /* Adjust the max-width as needed */
+        margin: 0 auto;
+        padding: 10px; /* Adjust padding as needed */
+      }
+
+      /* Styles for the custom image container */
+      .custom-image-container {
+        width: calc(20% - 20px); /* Adjust width as needed */
+
+        margin: 10px; /* Adjust margin as needed */
+        box-sizing: border-box;
+        overflow: hidden; /* Hide any parts of the image that exceed the container */
+      }
+
+      /* Styles for the custom image wrapper */
+      .custom-image-wrapper {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      /* Styles for the images inside each container */
+      .custom-image-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Ensure the entire image covers the container */
+      }
+
+      /* Styles for the individual image containers */
     </style>
   </head>
   <body
@@ -3581,7 +3614,7 @@
             </div>
             <div
               class="gdlr-core-pbf-wrapper"
-              style="padding: 30px 80px 30px 80px"
+              style="padding: 50px 100px 0px 100px"
             >
               <div class="gdlr-core-pbf-wrapper-content gdlr-core-js">
                 <div
@@ -3597,25 +3630,14 @@
                           class="gdlr-core-title-item-title gdlr-core-skin-title"
                           style="text-transform: none"
                         >
-                          Horizontal Scrolling
+                          Uploaded by Staffs & Students
                         </h3>
                       </div>
-                      <span
-                        class="gdlr-core-title-item-caption gdlr-core-info-font gdlr-core-skin-caption"
-                        >Hover With Center Caption</span
-                      >
                     </div>
                   </div>
                   <div class="gdlr-core-pbf-element">
-                    <div
-                      class="gdlr-core-gallery-item gdlr-core-item-pdb clearfix gdlr-core-gallery-item-style-scroll gdlr-core-item-pdlr"
-                    >
-                      <div class="gdlr-core-sly-slider gdlr-core-js-2">
-                        <ul class="slides"></ul>
-                      </div>
-                      <div class="gdlr-core-sly-scroll">
-                        <div class="gdlr-core-sly-scroll-handle"></div>
-                      </div>
+                    <div id="imageList">
+                      <!-- Images fetched from the API will be dynamically added here -->
                     </div>
                   </div>
                 </div>
@@ -4620,9 +4642,12 @@
       } /*]]>*/
     </script>
     <script>
+      // Function to fetch data from the API
       async function fetchGalleryData() {
         try {
-          const response = await fetch("https://app.conext.in/Events/gallery/");
+          const response = await fetch(
+            "https://app.conext.in/Events/HomeGallery/"
+          );
           const data = await response.json();
           return data;
         } catch (error) {
@@ -4631,59 +4656,76 @@
         }
       }
 
-      function createGalleryItem(images, name) {
-        const li = document.createElement("li");
-        li.classList.add("gdlr-core-gallery-list", "gdlr-core-item-mglr");
+      // Function to create and append the image elements to the list
+      function createImageElements(data) {
+        const imageListContainer = document.getElementById("imageList");
 
-        const div = document.createElement("div");
-        div.classList.add("gdlr-core-media-image");
+        for (let i = 0; i < data.length && i < 10; i++) {
+          const imageObj = data[i];
+          const listItemContainer = document.createElement("div");
+          listItemContainer.classList.add(
+            "custom-image-container",
+            "gdlr-core-item-list",
+            "gdlr-core-item-pdlr",
+            "gdlr-core-item-mgb",
+            "gdlr-core-column-10"
+          );
 
-        images.slice(0, 10).forEach((image) => {
-          const img = document.createElement("img");
-          img.setAttribute("src", image.uploaded_image_url);
-          img.setAttribute("width", "1280");
-          img.setAttribute("height", "853");
-          img.setAttribute("alt", "");
-          div.appendChild(img);
-        });
+          const blogModernContainer = document.createElement("div");
+          blogModernContainer.classList.add(
+            "custom-blog-modern",
+            "gdlr-core-blog-modern",
+            "gdlr-core-with-image",
+            "gdlr-core-hover-overlay-content",
+            "gdlr-core-opacity-on-hover",
+            "gdlr-core-zoom-on-hover"
+          );
 
-        const span = document.createElement("span");
-        span.classList.add(
-          "gdlr-core-image-overlay",
-          "gdlr-core-gallery-image-overlay",
-          "gdlr-core-center-align"
-        );
+          const modernInnerContainer = document.createElement("div");
+          modernInnerContainer.classList.add(
+            "custom-blog-modern-inner",
+            "gdlr-core-blog-modern-inner"
+          );
 
-        const p = document.createElement("p");
-        p.classList.add("full_name");
-        p.textContent = name;
+          const blogThumbnailContainer = document.createElement("div");
+          blogThumbnailContainer.classList.add(
+            "custom-blog-thumbnail",
+            "gdlr-core-blog-thumbnail",
+            "gdlr-core-media-image"
+          );
 
-        span.appendChild(p);
-        div.appendChild(span);
-        li.appendChild(div);
+          const imageElement = document.createElement("img");
+          imageElement.classList.add("uploaded_image_url");
+          imageElement.width = 700;
+          imageElement.height = 660;
+          imageElement.src = imageObj.uploaded_image_url;
+          imageElement.alt = ""; // Set image alt attribute if available
 
-        return li;
+          blogThumbnailContainer.appendChild(imageElement);
+          modernInnerContainer.appendChild(blogThumbnailContainer);
+          blogModernContainer.appendChild(modernInnerContainer);
+          listItemContainer.appendChild(blogModernContainer);
+          imageListContainer.appendChild(listItemContainer);
+        }
       }
 
+      // Function to be called when the page is loaded
       async function loadGallery() {
         try {
-          const galleryData = await fetchGalleryData();
-          const slidesContainer = document.querySelector(".slides");
+          // Fetch data from the API
+          const response = await fetchGalleryData();
 
-          galleryData.slice(0, 10).forEach((item) => {
-            const { pictures, full_name } = item;
-            if (pictures && pictures.length > 0) {
-              const galleryItem = createGalleryItem(pictures, full_name);
-              slidesContainer.appendChild(galleryItem);
-            }
-          });
+          // Create and append the image elements to the list
+          createImageElements(response);
         } catch (error) {
           console.error("Error loading the gallery:", error);
         }
       }
 
-      document.addEventListener("DOMContentLoaded", loadGallery);
+      // Load the gallery when the page is loaded
+      window.addEventListener("load", loadGallery);
     </script>
+
     <script>
       // Function to fetch data from the API
       async function fetchPopupData() {
