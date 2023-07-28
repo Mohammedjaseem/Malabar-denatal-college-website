@@ -164,6 +164,49 @@
     background-color: #3db166;
     transform: scale(1.2); /* Increase the size of the active dot */
   }
+/* CSS for the popup container */
+/* CSS for the popup container */
+.popup {
+  display: none;
+  position: fixed;
+  top: 200px; /* Add 200px margin from the top */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(255, 255, 255, 0.9); /* Set a semi-transparent background */
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  max-width: 80%;
+  z-index: 9999; /* Ensure the popup appears above other elements */
+  backdrop-filter: blur(10px); /* Apply the blur effect to the background */
+  overflow-y: auto; /* Allow vertical scrolling for content that exceeds the screen */
+  max-height: calc(100vh - 400px); /* Subtract the 200px top and bottom margins */
+}
+
+/* CSS for the close button inside the popup */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* CSS for the poster image inside the popup */
+.popup img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+/* CSS for the title inside the popup */
+.popup p {
+  margin: 0;
+  text-align: center;
+  color: #000;
+  font-size: 30px;
+  font-weight: bold;
+}
 
 
 
@@ -1861,7 +1904,11 @@ MDC provides quality education ,opportunity to learn and inculcate new skills.</
             </footer>
         </div>
     </div>
-
+  <div class="popup" id="popupContainer"> <p id="popupTitle"></p>
+    <span class="close-btn" id="closeBtn">&times;</span>
+    <img src="" alt="Popup Poster" id="popupImage">
+   
+  </div>
 
 	<script type='text/javascript' src='js/jquery/jquery.js'></script>
     <script type='text/javascript' src='js/jquery/jquery-migrate.min.js'></script>
@@ -1908,6 +1955,62 @@ MDC provides quality education ,opportunity to learn and inculcate new skills.</
             }
         }; /*]]>*/
     </script>
+<script>
+    // Function to fetch data from the API
+async function fetchPopupData() {
+  try {
+    const response = await fetch('https://app.conext.in/Notifications/api/latest-mdc-notification/');
+    const data = await response.json();
+    return data[0]; // Assuming the API returns an array with a single object as shown in the response
+  } catch (error) {
+    console.error('Error fetching data from the API:', error);
+    return null;
+  }
+}
+
+// Function to create and display the popup
+function displayPopup(posterUrl, title) {
+  const popupContainer = document.getElementById('popupContainer');
+  const closeBtn = document.getElementById('closeBtn');
+  const popupImage = document.getElementById('popupImage');
+  const popupTitle = document.getElementById('popupTitle');
+
+  // Set the content for the popup
+  popupImage.src = posterUrl;
+  popupTitle.textContent = title;
+
+  // Show the popup
+  popupContainer.style.display = 'block';
+
+  // Close the popup when the close button is clicked
+  closeBtn.addEventListener('click', closePopup);
+}
+
+// Function to close the popup
+function closePopup() {
+  const popupContainer = document.getElementById('popupContainer');
+  popupContainer.style.display = 'none';
+}
+
+// Function to be called when the home page is loaded
+async function loadHomePage() {
+  try {
+    // Fetch data from the API
+    const { poster, title } = await fetchPopupData();
+
+    if (poster && title) {
+      // Display the popup with the fetched data
+      displayPopup(poster, title);
+    }
+  } catch (error) {
+    console.error('Error loading the popup:', error);
+  }
+}
+
+// Load the home page and trigger the popup on load
+window.addEventListener('load', loadHomePage);
+
+</script>
 <script>
   const slider = document.querySelector('.slider');
   const testimonials = document.querySelectorAll('.testimonial');
