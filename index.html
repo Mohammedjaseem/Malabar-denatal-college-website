@@ -214,7 +214,7 @@
         left: 50%;
         transform: translateX(-50%);
         background-color: #fff; /* Set a semi-transparent background */
-        padding: 50px 20px;
+        padding: 0px -53px 20px -53px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
         z-index: 9999; /* Ensure the popup appears above other elements */
         max-height: calc(
@@ -290,37 +290,6 @@
           font-weight: bold; /* Make the font bold */
           cursor: pointer;
         }
-      }
-      #imageList {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between; /* Adjust as needed */
-        /* Adjust the max-width as needed */
-        margin: 0 auto;
-        padding: 10px; /* Adjust padding as needed */
-      }
-
-      /* Styles for the custom image container */
-      .custom-image-container {
-        width: calc(20% - 20px); /* Adjust width as needed */
-
-        margin: 10px; /* Adjust margin as needed */
-        box-sizing: border-box;
-        overflow: hidden; /* Hide any parts of the image that exceed the container */
-      }
-
-      /* Styles for the custom image wrapper */
-      .custom-image-wrapper {
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-      }
-
-      /* Styles for the images inside each container */
-      .custom-image-wrapper img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover; /* Ensure the entire image covers the container */
       }
 
       /* Styles for the individual image containers */
@@ -521,7 +490,7 @@
                         <a href="research.html">Research</a>
                       </li>
                       <li class="menu-item">
-                        <a href="scholarships.html">Scholarships</a>
+                        <a href="mdcrc-scholarship.html">Scholarships</a>
                       </li>
                       <li class="menu-item">
                         <a href="satelite-clinic.html">Satellite Clinic</a>
@@ -912,7 +881,7 @@
                                         <ul class="sub-menu"><b>
                                             <li class="menu-item" data-size="60"><a href="apply-to-kingster.html">Apply To MDCRC</a></li>
                                             <li class="menu-item" data-size="60"><a href="campus-tour.html">Campus Tour</a></li>
-                                            <li class="menu-item" data-size="60"><a href="scholarships.html">Scholarships</a></li>
+                                            <li class="menu-item" data-size="60"><a href="mdcrc-scholarship.html">Scholarships</a></li>
                                             <li class="menu-item" data-size="60"><a>Activities</a></li>
                                             <li class="menu-item" data-size="60"><a href="give-to-kingster.html">Give To Kingster</a></li>
                                             <li class="menu-item" data-size="60"><a href="alumni.html">Alumni</a></li>
@@ -934,7 +903,7 @@
                             <a href="research.html">Research</a>
                           </li>
                           <li class="menu-item" data-size="60">
-                            <a href="index.html">Scholarships</a>
+                            <a href="mdcrc-scholarship.html">Scholarships</a>
                           </li>
                           <li class="menu-item" data-size="60">
                             <a href="satelite-clinic.html">Satellite Clinic</a>
@@ -3614,34 +3583,45 @@
             </div>
             <div
               class="gdlr-core-pbf-wrapper"
-              style="padding: 50px 100px 0px 100px"
+              style="padding: 50px 185px 30px 185px"
             >
-            
-            <div class="gdlr-core-pbf-wrapper-content gdlr-core-js">
-              <div class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-pbf-wrapper-full">
-                <div class="gdlr-core-pbf-element">
-                  <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix gdlr-core-center-align gdlr-core-title-item-caption-bottom gdlr-core-item-pdlr" style="padding-bottom: 60px">
-                    <div class="gdlr-core-title-item-title-wrap clearfix">
-                      <a href="https://www.mdcrc.edu.in/mdrc-gallery">
-                      <h3 class="gdlr-core-title-item-title gdlr-core-skin-title" style="text-transform: none">
-                         Mdcrc Gallery
-                      </h3></a>
-                      <div class="gdlr-core-pbf-element" >
-                        <a href="https://www.mdcrc.edu.in/mdrc-gallery" class="" style="margin-top: 20px; font-size: larger;">Visit Gallery Page</a>
+              <div class="gdlr-core-pbf-wrapper-content gdlr-core-js">
+                <div
+                  class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-pbf-wrapper-full"
+                >
+                  <div class="gdlr-core-pbf-element">
+                    <div
+                      class="gdlr-core-title-item gdlr-core-item-pdb clearfix gdlr-core-center-align gdlr-core-title-item-caption-bottom gdlr-core-item-pdlr"
+                      style="padding-bottom: 40px"
+                    >
+                      <div class="gdlr-core-title-item-title-wrap clearfix">
+                        <a href="https://www.mdcrc.edu.in/mdrc-gallery">
+                          <h3
+                            class="gdlr-core-title-item-title gdlr-core-skin-title"
+                            style="text-transform: none"
+                          >
+                            Mdcrc Gallery
+                          </h3></a
+                        >
+                        <div class="gdlr-core-pbf-element">
+                          <a
+                            href="https://www.mdcrc.edu.in/mdrc-gallery"
+                            class=""
+                            style="margin-top: 20px; font-size: larger"
+                            >Visit Gallery Page</a
+                          >
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="gdlr-core-pbf-element">
-                  <div id="imageList">
-                    <!-- Images fetched from the API will be dynamically added here -->
+                  <div class="gdlr-core-pbf-element">
+                    <div id="imageList">
+                      <!-- Images fetched from the API will be dynamically added here -->
+                    </div>
+                    <!-- Add the button under the title -->
                   </div>
-                  <!-- Add the button under the title -->
-                  
                 </div>
               </div>
-            </div>
-
             </div>
             <div
               class="gdlr-core-pbf-wrapper"
@@ -4660,7 +4640,7 @@
       function createImageElements(data) {
         const imageListContainer = document.getElementById("imageList");
 
-        for (let i = 0; i < data.length && i < 10; i++) {
+        for (let i = 0; i < data.length && i < 8; i++) {
           const imageObj = data[i];
           const listItemContainer = document.createElement("div");
           listItemContainer.classList.add(
@@ -4668,7 +4648,7 @@
             "gdlr-core-item-list",
             "gdlr-core-item-pdlr",
             "gdlr-core-item-mgb",
-            "gdlr-core-column-10"
+            "gdlr-core-column-15"
           );
 
           const blogModernContainer = document.createElement("div");
@@ -4701,12 +4681,11 @@
           imageElement.src = imageObj.uploaded_image_url;
           imageElement.alt = ""; // Set image alt attribute if available
 
-          // Add the onclick event to the image element
-          imageElement.onclick = function () {
-            window.location.href = "https://www.mdcrc.edu.in/mdrc-gallery";
-          };
+          const anchorElement = document.createElement("a");
+          anchorElement.href = "https://www.mdcrc.edu.in/mdrc-gallery";
+          anchorElement.appendChild(imageElement);
 
-          blogThumbnailContainer.appendChild(imageElement);
+          blogThumbnailContainer.appendChild(anchorElement);
           modernInnerContainer.appendChild(blogThumbnailContainer);
           blogModernContainer.appendChild(modernInnerContainer);
           listItemContainer.appendChild(blogModernContainer);
