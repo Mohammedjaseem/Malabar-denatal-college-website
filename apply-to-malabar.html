@@ -844,7 +844,19 @@ All Kerala Univeristy of Health & Science (KUHS)
 
             
         
-            window.open(url, '_blank').focus();
+               if (
+          name.trim() !== "" &&
+          phone.trim() !== "" &&
+          email.trim() !== "" &&
+          neet1.trim() !== "" &&
+          neet2.trim() !== "" &&
+          keam.trim() !== "" &&
+          category.trim() !== ""
+        ) {
+          window.open(url, "_blank").focus();
+        } else {
+          return;
+        }
         }
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
