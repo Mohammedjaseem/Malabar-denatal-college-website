@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Malabar Dental College & Research Center</title>
+<title>News Details Page | MDCRC</title>
 
     <link
       rel="stylesheet"
@@ -103,6 +103,50 @@
       #shareButton {
   display: none;
 }
+/* Styles for the modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: white;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60%;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Media query to adjust modal width on smaller screens */
+@media (max-width: 768px) {
+  .modal-content {
+    width: 80%;
+  }
+}
+
 
 /* Show the button when screen width is 768px or less */
 @media (max-width: 768px) {
@@ -1160,6 +1204,15 @@
         </footer>
       </div>
     </div>
+    <div id="shareModal" class="modal">
+  <div class="modal-content">
+    <h2>Share Options</h2>
+    <p>Choose how you want to share:</p>
+    <button id="emailButton">Email</button>
+    <button id="copyButton">Copy Link</button>
+    <span class="close">&times;</span>
+  </div>
+</div>
 
     <script type="text/javascript" src="js/jquery/jquery.js"></script>
     <script
@@ -1307,24 +1360,43 @@
 <script>
 document.addEventListener('DOMContentLoaded', function () {
   const shareButton = document.getElementById('shareButton');
+  const shareModal = document.getElementById('shareModal');
+  const emailButton = document.getElementById('emailButton');
+  const copyButton = document.getElementById('copyButton');
+  const closeButton = shareModal.querySelector('.close');
 
   shareButton.addEventListener('click', function () {
-    const shareData = {
-      title: 'Check out this news!', // Replace with your news title
-      url: window.location.href // Current page URL
-    };
+    shareModal.style.display = 'block';
+  });
 
-    if (navigator.share) { // Use native share dialog if available
-      navigator.share(shareData).then(() => {
-        console.log('Shared successfully.');
-      }).catch((error) => {
-        console.error('Error sharing:', error);
-      });
-    } else {
-      console.log('Web Share API and clipboard not supported.');
+  emailButton.addEventListener('click', function () {
+    const shareData = {
+      subject: 'Check out this news', // Replace with your subject
+      body: 'I thought you might find this news interesting:\n' + window.location.href // Current page URL
+    };
+    window.location.href = `mailto:?subject=${encodeURIComponent(shareData.subject)}&body=${encodeURIComponent(shareData.body)}`;
+  });
+
+  copyButton.addEventListener('click', function () {
+    const url = window.location.href;
+    navigator.clipboard.writeText(url).then(() => {
+      alert('Link copied to clipboard.');
+    }).catch((error) => {
+      console.error('Error copying to clipboard:', error);
+    });
+  });
+
+  closeButton.addEventListener('click', function () {
+    shareModal.style.display = 'none';
+  });
+
+  window.addEventListener('click', function (event) {
+    if (event.target === shareModal) {
+      shareModal.style.display = 'none';
     }
   });
 });
+
 </script>
    <script
       type="text/javascript"
