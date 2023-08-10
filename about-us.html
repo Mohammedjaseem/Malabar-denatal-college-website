@@ -15,8 +15,58 @@
 
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700%2C400" rel="stylesheet" property="stylesheet" type="text/css" media="all">
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2Cregular%2Citalic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CABeeZee%3Aregular%2Citalic&amp;subset=latin%2Clatin-ext%2Cdevanagari&amp;ver=5.0.3' type='text/css' media='all' />
+ <style>
+ .floating-button {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background-color: #182847; /* WhatsApp green */
+        color: #fff;
+        width: 70px; /* Set width and height to the same value for a perfect circle */
+        height: 70px;
+        border-radius: 50%; /* Make the button round */
+        cursor: pointer;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px; /* Adjust the font size for larger text */
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 9999; /* Set a high z-index to appear above other content */
+      }
 
-</head>
+      /* Style for WhatsApp logo */
+       .whatsapp-logo {
+        width: 36px; /* Adjust the logo size */
+        height: 36px; /* Adjust the logo size */
+      }
+      .notification-list {
+        display: inline-block;
+        max-height: 20px;
+        overflow: hidden;
+        position: relative;
+        max-height: 20px;
+      }
+      ul.notification-list {
+        margin-bottom: 0px !important;
+      }
+      @keyframes marquee-up {
+        0% {
+          transform: translateY(0);
+        }
+        100% {
+          transform: translateY(-100%);
+        }
+      }
+    </style>
+  </head>
+  <a
+    href="https://api.whatsapp.com/send?phone=7034555514"
+    target="_blank"
+    class="floating-button"
+  >
+    <img src="upload/wsup-logo.png" alt="WhatsApp Logo" class="whatsapp-logo" />
+  </a>
 
 <body class="home page-template-default page page-id-2039 gdlr-core-body woocommerce-no-js tribe-no-js kingster-body kingster-body-front kingster-full  kingster-with-sticky-navigation  kingster-blockquote-style-1 gdlr-core-link-to-lightbox">
   <div class="kingster-mobile-header-wrap">
@@ -125,21 +175,35 @@
     </div>
     <div class="kingster-body-outer-wrapper ">
         <div class="kingster-body-wrapper clearfix  kingster-with-frame">
-            <div class="kingster-top-bar">
-                <div class="kingster-top-bar-background"></div>
-                <div class="kingster-top-bar-container kingster-container ">
-                    <div class="kingster-top-bar-container-inner clearfix">
-                        <div class="kingster-top-bar-left kingster-item-pdlr"><i class="fa fa-envelope-open-o" id="i_983a_0"></i> <a href="mailto:info@macity.edu.in">info@macity.edu.in</a><i class="fa fa-phone" id="i_983a_1"></i> +917034555551</div>
-                        <div class="kingster-top-bar-right kingster-item-pdlr">
-                            <ul id="kingster-top-bar-menu" class="sf-menu kingster-top-bar-menu kingster-top-bar-right-menu">
-                                <li class="menu-item kingster-normal-menu"><a href="#">Alumni</a></li>
-                                <li class="menu-item kingster-normal-menu"><a href="#">Calendar</a></li>
-                                <li class="menu-item kingster-normal-menu"><a href="#">Portal</a></li>
-                            </ul>
-                            <div class="kingster-top-bar-right-social"></div><a class="kingster-top-bar-right-button" href="#" target="_blank">Support KU</a></div>
-                    </div>
-                </div>
+          <div class="kingster-top-bar">
+          <div class="kingster-top-bar-background"></div>
+          <div class="kingster-top-bar-container kingster-container">
+            <div class="kingster-top-bar-container-inner clearfix">
+              <div class="kingster-top-bar-left kingster-item-pdlr">
+                <i class="fa fa-envelope-open-o" id="i_fd84_0"></i>
+                <a href="mailto:info@macity.edu.in">info@macity.edu.in</a
+                ><i class="fa fa-phone" id="i_fd84_1"></i>
+                <a href="tel:+917034555551">+91 7034 55555 1</a>
+              </div>
+              <div class="kingster-top-bar-right kingster-item-pdlr">
+                <ul
+                  class="notification-list kingster-top-bar-right-menu notification"
+                  id="notification-container"
+                >
+                  Loading...
+                </ul>
+
+                <div class="kingster-top-bar-right-social"></div>
+                <a
+                  class="kingster-top-bar-right-button"
+                  href="https://mdc.conext.in"
+                  target="_blank"
+                  >MDC Connect</a
+                >
+              </div>
             </div>
+          </div>
+        </div>
             <header class="kingster-header-wrap kingster-header-style-plain  kingster-style-menu-right kingster-sticky-navigation kingster-style-fixed" data-navigation-offset="75px">
                 <div class="kingster-header-background"></div>
                 <div class="kingster-header-container  kingster-container">
@@ -650,7 +714,7 @@
                                             <div class="gdlr-core-pbf-element">
                                                 <div class="gdlr-core-image-item gdlr-core-item-pdlr gdlr-core-item-pdb  gdlr-core-center-align" style="padding-bottom: 33px ;">
                                                     <div class="gdlr-core-image-item-wrap gdlr-core-media-image  gdlr-core-image-item-style-round" style="border-radius: 2px;-moz-border-radius: 2px;-webkit-border-radius: 2px;border-width: 0px;">
-                                                        <a class="gdlr-core-lightgallery gdlr-core-js " href="upload/principal2.jpg"><img src="upload/principal.jpg" width="480" height="700" alt="" /></a>
+                                                        <a class="gdlr-core-lightgallery gdlr-core-js " href="upload/principal2.jpg"><img src="upload/principal.jpg" width="600" height="700" alt="" /></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -674,7 +738,7 @@
                                             <div class="gdlr-core-pbf-element">
                                                 <div class="gdlr-core-image-item gdlr-core-item-pdlr gdlr-core-item-pdb  gdlr-core-center-align" style="padding-bottom: 33px ;">
                                                     <div class="gdlr-core-image-item-wrap gdlr-core-media-image  gdlr-core-image-item-style-round" style="border-radius: 2px;-moz-border-radius: 2px;-webkit-border-radius: 2px;border-width: 0px;">
-                                                        <a class="gdlr-core-lightgallery gdlr-core-js " href="upload/vice-principal.png"><img src="upload/vice-principal.png" width="520" height="0"  alt="" /></a>
+                                                        <a class="gdlr-core-lightgallery gdlr-core-js " href="upload/vice-principal2.jpeg"><img src="upload/vice-principal1.jpeg" width="600" height="0"  alt="" /></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1184,6 +1248,48 @@
             },
             "ajax_url": "#"
         };
+    </script>
+     <script>
+      // Define the API URL to fetch notification data
+      const apiUrl =
+        "https://app.conext.in/Notifications/api/latest-mdc-top-bar-notification/";
+
+      // Reference to the notification container
+      const notificationContainer = document.getElementById(
+        "notification-container"
+      );
+
+      // Store the notification data and current index
+      let notifications = [];
+      let currentIndex = 0;
+
+      // Function to fetch and update notification data
+      async function fetchAndUpdateNotifications() {
+        try {
+          const response = await fetch(apiUrl);
+          notifications = await response.json();
+
+          // Call the updateNotification function initially
+          updateNotification();
+
+          // Set an interval to update notifications every 1.5 seconds
+          setInterval(updateNotification, 4500);
+        } catch (error) {
+          console.error("Error fetching notifications:", error);
+        }
+      }
+
+      // Function to update the notification text
+      function updateNotification() {
+        if (notifications.length > 0) {
+          const list = notificationContainer;
+          list.innerHTML = `<li>${notifications[currentIndex].notification}</li>`;
+          currentIndex = (currentIndex + 1) % notifications.length;
+        }
+      }
+
+      // Call the fetchAndUpdateNotifications function initially
+      fetchAndUpdateNotifications();
     </script>
     <script type='text/javascript' src='plugins/goodlayers-core/include/js/page-builder.js'></script>
     <script type='text/javascript' src='js/jquery/ui/effect.min.js'></script>

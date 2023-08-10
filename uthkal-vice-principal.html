@@ -51,7 +51,58 @@
       type="text/css"
       media="all"
     />
+    <style>
+      .floating-button {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background-color: #182847; /* WhatsApp green */
+        color: #fff;
+        width: 70px; /* Set width and height to the same value for a perfect circle */
+        height: 70px;
+        border-radius: 50%; /* Make the button round */
+        cursor: pointer;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px; /* Adjust the font size for larger text */
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 9999; /* Set a high z-index to appear above other content */
+      }
+
+      /* Style for WhatsApp logo */
+      .whatsapp-logo {
+        width: 36px; /* Adjust the logo size */
+        height: 36px; /* Adjust the logo size */
+      }
+      .notification-list {
+        display: inline-block;
+        max-height: 20px;
+        overflow: hidden;
+        position: relative;
+        max-height: 20px;
+      }
+      ul.notification-list {
+        margin-bottom: 0px !important;
+      }
+      @keyframes marquee-up {
+        0% {
+          transform: translateY(0);
+        }
+        100% {
+          transform: translateY(-100%);
+        }
+      }
+    </style>
   </head>
+  <a
+    href="https://api.whatsapp.com/send?phone=7034555514"
+    target="_blank"
+    class="floating-button"
+  >
+    <img src="upload/wsup-logo.png" alt="WhatsApp Logo" class="whatsapp-logo" />
+  </a>
 
   <body
     class="home page-template-default page page-id-2039 gdlr-core-body woocommerce-no-js tribe-no-js kingster-body kingster-body-front kingster-full kingster-with-sticky-navigation kingster-blockquote-style-1 gdlr-core-link-to-lightbox"
@@ -303,16 +354,17 @@
               <div class="kingster-top-bar-left kingster-item-pdlr">
                 <i class="fa fa-envelope-open-o" id="i_fd84_0"></i>
                 <a href="mailto:info@macity.edu.in">info@macity.edu.in</a
-                ><i class="fa fa-phone" id="i_fd84_1"></i> +91 7034 55555 1
+                ><i class="fa fa-phone" id="i_fd84_1"></i>
+                <a href="tel:+917034555551">+91 7034 55555 1</a>
               </div>
               <div class="kingster-top-bar-right kingster-item-pdlr">
                 <ul
-                  id="kingster-top-bar-menu"
-                  class="sf-menu kingster-top-bar-menu kingster-top-bar-right-menu"
+                  class="notification-list kingster-top-bar-right-menu notification"
+                  id="notification-container"
                 >
-                  BDS 1st & 2nd Rank under All Kerala Univeristy of Health &
-                  Science (KUHS)
+                  Loading...
                 </ul>
+
                 <div class="kingster-top-bar-right-social"></div>
                 <a
                   class="kingster-top-bar-right-button"
@@ -731,9 +783,9 @@
                             >
                               <a
                                 class="gdlr-core-lightgallery gdlr-core-js"
-                                href="upload/director.png"
+                                href="upload/vice-principal2.jpeg"
                                 ><img
-                                  src="upload/director.png"
+                                  src="upload/vice-principal1.jpeg"
                                   width="700"
                                   height="350"
                                   alt="" /><span class="gdlr-core-image-overlay"
@@ -1170,6 +1222,9 @@
                         <a href="dental-mechanic.html">Dental Mechanic</a>
                       </li>
                       <li class="menu-item"><a href="dora.html">DORA</a></li>
+                      <li class="menu-item">
+                        <a href="contact-us.html">Contact</a>
+                      </li>
                     </ul>
                   </div>
                 </div>
@@ -1285,11 +1340,13 @@
                 <div
                   class="gdlr-core-social-network-item gdlr-core-item-pdb gdlr-core-none-align"
                   id="div_1dd7_112"
+                  style="color: #3db166"
                 >
                   <a
                     href="https://www.facebook.com/people/Malabar-Dental-College-Research-Centre/100067331926532/"
                     target="_blank"
                     class="gdlr-core-social-network-icon"
+                    style="color: #3db166"
                     title="facebook"
                   >
                     <i class="fa fa-facebook"></i>
@@ -1298,6 +1355,7 @@
                     href="https://goo.gl/maps/mqi1nkPswEPLQjzv6"
                     target="_blank"
                     class="gdlr-core-social-network-icon"
+                    style="color: #3db166"
                     title="google-plus"
                   >
                     <i class="fa fa-google-plus"></i>
@@ -1306,6 +1364,7 @@
                     href="https://in.linkedin.com/school/malabar-dental-college-&-research-center/"
                     target="_blank"
                     class="gdlr-core-social-network-icon"
+                    style="color: #3db166"
                     title="linkedin"
                   >
                     <i class="fa fa-linkedin"></i>
@@ -1315,6 +1374,7 @@
                     href="https://www.instagram.com/malabar_dental_college/"
                     target="_blank"
                     class="gdlr-core-social-network-icon"
+                    style="color: #3db166"
                     title="instagram"
                   >
                     <i class="fa fa-instagram"></i>
@@ -1345,6 +1405,48 @@
         },
         ajax_url: "#",
       };
+    </script>
+    <script>
+      // Define the API URL to fetch notification data
+      const apiUrlNotification =
+        "https://app.conext.in/Notifications/api/latest-mdc-top-bar-notification/";
+
+      // Reference to the notification container
+      const notificationContainer = document.getElementById(
+        "notification-container"
+      );
+
+      // Store the notification data and current index
+      let notifications = [];
+      let currentIndex = 0;
+
+      // Function to fetch and update notification data
+      async function fetchAndUpdateNotifications() {
+        try {
+          const response = await fetch(apiUrlNotification);
+          notifications = await response.json();
+
+          // Call the updateNotification function initially
+          updateNotification();
+
+          // Set an interval to update notifications every 1.5 seconds
+          setInterval(updateNotification, 4500);
+        } catch (error) {
+          console.error("Error fetching notifications:", error);
+        }
+      }
+
+      // Function to update the notification text
+      function updateNotification() {
+        if (notifications.length > 0) {
+          const list = notificationContainer;
+          list.innerHTML = `<li>${notifications[currentIndex].notification}</li>`;
+          currentIndex = (currentIndex + 1) % notifications.length;
+        }
+      }
+
+      // Call the fetchAndUpdateNotifications function initially
+      fetchAndUpdateNotifications();
     </script>
     <script
       type="text/javascript"

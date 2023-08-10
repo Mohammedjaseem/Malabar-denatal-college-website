@@ -17,7 +17,58 @@
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700%2C400" rel="stylesheet" property="stylesheet" type="text/css" media="all">
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2Cregular%2Citalic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CABeeZee%3Aregular%2Citalic&amp;subset=latin%2Clatin-ext%2Cdevanagari&amp;ver=5.0.3' type='text/css' media='all' />
 
-</head>
+<style>
+        .floating-button {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background-color: #182847; /* WhatsApp green */
+        color: #fff;
+        width: 70px; /* Set width and height to the same value for a perfect circle */
+        height: 70px;
+        border-radius: 50%; /* Make the button round */
+        cursor: pointer;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px; /* Adjust the font size for larger text */
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 9999; /* Set a high z-index to appear above other content */
+      }
+
+      /* Style for WhatsApp logo */
+       .whatsapp-logo {
+        width: 36px; /* Adjust the logo size */
+        height: 36px; /* Adjust the logo size */
+      }
+      .notification-list {
+        display: inline-block;
+        max-height: 20px;
+        overflow: hidden;
+        position: relative;
+        max-height: 20px;
+      }
+      ul.notification-list {
+        margin-bottom: 0px !important;
+      }
+      @keyframes marquee-up {
+        0% {
+          transform: translateY(0);
+        }
+        100% {
+          transform: translateY(-100%);
+        }
+      }
+    </style>
+  </head>
+  <a
+    href="https://api.whatsapp.com/send?phone=7034555514"
+    target="_blank"
+    class="floating-button"
+  >
+    <img src="upload/wsup-logo.png" alt="WhatsApp Logo" class="whatsapp-logo" />
+  </a>
 
 <body class="home page-template-default page page-id-2039 gdlr-core-body woocommerce-no-js tribe-no-js kingster-body kingster-body-front kingster-full  kingster-with-sticky-navigation  kingster-blockquote-style-1 gdlr-core-link-to-lightbox">
     <div class="kingster-mobile-header-wrap">
@@ -262,22 +313,35 @@
     </div>
     <div class="kingster-body-outer-wrapper ">
         <div class="kingster-body-wrapper clearfix  kingster-with-frame">
-            <div class="kingster-top-bar">
-                <div class="kingster-top-bar-background"></div>
-                <div class="kingster-top-bar-container kingster-container ">
-                    <div class="kingster-top-bar-container-inner clearfix">
-                        <div class="kingster-top-bar-left kingster-item-pdlr"><i class="fa fa-envelope-open-o" id="i_fd84_0"></i> <a href="mailto:info@macity.edu.in">info@macity.edu.in</a><i class="fa fa-phone" id="i_fd84_1"></i> +91 7034 55555 1</div>
-                        <div class="kingster-top-bar-right kingster-item-pdlr">
-                            <ul id="kingster-top-bar-menu" class="sf-menu kingster-top-bar-menu kingster-top-bar-right-menu">
-                                BDS 1st & 2nd Rank under
-All Kerala Univeristy of Health & Science (KUHS)
-                               
+           <div class="kingster-top-bar">
+          <div class="kingster-top-bar-background"></div>
+          <div class="kingster-top-bar-container kingster-container">
+            <div class="kingster-top-bar-container-inner clearfix">
+              <div class="kingster-top-bar-left kingster-item-pdlr">
+                <i class="fa fa-envelope-open-o" id="i_fd84_0"></i>
+                <a href="mailto:info@macity.edu.in">info@macity.edu.in</a
+                ><i class="fa fa-phone" id="i_fd84_1"></i>
+                <a href="tel:+917034555551">+91 7034 55555 1</a>
+              </div>
+              <div class="kingster-top-bar-right kingster-item-pdlr">
+                <ul
+                  class="notification-list kingster-top-bar-right-menu notification"
+                  id="notification-container"
+                >
+                  Loading...
+                </ul>
 
-                            </ul>
-                            <div class="kingster-top-bar-right-social"></div><a class="kingster-top-bar-right-button" href="https://mdc.conext.in" target="_blank">MDC Connect</a></div>
-                    </div>
-                </div>
-            </div> 
+                <div class="kingster-top-bar-right-social"></div>
+                <a
+                  class="kingster-top-bar-right-button"
+                  href="https://mdc.conext.in"
+                  target="_blank"
+                  >MDC Connect</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
           <header class="kingster-header-wrap kingster-header-style-plain  kingster-style-menu-right kingster-sticky-navigation kingster-style-fixed" data-navigation-offset="75px">
                 <div class="kingster-header-background"></div>
                 <div class="kingster-header-container  kingster-container">
@@ -607,7 +671,7 @@ Oral Medicine is a branch of dental science which is at the interface between Me
                                     <div class="gdlr-core-pbf-element">
                                         <div class="gdlr-core-text-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-left-align" style="padding-bottom: 15px ;">
                                             <div class="gdlr-core-text-box-item-content" style="font-size: 18px ;text-transform: none ;color: #3db166 ;">
-                                                <p> Diagnosis of oral soft and hard tissue lesions, dental management of medically compromised patients, non-invasive management of mucosal lesions, chronic orofacial pain, temporomandibular disorders & salivary gland diseases and tobacco cessation centre is emphasized here thus contributing to a comprehensive patient care. Oral Radiology deals with the techniques and interpretation of radiographs of the maxillofacial region for diagnosis and treatment planning.</p>
+                                                <p> Oral medicine and radiology department of Malabar dental college carry forward the legacy of  “Smiles for All” and a department mission of “creating Smiles through Research and Compassion”. We mainly focus on diagnosis and medical management of diseases of oral mucosa,  jaws, teeth and salivary glands, which includes oral manifestations of systemic disorders, medical management of facial and temporomandibular joint disorders, Orofacial pain, psychosomatic disorders , biopsy procedures for mucosal lesions, Habit counseling and tobacco cessation programme.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -628,18 +692,75 @@ Oral Medicine is a branch of dental science which is at the interface between Me
                                 class="gdlr-core-accordion-item-icon gdlr-core-js gdlr-core-skin-icon"
                               ></div>
                               <div class="gdlr-core-title-item-title-wrap clearfix">
-                                                <h3 class="gdlr-core-title-item-title gdlr-core-skin-title " style="font-size: 26px ;font-weight: 700 ;letter-spacing: 0px ;text-transform: none ;color: #293a5b ;padding-top: 30px;">Why Oral Medicine & Radiology is Special ?</h3></div><div class="gdlr-core-accordion-item-content">
-                                  
-                                 <p>
-                                  Oral Medicine is a branch of dental science which is at the interface between Medicine and Dentistry to promote optimal health to all. Diagnosis of oral soft and hard tissue lesions, dental management of medically compromised patients, non-invasive management of mucosal lesions, chronic orofacial pain, temporomandibular disorders & salivary gland diseases and tobacco cessation centre is emphasized here thus contributing to a comprehensive patient care. 
-                                 </p>
-                                 <p>
-                                  Oral Radiology deals with the techniques and interpretation of radiographs of the maxillofacial region for diagnosis and treatment planning. The Department of Oral Medicine and Radiology of Malabar Dental College & Research Centre is the place where the initial screening of all outpatients attending the hospital is performed and clinical and radiographic diagnosis of various diseases of the oral and para oral structures is established. Here, the undergraduate and post graduate students work under close supervision of proficient  faculties. We have specialized Tobacco Cessation Centre, TMJ Clinic & Dry Mouth Clinic. Radiology department  is equipped with extra oral skull unit ,  digital panoramic unit, digital intra oral radiography , Intraoral radiography machines & an innovative  intra oral radiology simulation area. The Department is involved in various research and collaborative activities.  With the help of eminent faculties and excellent facilties every student in the department is exposed to a wide range of cases and is moulded in such a way that they are confident in their ability to manage any case in their clinics.
-                                 </p>
-                                 </div>
-                             
+                                                <h3 class="gdlr-core-title-item-title gdlr-core-skin-title " style="font-size: 24px ;font-weight: 700 ;letter-spacing: 0px ;padding-top: 10px;padding-bottom: 20px;text-transform: none ;color: #293a5b ;">Why Oral Medicine & Radiology Department is Special ?</h3></div>
+                              <div
+                                class="gdlr-core-accordion-item-content-wrapper"
+                              >
+                                <h4
+                                  class="gdlr-core-accordion-item-title gdlr-core-js gdlr-core-skin-e-background gdlr-core-skin-e-content"
+                                >
+                                 Mission 
+                                </h4>
+                                <div class="gdlr-core-accordion-item-content" style="padding: 10px 30px!important;">
+                                  <p>Creating smiles through research & compassion</p>
+                                 
+                                </div>
+                              </div>
                             </div>
+                            <div class="gdlr-core-accordion-item-tab clearfix">
+                              <div
+                                class="gdlr-core-accordion-item-icon gdlr-core-js gdlr-core-skin-icon"
+                              ></div>
+                              <div
+                                class="gdlr-core-accordion-item-content-wrapper"
+                              >
+                                <h4
+                                  class="gdlr-core-accordion-item-title gdlr-core-js gdlr-core-skin-e-background gdlr-core-skin-e-content"
+                                >
+                                  Vision
+                                </h4>
+                                <div class="gdlr-core-accordion-item-content" style="padding: 10px 30px!important;">
+                                 <p>
+                              Smiles for all
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="gdlr-core-accordion-item-tab clearfix">
+                              <div
+                                class="gdlr-core-accordion-item-icon gdlr-core-js gdlr-core-skin-icon"
+                              ></div>
+                              <div
+                                class="gdlr-core-accordion-item-content-wrapper"
+                              >
+                                <h4
+                                  class="gdlr-core-accordion-item-title gdlr-core-js gdlr-core-skin-e-background gdlr-core-skin-e-content"
+                                >
+                                 Department Facilities
+                                
+                                </h4>
+                                <div class="gdlr-core-accordion-item-content" style="padding: 10px 30px!important;">
+
+                                <p> The main facets of Department include Clinical care, Research-ICMR, Undergraduate & post graduate training, CBCT 3D Imaging,  TMD Clinic, Dry mouth clinic, Early Oral Cancer Detection And Prevention, and Tobacco cessation clinic. <br/><br/>
+The department is provided with an extensive area of space for undergraduate and post graduate students. The department is equipped with contoured chairs with units and intra oal camera. Students are well trained under patient management software system. The department is equipped with an exclusive section of Oral and Maxillofacial Radiology wing which houses extraoral skull units, digital intraoral periapical radiograph machine, digital panoramic machine, Intra oral periapical Machine, Radio Visual Graphy  an innovative  intra oral radiology simulation area and a dark room with all provisions. In the radiology department we have   Planmeca Promax 3D max CBCT machine which is an extremely versatile device that offers detailed images of oral and maxillofacial region with dedicated protocols for adults and children. <br><br>
+The Undergraduate and Postgraduate students acquire skill of taking and
+interpretating various oral and skull radiographs, as well as other advanced
+imaging techniques that help them in making a definitive diagnosis. They achieve
+the necessary training to diagnose and treat patients under the supervision of
+academically and clinically competent faculty members. The Dept of Oral
+Medicine and radiology at the Malabar dental college is an academic centre in
+which education, research and patient care occurs simultaneously –each informing
+and improving other. The faculty and students are actively involved in various
+research activities. The department has many international and national
+publications to its credit. The scientific presentations from the department have
+been recognized and appreciated in various scientific meets. The Academic
+excellence of the students is reflected in several university ranks.
+</p>
                            
+                                </div>
+                              </div>
+                            </div>
+                            
                           </div>
                         </div>
                                 </div>
@@ -703,8 +824,8 @@ Malappuram, Dt Pin : 679578</span></p>
                                             </div>
                                             <div class="gdlr-core-pbf-element">
                                                 <div class="gdlr-core-text-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-left-align">
-                                                    <div class="gdlr-core-text-box-item-content" style="font-size: 23px ;text-transform: none ;color: #434343 ;">
-                                                        <p>Dr Deepak Daryani completed his Masters in Oral Medicine & Radiology from A.B. Shetty Memorial Institute Of Dental Sciences in 2007 under Rajiv Gandhi University Of Health Sciences. He has 14 years of undergraduate teaching and 12 years of Post Graduate Teaching experience.  </p>
+                                                    <div class="gdlr-core-text-box-item-content" style="font-size: 17px ;text-transform: none ;color: #434343 ;">
+                                                        <p>Dr Vineet Alex, has over 15 Years Of teaching Experience and holds Diplomate In Laser Science Degree From University Of Genova, Italy. He is an distinguished alumni of SIMATHS Saveetha university Chennai. He is actively Involved in Research Activities Regarding Oral Cancer and has Many National And International Indexed Publications. Dr.Vineet Alex has been a Resource Faculty In various International Conference And Webinars, a Highly Skilled And Trained Professional In Academic ,Clinical And Research Activities with excellent coordination with team members.<br/><br/>A hardworking, ambitious, academically and clinically top notch and with par to global progression in Dentistry. And is currently pursuing PhD in Saveetha dental college and hospital, Chennai. Areas of interest include oral cancer, research in current and advanced trends in dentistry and TMD. </p>
                                                        
                                                     </div>
                                                 </div>
@@ -718,13 +839,13 @@ Malappuram, Dt Pin : 679578</span></p>
                                         <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js ">
                                             <div class="gdlr-core-pbf-element">
                                                 <div class="gdlr-core-image-item gdlr-core-item-pdlr gdlr-core-item-pdb  gdlr-core-center-align " style="padding-bottom: 5px;" >
-                                                    <div class="gdlr-core-image-item-wrap gdlr-core-media-image  gdlr-core-image-item-style-rectangle" style="border-width: 0px;"><img src="upload/radiology-1.jpg" width="450" height="600"  alt="" /></div>
+                                                    <div class="gdlr-core-image-item-wrap gdlr-core-media-image  gdlr-core-image-item-style-rectangle" style="border-width: 0px;"><img src="upload/radiology-1.png" width="450" height="600"  alt="" /></div>
                                                 </div>
                                             </div>
                                             <div class="gdlr-core-pbf-element">
                                                 <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix  gdlr-core-left-align gdlr-core-title-item-caption-top gdlr-core-item-pdlr" style="padding-bottom: 10px ;">
                                                     <div class="gdlr-core-title-item-title-wrap clearfix chairman-title">
-                                                        <h3 class="gdlr-core-title-item-title gdlr-core-skin-title " style="font-size: 24px ;font-weight: 600 ;letter-spacing: 0px ;text-transform: none ;">Dr. Jiji John</h3></div>
+                                                        <h3 class="gdlr-core-title-item-title gdlr-core-skin-title " style="font-size: 24px ;font-weight: 600 ;letter-spacing: 0px ;text-transform: none ;">Dr Vineet Alex Daniel</h3></div>
                                                 </div>
                                             </div>
                                           
@@ -768,14 +889,14 @@ Malappuram, Dt Pin : 679578</span></p>
                                             <div class="gdlr-core-pbf-element">
                                                 <div class="gdlr-core-image-item gdlr-core-item-pdlr gdlr-core-item-pdb  gdlr-core-center-align" style="padding-bottom: 33px ;">
                                                     <div class="gdlr-core-image-item-wrap gdlr-core-media-image  gdlr-core-image-item-style-round" style="border-radius: 2px;-moz-border-radius: 2px;-webkit-border-radius: 2px;border-width: 0px;">
-                                                        <a class="gdlr-core-lightgallery gdlr-core-js " href="upload/radiology-1.jpg"><img src="upload/radiology-1.jpg" width="500" height="700" class="directors-image "  alt="" /></a>
+                                                        <a class="gdlr-core-lightgallery gdlr-core-js " href="upload/radiology-2.png"><img src="upload/radiology-2.png" width="500" height="700" class="directors-image "  alt="" /></a>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="gdlr-core-pbf-element">
                                                 <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix  gdlr-core-left-align gdlr-core-title-item-caption-top gdlr-core-item-pdlr" style="padding-bottom: 10px ;">
                                                     <div class="gdlr-core-title-item-title-wrap clearfix">
-                                                        <h3 class="gdlr-core-title-item-title gdlr-core-skin-title " style="font-size: 18px ;font-weight: 600 ;letter-spacing: 0px ;text-transform: none ;">Dr. Sreejan C K	</h3></div><span style="color: #3db166;"  class=" gdlr-core-info-font">Professor</span>
+                                                        <h3 class="gdlr-core-title-item-title gdlr-core-skin-title " style="font-size: 18px ;font-weight: 600 ;letter-spacing: 0px ;text-transform: none ;">Dr. Uthkal M P</h3></div><span style="color: #3db166;"  class=" gdlr-core-info-font">Professor & Vice Principal</span>
                                                 </div>
                                             </div>
                                            
@@ -791,14 +912,14 @@ Malappuram, Dt Pin : 679578</span></p>
                                             <div class="gdlr-core-pbf-element">
                                                 <div class="gdlr-core-image-item gdlr-core-item-pdlr gdlr-core-item-pdb  gdlr-core-center-align" style="padding-bottom: 33px ;">
                                                     <div class="gdlr-core-image-item-wrap gdlr-core-media-image  gdlr-core-image-item-style-round" style="border-radius: 2px;-moz-border-radius: 2px;-webkit-border-radius: 2px;border-width: 0px;">
-                                                        <a class="gdlr-core-lightgallery gdlr-core-js " href="upload/radiology-1.jpg"><img src="upload/radiology-1.jpg" width="500" height="700" class="directors-image "  alt="" /></a>
+                                                        <a class="gdlr-core-lightgallery gdlr-core-js " href="upload/radiology-3.png"><img src="upload/radiology-3.png" width="500" height="700" class="directors-image "  alt="" /></a>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="gdlr-core-pbf-element">
                                                 <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix  gdlr-core-left-align gdlr-core-title-item-caption-top gdlr-core-item-pdlr" style="padding-bottom: 10px ;">
                                                     <div class="gdlr-core-title-item-title-wrap clearfix">
-                                                        <h3 class="gdlr-core-title-item-title gdlr-core-skin-title " style="font-size: 18px ;font-weight: 600 ;letter-spacing: 0px ;text-transform: none ;">Dr. Uthkal M P</h3></div><span style="color: #3db166;"  class=" gdlr-core-info-font">Professor</span>
+                                                        <h3 class="gdlr-core-title-item-title gdlr-core-skin-title " style="font-size: 18px ;font-weight: 600 ;letter-spacing: 0px ;text-transform: none ;">Dr.Deepak</h3></div><span style="color: #3db166;"  class=" gdlr-core-info-font">Professor</span>
                                                 </div>
                                             </div>
                                            
@@ -814,14 +935,14 @@ Malappuram, Dt Pin : 679578</span></p>
                                             <div class="gdlr-core-pbf-element">
                                                 <div class="gdlr-core-image-item gdlr-core-item-pdlr gdlr-core-item-pdb  gdlr-core-center-align" style="padding-bottom: 33px ;">
                                                     <div class="gdlr-core-image-item-wrap gdlr-core-media-image  gdlr-core-image-item-style-round" style="border-radius: 2px;-moz-border-radius: 2px;-webkit-border-radius: 2px;border-width: 0px;">
-                                                        <a class="gdlr-core-lightgallery gdlr-core-js " href="upload/radiology-1.jpg"><img src="upload/radiology-1.jpg" width="500" height="700" class="directors-image "  alt="" /></a>
+                                                        <a class="gdlr-core-lightgallery gdlr-core-js " href="upload/radiology-4.png"><img src="upload/radiology-4.png" width="500" height="700" class="directors-image "  alt="" /></a>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="gdlr-core-pbf-element">
                                                 <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix  gdlr-core-left-align gdlr-core-title-item-caption-top gdlr-core-item-pdlr" style="padding-bottom: 10px ;">
                                                     <div class="gdlr-core-title-item-title-wrap clearfix">
-                                                        <h3 class="gdlr-core-title-item-title gdlr-core-skin-title " style="font-size: 18px ;font-weight: 600 ;letter-spacing: 0px ;text-transform: none ;">Dr. Shabil Mohd Musthafa</h3></div><span style="color: #3db166;"  class=" gdlr-core-info-font">Reader</span>
+                                                        <h3 class="gdlr-core-title-item-title gdlr-core-skin-title " style="font-size: 18px ;font-weight: 600 ;letter-spacing: 0px ;text-transform: none ;">Dr. Chitra P</h3></div><span style="color: #3db166;"  class=" gdlr-core-info-font">Reader</span>
                                                 </div>
                                             </div>
                                            
@@ -837,7 +958,7 @@ Malappuram, Dt Pin : 679578</span></p>
                                             <div class="gdlr-core-pbf-element">
                                                 <div class="gdlr-core-image-item gdlr-core-item-pdlr gdlr-core-item-pdb  gdlr-core-center-align" style="padding-bottom: 33px ;">
                                                     <div class="gdlr-core-image-item-wrap gdlr-core-media-image  gdlr-core-image-item-style-round" style="border-radius: 2px;-moz-border-radius: 2px;-webkit-border-radius: 2px;border-width: 0px;">
-                                                        <a class="gdlr-core-lightgallery gdlr-core-js " href="upload/radiology-1.jpg"><img src="upload/radiology-1.jpg" width="500" height="700" class="directors-image "  alt="" /></a>
+                                                        <a class="gdlr-core-lightgallery gdlr-core-js " href="upload/radiology-5.png"><img src="upload/radiology-5.png" width="500" height="700" class="directors-image "  alt="" /></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -860,14 +981,14 @@ Malappuram, Dt Pin : 679578</span></p>
                                             <div class="gdlr-core-pbf-element">
                                                 <div class="gdlr-core-image-item gdlr-core-item-pdlr gdlr-core-item-pdb  gdlr-core-center-align" style="padding-bottom: 33px ;">
                                                     <div class="gdlr-core-image-item-wrap gdlr-core-media-image  gdlr-core-image-item-style-round" style="border-radius: 2px;-moz-border-radius: 2px;-webkit-border-radius: 2px;border-width: 0px;">
-                                                        <a class="gdlr-core-lightgallery gdlr-core-js " href="upload/radiology-1.jpg"><img src="upload/radiology-1.jpg" width="500" height="700" class="directors-image "  alt="" /></a>
+                                                        <a class="gdlr-core-lightgallery gdlr-core-js " href="upload/radiology-6.png"><img src="upload/radiology-6.png" width="500" height="700" class="directors-image "  alt="" /></a>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="gdlr-core-pbf-element">
                                                 <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix  gdlr-core-left-align gdlr-core-title-item-caption-top gdlr-core-item-pdlr" style="padding-bottom: 10px ;">
                                                     <div class="gdlr-core-title-item-title-wrap clearfix">
-                                                        <h3 class="gdlr-core-title-item-title gdlr-core-skin-title " style="font-size: 18px ;font-weight: 600 ;letter-spacing: 0px ;text-transform: none ;">Dr. Chithra P</h3></div><span style="color: #3db166;"  class=" gdlr-core-info-font">Senior Lecturer</span>
+                                                        <h3 class="gdlr-core-title-item-title gdlr-core-skin-title " style="font-size: 18px ;font-weight: 600 ;letter-spacing: 0px ;text-transform: none ;">Dr. Shanila Abdul Majeed</h3></div><span style="color: #3db166;"  class=" gdlr-core-info-font">Reader</span>
                                                 </div>
                                             </div>
                                            
@@ -883,14 +1004,83 @@ Malappuram, Dt Pin : 679578</span></p>
                                             <div class="gdlr-core-pbf-element">
                                                 <div class="gdlr-core-image-item gdlr-core-item-pdlr gdlr-core-item-pdb  gdlr-core-center-align" style="padding-bottom: 33px ;">
                                                     <div class="gdlr-core-image-item-wrap gdlr-core-media-image  gdlr-core-image-item-style-round" style="border-radius: 2px;-moz-border-radius: 2px;-webkit-border-radius: 2px;border-width: 0px;">
-                                                        <a class="gdlr-core-lightgallery gdlr-core-js " href="upload/radiology-1.jpg"><img src="upload/radiology-1.jpg" width="500" height="700" class="directors-image "  alt="" /></a>
+                                                        <a class="gdlr-core-lightgallery gdlr-core-js " href="upload/radiology-7.png"><img src="upload/radiology-7.png" width="500" height="700" class="directors-image "  alt="" /></a>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="gdlr-core-pbf-element">
                                                 <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix  gdlr-core-left-align gdlr-core-title-item-caption-top gdlr-core-item-pdlr" style="padding-bottom: 10px ;">
                                                     <div class="gdlr-core-title-item-title-wrap clearfix">
-                                                        <h3 class="gdlr-core-title-item-title gdlr-core-skin-title " style="font-size: 18px ;font-weight: 600 ;letter-spacing: 0px ;text-transform: none ;">Dr. Fathimath Zahra</h3></div><span style="color: #3db166;"  class=" gdlr-core-info-font">Senior Lecturer</span>
+                                                        <h3 class="gdlr-core-title-item-title gdlr-core-skin-title " style="font-size: 18px ;font-weight: 600 ;letter-spacing: 0px ;text-transform: none ;">Dr. Fathimath Zahra</h3></div><span style="color: #3db166;"  class=" gdlr-core-info-font">Reader</span>
+                                                </div>
+                                            </div>
+                                           
+                                            
+                                        </div>
+                                    </div>
+                                </div>    
+                                 <div class="gdlr-core-pbf-column gdlr-core-column-20 gdlr-core-column-first">
+                                    
+                                    <div class="gdlr-core-pbf-column-content-margin gdlr-core-js " style="padding-bottom: 20px;">
+                                        <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js ">
+                                            
+                                            <div class="gdlr-core-pbf-element">
+                                                <div class="gdlr-core-image-item gdlr-core-item-pdlr gdlr-core-item-pdb  gdlr-core-center-align" style="padding-bottom: 33px ;">
+                                                    <div class="gdlr-core-image-item-wrap gdlr-core-media-image  gdlr-core-image-item-style-round" style="border-radius: 2px;-moz-border-radius: 2px;-webkit-border-radius: 2px;border-width: 0px;">
+                                                        <a class="gdlr-core-lightgallery gdlr-core-js " href="upload/radiology-8.png"><img src="upload/radiology-8.png" width="500" height="700" class="directors-image "  alt="" /></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="gdlr-core-pbf-element">
+                                                <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix  gdlr-core-left-align gdlr-core-title-item-caption-top gdlr-core-item-pdlr" style="padding-bottom: 10px ;">
+                                                    <div class="gdlr-core-title-item-title-wrap clearfix">
+                                                        <h3 class="gdlr-core-title-item-title gdlr-core-skin-title " style="font-size: 18px ;font-weight: 600 ;letter-spacing: 0px ;text-transform: none ;">Dr. Jiji Unni</h3></div><span style="color: #3db166;"  class=" gdlr-core-info-font">Senior Lecturer</span>
+                                                </div>
+                                            </div>
+                                           
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="gdlr-core-pbf-column gdlr-core-column-20">
+                                    
+                                    <div class="gdlr-core-pbf-column-content-margin gdlr-core-js " style="padding-bottom: 20px;">
+                                        <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js ">
+                                            
+                                            <div class="gdlr-core-pbf-element">
+                                                <div class="gdlr-core-image-item gdlr-core-item-pdlr gdlr-core-item-pdb  gdlr-core-center-align" style="padding-bottom: 33px ;">
+                                                    <div class="gdlr-core-image-item-wrap gdlr-core-media-image  gdlr-core-image-item-style-round" style="border-radius: 2px;-moz-border-radius: 2px;-webkit-border-radius: 2px;border-width: 0px;">
+                                                        <a class="gdlr-core-lightgallery gdlr-core-js " href="upload/radiology-9.png"><img src="upload/radiology-9.png" width="500" height="700" class="directors-image "  alt="" /></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="gdlr-core-pbf-element">
+                                                <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix  gdlr-core-left-align gdlr-core-title-item-caption-top gdlr-core-item-pdlr" style="padding-bottom: 10px ;">
+                                                    <div class="gdlr-core-title-item-title-wrap clearfix">
+                                                        <h3 class="gdlr-core-title-item-title gdlr-core-skin-title " style="font-size: 18px ;font-weight: 600 ;letter-spacing: 0px ;text-transform: none ;">Dr. Shahana P Sulaiman</h3></div><span style="color: #3db166;"  class=" gdlr-core-info-font">Senior Lecturer</span>
+                                                </div>
+                                            </div>
+                                           
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="gdlr-core-pbf-column gdlr-core-column-20">
+                                    
+                                    <div class="gdlr-core-pbf-column-content-margin gdlr-core-js " style="padding-bottom: 20px;">
+                                        <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js ">
+                                            
+                                            <div class="gdlr-core-pbf-element">
+                                                <div class="gdlr-core-image-item gdlr-core-item-pdlr gdlr-core-item-pdb  gdlr-core-center-align" style="padding-bottom: 33px ;">
+                                                    <div class="gdlr-core-image-item-wrap gdlr-core-media-image  gdlr-core-image-item-style-round" style="border-radius: 2px;-moz-border-radius: 2px;-webkit-border-radius: 2px;border-width: 0px;">
+                                                        <a class="gdlr-core-lightgallery gdlr-core-js " href="upload/radiology-10.png"><img src="upload/radiology-10.png" width="500" height="700" class="directors-image "  alt="" /></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="gdlr-core-pbf-element">
+                                                <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix  gdlr-core-left-align gdlr-core-title-item-caption-top gdlr-core-item-pdlr" style="padding-bottom: 10px ;">
+                                                    <div class="gdlr-core-title-item-title-wrap clearfix">
+                                                        <h3 class="gdlr-core-title-item-title gdlr-core-skin-title " style="font-size: 18px ;font-weight: 600 ;letter-spacing: 0px ;text-transform: none ;">Dr. Bala Bhaskaran C</h3></div><span style="color: #3db166;"  class=" gdlr-core-info-font">Lecturer</span>
                                                 </div>
                                             </div>
                                            
@@ -940,181 +1130,244 @@ Malappuram, Dt Pin : 679578</span></p>
             </div>
 
 
-           <footer>
-          <div class="kingster-footer-wrapper">
-            <div class="kingster-footer-container kingster-container clearfix">
-             <div class="kingster-footer-column kingster-item-pdlr kingster-column-15">
-                            <div id="text-2" class="widget widget_text kingster-widget">
-                                <div class="textwidget">
-                                    <p><img width="250" src="upload/footer-logo.png" alt="" />
-                                        <br /> <span class="gdlr-core-space-shortcode" id="span_1dd7_10"></span>
-                                        <br /> Manoor - Chekanoor Road,  
-                                        <br /> Manoor, Edappal, Malappuram,
-                                        <br /> Kerala 679578</p>
-                                    <p><span id="span_1dd7_11"> Toll free:<a href="tel:18008430066"> 18008430066</a> </span>
-                                       <!-- <br> <span id="span_1dd7_11"> Hospital/Clinic:<a href="tel:0494 269720"> 0494 269720, 21</a> </span> | <span id="span_1dd7_11"> <a href="tel:7034555514">+91 7034555514</a></span> -->
-                                        <br /> <span class="gdlr-core-space-shortcode" id="span_1dd7_12"></span>
-
-                                        <br /> <a id="a_1dd7_8" href="mailto:admin@kingsteruni.edu">info@macity.edu.in</a></p>
-                                    <div class="gdlr-core-divider-item gdlr-core-divider-item-normal gdlr-core-left-align">
-                                        <div class="gdlr-core-divider-line gdlr-core-skin-divider" id="div_1dd7_111"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-              <div
-                class="kingster-footer-column kingster-item-pdlr kingster-column-15"
-              >
-                <div
-                  id="gdlr-core-custom-menu-widget-2"
-                  class="widget widget_gdlr-core-custom-menu-widget kingster-widget"
-                >
-                  <h3 class="kingster-widget-title">Quick links</h3>
-                  <span class="clear"></span>
-                  <div class="menu-our-campus-container">
-                    <ul
-                      id="menu-our-campus"
-                      class="gdlr-core-custom-menu-widget gdlr-core-menu-style-plain"
-                    >
-                      <li class="menu-item">
-                        <a href="about-us.html">About Us</a>
-                      </li>
-                      <li class="menu-item">
-                        <a href="bachelor-of-dental-surgery.html"
-                          >Bachelor of Dental Surgery</a
-                        >
-                      </li>
-                      <li class="menu-item">
-                        <a href="master-of-dental-surgery.html"
-                          >Master of Dental Surgery</a
-                        >
-                      </li>
-                      <li class="menu-item">
-                        <a href="dental-mechanic.html">Dental Mechanic</a>
-                      </li>
-                      <li class="menu-item"><a href="dora.html">DORA</a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="kingster-footer-column kingster-item-pdlr kingster-column-15"
-              >
-                <div
-                  id="gdlr-core-custom-menu-widget-3"
-                  class="widget widget_gdlr-core-custom-menu-widget kingster-widget"
-                >
-                  <h3 class="kingster-widget-title">Social Life</h3>
-                  <span class="clear"></span>
-                  <div class="menu-campus-life-container">
-                    <ul
-                      id="menu-campus-life"
-                      class="gdlr-core-custom-menu-widget gdlr-core-menu-style-plain"
-                    >
-                      <li class="menu-item">
-                        <a
-                          target="_blank"
-                          href="https://www.instagram.com/malabar_dental_college/"
-                          >Instagram</a
-                        >
-                      </li>
-                      <li class="menu-item">
-                        <a
-                          target="_blank"
-                          href="https://www.facebook.com/people/Malabar-Dental-College-Research-Centre/100067331926532/"
-                          >Facebook</a
-                        >
-                      </li>
-                      <li class="menu-item">
-                        <a
-                          target="_blank"
-                          href="https://in.linkedin.com/school/malabar-dental-college-&-research-center/"
-                          >LinkedIn</a
-                        >
-                      </li>
-                      <li class="menu-item">
-                        <a
-                          target="_blank"
-                          href="https://www.youtube.com/@malabardentalcollege8050"
-                          >Youtube</a
-                        >
-                      </li>
-                      <li class="menu-item">
-                        <a
-                          target="_blank"
-                          href="https://goo.gl/maps/mqi1nkPswEPLQjzv6"
-                          >Google</a
-                        >
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="kingster-footer-column kingster-item-pdlr kingster-column-15"
-              >
-                <div
-                  id="gdlr-core-custom-menu-widget-4"
-                  class="widget widget_gdlr-core-custom-menu-widget kingster-widget"
-                >
-                  <h3 class="kingster-widget-title">Location</h3>
-                  <span class="clear"></span>
-                 <div class="mapouter"><div class="gmap_canvas"><iframe class="gmap_iframe" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=271&amp;height=281&amp;hl=en&amp;q=malabar dental college manoor&amp;t=&amp;z=12&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe><a href="https://thepasswordgame.com/">The Password Game</a></div><style>.mapouter{position:relative;text-align:right;width:271px;height:281px;}.gmap_canvas {overflow:hidden;background:none!important;width:271px;height:281px;}.gmap_iframe {width:271px!important;height:281px!important;}</style></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="kingster-copyright-wrapper">
+            <footer>
+        <div class="kingster-footer-wrapper">
+          <div class="kingster-footer-container kingster-container clearfix">
             <div
-              class="kingster-copyright-container kingster-container clearfix"
+              class="kingster-footer-column kingster-item-pdlr kingster-column-15"
             >
-              <div class="kingster-copyright-left kingster-item-pdlr">
-                Copyright © 2023 Malabar Dental College | Department of IT 💻
-              </div>
-              <div class="kingster-copyright-right kingster-item-pdlr">
-                <div
-                  class="gdlr-core-social-network-item gdlr-core-item-pdb gdlr-core-none-align"
-                  id="div_1dd7_112"
-                >
-                  <a
-                    href="https://www.facebook.com/people/Malabar-Dental-College-Research-Centre/100067331926532/"
-                    target="_blank"
-                    class="gdlr-core-social-network-icon"
-                    title="facebook"
-                  >
-                    <i class="fa fa-facebook"></i>
-                  </a>
-                  <a
-                    href="https://goo.gl/maps/mqi1nkPswEPLQjzv6"
-                    target="_blank"
-                    class="gdlr-core-social-network-icon"
-                    title="google-plus"
-                  >
-                    <i class="fa fa-google-plus"></i>
-                  </a>
-                  <a
-                    href="https://in.linkedin.com/school/malabar-dental-college-&-research-center/"
-                    target="_blank"
-                    class="gdlr-core-social-network-icon"
-                    title="linkedin"
-                  >
-                    <i class="fa fa-linkedin"></i>
-                  </a>
+              <div id="text-2" class="widget widget_text kingster-widget">
+                <div class="textwidget">
+                  <p>
+                    <img width="250" src="upload/footer-logo.png" alt="" />
+                    <br />
+                    <span
+                      class="gdlr-core-space-shortcode"
+                      id="span_1dd7_10"
+                    ></span>
+                    <br />
+                    Manoor - Chekanoor Road, <br />
+                    Manoor, Edappal, Malappuram, <br />
+                    Kerala 679578
+                  </p>
+                  <p>
+                    <span id="span_1dd7_11">
+                      Toll free:<a href="tel:18008430066"> 18008430066</a>
+                    </span>
+                    <!-- <br> <span id="span_1dd7_11"> Hospital/Clinic:<a href="tel:0494 269720"> 0494 269720, 21</a> </span> | <span id="span_1dd7_11"> <a href="tel:7034555514">+91 7034555514</a></span> -->
+                    <br />
+                    <span
+                      class="gdlr-core-space-shortcode"
+                      id="span_1dd7_12"
+                    ></span>
 
-                  <a
-                    href="https://www.instagram.com/malabar_dental_college/"
-                    target="_blank"
-                    class="gdlr-core-social-network-icon"
-                    title="instagram"
+                    <br />
+                    <a id="a_1dd7_8" href="mailto:admin@kingsteruni.edu"
+                      >info@macity.edu.in</a
+                    >
+                  </p>
+                  <div
+                    class="gdlr-core-divider-item gdlr-core-divider-item-normal gdlr-core-left-align"
                   >
-                    <i class="fa fa-instagram"></i>
-                  </a>
+                    <div
+                      class="gdlr-core-divider-line gdlr-core-skin-divider"
+                      id="div_1dd7_111"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="kingster-footer-column kingster-item-pdlr kingster-column-15"
+            >
+              <div
+                id="gdlr-core-custom-menu-widget-2"
+                class="widget widget_gdlr-core-custom-menu-widget kingster-widget"
+              >
+                <h3 class="kingster-widget-title">Quick links</h3>
+                <span class="clear"></span>
+                <div class="menu-our-campus-container">
+                  <ul
+                    id="menu-our-campus"
+                    class="gdlr-core-custom-menu-widget gdlr-core-menu-style-plain"
+                  >
+                    <li class="menu-item">
+                      <a href="about-us.html">About Us</a>
+                    </li>
+                    <li class="menu-item">
+                      <a href="bachelor-of-dental-surgery.html"
+                        >Bachelor of Dental Surgery</a
+                      >
+                    </li>
+                    <li class="menu-item">
+                      <a href="master-of-dental-surgery.html"
+                        >Master of Dental Surgery</a
+                      >
+                    </li>
+                    <li class="menu-item">
+                      <a href="dental-mechanic.html">Dental Mechanic</a>
+                    </li>
+                    <li class="menu-item"><a href="dora.html">DORA</a></li>
+                    <li class="menu-item">
+                      <a href="contact-us.html">Contact</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div
+              class="kingster-footer-column kingster-item-pdlr kingster-column-15"
+            >
+              <div
+                id="gdlr-core-custom-menu-widget-3"
+                class="widget widget_gdlr-core-custom-menu-widget kingster-widget"
+              >
+                <h3 class="kingster-widget-title">Social Life</h3>
+                <span class="clear"></span>
+                <div class="menu-campus-life-container">
+                  <ul
+                    id="menu-campus-life"
+                    class="gdlr-core-custom-menu-widget gdlr-core-menu-style-plain"
+                  >
+                    <li class="menu-item">
+                      <a
+                        target="_blank"
+                        href="https://www.instagram.com/malabar_dental_college/"
+                        >Instagram</a
+                      >
+                    </li>
+                    <li class="menu-item">
+                      <a
+                        target="_blank"
+                        href="https://www.facebook.com/people/Malabar-Dental-College-Research-Centre/100067331926532/"
+                        >Facebook</a
+                      >
+                    </li>
+                    <li class="menu-item">
+                      <a
+                        target="_blank"
+                        href="https://in.linkedin.com/school/malabar-dental-college-&-research-center/"
+                        >LinkedIn</a
+                      >
+                    </li>
+                    <li class="menu-item">
+                      <a
+                        target="_blank"
+                        href="https://www.youtube.com/@malabardentalcollege8050"
+                        >Youtube</a
+                      >
+                    </li>
+                    <li class="menu-item">
+                      <a
+                        target="_blank"
+                        href="https://goo.gl/maps/mqi1nkPswEPLQjzv6"
+                        >Google</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div
+              class="kingster-footer-column kingster-item-pdlr kingster-column-15"
+            >
+              <div
+                id="gdlr-core-custom-menu-widget-4"
+                class="widget widget_gdlr-core-custom-menu-widget kingster-widget"
+              >
+                <h3 class="kingster-widget-title">Location</h3>
+                <span class="clear"></span>
+                <div class="mapouter">
+                  <div class="gmap_canvas">
+                    <iframe
+                      class="gmap_iframe"
+                      frameborder="0"
+                      scrolling="no"
+                      marginheight="0"
+                      marginwidth="0"
+                      src="https://maps.google.com/maps?width=271&amp;height=281&amp;hl=en&amp;q=malabar dental college manoor&amp;t=&amp;z=12&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+                    ></iframe
+                    ><a href="https://thepasswordgame.com/"
+                      >The Password Game</a
+                    >
+                  </div>
+                  <style>
+                    .mapouter {
+                      position: relative;
+                      text-align: right;
+                      width: 271px;
+                      height: 281px;
+                    }
+                    .gmap_canvas {
+                      overflow: hidden;
+                      background: none !important;
+                      width: 271px;
+                      height: 281px;
+                    }
+                    .gmap_iframe {
+                      width: 271px !important;
+                      height: 281px !important;
+                    }
+                  </style>
                 </div>
               </div>
             </div>
           </div>
-        </footer>
+        </div>
+
+        <div class="kingster-copyright-wrapper">
+          <div class="kingster-copyright-container kingster-container clearfix">
+            <div class="kingster-copyright-left kingster-item-pdlr">
+              Copyright © 2023 Malabar Dental College | Department of IT 💻
+            </div>
+            <div class="kingster-copyright-right kingster-item-pdlr">
+              <div
+                class="gdlr-core-social-network-item gdlr-core-item-pdb gdlr-core-none-align"
+                id="div_1dd7_112"
+                style="color: #3db166"
+              >
+                <a
+                  href="https://www.facebook.com/people/Malabar-Dental-College-Research-Centre/100067331926532/"
+                  target="_blank"
+                  class="gdlr-core-social-network-icon"
+                  style="color: #3db166"
+                  title="facebook"
+                >
+                  <i class="fa fa-facebook"></i>
+                </a>
+                <a
+                  href="https://goo.gl/maps/mqi1nkPswEPLQjzv6"
+                  target="_blank"
+                  class="gdlr-core-social-network-icon"
+                  style="color: #3db166"
+                  title="google-plus"
+                >
+                  <i class="fa fa-google-plus"></i>
+                </a>
+                <a
+                  href="https://in.linkedin.com/school/malabar-dental-college-&-research-center/"
+                  target="_blank"
+                  class="gdlr-core-social-network-icon"
+                  style="color: #3db166"
+                  title="linkedin"
+                >
+                  <i class="fa fa-linkedin"></i>
+                </a>
+
+                <a
+                  href="https://www.instagram.com/malabar_dental_college/"
+                  target="_blank"
+                  class="gdlr-core-social-network-icon"
+                  style="color: #3db166"
+                  title="instagram"
+                >
+                  <i class="fa fa-instagram"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
         </div>
     </div>
 
@@ -1131,6 +1384,48 @@ Malappuram, Dt Pin : 679578</span></p>
             },
             "ajax_url": "#"
         };
+    </script>
+     <script>
+      // Define the API URL to fetch notification data
+      const apiUrlNotification =
+        "https://app.conext.in/Notifications/api/latest-mdc-top-bar-notification/";
+
+      // Reference to the notification container
+      const notificationContainer = document.getElementById(
+        "notification-container"
+      );
+
+      // Store the notification data and current index
+      let notifications = [];
+      let currentIndex = 0;
+
+      // Function to fetch and update notification data
+      async function fetchAndUpdateNotifications() {
+        try {
+          const response = await fetch(apiUrlNotification);
+          notifications = await response.json();
+
+          // Call the updateNotification function initially
+          updateNotification();
+
+          // Set an interval to update notifications every 1.5 seconds
+          setInterval(updateNotification, 4500);
+        } catch (error) {
+          console.error("Error fetching notifications:", error);
+        }
+      }
+
+      // Function to update the notification text
+      function updateNotification() {
+        if (notifications.length > 0) {
+          const list = notificationContainer;
+          list.innerHTML = `<li>${notifications[currentIndex].notification}</li>`;
+          currentIndex = (currentIndex + 1) % notifications.length;
+        }
+      }
+
+      // Call the fetchAndUpdateNotifications function initially
+      fetchAndUpdateNotifications();
     </script>
     <script type='text/javascript' src='plugins/goodlayers-core/include/js/page-builder.js'></script>
     <script type='text/javascript' src='js/jquery/ui/effect.min.js'></script>

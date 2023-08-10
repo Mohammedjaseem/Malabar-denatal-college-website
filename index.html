@@ -298,10 +298,106 @@
           object-fit: fill;
         }
       }
+      .custom-alert {
+        position: fixed;
+        top: 15%;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 9999;
+        background-color: #f9f9f9;
+        border: 1px solid #ccc;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        max-width: 400px;
+        display: none;
+      }
+      .gdlr-core-page-builder-body [data-skin="Newsletter"] *,
+      .gdlr-core-page-builder-body
+        [data-skin="Newsletter"]
+        .gdlr-core-skin-border {
+        border-color: transparent;
+      }
+      .custom-alert p {
+        margin: 0;
+      }
+
+      .custom-alert .close-button {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        cursor: pointer;
+      }
 
       /* Styles for the individual image containers */
+      .floating-button {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background-color: #182847; /* WhatsApp green */
+        color: #fff;
+        width: 70px; /* Set width and height to the same value for a perfect circle */
+        height: 70px;
+        border-radius: 50%; /* Make the button round */
+        cursor: pointer;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px; /* Adjust the font size for larger text */
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 9999; /* Set a high z-index to appear above other content */
+      }
+
+      /* Style for WhatsApp logo */
+      .whatsapp-logo {
+        width: 36px; /* Adjust the logo size */
+        height: 36px; /* Adjust the logo size */
+      }
+      .notification-list {
+        display: inline-block;
+        max-height: 20px;
+        overflow: hidden;
+        position: relative;
+        max-height: 20px;
+      }
+      ul.notification-list {
+        margin-bottom: 0px !important;
+      }
+      @keyframes marquee-up {
+        0% {
+          transform: translateY(0);
+        }
+        100% {
+          transform: translateY(-100%);
+        }
+      }
+      .notification-list {
+        display: inline-block;
+        max-height: 20px;
+        overflow: hidden;
+        position: relative;
+        max-height: 20px;
+      }
+      ul.notification-list {
+        margin-bottom: 0px !important;
+      }
+      @keyframes marquee-up {
+        0% {
+          transform: translateY(0);
+        }
+        100% {
+          transform: translateY(-100%);
+        }
+      }
     </style>
   </head>
+  <a
+    href="https://api.whatsapp.com/send?phone=7034555514"
+    target="_blank"
+    class="floating-button"
+  >
+    <img src="upload/wsup-logo.png" alt="WhatsApp Logo" class="whatsapp-logo" />
+  </a>
   <body
     class="home page-template-default page page-id-2039 gdlr-core-body woocommerce-no-js tribe-no-js kingster-body kingster-body-front kingster-full kingster-with-sticky-navigation kingster-blockquote-style-1 gdlr-core-link-to-lightbox"
   >
@@ -555,16 +651,17 @@
               <div class="kingster-top-bar-left kingster-item-pdlr">
                 <i class="fa fa-envelope-open-o" id="i_fd84_0"></i>
                 <a href="mailto:info@macity.edu.in">info@macity.edu.in</a
-                ><i class="fa fa-phone" id="i_fd84_1"></i> +91 7034 55555 1
+                ><i class="fa fa-phone" id="i_fd84_1"></i>
+                <a href="tel:+917034555551">+91 7034 55555 1</a>
               </div>
               <div class="kingster-top-bar-right kingster-item-pdlr">
                 <ul
-                  id="kingster-top-bar-menu"
-                  class="sf-menu kingster-top-bar-menu kingster-top-bar-right-menu"
+                  class="notification-list kingster-top-bar-right-menu notification"
+                  id="notification-container"
                 >
-                  BDS 1st & 2nd Rank under All Kerala Univeristy of Health &
-                  Science (KUHS)
+                  Loading...
                 </ul>
+
                 <div class="kingster-top-bar-right-social"></div>
                 <a
                   class="kingster-top-bar-right-button"
@@ -3945,21 +4042,46 @@
                                     class="newsletter-email gdlr-core-skin-e-background gdlr-core-skin-e-content"
                                     placeholder="Your Email Address"
                                     type="email"
-                                    name="ne"
+                                    id="email"
                                     size="30"
                                     required
                                   />
                                 </div>
                                 <div class="gdlr-core-newsletter-submit">
                                   <input
-                                    class="newsletter-submit"
+                                    class="newsletter-submit submit-button"
                                     type="submit"
                                     value="Subscribe"
+                                    id="subscribe-button"
                                   />
                                 </div>
                               </form>
                             </div>
                           </div>
+                        </div>
+
+                        <div id="successPopup" class="custom-alert">
+                          <h3>
+                            Successful
+                            <span
+                              class="close-button"
+                              onclick="closeCustomAlert('successPopup')"
+                              >&times;</span
+                            >
+                          </h3>
+                          <p>Email Subscribed successfully!</p>
+                        </div>
+
+                        <div id="failPopup" class="custom-alert">
+                          <h3>
+                            Failed!
+                            <span
+                              class="close-button"
+                              onclick="closeCustomAlert('failPopup')"
+                              >&times;</span
+                            >
+                          </h3>
+                          <p>Email Subscription Failed!</p>
                         </div>
                       </div>
                     </div>
@@ -4360,6 +4482,9 @@
                       <a href="dental-mechanic.html">Dental Mechanic</a>
                     </li>
                     <li class="menu-item"><a href="dora.html">DORA</a></li>
+                    <li class="menu-item">
+                      <a href="contact-us.html">Contact</a>
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -4628,6 +4753,121 @@
         }
       } /*]]>*/
     </script>
+
+    <script>
+      // Define the API URL to fetch notification data
+      const apiUrl =
+        "https://app.conext.in/Notifications/api/latest-mdc-top-bar-notification/";
+
+      // Reference to the notification container
+      const notificationContainer = document.getElementById(
+        "notification-container"
+      );
+
+      // Store the notification data and current index
+      let notifications = [];
+      let currentIndex = 0;
+
+      // Function to fetch and update notification data
+      async function fetchAndUpdateNotifications() {
+        try {
+          const response = await fetch(apiUrl);
+          notifications = await response.json();
+
+          // Call the updateNotification function initially
+          updateNotification();
+
+          // Set an interval to update notifications every 1.5 seconds
+          setInterval(updateNotification, 4500);
+        } catch (error) {
+          console.error("Error fetching notifications:", error);
+        }
+      }
+
+      // Function to update the notification text
+      function updateNotification() {
+        if (notifications.length > 0) {
+          const list = notificationContainer;
+          list.innerHTML = `<li>${notifications[currentIndex].notification}</li>`;
+          currentIndex = (currentIndex + 1) % notifications.length;
+        }
+      }
+
+      // Call the fetchAndUpdateNotifications function initially
+      fetchAndUpdateNotifications();
+    </script>
+    <script>
+      function subscribeNewsletter(event) {
+        event.preventDefault();
+
+        showLoading(); // Show loading state
+
+        const emailInput = document.getElementById("email").value;
+
+        // Construct the API endpoint URL
+        const apiURL = "https://app.conext.in/news/news-letter-add-email/";
+
+        // Create data object for the API request
+        const data = { email_id: emailInput };
+
+        // Send POST request to API
+        fetch(apiURL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.status === true) {
+              showSuccessPopup();
+            } else {
+              console.log(data.status, "error occured");
+              console.log(emailInput, "given email");
+              showFailerPopup();
+            }
+          })
+          .catch((error) => {
+            console.error("Error subscribing to newsletter:", error);
+            showFailerPopup();
+          });
+      }
+
+      function showLoading() {
+        const submitButton = document.querySelector(".submit-button");
+        submitButton.disabled = true;
+        submitButton.value = "Subscribing...";
+      }
+
+      function hideLoading() {
+        const submitButton = document.querySelector(".submit-button");
+        submitButton.disabled = false;
+        submitButton.value = "Subscribe";
+      }
+      function hideSuccessLoading() {
+        const submitButton = document.querySelector(".submit-button");
+        submitButton.disabled = true;
+        submitButton.value = "Subscribed";
+      }
+      function showSuccessPopup() {
+        hideSuccessLoading();
+        document.getElementById("successPopup").style.display = "block";
+      }
+
+      function showFailerPopup() {
+        hideLoading();
+        document.getElementById("failPopup").style.display = "block";
+      }
+
+      function closeCustomAlert() {
+        document.getElementById("successPopup").style.display = "none";
+        document.getElementById("failPopup").style.display = "none";
+      }
+
+      const form = document.querySelector(".gdlr-core-newsletter-form");
+      form.addEventListener("submit", subscribeNewsletter);
+    </script>
     <script>
       // Function to fetch data from the API
       async function fetchGalleryData() {
@@ -4738,7 +4978,6 @@
       // Function to create and display the popup
       function displayPopup(posterUrl) {
         const popupContainer = document.getElementById("popupContainer");
-        const bgContainer = document.querySelector(".background-blur");
         const closeBtn = document.getElementById("closeBtn");
         const popupImage = document.getElementById("popupImage");
 
@@ -4746,7 +4985,6 @@
         if (posterUrl) {
           // Set the content for the popup
           popupImage.src = posterUrl;
-          bgContainer.style.display = "block";
           // Show the popup
           popupContainer.style.display = "block";
 
@@ -4764,7 +5002,7 @@
         const popupContainer = document.getElementById("popupContainer");
         if (popupContainer.style.display === "block") {
           popupContainer.style.display = "none";
-          bgContainer.style.display = "none"; // Add a small delay before adding the popup-active class back to the background container to reapply the blur effect
+          // Add a small delay before adding the popup-active class back to the background container to reapply the blur effect
         }
       }
 
