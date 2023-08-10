@@ -182,6 +182,53 @@
           transform: translateY(-100%);
         }
       }
+      .gdlr-core-title-item-title-wrap {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .gdlr-core-title-item-title {
+        flex: 1;
+        text-transform: none;
+        text-align: left;
+        font-size: 40px;
+        padding-bottom: 30px;
+      }
+
+      .gdlr-core-button {
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0px;
+        padding: 13px 30px 18px 30px;
+        text-transform: none;
+        border-radius: 60px !important;
+        -moz-border-radius: 2px;
+        -webkit-border-radius: 2px;
+      }
+      .gdlr-core-title-item-title-wrap {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+      }
+      @media (max-width: 505px) {
+        .gdlr-core-title-item-title-wrap {
+          margin-bottom: 20px; /* Add bottom margin */
+          flex-direction: column;
+          align-items: center;
+        }
+        .gdlr-core-title-item-title-wrap h3 {
+          text-align: center;
+        }
+
+        .gdlr-core-title-item-title {
+          padding-bottom: 0; /* Remove the bottom padding */
+        }
+
+        .gdlr-core-button {
+          margin-top: 10px;
+        }
+      }
     </style>
   </head>
   <a
@@ -873,17 +920,15 @@
                   class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container"
                 >
                   <div class="gdlr-core-title-item-title-wrap clearfix">
-                    <h3
-                      class="gdlr-core-title-item-title gdlr-core-skin-title"
-                      style="
-                        text-transform: none;
-                        text-align: center;
-                        font-size: 40px;
-                        padding-bottom: 30px;
-                      "
-                    >
+                    <h3 class="gdlr-core-title-item-title gdlr-core-skin-title">
                       Snaps By Staff & Students
                     </h3>
+                    <a
+                      class="gdlr-core-button gdlr-core-button-solid gdlr-core-button-no-border"
+                      href="add-image.html"
+                    >
+                      <span class="gdlr-core-content">Add Images</span>
+                    </a>
                   </div>
                   <div class="gdlr-core-pbf-element">
                     <div
@@ -1956,7 +2001,14 @@
             console.error("Error fetching data:", error);
           });
       }
+      function formatDate(date) {
+        timestamp = date;
+        const parsedDate = new Date(timestamp);
 
+        const options = { day: "numeric", month: "long", year: "numeric" };
+        const formattedDate = parsedDate.toLocaleDateString("en-US", options);
+        return formattedDate;
+      }
       // Function to dynamically display data in reverse order
       function displayData(items) {
         const portfolioContainer = document.getElementById(
@@ -1979,14 +2031,21 @@
                 <div class="gdlr-core-portfolio-thumbnail gdlr-core-media-image gdlr-core-style-title-icon gdlr-core-metro-rvpdlr">
                   <div class="gdlr-core-portfolio-thumbnail-image-wrap gdlr-core-zoom-on-hover">
                     <div class="image-gallery">
-                      <img class="uploaded_image_url" src="${picture.uploaded_image_url}" alt="" style="opacity: 1; transition: opacity 0.3s ease;" />
+                      <img class="uploaded_image_url" src="${
+                        picture.uploaded_image_url
+                      }" alt="" style="opacity: 1; transition: opacity 0.3s ease;" />
                     </div>
                     <span class="gdlr-core-image-overlay gdlr-core-portfolio-overlay gdlr-core-image-overlay-center-icon gdlr-core-js">
                       <span class="gdlr-core-image-overlay-content">
                         <span class="gdlr-core-portfolio-title gdlr-core-title-font" style=" margin-top: -25px; font-size: 18px; font-weight: 600; letter-spacing: 0px; text-transform: none;">
                           <a class="title">${item.title}</a>
                         </span>
-                        <span class="gdlr-core-lightgallery gdlr-core-js full_name" data-lightbox-group="gdlr-core-img-group-1" style="margin-top: -25px;">By: ${item.full_name}</span>
+                        <span class="gdlr-core-lightgallery gdlr-core-js full_name" data-lightbox-group="gdlr-core-img-group-1" style="margin-top: -25px;">By: ${
+                          item.full_name
+                        }</span><br/>
+                        <span class="gdlr-core-lightgallery gdlr-core-js full_name" data-lightbox-group="gdlr-core-img-group-1" style="margin-top: -25px;">Uploaded On: ${formatDate(
+                          item.added_on
+                        )}</span>
                       </span>
                     </span>
                   </div>
