@@ -74,9 +74,27 @@
       }
 
       /* Style for WhatsApp logo */
-      .whatsapp-logo {
+       .whatsapp-logo {
         width: 36px; /* Adjust the logo size */
         height: 36px; /* Adjust the logo size */
+      }
+      .notification-list {
+        display: inline-block;
+        max-height: 20px;
+        overflow: hidden;
+        position: relative;
+        max-height: 20px;
+      }
+      ul.notification-list {
+        margin-bottom: 0px !important;
+      }
+      @keyframes marquee-up {
+        0% {
+          transform: translateY(0);
+        }
+        100% {
+          transform: translateY(-100%);
+        }
       }
     </style>
   </head>
@@ -1053,7 +1071,7 @@
           updateNotification();
 
           // Set an interval to update notifications every 1.5 seconds
-          setInterval(updateNotification, 6000);
+          setInterval(updateNotification, 4500);
         } catch (error) {
           console.error("Error fetching notifications:", error);
         }
