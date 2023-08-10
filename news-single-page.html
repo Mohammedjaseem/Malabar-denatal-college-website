@@ -860,6 +860,19 @@
                                 ></b>
                                 Via CONNECT
                               </div>
+                              <div
+                                class="gdlr-core-button-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-left-align"
+                              style="padding-top: 20px;"
+                              >
+                              <a class="gdlr-core-button  gdlr-core-button-solid gdlr-core-button-no-border" href="#" id="shareButton" style="font-size: 14px ;font-weight: 700 ;letter-spacing: 0px ;padding: 13px 29px 18px 32px;text-transform: none ;border-radius: 2px;-moz-border-radius: 2px;-webkit-border-radius: 2px;"><span class="gdlr-core-content" >Share News</span><i class="gdlr-core-pos-right fa fa-external-link" style="font-size: 14px ;"  ></i></a>
+                               <!-- <a class="gdlr-core-button gdlr-core-button-solid gdlr-core-button-no-border" href="#" id="shareButton">
+  <span class="gdlr-core-content">Share News</span>
+  <i class="gdlr-core-pos-right fa fa-external-link" style="font-size: 14px;"></i>
+</a> -->
+
+
+                              </div>
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -1277,6 +1290,28 @@
         ajax_url: "#",
       };
     </script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const shareButton = document.getElementById('shareButton');
+
+  shareButton.addEventListener('click', function () {
+    if (navigator.share) { // Check if the Web Share API is supported
+      navigator.share({
+        title: 'News Title', // Replace with your news title
+        text: 'Check out this news!', // Replace with your sharing text
+        url: window.location.href // Current page URL
+      }).then(() => {
+        console.log('Shared successfully.');
+      }).catch((error) => {
+        console.error('Error sharing:', error);
+      });
+    } else {
+      console.log('Web Share API not supported.');
+    }
+  });
+});
+</script>
+
     <script
       type="text/javascript"
       src="plugins/goodlayers-core/include/js/page-builder.js"
