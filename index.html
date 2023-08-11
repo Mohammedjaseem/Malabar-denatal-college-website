@@ -189,7 +189,8 @@
       }
 
       .slider-container {
-        overflow: hidden;
+        width: 100%; /* Adjust to your desired width */
+        overflow-x: auto;
       }
 
       .slider {
@@ -197,9 +198,8 @@
         scroll-snap-type: x mandatory;
         -webkit-overflow-scrolling: touch;
         padding-bottom: 20px;
-        transform: translateX(
-          -20px
-        ); /* Add negative left translation to create space */
+        z-index: 0;
+        /* transform: translateX(-20px); Remove or set to transform: translateX(0); */
       }
       .active {
         background-color: #3db166;
@@ -3349,7 +3349,7 @@
                                 class="gdlr-core-counter-item-count gdlr-core-js counter-text-color"
                                 data-duration=""
                                 data-counter-start="0"
-                                data-counter-end="1120"
+                                data-counter-end="644"
                                 >0</span
                               ><span
                                 class="gdlr-core-counter-item-suffix counter-text-color"
@@ -3522,9 +3522,9 @@
                 Student Testimonials
               </h3>
             </div>
-            <div class="wrapper">
+            <div class="wrapper" style="padding-bottom: 30px">
               <div class="slider-container">
-                <div class="slider">
+                <div class="slider gdlr-core-pbf-wrapper-content gdlr-core-js">
                   <div class="testimonial">
                     <div class="box">
                       <i class="fas fa-quote-left quote"></i>
