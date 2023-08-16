@@ -53,6 +53,10 @@
       type="text/css"
       media="all"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.7/dist/sweetalert2.min.css"
+    />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 
@@ -297,35 +301,6 @@
           max-height: 300px;
           object-fit: fill;
         }
-      }
-      .custom-alert {
-        position: fixed;
-        top: 15%;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 9999;
-        background-color: #f9f9f9;
-        border: 1px solid #ccc;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        padding: 20px;
-        max-width: 400px;
-        display: none;
-      }
-      .gdlr-core-page-builder-body [data-skin="Newsletter"] *,
-      .gdlr-core-page-builder-body
-        [data-skin="Newsletter"]
-        .gdlr-core-skin-border {
-        border-color: transparent;
-      }
-      .custom-alert p {
-        margin: 0;
-      }
-
-      .custom-alert .close-button {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        cursor: pointer;
       }
 
       /* Styles for the individual image containers */
@@ -1278,7 +1253,7 @@
                               data-easein="default"
                               data-easeout="default"
                               data-masterspeed="300"
-                              data-thumb="upload/slider-img3.jpg"
+                              data-thumb="upload/slider-sample1.jpeg"
                               data-rotate="0"
                               data-saveperformance="off"
                               data-title="Slide"
@@ -1295,7 +1270,7 @@
                               data-description=""
                             >
                               <img
-                                src="upload/slider-img2.2.jpg"
+                                src="upload/slider-sample1.jpeg"
                                 alt=""
                                 title="slider-1-2"
                                 width="1800"
@@ -1419,7 +1394,7 @@
                               data-easein="default"
                               data-easeout="default"
                               data-masterspeed="300"
-                              data-thumb="upload/slider-img3.jpg"
+                              data-thumb="upload/slider-sample2.jpeg"
                               data-rotate="0"
                               data-saveperformance="off"
                               data-title="Slide"
@@ -1436,7 +1411,7 @@
                               data-description=""
                             >
                               <img
-                                src="upload/slider-img-3.1.jpg"
+                                src="upload/slider-sample2.jpeg"
                                 alt=""
                                 title="slider-1-2"
                                 width="1800"
@@ -4042,6 +4017,7 @@
                               </div>
                             </div>
                             <div class="gdlr-core-event-item-holder clearfix">
+                              <!-- <div id="eventList"></div> -->
                               <div
                                 class="gdlr-core-event-item-list gdlr-core-style-widget gdlr-core-item-pdlr clearfix"
                                 id="div_1dd7_97"
@@ -4067,12 +4043,6 @@
                                         >12:00 pm</span
                                       >
                                     </span>
-                                    <!-- <span class="gdlr-core-event-item-info gdlr-core-type-location">
-                                                                        <span class="gdlr-core-head" >
-                                                                            <i class="icon_pin_alt" ></i>
-                                                                        </span>
-                                                                        <span class="gdlr-core-tail">Kingster Grand Hall</span>
-                                                                    </span> -->
                                   </div>
                                 </div>
                               </div>
@@ -4101,12 +4071,6 @@
                                         >12:00 pm</span
                                       >
                                     </span>
-                                    <!-- <span class="gdlr-core-event-item-info gdlr-core-type-location">
-                                                                        <span class="gdlr-core-head" >
-                                                                            <i class="icon_pin_alt" ></i>
-                                                                        </span>
-                                                                        <span class="gdlr-core-tail">Kingster Grand Hall</span>
-                                                                    </span> -->
                                   </div>
                                 </div>
                               </div>
@@ -4135,12 +4099,6 @@
                                         >12:00 pm</span
                                       >
                                     </span>
-                                    <!-- <span class="gdlr-core-event-item-info gdlr-core-type-location">
-                                                                        <span class="gdlr-core-head" >
-                                                                            <i class="icon_pin_alt" ></i>
-                                                                        </span>
-                                                                        <span class="gdlr-core-tail">Kingster Grand Hall</span>
-                                                                    </span> -->
                                   </div>
                                 </div>
                               </div>
@@ -4256,30 +4214,6 @@
                               </form>
                             </div>
                           </div>
-                        </div>
-
-                        <div id="successPopup" class="custom-alert">
-                          <h3>
-                            Successful
-                            <span
-                              class="close-button"
-                              onclick="closeCustomAlert('successPopup')"
-                              >&times;</span
-                            >
-                          </h3>
-                          <p>Email Subscribed successfully!</p>
-                        </div>
-
-                        <div id="failPopup" class="custom-alert">
-                          <h3>
-                            Failed!
-                            <span
-                              class="close-button"
-                              onclick="closeCustomAlert('failPopup')"
-                              >&times;</span
-                            >
-                          </h3>
-                          <p>Email Subscription Failed!</p>
                         </div>
                       </div>
                     </div>
@@ -5050,17 +4984,20 @@
       }
       function showSuccessPopup() {
         hideSuccessLoading();
-        document.getElementById("successPopup").style.display = "block";
+        Swal.fire(
+          "Successful!",
+          "Congratulations you are subscribed!",
+          "success"
+        );
       }
 
       function showFailerPopup() {
         hideLoading();
-        document.getElementById("failPopup").style.display = "block";
-      }
-
-      function closeCustomAlert() {
-        document.getElementById("successPopup").style.display = "none";
-        document.getElementById("failPopup").style.display = "none";
+        Swal.fire({
+          icon: "error",
+          title: "Failed!",
+          text: "You are already subcribed!\n You did not? Try again",
+        });
       }
 
       const form = document.querySelector(".gdlr-core-newsletter-form");
@@ -5154,7 +5091,63 @@
       // Load the gallery when the page is loaded
       window.addEventListener("load", loadGallery);
     </script>
+    <script>
+      // Target the element where you want to display the event list
+      const eventListElement = document.getElementById("eventList");
 
+      // API endpoint URL
+      const apiUrlEvents = "https://app.conext.in/Events/MdcUpcomingEventsList";
+      function createEventElement(eventDate) {
+        const dateObj = new Date(eventDate);
+        const dayOfMonth = dateObj.getDate().toString().padStart(2, "0");
+        const monthAbbreviation = dateObj.toLocaleString("default", {
+          month: "short",
+        });
+        return { day: dayOfMonth, month: monthAbbreviation };
+      }
+      // Fetch data from the API
+      fetch(apiUrlEvents)
+        .then((response) => response.json())
+        .then((data) => {
+          // Generate HTML for each event in the response
+          const eventsHTML = data
+            .map(
+              (event) => `
+          <div class="gdlr-core-event-item-holder clearfix">
+            <div class="gdlr-core-event-item-list gdlr-core-style-widget gdlr-core-item-pdlr clearfix">
+              <span class="gdlr-core-event-item-info gdlr-core-type-start-date-month">
+                <span class="gdlr-core-date event_date">${
+                  createEventElement(event.event_date).day
+                }</span>
+                <span class="gdlr-core-month event_date">${
+                  createEventElement(event.event_date).month
+                }</span>
+              </span>
+              <div class="gdlr-core-event-item-content-wrap">
+                <h3 class="gdlr-core-event-item-title event_name"><a>${
+                  event.event_name
+                }</a></h3>
+                <div class="gdlr-core-event-item-info-wrap">
+                  <span class="gdlr-core-event-item-info gdlr-core-type-time">
+                    <span class="gdlr-core-tail conducted_by">${
+                      event.conducted_by
+                    }</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        `
+            )
+            .join("");
+
+          // Update the event list element with the generated HTML
+          eventListElement.innerHTML = eventsHTML;
+        })
+        .catch((error) => {
+          console.error("Error fetching data:", error);
+        });
+    </script>
     <script>
       // Function to fetch data from the API
       async function fetchPopupData() {
@@ -5480,7 +5473,7 @@
         clipboard_fail_text: 'Press "Cmd + C" to copy',
       };
     </script>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.7/dist/sweetalert2.all.min.js"></script>
     <script type="text/javascript">
       /*<![CDATA[*/
       function revslider_showDoubleJqueryError(sliderID) {
@@ -5671,3 +5664,10 @@
     </script>
   </body>
 </html>
+
+<!-- <span class="gdlr-core-event-item-info gdlr-core-type-location">
+                                                                        <span class="gdlr-core-head" >
+                                                                            <i class="icon_pin_alt" ></i>
+                                                                        </span>
+                                                                        <span class="gdlr-core-tail">Kingster Grand Hall</span>
+                                                                    </span> -->
