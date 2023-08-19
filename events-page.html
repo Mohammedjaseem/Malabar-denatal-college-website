@@ -51,6 +51,152 @@
       type="text/css"
       media="all"
     />
+    <style>
+      .popup {
+        border-radius: 20px;
+        display: none;
+        position: fixed;
+        top: 50px; /* Add 50px margin from the top */
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #fff; /* Set a semi-transparent background */
+        padding: 0px -53px 20px -53px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        z-index: 9999; /* Ensure the popup appears above other elements */
+        max-height: calc(
+          100vh - 100px
+        ); /* Subtract the 50px top and bottom margins */
+        display: flex;
+        max-width: 40%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden; /* Hide any content that exceeds the popup container */
+        border: 0px solid #fff;
+      }
+
+      /* CSS for the close button inside the popup */
+      .close-btn {
+        position: absolute;
+        top: 5px; /* Adjust this value to position the close button above the top border */
+        right: 5px; /* Adjust this value to position the close button from the right border */
+        width: 50px;
+        height: 50px;
+        background-color: #192f59;
+        color: white;
+        border-radius: 50%;
+        font-size: 35px !important;
+        z-index: 10020;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+      }
+      .popup-image-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 100%; /* Set the width to match the image width */
+        overflow: hidden; /* Hide any content that exceeds the image width */
+      }
+
+      /* CSS for the poster image inside the popup */
+      .popup img {
+        max-width: 90%;
+        max-height: 90%;
+        object-fit: contain; /* Scale the image to fit within the available space without distortion */
+      }
+
+      /* CSS for the title inside the popup */
+      .popup p {
+        margin: 0;
+        text-align: center;
+        color: #000;
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+      @media (max-width: 768px) {
+        .popup {
+          max-width: 80%;
+          width: 80%;
+        }
+        .popup p {
+          margin: 0;
+          text-align: center;
+          color: #000;
+          font-size: 0.9rem;
+          font-weight: bold;
+        }
+        .close-btn {
+          position: absolute;
+          top: 5px;
+          right: 15px;
+          font-size: 30px; /* Increase the font size */
+          font-weight: bold; /* Make the font bold */
+          cursor: pointer;
+        }
+      }
+      .loading-animation {
+        border: 4px solid #f3f3f3;
+        border-top: 4px solid #3db166;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        animation: spin 2s linear infinite;
+        margin: 20px auto;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+      .floating-button {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background-color: #182847; /* WhatsApp green */
+        color: #fff;
+        width: 70px; /* Set width and height to the same value for a perfect circle */
+        height: 70px;
+        border-radius: 50%; /* Make the button round */
+        cursor: pointer;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px; /* Adjust the font size for larger text */
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 9999; /* Set a high z-index to appear above other content */
+      }
+
+      /* Style for WhatsApp logo */
+      .whatsapp-logo {
+        width: 36px; /* Adjust the logo size */
+        height: 36px; /* Adjust the logo size */
+      }
+      .notification-list {
+        display: inline-block;
+        max-height: 20px;
+        overflow: hidden;
+        position: relative;
+        max-height: 20px;
+      }
+      ul.notification-list {
+        margin-bottom: 0px !important;
+      }
+      @keyframes marquee-up {
+        0% {
+          transform: translateY(0);
+        }
+        100% {
+          transform: translateY(-100%);
+        }
+      }
+    </style>
   </head>
 
   <body
@@ -72,40 +218,6 @@
             </div>
           </div>
           <div class="kingster-mobile-menu-right">
-            <div
-              class="kingster-main-menu-search"
-              id="kingster-mobile-top-search"
-            >
-              <i class="fa fa-search"></i>
-            </div>
-            <div class="kingster-top-search-wrap">
-              <div class="kingster-top-search-close"></div>
-              <div class="kingster-top-search-row">
-                <div class="kingster-top-search-cell">
-                  <form
-                    role="search"
-                    method="get"
-                    class="search-form"
-                    action="#"
-                  >
-                    <input
-                      type="text"
-                      class="search-field kingster-title-font"
-                      placeholder="Search..."
-                      value=""
-                      name="s"
-                    />
-                    <div class="kingster-top-search-submit">
-                      <i class="fa fa-search"></i>
-                    </div>
-                    <input type="submit" class="search-submit" value="Search" />
-                    <div class="kingster-top-search-close">
-                      <i class="icon_close"></i>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
             <div class="kingster-mobile-menu">
               <a
                 class="kingster-mm-menu-button kingster-mobile-menu-button kingster-mobile-button-hamburger"
@@ -118,370 +230,211 @@
                 data-slide="right"
               >
                 <ul id="menu-main-navigation" class="m-menu">
-                  <li
-                    class="menu-item menu-item-home current-menu-item menu-item-has-children"
-                  >
+                  <li class="menu-item menu-item-home current-menu-item">
                     <a href="index.html">Home</a>
+                  </li>
+                  <li class="menu-item">
+                    <a href="about-us.html">About Us</a>
+                  </li>
+                  <li class="menu-item menu-item-has-children">
+                    <a>Academics</a>
                     <ul class="sub-menu">
-                      <li class="menu-item menu-item-home">
-                        <a href="index.html">Homepage 1</a>
+                      <li class="menu-item menu-item-has-children">
+                        <a>Courses</a>
+                        <ul class="sub-menu">
+                          <li class="menu-item menu-item-has-children">
+                            <a>UG & PG</a>
+                            <ul>
+                              <li class="menu-item">
+                                <a href="bachelor-of-dental-surgery.html"
+                                  >BDS (Bachelor Dental Surgery)</a
+                                >
+                              </li>
+                              <li class="menu-item">
+                                <a href="master-of-dental-surgery.html"
+                                  >MDS (Master Dental Surgery)</a
+                                >
+                              </li>
+                            </ul>
+                          </li>
+                          <li class="menu-item menu-item-has-children">
+                            <a>Diploma</a>
+                            <ul>
+                              <li class="menu-item">
+                                <a href="dora.html"
+                                  >Dental Operating Room Assistant (DORA)</a
+                                >
+                              </li>
+                              <li class="menu-item">
+                                <a href="dental-mechanic.html"
+                                  >dental mechanic (DM)</a
+                                >
+                              </li>
+                            </ul>
+                          </li>
+                        </ul>
                       </li>
                       <li class="menu-item">
-                        <a href="homepage-2.html">Homepage 2</a>
+                        <a href="library.html">Library</a>
+                      </li>
+                      <li class="menu-item">
+                        <a href="feedbacks.html">Feedbacks</a>
+                      </li>
+                      <li class="menu-item">
+                        <a href="journals.html">Journals</a>
+                      </li>
+                      <li class="menu-item">
+                        <a href="admission.html">Admission</a>
+                      </li>
+                      <li class="menu-item">
+                        <a href="code-of-conduct.html">Code of Conduct</a>
+                      </li>
+                      <li class="menu-item">
+                        <a href="facilities.html">Facilities</a>
+                      </li>
+                      <li class="menu-item">
+                        <a href="awards.html">Awards</a>
                       </li>
                     </ul>
                   </li>
                   <li class="menu-item menu-item-has-children">
-                    <a href="#">Pages</a>
+                    <a>Departments</a>
                     <ul class="sub-menu">
-                      <li class="menu-item">
-                        <a href="about-us.html">About KU</a>
-                      </li>
                       <li class="menu-item menu-item-has-children">
-                        <a href="blog-full-right-sidebar-with-frame.html"
-                          >Blog</a
-                        >
+                        <a>Basic Science Departments</a>
                         <ul class="sub-menu">
-                          <li class="menu-item menu-item-has-children">
-                            <a href="blog-full-right-sidebar-with-frame.html"
-                              >Blog Full</a
-                            >
-                            <ul class="sub-menu">
-                              <li class="menu-item">
-                                <a
-                                  href="blog-full-right-sidebar-with-frame.html"
-                                  >Blog Full Right Sidebar With Frame</a
-                                >
-                              </li>
-                              <li class="menu-item">
-                                <a href="blog-full-left-sidebar-with-frame.html"
-                                  >Blog Full Left Sidebar With Frame</a
-                                >
-                              </li>
-                              <li class="menu-item">
-                                <a href="blog-full-both-sidebar-with-frame.html"
-                                  >Blog Full Both Sidebar With Frame</a
-                                >
-                              </li>
-                              <li class="menu-item">
-                                <a href="blog-full-right-sidebar.html"
-                                  >Blog Full Right Sidebar</a
-                                >
-                              </li>
-                              <li class="menu-item">
-                                <a href="blog-full-left-sidebar.html"
-                                  >Blog Full Left Sidebar</a
-                                >
-                              </li>
-                              <li class="menu-item">
-                                <a href="blog-full-both-sidebar.html"
-                                  >Blog Full Both Sidebar</a
-                                >
-                              </li>
-                            </ul>
-                          </li>
-                          <li class="menu-item menu-item-has-children">
-                            <a href="blog-grid-3-columns-no-space.html"
-                              >Blog Grid</a
-                            >
-                            <ul class="sub-menu">
-                              <li class="menu-item">
-                                <a href="blog-grid-2-columns.html"
-                                  >Blog Grid 2 Columns</a
-                                >
-                              </li>
-                              <li class="menu-item">
-                                <a href="blog-grid-3-columns.html"
-                                  >Blog Grid 3 Columns</a
-                                >
-                              </li>
-                              <li class="menu-item">
-                                <a href="blog-grid-4-columns.html"
-                                  >Blog Grid 4 Columns</a
-                                >
-                              </li>
-                              <li class="menu-item">
-                                <a href="blog-grid-2-columns-no-space.html"
-                                  >Blog Grid 2 Columns No Space</a
-                                >
-                              </li>
-                              <li class="menu-item">
-                                <a href="blog-grid-3-columns-no-space.html"
-                                  >Blog Grid 3 Columns No Space</a
-                                >
-                              </li>
-                              <li class="menu-item">
-                                <a href="blog-grid-4-columns-no-space.html"
-                                  >Blog Grid 4 Columns No Space</a
-                                >
-                              </li>
-                            </ul>
-                          </li>
-
                           <li class="menu-item">
-                            <a href="standard-post-type.html">Single Post</a>
+                            <a href="anatomy.html">Anatomy</a>
+                          </li>
+                          <li class="menu-item">
+                            <a href="physiology.html">Physiology</a>
+                          </li>
+                          <li class="menu-item">
+                            <a href="biochemistry.html">Biochemistry</a>
+                          </li>
+                          <li class="menu-item">
+                            <a href="general-pathology.html"
+                              >General Pathology</a
+                            >
+                          </li>
+                          <li class="menu-item">
+                            <a href="general-microbiology.html"
+                              >General Microbiology</a
+                            >
+                          </li>
+                          <li class="menu-item">
+                            <a href="pharmacology.html">Pharmacology</a>
+                          </li>
+                          <li class="menu-item">
+                            <a href="general-medicine.html">General Medicine</a>
+                          </li>
+                          <li class="menu-item">
+                            <a href="general-surgery.html">General Surgery</a>
                           </li>
                         </ul>
                       </li>
                       <li class="menu-item menu-item-has-children">
-                        <a href="#">Contact</a>
+                        <a>Dental Departments</a>
                         <ul class="sub-menu">
                           <li class="menu-item">
-                            <a href="contact.html">Contact</a>
+                            <a href="oral-pathology.html"
+                              >Oral Pathology and Microbiology</a
+                            >
                           </li>
                           <li class="menu-item">
-                            <a href="contact-2.html">Contact 2</a>
+                            <a href="public-health.html"
+                              >Public Health Dentistry</a
+                            >
                           </li>
                           <li class="menu-item">
-                            <a href="contact-3.html">Contact 3</a>
+                            <a href="periodontology.html">Periodontology</a>
                           </li>
-                        </ul>
-                      </li>
-                      <li class="menu-item menu-item-has-children">
-                        <a href="portfolio-3-columns.html">Portfolio</a>
-                        <ul class="sub-menu">
-                          <li class="menu-item menu-item-has-children">
-                            <a>Portfolio Grid</a>
-                            <ul class="sub-menu">
-                              <li class="menu-item">
-                                <a href="portfolio-2-columns.html"
-                                  >Portfolio 2 Columns</a
-                                >
-                              </li>
-                              <li class="menu-item">
-                                <a href="portfolio-3-columns.html"
-                                  >Portfolio 3 Columns</a
-                                >
-                              </li>
-                              <li class="menu-item">
-                                <a href="portfolio-4-columns.html"
-                                  >Portfolio 4 Columns</a
-                                >
-                              </li>
-                              <li class="menu-item">
-                                <a href="portfolio-5-columns.html"
-                                  >Portfolio 5 Columns</a
-                                >
-                              </li>
-                              <li class="menu-item">
-                                <a href="portfolio-2-columns-with-frame.html"
-                                  >Portfolio 2 Columns With Frame</a
-                                >
-                              </li>
-                              <li class="menu-item">
-                                <a href="portfolio-3-columns-with-frame.html"
-                                  >Portfolio 3 Columns With Frame</a
-                                >
-                              </li>
-                              <li class="menu-item">
-                                <a href="portfolio-4-columns-with-frame.html"
-                                  >Portfolio 4 Columns With Frame</a
-                                >
-                              </li>
-                              <li class="menu-item">
-                                <a href="portfolio-2-columns-no-space.html"
-                                  >Portfolio 2 Columns No Space</a
-                                >
-                              </li>
-                              <li class="menu-item">
-                                <a href="portfolio-3-columns-no-space.html"
-                                  >Portfolio 3 Columns No Space</a
-                                >
-                              </li>
-                              <li class="menu-item">
-                                <a href="portfolio-4-columns-no-space.html"
-                                  >Portfolio 4 Columns No Space</a
-                                >
-                              </li>
-                              <li class="menu-item">
-                                <a href="portfolio-5-columns-no-space.html"
-                                  >Portfolio 5 Columns No Space</a
-                                >
-                              </li>
-                            </ul>
+                          <li class="menu-item">
+                            <a href="oral-medicine-and-radiology.html"
+                              >Oral Medicine and Radiology</a
+                            >
                           </li>
-                          <li class="menu-item menu-item-has-children">
-                            <a>Portfolio Masonry</a>
-                            <ul class="sub-menu">
-                              <li class="menu-item">
-                                <a href="portfolio-masonry-4-columns.html"
-                                  >Masonry 4 Columns</a
-                                >
-                              </li>
-                              <li class="menu-item">
-                                <a href="portfolio-masonry-3-columns.html"
-                                  >Masonry 3 Columns</a
-                                >
-                              </li>
-                              <li class="menu-item">
-                                <a href="portfolio-masonry-2-columns.html"
-                                  >Masonry 2 Columns</a
-                                >
-                              </li>
-                              <li class="menu-item">
-                                <a
-                                  href="portfolio-masonry-4-columns-no-space.html"
-                                  >Masonry 4 Columns No Space</a
-                                >
-                              </li>
-                              <li class="menu-item">
-                                <a
-                                  href="portfolio-masonry-3-columns-no-space.html"
-                                  >Masonry 3 Columns No Space</a
-                                >
-                              </li>
-                              <li class="menu-item">
-                                <a
-                                  href="portfolio-masonry-2-columns-no-space.html"
-                                  >Masonry 2 Columns No Space</a
-                                >
-                              </li>
-                            </ul>
+                          <li class="menu-item">
+                            <a href="orthodontics.html"
+                              >Orthodontics & Dentofacial Orthopaedics</a
+                            >
                           </li>
-
-                          <li class="menu-item menu-item-has-children">
-                            <a
-                              class="sf-with-ul-pre"
-                              href="singleportfolio.html"
-                              >Single Portfolio</a
+                          <li class="menu-item">
+                            <a href="oral-and-maxilofacial-surgery.html"
+                              >Oral and Maxillofacial Surgery</a
+                            >
+                          </li>
+                          <li class="menu-item">
+                            <a href="conservative-dentistry-&-edodontics.html"
+                              >Conservative Dentistry & Endodontics</a
+                            >
+                          </li>
+                          <li class="menu-item">
+                            <a href="prosthodontic.html"
+                              >Prosthodontics & Crown and Bridge</a
+                            >
+                          </li>
+                          <li class="menu-item">
+                            <a href="pedodontics.html"
+                              >Pedodontics & Preventive Dentistry</a
                             >
                           </li>
                         </ul>
                       </li>
-                      <li class="menu-item">
-                        <a href="gallery.html">Gallery</a>
-                      </li>
-                      <li class="menu-item">
-                        <a href="price-table.html">Price Table</a>
-                      </li>
-                      <li class="menu-item">
-                        <a href="maintenance.html">Maintenance</a>
-                      </li>
-                      <li class="menu-item">
-                        <a href="coming-soon.html">Coming Soon</a>
-                      </li>
-                      <li class="menu-item"><a href="404.html">404 Page</a></li>
                     </ul>
                   </li>
                   <li class="menu-item menu-item-has-children">
-                    <a
-                      href="bachelor-of-science-in-business-administration.html"
-                      >Academics</a
-                    >
-                    <ul class="sub-menu">
-                      <li class="menu-item menu-item-has-children">
-                        <a>Undergraduate</a>
-                        <ul class="sub-menu">
-                          <li class="menu-item">
-                            <a
-                              href="bachelor-of-science-in-business-administration.html"
-                              >Business Administration</a
-                            >
-                          </li>
-                          <li class="menu-item">
-                            <a href="school-of-law.html">School Of Law</a>
-                          </li>
-                          <li class="menu-item">
-                            <a href="engineering.html">Engineering</a>
-                          </li>
-                          <li class="menu-item">
-                            <a href="medicine.html">Medicine</a>
-                          </li>
-                          <li class="menu-item">
-                            <a href="art-science.html">Art &#038; Science</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li class="menu-item menu-item-has-children">
-                        <a href="#">Graduate Program</a>
-                        <ul class="sub-menu">
-                          <li class="menu-item">
-                            <a href="hospitality-management.html"
-                              >Hospitality Management</a
-                            >
-                          </li>
-                          <li class="menu-item">
-                            <a href="physics.html">Physics</a>
-                          </li>
-                          <li class="menu-item"><a href="#">Chemistry</a></li>
-                          <li class="menu-item"><a href="#">Music</a></li>
-                          <li class="menu-item">
-                            <a href="#">Computer Science</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li class="menu-item menu-item-has-children">
-                        <a href="#">Resources</a>
-                        <ul class="sub-menu">
-                          <li class="menu-item">
-                            <a
-                              href="bachelor-of-science-in-business-administration.html"
-                              >Department Page</a
-                            >
-                          </li>
-                          <li class="menu-item">
-                            <a href="finance.html">Major Page</a>
-                          </li>
-                          <li class="menu-item">
-                            <a href="finance-faculty.html">Faculty Page</a>
-                          </li>
-                          <li class="menu-item">
-                            <a href="john-hagensy-phd.html"
-                              >Single Instructor</a
-                            >
-                          </li>
-                          <li class="menu-item">
-                            <a href="introduction-to-financial-accounting.html"
-                              >Single Course</a
-                            >
-                          </li>
-                        </ul>
-                      </li>
-                      <li class="menu-item"><a href="#">Logo</a></li>
-                    </ul>
-                  </li>
-                  <li class="menu-item menu-item-has-children">
-                    <a href="apply-to-kingster.html">Admissions</a>
+                    <a>Activities</a>
                     <ul class="sub-menu">
                       <li class="menu-item">
-                        <a href="apply-to-kingster.html">Apply To MDCRC</a>
+                        <a href="mdrc-gallery.html">Gallery</a>
                       </li>
+                      <li class="menu-item"><a href="clubs.html">Clubs</a></li>
                       <li class="menu-item">
-                        <a href="campus-tour.html">Campus Tour</a>
+                        <a href="research.html">Research</a>
                       </li>
                       <li class="menu-item">
                         <a href="mdcrc-scholarship.html">Scholarships</a>
                       </li>
                       <li class="menu-item">
-                        <a>Activities</a>
+                        <a href="satelite-clinic.html">Satellite Clinic</a>
                       </li>
                       <li class="menu-item">
-                        <a href="give-to-kingster.html">Give To Kingster</a>
+                        <a href="placement-cell.html">Placement Cell</a>
                       </li>
                       <li class="menu-item">
-                        <a href="alumni.html">Alumni</a>
+                        <a href="students-union.html">Students Union</a>
                       </li>
                       <li class="menu-item">
-                        <a href="event-calendar.html">Event Calendar</a>
+                        <a href="women-cell.html">Womens Cell</a>
+                      </li>
+                      <li class="menu-item">
+                        <a href="news-page.html">MDC News</a>
                       </li>
                     </ul>
                   </li>
                   <li class="menu-item menu-item-has-children">
-                    <a href="#">Courses</a>
+                    <a>Accreditations</a>
                     <ul class="sub-menu">
+                      <li class="menu-item"><a href="naac.html">NAAC</a></li>
                       <li class="menu-item">
-                        <a href="course-list-1.html">Course List 1</a>
+                        <a
+                          href="https://mdcrc.edu.in/NIRF/2023/NIRF_2023.pdf"
+                          target="_blank"
+                          >NIRF 2023</a
+                        >
                       </li>
                       <li class="menu-item">
-                        <a href="course-list-2.html">Course List 2</a>
+                        <a
+                          href="https://mdcrc.edu.in/NIRF/2022/NIRF_2022.pdf"
+                          target="_blank"
+                          >NIRF 2022</a
+                        >
                       </li>
                     </ul>
                   </li>
-                  <li class="menu-item">
-                    <a>Activities</a>
-                  </li>
-                  <li class="menu-item">
-                    <a href="university-life.html">University Life</a>
+                  <li class="menu-item menu-item-home current-menu-item">
+                    <a href="news-page.html">MDC News</a>
                   </li>
                 </ul>
               </div>
@@ -531,7 +484,7 @@
               <div class="kingster-logo kingster-item-pdlr">
                 <div class="kingster-logo-inner">
                   <a class="" href="index.html"
-                    ><img src="upload/logo.png" alt=""
+                    ><img width="80%" src="upload/logo.png" alt=""
                   /></a>
                 </div>
               </div>
@@ -539,335 +492,226 @@
                 <div class="kingster-main-menu" id="kingster-main-menu">
                   <ul id="menu-main-navigation-1" class="sf-menu">
                     <li
+                      class="menu-item menu-item-home current-menu-item menu-item-has-children"
+                    >
+                      <a href="index.html">Home</a>
+                      <!-- jassy commented 
+                                        <ul class="sub-menu">
+                                            <li class="menu-item menu-item-home" data-size="60"><a href="index.html">Homepage 1</a></li>
+                                            <li class="menu-item" data-size="60"><a href="homepage-2.html">Homepage 2</a></li>
+                                        </ul>
+                                        -->
+                    </li>
+                    <li
                       class="menu-item menu-item-home menu-item-has-children kingster-normal-menu"
                     >
-                      <a href="index.html" class="sf-with-ul-pre">Home</a>
-                      <ul class="sub-menu">
-                        <li class="menu-item menu-item-home" data-size="60">
-                          <a href="index.html">Homepage 1</a>
-                        </li>
-                        <li class="menu-item" data-size="60">
-                          <a href="homepage-2.html">Homepage 2</a>
-                        </li>
-                      </ul>
+                      <a href="about-us.html" class="sf-with-ul-pre"
+                        >About Us</a
+                      >
+                      <!-- jassy commented 
+                                        <ul class="sub-menu">
+                                            <li class="menu-item menu-item-home" data-size="60"><a href="index.html">Homepage 1</a></li>
+                                            <li class="menu-item" data-size="60"><a href="homepage-2.html">Homepage 2</a></li>
+                                        </ul>
+                                        -->
                     </li>
+                    <!-- Jassy Commented
+                                    <li class="menu-item menu-item-has-children kingster-normal-menu"><a  class="sf-with-ul-pre">Pages</a>
+                                        <ul class="sub-menu">
+                                            <li class="menu-item" data-size="60"><a href="about-us.html">About KU</a></li>
+                                            <li class="menu-item menu-item-has-children" data-size="60"><a href="blog-full-right-sidebar-with-frame.html" class="sf-with-ul-pre">Blog</a>
+                                                <ul class="sub-menu">
+                                                    <li class="menu-item menu-item-has-children"><a href="blog-full-right-sidebar-with-frame.html" class="sf-with-ul-pre">Blog Full</a>
+                                                        <ul class="sub-menu">
+                                                            <li class="menu-item"><a href="blog-full-right-sidebar-with-frame.html">Blog Full Right Sidebar With Frame</a></li>
+                                                            <li class="menu-item"><a href="blog-full-left-sidebar-with-frame.html">Blog Full Left Sidebar With Frame</a></li>
+                                                            <li class="menu-item"><a href="blog-full-both-sidebar-with-frame.html">Blog Full Both Sidebar With Frame</a></li>
+                                                            <li class="menu-item"><a href="blog-full-right-sidebar.html">Blog Full Right Sidebar</a></li>
+                                                            <li class="menu-item"><a href="blog-full-left-sidebar.html">Blog Full Left Sidebar</a></li>
+                                                            <li class="menu-item"><a href="blog-full-both-sidebar.html">Blog Full Both Sidebar</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="menu-item menu-item-has-children"><a href="blog-grid-3-columns-no-space.html" class="sf-with-ul-pre">Blog Grid</a>
+                                                        <ul class="sub-menu">
+                                                            <li class="menu-item"><a href="blog-grid-2-columns.html">Blog Grid 2 Columns</a></li>
+                                                            <li class="menu-item"><a href="blog-grid-3-columns.html">Blog Grid 3 Columns</a></li>
+                                                            <li class="menu-item"><a href="blog-grid-4-columns.html">Blog Grid 4 Columns</a></li>
+                                                            <li class="menu-item"><a href="blog-grid-2-columns-no-space.html">Blog Grid 2 Columns No Space</a></li>
+                                                            <li class="menu-item"><a href="blog-grid-3-columns-no-space.html">Blog Grid 3 Columns No Space</a></li>
+                                                            <li class="menu-item"><a href="blog-grid-4-columns-no-space.html">Blog Grid 4 Columns No Space</a></li>
+                                                        </ul>
+                                                    </li>
+
+                                                    <li class="menu-item"><a href="standard-post-type.html">Single Post</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="menu-item menu-item-has-children" data-size="60"><a  class="sf-with-ul-pre">Contact</a>
+                                                <ul class="sub-menu">
+                                                    <li class="menu-item"><a href="contact.html">Contact</a></li>
+                                                    <li class="menu-item"><a href="contact-2.html">Contact 2</a></li>
+                                                    <li class="menu-item"><a href="contact-3.html">Contact 3</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="menu-item menu-item-has-children" data-size="60"><a href="portfolio-3-columns.html" class="sf-with-ul-pre">Portfolio</a>
+                                                <ul class="sub-menu">
+                                                    <li class="menu-item menu-item-has-children"><a class="sf-with-ul-pre">Portfolio Grid</a>
+                                                        <ul class="sub-menu">
+                                                            <li class="menu-item"><a href="portfolio-2-columns.html">Portfolio 2 Columns</a></li>
+                                                            <li class="menu-item"><a href="portfolio-3-columns.html">Portfolio 3 Columns</a></li>
+                                                            <li class="menu-item"><a href="portfolio-4-columns.html">Portfolio 4 Columns</a></li>
+                                                            <li class="menu-item"><a href="portfolio-5-columns.html">Portfolio 5 Columns</a></li>
+                                                            <li class="menu-item"><a href="portfolio-2-columns-with-frame.html">Portfolio 2 Columns With Frame</a></li>
+                                                            <li class="menu-item"><a href="portfolio-3-columns-with-frame.html">Portfolio 3 Columns With Frame</a></li>
+                                                            <li class="menu-item"><a href="portfolio-4-columns-with-frame.html">Portfolio 4 Columns With Frame</a></li>
+                                                            <li class="menu-item"><a href="portfolio-2-columns-no-space.html">Portfolio 2 Columns No Space</a></li>
+                                                            <li class="menu-item"><a href="portfolio-3-columns-no-space.html">Portfolio 3 Columns No Space</a></li>
+                                                            <li class="menu-item"><a href="portfolio-4-columns-no-space.html">Portfolio 4 Columns No Space</a></li>
+                                                            <li class="menu-item"><a href="portfolio-5-columns-no-space.html">Portfolio 5 Columns No Space</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="menu-item menu-item-has-children"><a class="sf-with-ul-pre">Portfolio Masonry</a>
+                                                        <ul class="sub-menu">
+                                                            <li class="menu-item"><a href="portfolio-masonry-4-columns.html">Masonry 4 Columns</a></li>
+                                                            <li class="menu-item"><a href="portfolio-masonry-3-columns.html">Masonry 3 Columns</a></li>
+                                                            <li class="menu-item"><a href="portfolio-masonry-2-columns.html">Masonry 2 Columns</a></li>
+                                                            <li class="menu-item"><a href="portfolio-masonry-4-columns-no-space.html">Masonry 4 Columns No Space</a></li>
+                                                            <li class="menu-item"><a href="portfolio-masonry-3-columns-no-space.html">Masonry 3 Columns No Space</a></li>
+                                                            <li class="menu-item"><a href="portfolio-masonry-2-columns-no-space.html">Masonry 2 Columns No Space</a></li>
+                                                        </ul>
+                                                    </li>
+
+                                                 <li class="menu-item menu-item-has-children"><a class="sf-with-ul-pre" href="singleportfolio.html">Single Portfolio</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="menu-item" data-size="60"><a href="gallery.html">Gallery</a></li>
+                                            <li class="menu-item" data-size="60"><a href="price-table.html">Price Table</a></li>
+                                            <li class="menu-item" data-size="60"><a href="maintenance.html">Maintenance</a></li>
+                                            <li class="menu-item" data-size="60"><a href="coming-soon.html">Coming Soon</a></li>
+                                            <li class="menu-item" data-size="60"><a href="404.html">404 Page</a></li>
+                                        </ul>
+                                    </li>
+                                     -->
                     <li
                       class="menu-item menu-item-has-children kingster-normal-menu"
                     >
-                      <a href="#" class="sf-with-ul-pre">Pages</a>
+                      <a class="sf-with-ul-pre">Academics</a>
                       <ul class="sub-menu">
-                        <li class="menu-item" data-size="60">
-                          <a href="about-us.html">About KU</a>
-                        </li>
-                        <li
-                          class="menu-item menu-item-has-children"
-                          data-size="60"
-                        >
-                          <a
-                            href="blog-full-right-sidebar-with-frame.html"
-                            class="sf-with-ul-pre"
-                            >Blog</a
+                        <b>
+                          <li
+                            class="menu-item menu-item-has-children"
+                            data-size="60"
                           >
-                          <ul class="sub-menu">
-                            <li class="menu-item menu-item-has-children">
-                              <a
-                                href="blog-full-right-sidebar-with-frame.html"
-                                class="sf-with-ul-pre"
-                                >Blog Full</a
-                              >
-                              <ul class="sub-menu">
-                                <li class="menu-item">
-                                  <a
-                                    href="blog-full-right-sidebar-with-frame.html"
-                                    >Blog Full Right Sidebar With Frame</a
-                                  >
-                                </li>
-                                <li class="menu-item">
-                                  <a
-                                    href="blog-full-left-sidebar-with-frame.html"
-                                    >Blog Full Left Sidebar With Frame</a
-                                  >
-                                </li>
-                                <li class="menu-item">
-                                  <a
-                                    href="blog-full-both-sidebar-with-frame.html"
-                                    >Blog Full Both Sidebar With Frame</a
-                                  >
-                                </li>
-                                <li class="menu-item">
-                                  <a href="blog-full-right-sidebar.html"
-                                    >Blog Full Right Sidebar</a
-                                  >
-                                </li>
-                                <li class="menu-item">
-                                  <a href="blog-full-left-sidebar.html"
-                                    >Blog Full Left Sidebar</a
-                                  >
-                                </li>
-                                <li class="menu-item">
-                                  <a href="blog-full-both-sidebar.html"
-                                    >Blog Full Both Sidebar</a
-                                  >
-                                </li>
-                              </ul>
-                            </li>
-                            <li class="menu-item menu-item-has-children">
-                              <a
-                                href="blog-grid-3-columns-no-space.html"
-                                class="sf-with-ul-pre"
-                                >Blog Grid</a
-                              >
-                              <ul class="sub-menu">
-                                <li class="menu-item">
-                                  <a href="blog-grid-2-columns.html"
-                                    >Blog Grid 2 Columns</a
-                                  >
-                                </li>
-                                <li class="menu-item">
-                                  <a href="blog-grid-3-columns.html"
-                                    >Blog Grid 3 Columns</a
-                                  >
-                                </li>
-                                <li class="menu-item">
-                                  <a href="blog-grid-4-columns.html"
-                                    >Blog Grid 4 Columns</a
-                                  >
-                                </li>
-                                <li class="menu-item">
-                                  <a href="blog-grid-2-columns-no-space.html"
-                                    >Blog Grid 2 Columns No Space</a
-                                  >
-                                </li>
-                                <li class="menu-item">
-                                  <a href="blog-grid-3-columns-no-space.html"
-                                    >Blog Grid 3 Columns No Space</a
-                                  >
-                                </li>
-                                <li class="menu-item">
-                                  <a href="blog-grid-4-columns-no-space.html"
-                                    >Blog Grid 4 Columns No Space</a
-                                  >
-                                </li>
-                              </ul>
-                            </li>
-
-                            <li class="menu-item">
-                              <a href="standard-post-type.html">Single Post</a>
-                            </li>
-                          </ul>
-                        </li>
-                        <li
-                          class="menu-item menu-item-has-children"
-                          data-size="60"
-                        >
-                          <a href="#" class="sf-with-ul-pre">Contact</a>
-                          <ul class="sub-menu">
-                            <li class="menu-item">
-                              <a href="contact.html">Contact</a>
-                            </li>
-                            <li class="menu-item">
-                              <a href="contact-2.html">Contact 2</a>
-                            </li>
-                            <li class="menu-item">
-                              <a href="contact-3.html">Contact 3</a>
-                            </li>
-                          </ul>
-                        </li>
-                        <li
-                          class="menu-item menu-item-has-children"
-                          data-size="60"
-                        >
-                          <a
-                            href="portfolio-3-columns.html"
-                            class="sf-with-ul-pre"
-                            >Portfolio</a
-                          >
-                          <ul class="sub-menu">
-                            <li class="menu-item menu-item-has-children">
-                              <a class="sf-with-ul-pre">Portfolio Grid</a>
-                              <ul class="sub-menu">
-                                <li class="menu-item">
-                                  <a href="portfolio-2-columns.html"
-                                    >Portfolio 2 Columns</a
-                                  >
-                                </li>
-                                <li class="menu-item">
-                                  <a href="portfolio-3-columns.html"
-                                    >Portfolio 3 Columns</a
-                                  >
-                                </li>
-                                <li class="menu-item">
-                                  <a href="portfolio-4-columns.html"
-                                    >Portfolio 4 Columns</a
-                                  >
-                                </li>
-                                <li class="menu-item">
-                                  <a href="portfolio-5-columns.html"
-                                    >Portfolio 5 Columns</a
-                                  >
-                                </li>
-                                <li class="menu-item">
-                                  <a href="portfolio-2-columns-with-frame.html"
-                                    >Portfolio 2 Columns With Frame</a
-                                  >
-                                </li>
-                                <li class="menu-item">
-                                  <a href="portfolio-3-columns-with-frame.html"
-                                    >Portfolio 3 Columns With Frame</a
-                                  >
-                                </li>
-                                <li class="menu-item">
-                                  <a href="portfolio-4-columns-with-frame.html"
-                                    >Portfolio 4 Columns With Frame</a
-                                  >
-                                </li>
-                                <li class="menu-item">
-                                  <a href="portfolio-2-columns-no-space.html"
-                                    >Portfolio 2 Columns No Space</a
-                                  >
-                                </li>
-                                <li class="menu-item">
-                                  <a href="portfolio-3-columns-no-space.html"
-                                    >Portfolio 3 Columns No Space</a
-                                  >
-                                </li>
-                                <li class="menu-item">
-                                  <a href="portfolio-4-columns-no-space.html"
-                                    >Portfolio 4 Columns No Space</a
-                                  >
-                                </li>
-                                <li class="menu-item">
-                                  <a href="portfolio-5-columns-no-space.html"
-                                    >Portfolio 5 Columns No Space</a
-                                  >
-                                </li>
-                              </ul>
-                            </li>
-                            <li class="menu-item menu-item-has-children">
-                              <a class="sf-with-ul-pre">Portfolio Masonry</a>
-                              <ul class="sub-menu">
-                                <li class="menu-item">
-                                  <a href="portfolio-masonry-4-columns.html"
-                                    >Masonry 4 Columns</a
-                                  >
-                                </li>
-                                <li class="menu-item">
-                                  <a href="portfolio-masonry-3-columns.html"
-                                    >Masonry 3 Columns</a
-                                  >
-                                </li>
-                                <li class="menu-item">
-                                  <a href="portfolio-masonry-2-columns.html"
-                                    >Masonry 2 Columns</a
-                                  >
-                                </li>
-                                <li class="menu-item">
-                                  <a
-                                    href="portfolio-masonry-4-columns-no-space.html"
-                                    >Masonry 4 Columns No Space</a
-                                  >
-                                </li>
-                                <li class="menu-item">
-                                  <a
-                                    href="portfolio-masonry-3-columns-no-space.html"
-                                    >Masonry 3 Columns No Space</a
-                                  >
-                                </li>
-                                <li class="menu-item">
-                                  <a
-                                    href="portfolio-masonry-2-columns-no-space.html"
-                                    >Masonry 2 Columns No Space</a
-                                  >
-                                </li>
-                              </ul>
-                            </li>
-
-                            <li class="menu-item menu-item-has-children">
-                              <a
-                                class="sf-with-ul-pre"
-                                href="singleportfolio.html"
-                                >Single Portfolio</a
-                              >
-                            </li>
-                          </ul>
-                        </li>
-                        <li class="menu-item" data-size="60">
-                          <a href="gallery.html">Gallery</a>
-                        </li>
-                        <li class="menu-item" data-size="60">
-                          <a href="price-table.html">Price Table</a>
-                        </li>
-                        <li class="menu-item" data-size="60">
-                          <a href="maintenance.html">Maintenance</a>
-                        </li>
-                        <li class="menu-item" data-size="60">
-                          <a href="coming-soon.html">Coming Soon</a>
-                        </li>
-                        <li class="menu-item" data-size="60">
-                          <a href="404.html">404 Page</a>
-                        </li>
+                            <a class="sf-with-ul-pre">Courses</a>
+                            <ul class="sub-menu">
+                              <li class="menu-item menu-item-has-children">
+                                <a class="sf-with-ul-pre">UG & PG</a>
+                                <ul>
+                                  <li class="menu-item">
+                                    <a href="bachelor-of-dental-surgery.html"
+                                      >BDS (Bachelor Dental Surgery)</a
+                                    >
+                                  </li>
+                                  <li class="menu-item">
+                                    <a href="master-of-dental-surgery.html"
+                                      >MDS (Master Dental Surgery)</a
+                                    >
+                                  </li>
+                                </ul>
+                              </li>
+                              <li class="menu-item menu-item-has-children">
+                                <a class="sf-with-ul-pre">Diploma</a>
+                                <ul>
+                                  <li class="menu-item">
+                                    <a href="dora.html"
+                                      >Dental Operating Room Assistant (DORA)</a
+                                    >
+                                  </li>
+                                  <li class="menu-item">
+                                    <a href="dental-mechanic.html"
+                                      >dental mechanic (DM)</a
+                                    >
+                                  </li>
+                                </ul>
+                              </li>
+                            </ul>
+                          </li>
+                          <li class="menu-item" data-size="60">
+                            <a href="library.html">Library</a>
+                          </li>
+                          <li class="menu-item" data-size="60">
+                            <a href="feedbacks.html">Feedbacks</a>
+                          </li>
+                          <li class="menu-item" data-size="60">
+                            <a href="journals.html">Journals</a>
+                          </li>
+                          <li class="menu-item" data-size="60">
+                            <a href="admission.html">Admission Procedures</a>
+                          </li>
+                          <li class="menu-item" data-size="60">
+                            <a href="code-of-conduct.html">Code of Conduct</a>
+                          </li>
+                          <li class="menu-item" data-size="60">
+                            <a href="facilities.html">Facilities</a>
+                          </li>
+                          <li class="menu-item" data-size="60">
+                            <a href="awards.html">Awards & Achievements</a>
+                          </li>
+                        </b>
                       </ul>
                     </li>
                     <li
                       class="menu-item menu-item-has-children kingster-mega-menu"
                     >
-                      <a
-                        href="bachelor-of-science-in-business-administration.html"
-                        class="sf-with-ul-pre"
-                        >Academics</a
-                      >
+                      <a class="sf-with-ul-pre">Departments</a>
                       <div class="sf-mega sf-mega-full megaimg">
                         <ul class="sub-menu">
                           <li
                             class="menu-item menu-item-has-children"
                             data-size="15"
                           >
-                            <a class="sf-with-ul-pre">Undergraduate</a>
-                            <ul class="sub-menu">
-                              <li class="menu-item">
-                                <a
-                                  href="bachelor-of-science-in-business-administration.html"
-                                  >Business Administration</a
-                                >
-                              </li>
-                              <li class="menu-item">
-                                <a href="school-of-law.html">School Of Law</a>
-                              </li>
-                              <li class="menu-item">
-                                <a href="engineering.html">Engineering</a>
-                              </li>
-                              <li class="menu-item">
-                                <a href="medicine.html">Medicine</a>
-                              </li>
-                              <li class="menu-item">
-                                <a href="art-science.html"
-                                  >Art &#038; Science</a
-                                >
-                              </li>
-                            </ul>
-                          </li>
-                          <li
-                            class="menu-item menu-item-has-children"
-                            data-size="15"
-                          >
-                            <a href="#" class="sf-with-ul-pre"
-                              >Graduate Program</a
+                            <a class="sf-with-ul-pre"
+                              >Basic Science Departments</a
                             >
                             <ul class="sub-menu">
                               <li class="menu-item">
-                                <a href="hospitality-management.html"
-                                  >Hospitality Management</a
+                                <a href="anatomy.html">Anatomy</a>
+                              </li>
+                              <li class="menu-item">
+                                <a href="physiology.html">Physiology</a>
+                              </li>
+                              <li class="menu-item">
+                                <a href="biochemistry.html">Biochemistry</a>
+                              </li>
+                              <li class="menu-item">
+                                <a href="general-pathology.html"
+                                  >General Pathology</a
+                                >
+                              </li>
+                            </ul>
+                          </li>
+                          <li
+                            class="menu-item menu-item-has-children"
+                            data-size="10"
+                          >
+                            <a><br /></a>
+                            <ul class="sub-menu">
+                              <li class="menu-item">
+                                <a href="general-microbiology.html"
+                                  >General Microbiology</a
                                 >
                               </li>
                               <li class="menu-item">
-                                <a href="physics.html">Physics</a>
+                                <a href="pharmacology.html">Pharmacology</a>
                               </li>
                               <li class="menu-item">
-                                <a href="#">Chemistry</a>
+                                <a href="general-medicine.html"
+                                  >General Medicine</a
+                                >
                               </li>
-                              <li class="menu-item"><a href="#">Music</a></li>
                               <li class="menu-item">
-                                <a href="#">Computer Science</a>
+                                <a href="general-surgery.html"
+                                  >General Surgery</a
+                                >
                               </li>
                             </ul>
                           </li>
@@ -875,144 +719,146 @@
                             class="menu-item menu-item-has-children"
                             data-size="15"
                           >
-                            <a href="#" class="sf-with-ul-pre">Resources</a>
+                            <a class="sf-with-ul-pre">Dental Departments</a>
                             <ul class="sub-menu">
                               <li class="menu-item">
-                                <a
-                                  href="bachelor-of-science-in-business-administration.html"
-                                  >Department Page</a
+                                <a href="oral-pathology.html"
+                                  >Oral Pathology and Microbiology</a
                                 >
                               </li>
                               <li class="menu-item">
-                                <a href="finance.html">Major Page</a>
-                              </li>
-                              <li class="menu-item">
-                                <a href="finance-faculty.html">Faculty Page</a>
-                              </li>
-                              <li class="menu-item">
-                                <a href="john-hagensy-phd.html"
-                                  >Single Instructor</a
+                                <a href="public-health.html"
+                                  >Public Health Dentistry</a
                                 >
                               </li>
                               <li class="menu-item">
-                                <a
-                                  href="introduction-to-financial-accounting.html"
-                                  >Single Course</a
+                                <a href="periodontology.html">Periodontology</a>
+                              </li>
+                              <li class="menu-item">
+                                <a href="oral-medicine-and-radiology.html"
+                                  >Oral Medicine and Radiology</a
                                 >
                               </li>
                             </ul>
                           </li>
-                          <li class="menu-item" data-size="15">
-                            <div class="kingster-mega-menu-section-content">
-                              <img
-                                src="upload/mega-menu-logo.png"
-                                style="margin-bottom: 13px"
-                                alt=""
-                              />
-                              <span style="font-size: 14px; font-weight: 500"
-                                >Academic offerings include 95 majors, 86
-                                minors, and more than 100 in-major
-                                specializations</span
-                              >
-                            </div>
+                          <li
+                            class="menu-item menu-item-has-children"
+                            data-size="20"
+                          >
+                            <a><br /></a>
+                            <ul class="sub-menu">
+                              <li class="menu-item">
+                                <a href="orthodontics.html"
+                                  >Orthodontics & Dentofacial Orthopaedics</a
+                                >
+                              </li>
+                              <li class="menu-item">
+                                <a href="oral-and-maxilofacial-surgery.html"
+                                  >Oral and Maxillofacial Surgery</a
+                                >
+                              </li>
+                              <li class="menu-item">
+                                <a
+                                  href="conservative-dentistry-&-edodontics.html"
+                                  >Conservative Dentistry & Endodontics</a
+                                >
+                              </li>
+                              <li class="menu-item">
+                                <a href="prosthodontic.html"
+                                  >Prosthodontics & Crown and Bridge</a
+                                >
+                              </li>
+                              <li class="menu-item">
+                                <a href="pedodontics.html"
+                                  >Pedodontics & Preventive Dentistry</a
+                                >
+                              </li>
+                            </ul>
                           </li>
                         </ul>
                       </div>
                     </li>
-                    <li
-                      class="menu-item current-menu-item menu-item-has-children kingster-normal-menu"
-                    >
-                      <a href="apply-to-kingster.html" class="sf-with-ul-pre"
-                        >Admissions</a
-                      >
+                    <!-- <li class="menu-item menu-item-has-children kingster-normal-menu"><a href="apply-to-kingster.html" class="sf-with-ul-pre">Admissions</a>
+                                        <ul class="sub-menu"><b>
+                                            <li class="menu-item" data-size="60"><a href="apply-to-kingster.html">Apply To MDCRC</a></li>
+                                            <li class="menu-item" data-size="60"><a href="campus-tour.html">Campus Tour</a></li>
+                                            <li class="menu-item" data-size="60"><a href="mdcrc-scholarship.html">Scholarships</a></li>
+                                            <li class="menu-item" data-size="60"><a>Activities</a></li>
+                                            <li class="menu-item" data-size="60"><a href="give-to-kingster.html">Give To Kingster</a></li>
+                                            <li class="menu-item" data-size="60"><a href="alumni.html">Alumni</a></li>
+                                            <li class="menu-item" data-size="60"><a href="event-calendar.html">Event Calendar</a></li></b>
+                                        </ul>
+                                    </li> -->
+
+                    <li class="menu-item kingster-normal-menu">
+                      <a>Activities</a>
                       <ul class="sub-menu">
-                        <li class="menu-item" data-size="60">
-                          <a href="apply-to-kingster.html">Apply To MDCRC</a>
-                        </li>
-                        <li class="menu-item" data-size="60">
-                          <a href="campus-tour.html">Campus Tour</a>
-                        </li>
-                        <li class="menu-item" data-size="60">
-                          <a href="mdcrc-scholarship.html">Scholarships</a>
-                        </li>
-                        <li class="menu-item" data-size="60">
-                          <a>Activities</a>
-                        </li>
-                        <li class="menu-item" data-size="60">
-                          <a href="give-to-kingster.html">Give To Kingster</a>
-                        </li>
-                        <li class="menu-item" data-size="60">
-                          <a href="alumni.html">Alumni</a>
-                        </li>
-                        <li class="menu-item" data-size="60">
-                          <a href="event-calendar.html">Event Calendar</a>
-                        </li>
+                        <b>
+                          <li class="menu-item" data-size="60">
+                            <a href="mdrc-gallery.html">Gallery</a>
+                          </li>
+                          <li class="menu-item" data-size="60">
+                            <a href="clubs.html">Clubs</a>
+                          </li>
+                          <li class="menu-item" data-size="60">
+                            <a href="research.html">Research</a>
+                          </li>
+                          <li class="menu-item" data-size="60">
+                            <a href="mdcrc-scholarship.html">Scholarships</a>
+                          </li>
+                          <li class="menu-item" data-size="60">
+                            <a href="satelite-clinic.html">Satellite Clinic</a>
+                          </li>
+                          <li class="menu-item" data-size="60">
+                            <a href="placement-cell.html">Placement Cell</a>
+                          </li>
+                          <li class="menu-item" data-size="60">
+                            <a href="students-union.html">Students Union</a>
+                          </li>
+                          <li class="menu-item" data-size="60">
+                            <a href="women-cell.html">Womens Cell</a>
+                          </li>
+                          <li class="menu-item" data-size="60">
+                            <a href="news-page.html">MDC News</a>
+                          </li></b
+                        >
                       </ul>
                     </li>
                     <li
                       class="menu-item menu-item-has-children kingster-normal-menu"
                     >
-                      <a href="#" class="sf-with-ul-pre">Courses</a>
+                      <a class="sf-with-ul-pre">Accreditations</a>
                       <ul class="sub-menu">
-                        <li class="menu-item" data-size="60">
-                          <a href="course-list-1.html">Course List 1</a>
-                        </li>
-                        <li class="menu-item" data-size="60">
-                          <a href="course-list-2.html">Course List 2</a>
-                        </li>
+                        <b>
+                          <li class="menu-item" data-size="60">
+                            <a href="naac.html">NAAC</a>
+                          </li>
+                          <li class="menu-item" data-size="60">
+                            <a
+                              href="https://mdcrc.edu.in/NIRF/2023/NIRF_2023.pdf"
+                              target="_blank"
+                              >NIRF 2023</a
+                            >
+                          </li>
+                          <li class="menu-item" data-size="60">
+                            <a
+                              href="https://mdcrc.edu.in/NIRF/2022/NIRF_2022.pdf"
+                              target="_blank"
+                              >NIRF 2022</a
+                            >
+                          </li></b
+                        >
                       </ul>
                     </li>
-                    <li class="menu-item kingster-normal-menu">
-                      <a>Activities</a>
-                    </li>
-                    <li class="menu-item kingster-normal-menu">
-                      <a href="university-life.html">University Life</a>
+                    <li class="menu-item menu-item-home">
+                      <a href="careers.html">Careers</a>
                     </li>
                   </ul>
+
                   <div
                     class="kingster-navigation-slide-bar"
                     id="kingster-navigation-slide-bar"
                   ></div>
-                </div>
-                <div class="kingster-main-menu-right-wrap clearfix">
-                  <div
-                    class="kingster-main-menu-search"
-                    id="kingster-top-search"
-                  >
-                    <i class="icon_search"></i>
-                  </div>
-                  <div class="kingster-top-search-wrap">
-                    <div class="kingster-top-search-close"></div>
-                    <div class="kingster-top-search-row">
-                      <div class="kingster-top-search-cell">
-                        <form
-                          role="search"
-                          method="get"
-                          class="search-form"
-                          action="#"
-                        >
-                          <input
-                            type="text"
-                            class="search-field kingster-title-font"
-                            placeholder="Search..."
-                            value=""
-                            name="s"
-                          />
-                          <div class="kingster-top-search-submit">
-                            <i class="fa fa-search"></i>
-                          </div>
-                          <input
-                            type="submit"
-                            class="search-submit"
-                            value="Search"
-                          />
-                          <div class="kingster-top-search-close">
-                            <i class="icon_close"></i>
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -1039,6 +885,10 @@
                 >
                   <div class="gdlr-core-pbf-element">
                     <div class="gdlr-core-event-item gdlr-core-item-pdb">
+                      <div
+                        id="loadingAnimation"
+                        class="loading-animation"
+                      ></div>
                       <div
                         class="gdlr-core-event-item-holder clearfix"
                         id="eventContainer"
@@ -1249,7 +1099,18 @@
         </footer>
       </div>
     </div>
-
+    <div class="popup" id="popupContainer" style="display: none">
+      <p id="popupTitle"></p>
+      <span class="close-btn" id="closeBtn">&times;</span>
+      <div class="popup-image-wrapper">
+        <img
+          src=""
+          alt="Popup Poster"
+          id="popupImage"
+          onload="showPopupContainer()"
+        />
+      </div>
+    </div>
     <script type="text/javascript" src="js/jquery/jquery.js"></script>
     <script
       type="text/javascript"
@@ -1270,6 +1131,48 @@
       };
     </script>
     <script>
+      // Define the API URL to fetch notification data
+      const apiUrlNotification =
+        "https://app.conext.in/Notifications/api/latest-mdc-top-bar-notification/";
+
+      // Reference to the notification container
+      const notificationContainer = document.getElementById(
+        "notification-container"
+      );
+
+      // Store the notification data and current index
+      let notifications = [];
+      let currentIndex = 0;
+
+      // Function to fetch and update notification data
+      async function fetchAndUpdateNotifications() {
+        try {
+          const response = await fetch(apiUrlNotification);
+          notifications = await response.json();
+
+          // Call the updateNotification function initially
+          updateNotification();
+
+          // Set an interval to update notifications every 1.5 seconds
+          setInterval(updateNotification, 4500);
+        } catch (error) {
+          console.error("Error fetching notifications:", error);
+        }
+      }
+
+      // Function to update the notification text
+      function updateNotification() {
+        if (notifications.length > 0) {
+          const list = notificationContainer;
+          list.innerHTML = `<li>${notifications[currentIndex].notification}</li>`;
+          currentIndex = (currentIndex + 1) % notifications.length;
+        }
+      }
+
+      // Call the fetchAndUpdateNotifications function initially
+      fetchAndUpdateNotifications();
+    </script>
+    <script>
       const apiUrl = "https://app.conext.in/Events/MdcEventsListView";
 
       async function fetchEvents() {
@@ -1286,6 +1189,7 @@
       function createEventElement(event) {
         const eventDate = new Date(event.event_date);
         const dayOfMonth = eventDate.getDate().toString().padStart(2, "0");
+        const loadingAnimation = document.getElementById("loadingAnimation");
 
         const monthFormatter = new Intl.DateTimeFormat("en", {
           month: "short",
@@ -1315,8 +1219,11 @@
         eventImage.style.objectFit = "fill"; // Set image object-fit
         eventImage.style.marginBottom = "30px";
         const imageLink = document.createElement("a");
-        imageLink.href = "#";
+        // imageLink.href = "#";
         imageLink.appendChild(eventImage);
+        // imageLink.addEventListener("click", function () {
+        //   displayPopup(event.event_poster);
+        // });
 
         const dateContainer = document.createElement("span");
         dateContainer.classList.add(
@@ -1370,7 +1277,7 @@
         eventElement.appendChild(imageLink);
         eventElement.appendChild(dateContainer);
         eventElement.appendChild(contentWrap);
-
+        loadingAnimation.style.display = "none";
         return eventElement;
       }
 
@@ -1387,7 +1294,33 @@
       // Call the renderEvents function to populate the content
       renderEvents();
     </script>
+    <script>
+      function displayPopup(posterUrl) {
+        const popupContainer = document.getElementById("popupContainer");
+        const closeBtn = document.getElementById("closeBtn");
+        const popupImage = document.getElementById("popupImage");
 
+        popupImage.src = posterUrl;
+        // Show the popup
+        popupContainer.style.display = "block";
+
+        // Close the popup when the close button is clicked
+        closeBtn.addEventListener("click", closePopup);
+        showPopupContainer();
+      }
+      function showPopupContainer() {
+        const popupContainer = document.getElementById("popupContainer");
+        popupContainer.style.display = "block";
+      }
+      // Function to close the popup
+      function closePopup() {
+        const popupContainer = document.getElementById("popupContainer");
+        if (popupContainer.style.display === "block") {
+          popupContainer.style.display = "none";
+          // Add a small delay before adding the popup-active class back to the background container to reapply the blur effect
+        }
+      }
+    </script>
     <script
       type="text/javascript"
       src="plugins/goodlayers-core/include/js/page-builder.js"
