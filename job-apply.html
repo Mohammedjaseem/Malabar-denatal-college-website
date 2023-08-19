@@ -18,34 +18,10 @@
     <link rel='stylesheet' href='plugins/revslider/public/assets/css/settings.css' type='text/css' media='all' />
     <link rel='stylesheet' href='css/style-core.css' type='text/css' media='all' />
     <link rel='stylesheet' href='css/kingster-style-custom.css' type='text/css' media='all' />
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.7/dist/sweetalert2.min.css" />
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700%2C400" rel="stylesheet" property="stylesheet" type="text/css" media="all">
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2Cregular%2Citalic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CABeeZee%3Aregular%2Citalic&amp;subset=latin%2Clatin-ext%2Cdevanagari&amp;ver=5.0.3' type='text/css' media='all' />
 <style>
-    .custom-alert {
-            position: fixed;
-            top: 15%;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 9999;
-            background-color: #f9f9f9;
-            border: 1px solid #ccc;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            padding: 20px;
-            max-width: 400px;
-            display: none;
-        }
-
-        .custom-alert p {
-            margin: 0;
-        }
-
-        .custom-alert .close-button {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            cursor: pointer;
-        }
      .floating-button {
         position: fixed;
         bottom: 30px;
@@ -1139,16 +1115,7 @@
       </footer>
         </div>
     </div>
- <div id="successPopup" class="custom-alert">
-    <H3>Successful  <span class="close-button" onclick="closeCustomAlert('successPopup')">&times;</span></H3>
-        <p>Job application submitted successfully!</p>
-       
-    </div>
 
-    <div id="failPopup" class="custom-alert">
-         <H3>Failed!  <span class="close-button" onclick="closeCustomAlert('failPopup')">&times;</span></H3>
-        <p>Job application Has Failed!</p>
-    </div>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
       <script>
 function applyJob(event) {
@@ -1219,18 +1186,23 @@ function hideLoading() {
 //     }
   function showSuccessPopup() {
     hideLoading();
-    document.getElementById('successPopup').style.display = 'block';
+     Swal.fire(
+          "Successful!",
+          "Congratulations you applied for the job!",
+          "success"
+        );
   }
 
   function showFailerPopup() {
     hideLoading();
-    document.getElementById('failPopup').style.display = 'block';
+    Swal.fire({
+          icon: "error",
+          title: "Failed!",
+          text: "Something went wrong, Please try again.",
+        });
   }
 
-  function closeCustomAlert() {
-    document.getElementById('successPopup').style.display = 'none';
-    document.getElementById('failPopup').style.display = 'none';
-  }
+  
 
 
 // Add event listener to the form submit event
@@ -1239,6 +1211,7 @@ form.addEventListener('submit', applyJob);
 
 
     </script>
+     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.7/dist/sweetalert2.all.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script type='text/javascript' src='js/jquery/jquery.js'></script>
     <script type='text/javascript' src='js/jquery/jquery-migrate.min.js'></script>
