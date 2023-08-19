@@ -811,7 +811,7 @@
           <div class="kingster-page-title-container kingster-container">
             <div class="kingster-page-title-content kingster-item-pdlr">
               <div class="kingster-page-caption">MDCRC</div>
-              <h1 class="kingster-page-title">News & Updates</h1>
+              <h1 class="kingster-page-title">Events & Updates</h1>
             </div>
           </div>
         </div>
@@ -822,27 +822,48 @@
                 class="gdlr-core-pbf-section-container gdlr-core-container clearfix"
               >
                 <div class="gdlr-core-pbf-element">
-                  <div id="loadingAnimation" class="loading-animation"></div>
-                  <div id="newsContainer" style="display: none"></div>
+                 
+                  
+                    <div
+                      class="gdlr-core-block-item-title-wrap gdlr-core-left-align gdlr-core-item-mglr"
+                      style="margin-bottom: 40px"
+                    >
+                      <div class="gdlr-core-block-item-title-inner clearfix">
+                        <h3
+                          class="gdlr-core-block-item-title"
+                          style="
+                            font-size: 22px;
+                            font-style: normal;
+                            text-transform: none;
+                            letter-spacing: 0px;
+                            color: #182847;
+                          "
+                        >
+                          Recent Events @ MDCRC
+                        </h3>
+                        <div
+                          class="gdlr-core-block-item-title-divider"
+                          style="
+                            font-size: 22px;
+                            border-bottom-color: #dcdcdc;
+                            border-bottom-width: 2px;
+                          "
+                        ></div>
+                      </div>
+                    </div>
+                     <div id="loadingAnimation" class="loading-animation"></div>
+                  <div class="gdlr-core-item-list-wrap gdlr-core-column-30" id="column1"></div>
+<div class="gdlr-core-item-list-wrap gdlr-core-column-30" id="column2"></div>
+
+                  </div>
+                </div>
+              </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <!-- <div
-                      class="gdlr-core-load-more-wrap gdlr-core-js gdlr-core-center-align gdlr-core-item-pdlr"
-                      data-ajax="gdlr_core_post_ajax"
-                      data-target="gdlr-core-blog-item-holder"
-                      data-target-action="append"
-                    >
-                      <a
-                        href="#"
-                        class="gdlr-core-load-more gdlr-core-button-color"
-                        data-ajax-name="paged"
-                        data-ajax-value="2"
-                        >Load More</a
-                      >
-                    </div> -->
+       
         <footer>
           <div class="kingster-footer-wrapper">
             <div class="kingster-footer-container kingster-container clearfix">
@@ -1095,79 +1116,7 @@
       type="text/javascript"
       src="plugins/goodlayers-core/plugins/combine/script.js"
     ></script>
-    <script>
-      // Function to create and append a news item element to the container
-      function createNewsItem(newsData, index) {
-        // Create a new div element with the class "gdlr-core-pbf-element"
-        const newsItemDiv = document.createElement("div");
-        newsItemDiv.className = `gdlr-core-item-list gdlr-core-item-pdlr gdlr-core-item-mgb gdlr-core-column-30`;
-        const newsDate = new Date(newsData.news_date);
-        const newsId = newsData.id;
-        let img = "upload/clg.jpg";
-        if (newsData.image_urls.length != 0) {
-          img = newsData.image_urls[0];
-        } else {
-          let random = Math.floor(Math.random() * (8 - 1 + 1)) + 1;
-          img = `upload/mdc_pics/mdc${random}.jpg`;
-        }
-        const formattedDate = newsDate.toLocaleDateString("en-US", {
-          year: "numeric",
-          month: "long",
-          day: "numeric",
-        });
 
-        // Set the HTML content of the news item div based on the provided template
-        newsItemDiv.innerHTML = `
-       <div class="gdlr-core-blog-modern gdlr-core-with-image gdlr-core-hover-overlay-content gdlr-core-opacity-on-hover gdlr-core-zoom-on-hover">
-        <div class="gdlr-core-blog-modern-inner">
-          <div class="gdlr-core-blog-thumbnail gdlr-core-media-image">
-              <a class="news_subject" href='news-single-page.html?id=${newsId}'><img class="image_urls" src="${img}" width="1280" height="580" alt=""></a>
-        
-          </div>
-          <div class="gdlr-core-blog-modern-content gdlr-core-center-align">
-            <h3 class="gdlr-core-blog-title gdlr-core-skin-title" style="font-size: 22px; font-weight: 700; letter-spacing: 0px;">
-              <a class="news_subject" href='news-single-page.html?id=${newsId}'>${newsData.news_subject}</a>
-            </h3>
-            <div class="gdlr-core-blog-info-wrapper gdlr-core-skin-divider">
-              <span class="gdlr-core-blog-info gdlr-core-blog-info-font gdlr-core-skin-caption gdlr-core-blog-info-date">
-                <a class="news_date" href='news-single-page.html?id=${newsId}'>${formattedDate}</a>
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-  `;
-
-        return newsItemDiv;
-      }
-
-      // Function to fetch data from the API and render news items in a grid
-      function fetchAndRenderNewsItems() {
-        // Replace 'YOUR_API_URL_HERE' with the actual API endpoint
-        const apiUrl = "https://app.conext.in/news/api/news/";
-        loadingAnimation.style.display = "block";
-        newsContainer.style.display = "none";
-        fetch(apiUrl)
-          .then((response) => response.json())
-          .then((apiResponse) => {
-            const container = document.getElementById("newsContainer");
-
-            apiResponse.forEach((item) => {
-              const newsItemElement = createNewsItem(item);
-              container.appendChild(newsItemElement);
-              loadingAnimation.style.display = "none";
-              newsContainer.style.display = "block";
-            });
-          })
-          .catch((error) => {
-            console.error("Error fetching data from the API:", error);
-            loadingAnimation.style.display = "none";
-          });
-      }
-
-      // Call the function to fetch and render news items
-      fetchAndRenderNewsItems();
-    </script>
     <script>
       // Define the API URL to fetch notification data
       const apiUrlNotification =
@@ -1210,6 +1159,96 @@
       // Call the fetchAndUpdateNotifications function initially
       fetchAndUpdateNotifications();
     </script>
+
+<script>
+  const apiUrl = "https://app.conext.in/Events/MdcEventsListView";
+
+  async function fetchEvents() {
+    try {
+      const response = await fetch(apiUrl);
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      return [];
+    }
+  }
+  function formatDate(dateString) {
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', options);
+  }
+
+
+  function createEventElement(event) {
+      const formattedDate = formatDate(event.event_date);
+    const eventElement = document.createElement("div");
+    
+    eventElement.classList.add(
+      "gdlr-core-item-list",
+      "gdlr-core-blog-widget",
+      "gdlr-core-item-mglr",
+      "clearfix",
+      "gdlr-core-style-small"
+    );
+
+    eventElement.innerHTML = `
+      <div class="gdlr-core-blog-thumbnail gdlr-core-media-image gdlr-core-opacity-on-hover gdlr-core-zoom-on-hover">
+          <a class="gdlr-core-lightgallery gdlr-core-js" target="_blank" href="${event.event_poster}">
+              <img class="event_poster" alt="" width="150" height="150" title="Student" src="${event.event_poster}" />
+          </a>
+      </div>
+      <div class="gdlr-core-blog-widget-content">
+          <div class="gdlr-core-blog-info-wrapper gdlr-core-skin-divider">
+              <span class="gdlr-core-blog-info gdlr-core-blog-info-font gdlr-core-skin-caption gdlr-core-blog-info-date">
+                  <a class="event_date">${formattedDate}</a>
+              </span>
+          </div>
+          <h3 class="gdlr-core-blog-title gdlr-core-skin-title" id="h3_1dd7_12">
+              <a class="event_name">${event.event_name}</a>
+          </h3>
+          <span class="gdlr-core-blog-info" style="font-size: 13px;font-weight: 300;">
+              <a class="event_short_descp">${event.event_short_descp}</a>
+          </span>
+      </div>
+    `;
+     const eventImage = eventElement.querySelector(".event_poster");
+    eventImage.style.width = "80px";
+    eventImage.style.height = "93px";
+    eventImage.style.objectFit = "fill";
+
+    return eventElement;
+  }
+
+  async function renderEvents() {
+    const events = await fetchEvents();
+     const loadingAnimation = document.getElementById("loadingAnimation");
+    const column1 = document.getElementById("column1");
+    const column2 = document.getElementById("column2");
+    let columnIndex = 0;
+
+     try {
+      const events = await fetchEvents();
+
+      events.forEach((event) => {
+        const eventElement = createEventElement(event);
+        columnIndex === 0
+          ? column1.appendChild(eventElement)
+          : column2.appendChild(eventElement);
+        columnIndex = 1 - columnIndex; // Toggle between 0 and 1
+      });
+    } catch (error) {
+      console.error("Error:", error);
+    } finally {
+      // Hide loading animation after data is fetched
+      loadingAnimation.style.display = "none";
+    }
+  }
+
+  // Call the renderEvents function to populate the content
+  renderEvents();
+</script>
+
     <script type="text/javascript">
       var gdlr_core_pbf = {
         admin: "",
