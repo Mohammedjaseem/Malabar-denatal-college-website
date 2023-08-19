@@ -3975,7 +3975,7 @@
                             >
                               <i class="gdlr-core-pos-left fa fa-star"></i>
                               <span class="gdlr-core-content"
-                                >Upcoming Events</span
+                                >View All Events</span
                               >
                             </a>
                           </div>
@@ -4005,11 +4005,9 @@
                                 class="gdlr-core-block-item-title-inner clearfix"
                               >
                                 <h3
-                                  class="gdlr-core-block-item-title"
+                                  class="gdlr-core-block-item-title event_heading"
                                   id="h3_1dd7_32"
-                                >
-                                  Upcoming Events
-                                </h3>
+                                ></h3>
                                 <div
                                   class="gdlr-core-block-item-title-divider"
                                   id="div_1dd7_96"
@@ -4017,110 +4015,10 @@
                               </div>
                             </div>
                             <div class="gdlr-core-event-item-holder clearfix">
-                              <!-- <div id="eventList"></div> -->
-                              <div
-                                class="gdlr-core-event-item-list gdlr-core-style-widget gdlr-core-item-pdlr clearfix"
-                                id="div_1dd7_97"
-                              >
-                                <span
-                                  class="gdlr-core-event-item-info gdlr-core-type-start-date-month"
-                                >
-                                  <span class="gdlr-core-date">25</span>
-                                  <span class="gdlr-core-month">Dec</span>
-                                </span>
-                                <div class="gdlr-core-event-item-content-wrap">
-                                  <h3 class="gdlr-core-event-item-title">
-                                    <a>Christmas Celebration</a>
-                                  </h3>
-                                  <div class="gdlr-core-event-item-info-wrap">
-                                    <span
-                                      class="gdlr-core-event-item-info gdlr-core-type-time"
-                                    >
-                                      <span class="gdlr-core-head">
-                                        <i class="icon_clock_alt"></i>
-                                      </span>
-                                      <span class="gdlr-core-tail"
-                                        >12:00 pm</span
-                                      >
-                                    </span>
-                                  </div>
-                                </div>
-                              </div>
-                              <div
-                                class="gdlr-core-event-item-list gdlr-core-style-widget gdlr-core-item-pdlr clearfix"
-                                id="div_1dd7_98"
-                              >
-                                <span
-                                  class="gdlr-core-event-item-info gdlr-core-type-start-date-month"
-                                >
-                                  <span class="gdlr-core-date">01</span>
-                                  <span class="gdlr-core-month">Jan</span>
-                                </span>
-                                <div class="gdlr-core-event-item-content-wrap">
-                                  <h3 class="gdlr-core-event-item-title">
-                                    <a>New Year Celebration</a>
-                                  </h3>
-                                  <div class="gdlr-core-event-item-info-wrap">
-                                    <span
-                                      class="gdlr-core-event-item-info gdlr-core-type-time"
-                                    >
-                                      <span class="gdlr-core-head">
-                                        <i class="icon_clock_alt"></i>
-                                      </span>
-                                      <span class="gdlr-core-tail"
-                                        >12:00 pm</span
-                                      >
-                                    </span>
-                                  </div>
-                                </div>
-                              </div>
-                              <div
-                                class="gdlr-core-event-item-list gdlr-core-style-widget gdlr-core-item-pdlr clearfix"
-                                id="div_1dd7_99"
-                              >
-                                <span
-                                  class="gdlr-core-event-item-info gdlr-core-type-start-date-month"
-                                >
-                                  <span class="gdlr-core-date">09</span>
-                                  <span class="gdlr-core-month">Feb</span>
-                                </span>
-                                <div class="gdlr-core-event-item-content-wrap">
-                                  <h3 class="gdlr-core-event-item-title">
-                                    <a>World Dental Day</a>
-                                  </h3>
-                                  <div class="gdlr-core-event-item-info-wrap">
-                                    <span
-                                      class="gdlr-core-event-item-info gdlr-core-type-time"
-                                    >
-                                      <span class="gdlr-core-head">
-                                        <i class="icon_clock_alt"></i>
-                                      </span>
-                                      <span class="gdlr-core-tail"
-                                        >12:00 pm</span
-                                      >
-                                    </span>
-                                  </div>
-                                </div>
-                              </div>
+                              <div id="eventList"></div>
                             </div>
                           </div>
                         </div>
-                        <!-- <div class="gdlr-core-pbf-element">
-                          <div
-                            class="gdlr-core-button-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-left-align"
-                          >
-                            <a
-                              class="gdlr-core-button gdlr-core-button-transparent gdlr-core-button-no-border"
-                              id="a_1dd7_7"
-                              ><span class="gdlr-core-content"
-                                >View All Events</span
-                              ><i
-                                class="gdlr-core-pos-right fa fa-long-arrow-right"
-                                id="i_1dd7_2"
-                              ></i
-                            ></a>
-                          </div>
-                        </div> -->
                       </div>
                     </div>
                   </div>
@@ -5092,11 +4990,15 @@
       window.addEventListener("load", loadGallery);
     </script>
     <script>
-      // Target the element where you want to display the event list
       const eventListElement = document.getElementById("eventList");
+      const eventHeadingElement = document.querySelector(".event_heading");
+      let eventLength;
+      // API endpoint URLs
+      const apiUrlUpcomingEvents =
+        "https://app.conext.in/Events/MdcUpcomingEventsList";
+      const apiUrlLatestEvents =
+        "https://app.conext.in/Events/MdcLatestEventsList";
 
-      // API endpoint URL
-      const apiUrlEvents = "https://app.conext.in/Events/MdcUpcomingEventsList";
       function createEventElement(eventDate) {
         const dateObj = new Date(eventDate);
         const dayOfMonth = dateObj.getDate().toString().padStart(2, "0");
@@ -5106,9 +5008,14 @@
         return { day: dayOfMonth, month: monthAbbreviation };
       }
       // Fetch data from the API
-      fetch(apiUrlEvents)
+      fetch(apiUrlUpcomingEvents)
         .then((response) => response.json())
         .then((data) => {
+          const eventsData = Array.isArray(data) ? data : [];
+          eventLength = eventsData.length;
+          console.log(eventsData.length, "length of data");
+
+          eventHeadingElement.innerHTML = "Upcoming Events";
           // Generate HTML for each event in the response
           const eventsHTML = data
             .map(
@@ -5147,6 +5054,50 @@
         .catch((error) => {
           console.error("Error fetching data:", error);
         });
+      if (eventLength !== 0) {
+        fetch(apiUrlLatestEvents)
+          .then((response) => response.json())
+          .then((data) => {
+            eventHeadingElement.innerHTML = "Latest Events";
+            // Generate HTML for each event in the response
+            const eventsHTML = data
+              .map(
+                (event) => `
+          <div class="gdlr-core-event-item-holder clearfix">
+            <div class="gdlr-core-event-item-list gdlr-core-style-widget gdlr-core-item-pdlr clearfix">
+              <span class="gdlr-core-event-item-info gdlr-core-type-start-date-month">
+                <span class="gdlr-core-date event_date">${
+                  createEventElement(event.event_date).day
+                }</span>
+                <span class="gdlr-core-month event_date">${
+                  createEventElement(event.event_date).month
+                }</span>
+              </span>
+              <div class="gdlr-core-event-item-content-wrap">
+                <h3 class="gdlr-core-event-item-title event_name"><a>${
+                  event.event_name
+                }</a></h3>
+                <div class="gdlr-core-event-item-info-wrap">
+                  <span class="gdlr-core-event-item-info gdlr-core-type-time">
+                    <span class="gdlr-core-tail conducted_by">${
+                      event.conducted_by
+                    }</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        `
+              )
+              .join("");
+
+            // Update the event list element with the generated HTML
+            eventListElement.innerHTML = eventsHTML;
+          })
+          .catch((error) => {
+            console.error("Error fetching data:", error);
+          });
+      }
     </script>
     <script>
       // Function to fetch data from the API
