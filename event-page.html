@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en-US" class="no-js">
-  <!-- Mirrored from max-themes.net/demos/kingster/kingster/john-hagensy-phd.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 09 Mar 2022 06:34:49 GMT -->
+  <!-- Mirrored from max-themes.net/demos/kingster/kingster/blog-grid-4-columns.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 09 Mar 2022 06:34:14 GMT -->
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="shortcut icon" href="/upload/favicon.ico" type="image/x-icon" />
-
-    <title>Vice Chairperson | MDCRC</title>
+<link rel="shortcut icon" href="/upload/favicon.ico" type="image/x-icon" />
+    <title>News Page | MDCRC</title>
 
     <link
       rel="stylesheet"
@@ -53,6 +52,49 @@
       media="all"
     />
     <style>
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 0px;
+      }
+
+      /* Ensure each news item is centered in its column */
+      .gdlr-core-blog-item {
+        display: flex;
+        justify-content: center;
+      }
+
+      /* CSS to style the images with max height and cover */
+      .image_urls {
+        max-height: 450px;
+        object-fit: cover;
+      }
+
+      /* Media query for smaller screen sizes to adjust image height */
+      @media (max-width: 768px) {
+        .image_urls {
+          max-height: 450px;
+          max-width: 450px !important;
+        }
+      }
+      .loading-animation {
+        border: 4px solid #f3f3f3;
+        border-top: 4px solid #3db166;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        animation: spin 2s linear infinite;
+        margin: 20px auto;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
       .floating-button {
         position: fixed;
         bottom: 30px;
@@ -95,6 +137,7 @@
           transform: translateY(-100%);
         }
       }
+       
     </style>
   </head>
   <a
@@ -139,7 +182,7 @@
                   <li class="menu-item menu-item-home">
                     <a href="index.html">Home</a>
                   </li>
-                  <li class="menu-item current-menu-item">
+                  <li class="menu-item">
                     <a href="about-us.html">About Us</a>
                   </li>
                   <li class="menu-item menu-item-has-children">
@@ -289,7 +332,9 @@
                       </li>
                     </ul>
                   </li>
-                  <li class="menu-item menu-item-has-children">
+                  <li
+                    class="menu-item menu-item-has-children current-menu-item"
+                  >
                     <a>Activities</a>
                     <ul class="sub-menu">
                       <li class="menu-item">
@@ -406,7 +451,7 @@
                                         -->
                     </li>
                     <li
-                      class="menu-item menu-item-home menu-item-has-children current-menu-item kingster-normal-menu"
+                      class="menu-item menu-item-home menu-item-has-children kingster-normal-menu"
                     >
                       <a href="about-us.html" class="sf-with-ul-pre"
                         >About Us</a
@@ -497,18 +542,14 @@
                     <li
                       class="menu-item menu-item-has-children kingster-normal-menu"
                     >
-                      <a href="#" class="sf-with-ul-pre">Academics</a>
+                      <a class="sf-with-ul-pre">Academics</a>
                       <ul class="sub-menu">
                         <b>
                           <li
                             class="menu-item menu-item-has-children"
                             data-size="60"
                           >
-                            <a
-                              href="blog-full-right-sidebar-with-frame.html"
-                              class="sf-with-ul-pre"
-                              >Courses</a
-                            >
+                            <a class="sf-with-ul-pre">Courses</a>
                             <ul class="sub-menu">
                               <li class="menu-item menu-item-has-children">
                                 <a class="sf-with-ul-pre">UG & PG</a>
@@ -689,39 +730,8 @@
                     </li>
 
                     <li
-                      class="menu-item menu-item-has-children kingster-normal-menu"
+                      class="menu-item current-menu-item kingster-normal-menu"
                     >
-                      <a href="apply-to-kingster.html" class="sf-with-ul-pre"
-                        >Admissions</a
-                      >
-                      <ul class="sub-menu">
-                        <b>
-                          <li class="menu-item" data-size="60">
-                            <a href="apply-to-kingster.html">Apply To MDCRC</a>
-                          </li>
-                          <li class="menu-item" data-size="60">
-                            <a href="campus-tour.html">Campus Tour</a>
-                          </li>
-                          <li class="menu-item" data-size="60">
-                            <a href="mdcrc-scholarship.html">Scholarships</a>
-                          </li>
-                          <li class="menu-item" data-size="60">
-                            <a>Activities</a>
-                          </li>
-                          <li class="menu-item" data-size="60">
-                            <a href="give-to-kingster.html">Give To Kingster</a>
-                          </li>
-                          <li class="menu-item" data-size="60">
-                            <a href="alumni.html">Alumni</a>
-                          </li>
-                          <li class="menu-item" data-size="60">
-                            <a href="event-calendar.html">Event Calendar</a>
-                          </li></b
-                        >
-                      </ul>
-                    </li>
-
-                    <li class="menu-item kingster-normal-menu">
                       <a>Activities</a>
                       <ul class="sub-menu">
                         <b>
@@ -781,6 +791,9 @@
                         >
                       </ul>
                     </li>
+                    <li class="menu-item" data-size="60">
+                      <a href="careers.html">Careers</a>
+                    </li>
                   </ul>
                   <div
                     class="kingster-navigation-slide-bar"
@@ -792,436 +805,67 @@
           </div>
         </header>
 
+        <div
+          class="kingster-page-title-wrap kingster-style-medium kingster-left-align"
+        >
+          <div class="kingster-header-transparent-substitute"></div>
+          <div class="kingster-page-title-overlay"></div>
+          <div class="kingster-page-title-container kingster-container">
+            <div class="kingster-page-title-content kingster-item-pdlr">
+              <div class="kingster-page-caption">MDCRC</div>
+              <h1 class="kingster-page-title">Events & Updates</h1>
+            </div>
+          </div>
+        </div>
         <div class="kingster-page-wrapper" id="kingster-page-wrapper">
           <div class="gdlr-core-page-builder-body">
-            <div
-              class="gdlr-core-pbf-wrapper"
-              style="padding: 70px 0px 40px 0px"
-            >
-              <div class="gdlr-core-pbf-wrapper-content gdlr-core-js">
-                <div
-                  class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container"
-                >
-                  <div
-                    class="gdlr-core-pbf-column gdlr-core-column-20 gdlr-core-column-first"
-                  >
+            <div class="gdlr-core-pbf-section">
+              <div
+                class="gdlr-core-pbf-section-container gdlr-core-container clearfix"
+              >
+                <div class="gdlr-core-pbf-element">
+                 
+                  
                     <div
-                      class="gdlr-core-pbf-column-content-margin gdlr-core-js"
+                      class="gdlr-core-block-item-title-wrap gdlr-core-left-align gdlr-core-item-mglr"
+                      style="margin-bottom: 40px"
                     >
-                      <div
-                        class="gdlr-core-pbf-column-content clearfix gdlr-core-js"
-                      >
-                        <div class="gdlr-core-pbf-element">
-                          <div
-                            class="gdlr-core-image-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-center-align"
-                          >
-                            <div
-                              class="gdlr-core-image-item-wrap gdlr-core-media-image gdlr-core-image-item-style-rectangle"
-                              style="border-width: 0px"
-                            >
-                              <a
-                                class="gdlr-core-lightgallery gdlr-core-js"
-                                href="upload/sameera-1.jpg"
-                                ><img
-                                  src="upload/sameera-1.jpg"
-                                  width="700"
-                                  height="350"
-                                  alt="" /><span class="gdlr-core-image-overlay"
-                                  ><i
-                                    class="gdlr-core-image-overlay-icon gdlr-core-size-22 fa fa-search"
-                                  ></i></span
-                              ></a>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="gdlr-core-pbf-element">
-                          <div
-                            class="gdlr-core-personnel-info-item gdlr-core-item-pdb gdlr-core-item-pdlr clearfix"
-                            style="padding-bottom: 17px"
-                          >
-                            <div
-                              class="gdlr-core-personnel-info-item-list-wrap"
-                            >
-                              <div
-                                class="kingster-personnel-info-list kingster-type-email"
-                              >
-                                <i
-                                  class="kingster-personnel-info-list-icon fa fa-linkedin"
-                                ></i
-                                ><a
-                                  href="linkedin.com/in/sameerah-ali-bava-359a55174"
-                                  >Sameerah Ali Bava</a
-                                >
-                              </div>
+                      <div class="gdlr-core-block-item-title-inner clearfix">
+                        <h3
+                          class="gdlr-core-block-item-title"
+                          style="
+                            font-size: 22px;
+                            font-style: normal;
+                            text-transform: none;
+                            letter-spacing: 0px;
+                            color: #182847;
+                          "
+                        >
+                          Recent Events @ MDCRC
+                        </h3>
+                        <div
+                          class="gdlr-core-block-item-title-divider"
+                          style="
+                            font-size: 22px;
+                            border-bottom-color: #dcdcdc;
+                            border-bottom-width: 2px;
+                          "
+                        ></div>
+                      </div>
+                    </div>
+                     <div id="loadingAnimation" class="loading-animation"></div>
+                  <div class="gdlr-core-item-list-wrap gdlr-core-column-30" id="column1"></div>
+<div class="gdlr-core-item-list-wrap gdlr-core-column-30" id="column2"></div>
 
-                              <div
-                                class="kingster-personnel-info-list kingster-type-location"
-                              >
-                                <i
-                                  class="kingster-personnel-info-list-icon fa fa-location-arrow"
-                                ></i
-                                >Kerala
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <!-- <div class="gdlr-core-pbf-element">
-                                                <div class="gdlr-core-button-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-left-align"><a class="gdlr-core-button  gdlr-core-button-solid gdlr-core-button-no-border" href="#" style="font-size: 13px ;padding: 11px 24px 15px 27px;border-radius: 2px;-moz-border-radius: 2px;-webkit-border-radius: 2px;"><span class="gdlr-core-content" >Download CV</span><i class="gdlr-core-pos-right fa fa-file-pdf-o"  ></i></a></div>
-                                            </div> -->
-                      </div>
-                    </div>
-                  </div>
-                  <div class="gdlr-core-pbf-column gdlr-core-column-40">
-                    <div
-                      class="gdlr-core-pbf-column-content-margin gdlr-core-js"
-                      style="margin: 0px 0px 20px 0px; padding: 0px 0px 0px 0px"
-                    >
-                      <div
-                        class="gdlr-core-pbf-column-content clearfix gdlr-core-js"
-                      >
-                        <div class="gdlr-core-pbf-element">
-                          <div
-                            class="gdlr-core-title-item gdlr-core-item-pdb clearfix gdlr-core-left-align gdlr-core-title-item-caption-bottom gdlr-core-item-pdlr"
-                          >
-                            <div
-                              class="gdlr-core-title-item-title-wrap clearfix"
-                            >
-                              <h3
-                                class="gdlr-core-title-item-title gdlr-core-skin-title"
-                                style="
-                                  font-size: 34px;
-                                  font-weight: 700;
-                                  letter-spacing: 0px;
-                                  text-transform: none;
-                                  color: #161616;
-                                "
-                              >
-                                Sameerah Ali Bava
-                              </h3>
-                            </div>
-                            <span
-                              class="gdlr-core-title-item-caption gdlr-core-info-font gdlr-core-skin-caption"
-                              style="
-                                font-size: 20px;
-                                font-style: normal;
-                                color: #6c6c6c;
-                              "
-                              >Vice Chairperson</span
-                            >
-                          </div>
-                        </div>
-                        <div class="gdlr-core-pbf-element">
-                          <div
-                            class="gdlr-core-text-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-left-align"
-                            style="padding-bottom: 6px"
-                          ></div>
-                        </div>
-                        <div class="gdlr-core-pbf-element">
-                          <div
-                            class="gdlr-core-divider-item gdlr-core-divider-item-normal gdlr-core-item-pdlr gdlr-core-center-align"
-                            style="margin-bottom: 55px"
-                          >
-                            <div
-                              class="gdlr-core-divider-line gdlr-core-skin-divider"
-                              style="
-                                border-color: #3db166;
-                                border-bottom-width: 3px;
-                              "
-                            ></div>
-                          </div>
-                        </div>
-                        <div class="gdlr-core-pbf-element">
-                          <div
-                            class="gdlr-core-title-item gdlr-core-item-pdb clearfix gdlr-core-left-align gdlr-core-title-item-caption-top gdlr-core-item-pdlr"
-                          >
-                            <div
-                              class="gdlr-core-title-item-title-wrap clearfix"
-                            >
-                              <h3
-                                class="gdlr-core-title-item-title gdlr-core-skin-title"
-                                style="
-                                  font-size: 20px;
-                                  font-weight: 600;
-                                  letter-spacing: 0px;
-                                  text-transform: none;
-                                  color: #464646;
-                                "
-                              >
-                                Biography
-                              </h3>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="gdlr-core-pbf-element">
-                          <div
-                            class="gdlr-core-text-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-left-align"
-                            style="padding-bottom: 20px"
-                          >
-                            <div
-                              class="gdlr-core-text-box-item-content"
-                              style="
-                                font-size: 17px;
-                                letter-spacing: 0px;
-                                text-transform: none;
-                              "
-                            >
-                              <p>
-                                Sameerah Ali Bava is an accomplished
-                                professional with a strong background in
-                                finance, administration, and educational
-                                institutional management. As a board member of
-                                Crescent International Group and Vice
-                                Chairperson at Malabar Academic City, she brings
-                                strategic vision and drives the success of these
-                                organizations. She holds a graduate degree in
-                                English Literature, an MBA in Finance and
-                                Operations, and a certification in counseling
-                                psychology. Sameerah's extensive experience
-                                includes heading the finance department of a
-                                steel company and leading multiple ventures in
-                                the education and hospitality sectors. She is
-                                actively involved in promoting women's
-                                empowerment through various organizations and is
-                                known for her creative problem-solving skills.
-                                In her free time, she enjoys drawing, traveling,
-                                and playing musical instruments. Sameerah's
-                                strong leadership, commitment to excellence, and
-                                passion for empowering others make her an
-                                impressive professional.
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="gdlr-core-pbf-element">
-                          <div
-                            class="gdlr-core-divider-item gdlr-core-divider-item-normal gdlr-core-item-pdlr gdlr-core-center-align"
-                            style="margin-bottom: 45px"
-                          >
-                            <div
-                              class="gdlr-core-divider-line gdlr-core-skin-divider"
-                              style="
-                                border-color: #3db166;
-                                border-bottom-width: 3px;
-                              "
-                            ></div>
-                          </div>
-                        </div>
-                        <div class="gdlr-core-pbf-element">
-                          <div
-                            class="gdlr-core-title-item gdlr-core-item-pdb clearfix gdlr-core-left-align gdlr-core-title-item-caption-top gdlr-core-item-pdlr"
-                          >
-                            <div
-                              class="gdlr-core-title-item-title-wrap clearfix"
-                            >
-                              <h3
-                                class="gdlr-core-title-item-title gdlr-core-skin-title"
-                                style="
-                                  font-size: 20px;
-                                  font-weight: 600;
-                                  letter-spacing: 0px;
-                                  text-transform: none;
-                                  color: #464646;
-                                "
-                              >
-                                Education
-                              </h3>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="gdlr-core-pbf-element">
-                          <div
-                            class="gdlr-core-icon-list-item gdlr-core-item-pdlr gdlr-core-item-pdb clearfix"
-                          >
-                            <ul>
-                              <li
-                                class="gdlr-core-skin-divider"
-                                style="margin-bottom: 13px"
-                              >
-                                <span
-                                  class="gdlr-core-icon-list-icon-wrap"
-                                  style="margin-top: 4px"
-                                  ><i
-                                    class="gdlr-core-icon-list-icon fa fa-dot-circle-o"
-                                    style="
-                                      color: #6b6b6b;
-                                      font-size: 16px;
-                                      width: 16px;
-                                    "
-                                  ></i
-                                ></span>
-                                <div class="gdlr-core-icon-list-content-wrap">
-                                  <span
-                                    class="gdlr-core-icon-list-content"
-                                    style="
-                                      font-size: 17px;
-                                      text-transform: none;
-                                    "
-                                    >MBA, Symbiosis Centre for Distance
-                                    Learning, Maharastra, 2022</span
-                                  >
-                                </div>
-                              </li>
-                              <li
-                                class="gdlr-core-skin-divider"
-                                style="margin-bottom: 13px"
-                              >
-                                <span
-                                  class="gdlr-core-icon-list-icon-wrap"
-                                  style="margin-top: 4px"
-                                  ><i
-                                    class="gdlr-core-icon-list-icon fa fa-dot-circle-o"
-                                    style="
-                                      color: #6b6b6b;
-                                      font-size: 16px;
-                                      width: 16px;
-                                    "
-                                  ></i
-                                ></span>
-                                <div class="gdlr-core-icon-list-content-wrap">
-                                  <span
-                                    class="gdlr-core-icon-list-content"
-                                    style="
-                                      font-size: 17px;
-                                      text-transform: none;
-                                    "
-                                    >BA, English & Literature, University of
-                                    Calicut, 2007</span
-                                  >
-                                </div>
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="gdlr-core-pbf-wrapper" id="div_1dd7_107">
-              <div
-                class="gdlr-core-pbf-background-wrap"
-                id="div_1dd7_108"
-              ></div>
-              <div class="gdlr-core-pbf-wrapper-content gdlr-core-js">
-                <div
-                  class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container-custom"
-                  id="div_1dd7_109"
-                >
-                  <div class="gdlr-core-pbf-element">
-                    <div
-                      class="gdlr-core-gallery-item gdlr-core-item-pdb clearfix gdlr-core-gallery-item-style-grid"
-                      id="div_1dd7_110"
-                    >
-                      <div
-                        class="gdlr-core-gallery-item-holder gdlr-core-js-2 clearfix"
-                        data-layout="fitrows"
-                      >
-                        <!-- <div class="gdlr-core-item-list gdlr-core-gallery-column  gdlr-core-column-10 gdlr-core-column-first gdlr-core-item-pdlr gdlr-core-item-mgb">
-                                                <div class="gdlr-core-gallery-list gdlr-core-media-image"><img src="upload/banner-0.png" alt="" width="120" height="120" title="banner-1" /></div>
-                                            </div> -->
-                        <div
-                          class="gdlr-core-item-list gdlr-core-gallery-column gdlr-core-column-10 gdlr-core-column-first gdlr-core-item-pdlr gdlr-core-item-mgb"
-                        >
-                          <div
-                            class="gdlr-core-gallery-list gdlr-core-media-image"
-                          >
-                            <img
-                              src="upload/banner-1.png"
-                              style="padding-top: 20px"
-                              alt=""
-                              width="240"
-                              height="120"
-                              title="banner-1"
-                            />
-                          </div>
-                        </div>
-                        <div
-                          class="gdlr-core-item-list gdlr-core-gallery-column gdlr-core-column-10 gdlr-core-item-pdlr gdlr-core-item-mgb"
-                        >
-                          <div
-                            class="gdlr-core-gallery-list gdlr-core-media-image"
-                          >
-                            <img
-                              src="upload/banner-2.png"
-                              alt=""
-                              width="120"
-                              height="120"
-                              title="banner-2"
-                            />
-                          </div>
-                        </div>
-                        <div
-                          class="gdlr-core-item-list gdlr-core-gallery-column gdlr-core-column-10 gdlr-core-item-pdlr gdlr-core-item-mgb"
-                        >
-                          <div
-                            class="gdlr-core-gallery-list gdlr-core-media-image"
-                          >
-                            <img
-                              src="upload/banner-3.png"
-                              alt=""
-                              width="120"
-                              height="120"
-                              title="banner-3"
-                            />
-                          </div>
-                        </div>
-                        <div
-                          class="gdlr-core-item-list gdlr-core-gallery-column gdlr-core-column-10 gdlr-core-item-pdlr gdlr-core-item-mgb"
-                        >
-                          <div
-                            class="gdlr-core-gallery-list gdlr-core-media-image"
-                          >
-                            <img
-                              src="upload/banner-4.png"
-                              style="padding-top: 25px"
-                              alt=""
-                              width="240"
-                              height="120"
-                              title="banner-4"
-                            />
-                          </div>
-                        </div>
-                        <div
-                          class="gdlr-core-item-list gdlr-core-gallery-column gdlr-core-column-10 gdlr-core-item-pdlr gdlr-core-item-mgb"
-                        >
-                          <div
-                            class="gdlr-core-gallery-list gdlr-core-media-image"
-                          >
-                            <img
-                              src="upload/dme.png"
-                              alt=""
-                              style="padding-top: 10px"
-                              width="170"
-                              height="200"
-                              title="banner-4"
-                            />
-                          </div>
-                        </div>
-                        <div
-                          class="gdlr-core-item-list gdlr-core-gallery-column gdlr-core-column-10 gdlr-core-item-pdlr gdlr-core-item-mgb"
-                        >
-                          <div
-                            class="gdlr-core-gallery-list gdlr-core-media-image"
-                          >
-                            <img
-                              src="upload/aimst.png"
-                              alt=""
-                              width="110"
-                              height="200"
-                              title="banner-4"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
+       
         <footer>
           <div class="kingster-footer-wrapper">
             <div class="kingster-footer-container kingster-container clearfix">
@@ -1465,6 +1109,7 @@
       </div>
     </div>
 
+
     <script type="text/javascript" src="js/jquery/jquery.js"></script>
     <script
       type="text/javascript"
@@ -1474,16 +1119,7 @@
       type="text/javascript"
       src="plugins/goodlayers-core/plugins/combine/script.js"
     ></script>
-    <script type="text/javascript">
-      var gdlr_core_pbf = {
-        admin: "",
-        video: {
-          width: "640",
-          height: "360",
-        },
-        ajax_url: "#",
-      };
-    </script>
+
     <script>
       // Define the API URL to fetch notification data
       const apiUrlNotification =
@@ -1526,6 +1162,107 @@
       // Call the fetchAndUpdateNotifications function initially
       fetchAndUpdateNotifications();
     </script>
+
+<script>
+  const apiUrl = "https://app.conext.in/Events/MdcEventsListView";
+
+  async function fetchEvents() {
+    try {
+      const response = await fetch(apiUrl);
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      return [];
+    }
+  }
+  function formatDate(dateString) {
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', options);
+  }
+
+
+  function createEventElement(event) {
+      const formattedDate = formatDate(event.event_date);
+    const eventElement = document.createElement("div");
+    
+    eventElement.classList.add(
+      "gdlr-core-item-list",
+      "gdlr-core-blog-widget",
+      "gdlr-core-item-mglr",
+      "clearfix",
+      "gdlr-core-style-small"
+    );
+
+    eventElement.innerHTML = `
+      <div class="gdlr-core-blog-thumbnail gdlr-core-media-image gdlr-core-opacity-on-hover gdlr-core-zoom-on-hover">
+          <a class="gdlr-core-lightgallery gdlr-core-js" target="_blank" href="${event.event_poster}">
+              <img class="event_poster" alt="" width="150" height="150" title="Student" src="${event.event_poster}" />
+          </a>
+      </div>
+      <div class="gdlr-core-blog-widget-content">
+          <div class="gdlr-core-blog-info-wrapper gdlr-core-skin-divider">
+              <span class="gdlr-core-blog-info gdlr-core-blog-info-font gdlr-core-skin-caption gdlr-core-blog-info-date">
+                  <a class="event_date">${formattedDate}</a>
+              </span>
+          </div>
+          <h3 class="gdlr-core-blog-title gdlr-core-skin-title" id="h3_1dd7_12">
+              <a class="event_name">${event.event_name}</a>
+          </h3>
+          <span class="gdlr-core-blog-info" style="font-size: 13px;font-weight: 300;">
+              <a class="event_short_descp">${event.event_short_descp}</a>
+          </span>
+      </div>
+    `;
+     const eventImage = eventElement.querySelector(".event_poster");
+    eventImage.style.width = "80px";
+    eventImage.style.height = "93px";
+    eventImage.style.objectFit = "fill";
+
+    return eventElement;
+  }
+
+  async function renderEvents() {
+    const events = await fetchEvents();
+     const loadingAnimation = document.getElementById("loadingAnimation");
+    const column1 = document.getElementById("column1");
+    const column2 = document.getElementById("column2");
+    let columnIndex = 0;
+
+     try {
+      const events = await fetchEvents();
+
+      events.forEach((event) => {
+        const eventElement = createEventElement(event);
+        columnIndex === 0
+          ? column1.appendChild(eventElement)
+          : column2.appendChild(eventElement);
+        columnIndex = 1 - columnIndex; // Toggle between 0 and 1
+      });
+    } catch (error) {
+      console.error("Error:", error);
+    } finally {
+      // Hide loading animation after data is fetched
+      loadingAnimation.style.display = "none";
+    }
+  }
+
+  // Call the renderEvents function to populate the content
+  renderEvents();
+</script>
+
+
+    <script type="text/javascript">
+      var gdlr_core_pbf = {
+        admin: "",
+        video: {
+          width: "640",
+          height: "360",
+        },
+        ajax_url: "#",
+      };
+    </script>
     <script
       type="text/javascript"
       src="plugins/goodlayers-core/include/js/page-builder.js"
@@ -1539,5 +1276,5 @@
     <script type="text/javascript" src="js/plugins.min.js"></script>
   </body>
 
-  <!-- Mirrored from max-themes.net/demos/kingster/kingster/john-hagensy-phd.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 09 Mar 2022 06:34:49 GMT -->
+  <!-- Mirrored from max-themes.net/demos/kingster/kingster/blog-grid-4-columns.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 09 Mar 2022 06:34:14 GMT -->
 </html>
