@@ -2020,20 +2020,20 @@
 
         items.forEach((item, index) => {
           // const isMultipleOf3 = index % 3 === 0;
-          const columnNumber = 30;
+          const columnNumber = 20;
           console.log(columnNumber, "column number");
 
           item.pictures.forEach((picture) => {
             const portfolioItem = document.createElement("div");
-            portfolioItem.className = `gdlr-core-item-list gdlr-core-item-pdlr gdlr-core-item-mgb gdlr-core-column-${columnNumber}`;
+            portfolioItem.className = `gdlr-core-item-list  gdlr-core-item-mgb gdlr-core-column-${columnNumber}`;
             portfolioItem.innerHTML = `
-              <div class="gdlr-core-portfolio-metro">
+              <div class="gdlr-core-portfolio-metro" style="margin:0 10px;">
                 <div class="gdlr-core-portfolio-thumbnail gdlr-core-media-image gdlr-core-style-title-icon gdlr-core-metro-rvpdlr">
                   <div class="gdlr-core-portfolio-thumbnail-image-wrap gdlr-core-zoom-on-hover">
                     <div class="image-gallery">
                       <img class="uploaded_image_url" src="${
                         picture.uploaded_image_url
-                      }" alt="" style="opacity: 1; transition: opacity 0.3s ease;" />
+                      }" alt="" style="opacity: 1; height:400px;object-fit: cover; transition: opacity 0.3s ease;" />
                     </div>
                     <span class="gdlr-core-image-overlay gdlr-core-portfolio-overlay gdlr-core-image-overlay-center-icon gdlr-core-js">
                       <span class="gdlr-core-image-overlay-content">
