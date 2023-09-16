@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="shortcut icon" href="/upload/favicon.ico" type="image/x-icon" />
-    <title>News Page | MDCRC</title>
+    <title>PHD Camp Page | MDCRC</title>
 
     <link
       rel="stylesheet"
@@ -812,7 +812,7 @@
           <div class="kingster-page-title-container kingster-container">
             <div class="kingster-page-title-content kingster-item-pdlr">
               <div class="kingster-page-caption">MDCRC</div>
-              <h1 class="kingster-page-title">News & Updates</h1>
+              <h1 class="kingster-page-title">PHD Camps</h1>
             </div>
           </div>
         </div>
@@ -824,7 +824,71 @@
               >
                 <div class="gdlr-core-pbf-element">
                   <div id="loadingAnimation" class="loading-animation"></div>
-                  <div id="newsContainer" style="display: none"></div>
+                  <div id="union-events" style="display: none">
+                    <div
+                      class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container"
+                      style="margin-top: 20px; margin-bottom: 40px"
+                    >
+                      <div
+                        class="gdlr-core-block-item-title-wrap gdlr-core-left-align gdlr-core-item-mglr"
+                        style="margin-bottom: 40px"
+                      >
+                        <div class="gdlr-core-block-item-title-inner clearfix">
+                          <h3
+                            class="gdlr-core-block-item-title"
+                            style="
+                              font-size: 22px;
+                              font-style: normal;
+                              text-transform: none;
+                              letter-spacing: 0px;
+                              color: #182847;
+                              padding-bottom: 20px;
+                            "
+                          >
+                            Camps Conducted by PHD Department
+                          </h3>
+                          <div
+                            class="gdlr-core-block-item-title-divider"
+                            style="
+                              font-size: 22px;
+                              border-bottom-color: #dcdcdc;
+                              border-bottom-width: 2px;
+                            "
+                          ></div>
+                        </div>
+                      </div>
+                      <div class="gdlr-core-pbf-column gdlr-core-column-20">
+                        <div
+                          class="gdlr-core-pbf-column-content-margin gdlr-core-js"
+                        >
+                          <div
+                            class="gdlr-core-pbf-column-content clearfix gdlr-core-js"
+                            id="eventColumn1"
+                          ></div>
+                        </div>
+                      </div>
+                      <div class="gdlr-core-pbf-column gdlr-core-column-20">
+                        <div
+                          class="gdlr-core-pbf-column-content-margin gdlr-core-js"
+                        >
+                          <div
+                            class="gdlr-core-pbf-column-content clearfix gdlr-core-js"
+                            id="eventColumn2"
+                          ></div>
+                        </div>
+                      </div>
+                      <div class="gdlr-core-pbf-column gdlr-core-column-20">
+                        <div
+                          class="gdlr-core-pbf-column-content-margin gdlr-core-js"
+                        >
+                          <div
+                            class="gdlr-core-pbf-column-content clearfix gdlr-core-js"
+                            id="eventColumn3"
+                          ></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1097,78 +1161,98 @@
       src="plugins/goodlayers-core/plugins/combine/script.js"
     ></script>
     <script>
-      // Function to create and append a news item element to the container
-      function createNewsItem(newsData, index) {
-        // Create a new div element with the class "gdlr-core-pbf-element"
-        const newsItemDiv = document.createElement("div");
-        newsItemDiv.className = `gdlr-core-item-list gdlr-core-item-mgb gdlr-core-column-30`;
-        newsItemDiv.style.padding = `0 10px`;
-        const newsDate = new Date(newsData.news_date);
-        const newsId = newsData.id;
-        let img = "upload/clg.jpg";
-        if (newsData.image_urls.length != 0) {
-          img = newsData.image_urls[0];
-        } else {
-          let random = Math.floor(Math.random() * (8 - 1 + 1)) + 1;
-          img = `upload/mdc_pics/mdc${random}.jpg`;
+      // Your API endpoint
+      const apiUrl = "https://app.conext.in/Camps/Mdcrc_Camps_list";
+
+      // Function to fetch data from the API
+      async function fetchEvents() {
+        try {
+          const response = await fetch(apiUrl);
+          const data = await response.json();
+          return data;
+        } catch (error) {
+          console.error("Error fetching data:", error);
+          return [];
         }
-        const formattedDate = newsDate.toLocaleDateString("en-US", {
-          year: "numeric",
-          month: "long",
-          day: "numeric",
+      }
+
+      // Function to dynamically create event elements
+      function createEventElement(event) {
+        const eventDate = new Date(event.date);
+        const dayOfMonth = eventDate.getDate().toString().padStart(2, "0");
+        const monthAbbreviation = eventDate.toLocaleString("default", {
+          month: "short",
         });
 
-        // Set the HTML content of the news item div based on the provided template
-        newsItemDiv.innerHTML = `
-       <div class="gdlr-core-blog-modern gdlr-core-with-image gdlr-core-hover-overlay-content gdlr-core-opacity-on-hover gdlr-core-zoom-on-hover" >
-        <div class="gdlr-core-blog-modern-inner">
-          <div class="gdlr-core-blog-thumbnail gdlr-core-media-image">
-              <a class="news_subject" href='news-single-page.html?id=${newsId}'><img class="image_urls" src="${img}" style="height:450px;object-fit:cover"  width="1280" height="580" alt=""></a>
-        
-          </div>
-          <div class="gdlr-core-blog-modern-content gdlr-core-center-align">
-            <h3 class="gdlr-core-blog-title gdlr-core-skin-title" style="font-size: 22px; font-weight: 700; letter-spacing: 0px;">
-              <a class="news_subject" href='news-single-page.html?id=${newsId}'>${newsData.news_subject}</a>
-            </h3>
-            <div class="gdlr-core-blog-info-wrapper gdlr-core-skin-divider">
-              <span class="gdlr-core-blog-info gdlr-core-blog-info-font gdlr-core-skin-caption gdlr-core-blog-info-date">
-                <a class="news_date" href='news-single-page.html?id=${newsId}'>${formattedDate}</a>
-              </span>
-            </div>
-          </div>
+        const eventElement = document.createElement("div");
+        eventElement.innerHTML = `
+        <div class="gdlr-core-event-item-list gdlr-core-style-widget gdlr-core-item-pdlr clearfix">
+            <span class="gdlr-core-event-item-info gdlr-core-type-start-date-month">
+                <span class="gdlr-core-date">${dayOfMonth}</span>
+                <span class="gdlr-core-month">${monthAbbreviation}</span>
+            </span>
+            <div class="gdlr-core-event-item-content-wrap">
+                <h3 class="gdlr-core-event-item-title">
+                    <a class="event_name">${event.organizer}</a>
+                </h3>
+               <div class="gdlr-core-event-item-info-wrap">
+            <span class="gdlr-core-event-item-info gdlr-core-type-location">
+                <span class="gdlr-core-head"><i class="icon_pin_alt"></i></span>
+                <span class="gdlr-core-tail event_location">${event.location}</span>
+            </span>
         </div>
-      </div>
-  `;
-
-        return newsItemDiv;
+            </div>
+        </div>
+    `;
+        return eventElement;
       }
 
-      // Function to fetch data from the API and render news items in a grid
-      function fetchAndRenderNewsItems() {
-        // Replace 'YOUR_API_URL_HERE' with the actual API endpoint
-        const apiUrl = "https://app.conext.in/news/api/news/";
-        loadingAnimation.style.display = "block";
-        newsContainer.style.display = "none";
-        fetch(apiUrl)
-          .then((response) => response.json())
-          .then((apiResponse) => {
-            const container = document.getElementById("newsContainer");
+      // Function to render events
+      async function renderEvents() {
+        const columns = [
+          document.getElementById("eventColumn1"),
+          document.getElementById("eventColumn2"),
+          document.getElementById("eventColumn3"),
+        ];
+        const events = await fetchEvents();
 
-            apiResponse.forEach((item) => {
-              const newsItemElement = createNewsItem(item);
-              container.appendChild(newsItemElement);
-              loadingAnimation.style.display = "none";
-              newsContainer.style.display = "block";
-            });
-          })
-          .catch((error) => {
-            console.error("Error fetching data from the API:", error);
-            loadingAnimation.style.display = "none";
-          });
+        if (events.length === 0) {
+          console.log("No events found in the API response.");
+          return;
+        }
+
+        let columnIndex = 0;
+        let rowIndex = 0;
+
+        events.forEach((event, index) => {
+          // Create the event element
+          const eventElement = createEventElement(event);
+
+          // Append the event to the current column and row
+          const rowContainer = columns[columnIndex].querySelector(
+            `.row-${rowIndex}`
+          );
+          if (!rowContainer) {
+            const newRow = document.createElement("div");
+            newRow.classList.add(`row-${rowIndex}`);
+            columns[columnIndex].appendChild(newRow);
+            newRow.appendChild(eventElement);
+          } else {
+            rowContainer.appendChild(eventElement);
+          }
+
+          // Update column and row indexes
+          columnIndex = (columnIndex + 1) % columns.length;
+          if (columnIndex === 0) {
+            rowIndex++;
+          }
+        });
+        document.getElementById("union-events").style.display = "block";
+        document.getElementById("loadingAnimation").style.display = "none";
       }
 
-      // Call the function to fetch and render news items
-      fetchAndRenderNewsItems();
+      // Call the renderEvents function to populate the content
+      renderEvents();
     </script>
     <script>
       // Define the API URL to fetch notification data
