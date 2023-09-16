@@ -1101,7 +1101,8 @@
       function createNewsItem(newsData, index) {
         // Create a new div element with the class "gdlr-core-pbf-element"
         const newsItemDiv = document.createElement("div");
-        newsItemDiv.className = `gdlr-core-item-list gdlr-core-item-pdlr gdlr-core-item-mgb gdlr-core-column-30`;
+        newsItemDiv.className = `gdlr-core-item-list gdlr-core-item-mgb gdlr-core-column-30`;
+        newsItemDiv.style.padding = `0 10px`;
         const newsDate = new Date(newsData.news_date);
         const newsId = newsData.id;
         let img = "upload/clg.jpg";
@@ -1119,10 +1120,10 @@
 
         // Set the HTML content of the news item div based on the provided template
         newsItemDiv.innerHTML = `
-       <div class="gdlr-core-blog-modern gdlr-core-with-image gdlr-core-hover-overlay-content gdlr-core-opacity-on-hover gdlr-core-zoom-on-hover">
+       <div class="gdlr-core-blog-modern gdlr-core-with-image gdlr-core-hover-overlay-content gdlr-core-opacity-on-hover gdlr-core-zoom-on-hover" >
         <div class="gdlr-core-blog-modern-inner">
           <div class="gdlr-core-blog-thumbnail gdlr-core-media-image">
-              <a class="news_subject" href='news-single-page.html?id=${newsId}'><img class="image_urls" src="${img}" width="1280" height="580" alt=""></a>
+              <a class="news_subject" href='news-single-page.html?id=${newsId}'><img class="image_urls" src="${img}" style="height:450px;object-fit:cover"  width="1280" height="580" alt=""></a>
         
           </div>
           <div class="gdlr-core-blog-modern-content gdlr-core-center-align">

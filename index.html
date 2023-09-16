@@ -5315,11 +5315,9 @@
           listItemContainer.classList.add(
             "custom-image-container",
             "gdlr-core-item-list",
-            "gdlr-core-item-pdlr",
             "gdlr-core-item-mgb",
             "gdlr-core-column-15"
           );
-
           const blogModernContainer = document.createElement("div");
           blogModernContainer.classList.add(
             "custom-blog-modern",
@@ -5329,6 +5327,7 @@
             "gdlr-core-opacity-on-hover",
             "gdlr-core-zoom-on-hover"
           );
+          blogModernContainer.style.margin = "0 10px";
 
           const modernInnerContainer = document.createElement("div");
           modernInnerContainer.classList.add(
@@ -5347,6 +5346,10 @@
           imageElement.classList.add("uploaded_image_url");
           imageElement.width = 700;
           imageElement.height = 660;
+          imageElement.style.width = "100%";
+          imageElement.style.maxHeight = "250px";
+          imageElement.style.height = "250px";
+          imageElement.style.objectFit = "cover";
           imageElement.src = imageObj.uploaded_image_url;
           imageElement.alt = ""; // Set image alt attribute if available
 
