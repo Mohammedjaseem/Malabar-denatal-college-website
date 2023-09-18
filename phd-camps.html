@@ -1183,13 +1183,16 @@
         const monthAbbreviation = eventDate.toLocaleString("default", {
           month: "short",
         });
+        
+        const yearAbbreviation = eventDate.getFullYear();
 
         const eventElement = document.createElement("div");
         eventElement.innerHTML = `
         <div class="gdlr-core-event-item-list gdlr-core-style-widget gdlr-core-item-pdlr clearfix">
             <span class="gdlr-core-event-item-info gdlr-core-type-start-date-month">
                 <span class="gdlr-core-date">${dayOfMonth}</span>
-                <span class="gdlr-core-month">${monthAbbreviation}</span>
+                <span class="gdlr-core-month">${monthAbbreviation} </span>
+                <span class="gdlr-core-month">${yearAbbreviation}</span>
             </span>
             <div class="gdlr-core-event-item-content-wrap">
                 <h3 class="gdlr-core-event-item-title">
