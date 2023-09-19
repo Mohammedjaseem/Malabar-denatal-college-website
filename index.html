@@ -173,25 +173,6 @@
         position: relative;
       }
 
-      .dots {
-        display: flex;
-        justify-content: center;
-        margin-top: 10px;
-      }
-
-      .dot {
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background-color: #bbb;
-        margin: 0 5px;
-        cursor: pointer;
-      }
-
-      .active {
-        background-color: #3db166;
-      }
-
       .slider-container {
         width: 100%; /* Adjust to your desired width */
         overflow-x: auto;
@@ -202,13 +183,8 @@
         scroll-snap-type: x mandatory;
         -webkit-overflow-scrolling: touch;
         padding-bottom: 20px;
-        z-index: 0;
-        /* transform: translateX(-20px); Remove or set to transform: translateX(0); */
       }
-      .active {
-        background-color: #3db166;
-        transform: scale(1.2); /* Increase the size of the active dot */
-      }
+
       /* CSS for the popup container */
       .popup {
         border-radius: 20px;
@@ -926,7 +902,16 @@
                             class="menu-item menu-item-has-children"
                             data-size="20"
                           >
-                            <a><br /></a>
+                            <a
+                              style="
+                                color: #3db166;
+                                font-size: 13px;
+                                text-align: end;
+                              "
+                              href=""
+                            >
+                              View Other Departments ->
+                            </a>
                             <ul class="sub-menu">
                               <li class="menu-item">
                                 <a href="orthodontics.html"
@@ -4106,12 +4091,6 @@
                   </div>
                 </div>
               </div>
-
-              <div class="dots">
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-              </div>
             </div>
 
             <div class="gdlr-core-pbf-wrapper" id="gdlr-core-wrapper-3">
@@ -5559,71 +5538,7 @@
       // Load the home page and trigger the popup on DOMContentLoaded
       document.addEventListener("DOMContentLoaded", loadHomePage);
     </script>
-    <script>
-      const slider = document.querySelector(".slider");
-      const testimonials = document.querySelectorAll(".testimonial");
-      const dotsContainer = document.querySelector(".dots");
-      const dots = dotsContainer.querySelectorAll(".dot");
-      let activeIndex = 0;
-      let intervalId;
-      let isHovering = false;
 
-      // Create pagination dots
-      dots.forEach((dot, index) => {
-        dot.addEventListener("click", () => {
-          scrollToTestimonial(index);
-        });
-      });
-
-      function scrollToTestimonial(index) {
-        const offset = index * (slider.offsetWidth + 20); // 20 is the left padding value
-        slider.scrollLeft = offset;
-        activeIndex = index;
-        updateActiveDot();
-      }
-
-      function updateActiveDot() {
-        dots.forEach((dot, index) => {
-          dot.classList.toggle("active", index === activeIndex);
-        });
-      }
-
-      function startAutoScroll() {
-        if (!isHovering) {
-          intervalId = setInterval(() => {
-            activeIndex = (activeIndex + 1) % dots.length;
-            scrollToTestimonial(activeIndex);
-          }, 5000); // 5000 milliseconds (5 seconds) interval for automatic scrolling
-        }
-      }
-
-      function stopAutoScroll() {
-        clearInterval(intervalId);
-      }
-
-      slider.addEventListener("scroll", () => {
-        const index = Math.round(slider.scrollLeft / (slider.offsetWidth + 20));
-        activeIndex = index;
-        updateActiveDot();
-      });
-
-      slider.addEventListener("mouseenter", () => {
-        isHovering = true;
-        stopAutoScroll();
-      });
-
-      slider.addEventListener("mouseleave", () => {
-        isHovering = false;
-        startAutoScroll();
-      });
-
-      // Start auto-scrolling initially
-      startAutoScroll();
-
-      // Set initial scroll position to show the first testimonial on the left
-      slider.scrollLeft = 0;
-      updateActiveDot();
-    </script>
     <script>
       // Function to format date as "JULY 07, 2023"
       function formatDate(dateString) {
