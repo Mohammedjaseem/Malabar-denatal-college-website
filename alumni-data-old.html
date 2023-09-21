@@ -831,7 +831,7 @@
                     >
                       <div
                         class="gdlr-core-block-item-title-wrap gdlr-core-left-align gdlr-core-item-mglr"
-                        style="margin-bottom: 40px"
+                        style="margin-bottom: 30px"
                       >
                         <div class="gdlr-core-block-item-title-inner clearfix">
                           <h3
@@ -855,6 +855,9 @@
                               border-bottom-width: 2px;
                             "
                           ></div>
+                          <span class="notSpecify2">
+                            *Others: Not prefered to specify
+                          </span>
                         </div>
                       </div>
                       <div class="gdlr-core-pbf-column gdlr-core-column-20">
@@ -1185,7 +1188,7 @@
         // Split the response into parts
         const parts = apiResponse.split(" ");
         // Extract the last two digits of the year
-        const year = parts[0].slice(-2);
+        const year = parts[0];
         // Extract the last three letters of the response as the course
         const course = parts[1].slice(-3);
         const Name = event.full_name; // Replace with your actual data
@@ -1195,8 +1198,8 @@
         eventElement.innerHTML = `
         <div class="gdlr-core-event-item-list gdlr-core-style-widget gdlr-core-item-pdlr clearfix">
             <span class="gdlr-core-event-item-info gdlr-core-type-start-date-month">
-                <span class="gdlr-core-date">'${year}</span>
-                <span class="gdlr-core-month">${course}</span>
+                <span class="gdlr-core-date" style="font-size:25px">${course}</span>
+                <span class="gdlr-core-month">${year}</span>
             </span>
             <div class="gdlr-core-event-item-content-wrap">
                 <h3 class="gdlr-core-event-item-title">
@@ -1205,7 +1208,6 @@
                <div class="gdlr-core-event-item-info-wrap">
            
             <span class="gdlr-core-event-item-info gdlr-core-type-location">
-                <span class="gdlr-core-head"><i class="icon_pin_alt"></i></span>
                 <span class="gdlr-core-tail event_location"> <b>Current Status: </b>${event.current_status}</span>
             </span>
         </div>
