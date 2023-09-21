@@ -952,11 +952,22 @@ body .gdlr-core-flipbox-item .gdlr-core-flipbox-item-image {
 .view-camp{
 	display: flex;
 	align-items: start;
-	justify-content: end;
+	justify-content: space-between;
 	text-align: end;
 	font-weight: 600;
-	padding-right:2rem ;
+	padding:0px 2rem ;
 	font-size: 19px;
+}
+.notSpecify{
+	font-weight: 500;text-align: end;
+	font-size: 14px;
+}
+.notSpecify2{
+	display: flex;
+		align-items: start;
+		justify-content: end;
+	font-weight: 600;text-align: end;
+	font-size: 15px;
 }
 #h3_1dd7_11{font-size: 19px ;font-weight: 700 ;letter-spacing: 0px ;}
 #h3_1dd7_12{font-size: 16px ;font-weight: 700 ;letter-spacing: 0px ;}
