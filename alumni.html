@@ -1093,6 +1093,101 @@ Malappuram, Dt Pin : 679578</span></p>
                                 </div>
                               </div>
                             </div>
+                            <div class="gdlr-core-accordion-item-tab clearfix">
+                              <div
+                                class="gdlr-core-accordion-item-icon gdlr-core-js gdlr-core-skin-icon"
+                              ></div>
+                              <div
+                                class="gdlr-core-accordion-item-content-wrapper"
+                              >
+                                <h4
+                                  class="gdlr-core-accordion-item-title gdlr-core-js gdlr-core-skin-e-background gdlr-core-skin-e-content"
+                                >
+                                 Alumni  
+                                </h4>
+                                <div class="gdlr-core-accordion-item-content">
+                                  <div class="gdlr-core-pbf-element">
+                                        <div id="union-events" style="display: none;" >
+                                  <div class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container" style="margin-top: 20px; margin-bottom: 40px;" >
+                                      
+                    <div
+                      class="gdlr-core-block-item-title-wrap gdlr-core-left-align gdlr-core-item-mglr"
+                      style="margin-bottom: 40px"
+                    >
+                      <div class="gdlr-core-block-item-title-inner clearfix">
+                        <h3
+                          class="gdlr-core-block-item-title"
+                          style="
+                            font-size: 22px;
+                            font-style: normal;
+                            text-transform: none;
+                            letter-spacing: 0px;
+                            color: #182847;
+                            padding-bottom: 10px;
+                          "
+                        >
+                        Alumni Members List
+                        </h3>
+                        <div
+                          class="gdlr-core-block-item-title-divider"
+                          style="
+                            font-size: 22px;
+                            border-bottom-color: #dcdcdc;
+                            border-bottom-width: 2px;
+                          "
+                        ></div>
+                        
+                      </div>
+                      
+                                                  
+                    </div>
+                    <div class="gdlr-core-pbf-column gdlr-core-column-20">
+                      <div
+                        class="gdlr-core-pbf-column-content-margin gdlr-core-js"
+                      >
+                        <div
+                          class="gdlr-core-pbf-column-content clearfix gdlr-core-js"
+                          id="eventColumn1"
+                        ></div>
+                      </div>
+                    </div>
+                    <div class="gdlr-core-pbf-column gdlr-core-column-20">
+                      <div
+                        class="gdlr-core-pbf-column-content-margin gdlr-core-js"
+                      >
+                        <div
+                          class="gdlr-core-pbf-column-content clearfix gdlr-core-js"
+                          id="eventColumn2"
+                        ></div>
+                      </div>
+                    </div>
+                    <div class="gdlr-core-pbf-column gdlr-core-column-20">
+                      <div
+                        class="gdlr-core-pbf-column-content-margin gdlr-core-js"
+                      >
+                        <div
+                          class="gdlr-core-pbf-column-content clearfix gdlr-core-js"
+                          id="eventColumn3"
+                        ></div>
+                      </div>
+                    </div>
+                     <div class="gdlr-core-pbf-column gdlr-core-column-60 view-camp">
+                        <a
+                               
+                                href="alumni-data-old.html"
+                                target="_self"
+                                id="a_1dd7_5"
+                                >View All Alumni</a
+                              >
+                    </div>
+                      
+                  </div>
+                 
+                </div>
+                                    </div>
+                                </div>
+                              </div>
+                            </div>
                           </div>
                         </div>
                         </div>
@@ -1404,6 +1499,107 @@ Malappuram, Dt Pin : 679578</span></p>
         var kingster_script_core = {
             "home_url": "index.html"
         };
+    </script>
+     <script>
+      // Your API endpoint
+      const apiUrl = "https://app.conext.in/mdsu/old_alumni_data/";
+
+      // Function to fetch data from the API
+      async function fetchEvents() {
+        try {
+          const response = await fetch(apiUrl);
+          const data = await response.json();
+          return data;
+        } catch (error) {
+          console.error("Error fetching data:", error);
+          return [];
+        }
+      }
+    
+
+      // Function to dynamically create event elements
+      function createEventElement(event) {
+       const apiResponse = event.yr_course;
+       // Split the response into parts
+       const parts = apiResponse.split(' ');
+       // Extract the last two digits of the year
+       const year = parts[0].slice(-2);
+       // Extract the last three letters of the response as the course
+       const course = parts[1].slice(-3);
+       const Name = event.full_name; // Replace with your actual data
+       // Convert the full name to lowercase
+       const FullName = Name.toUpperCase();
+       const eventElement = document.createElement("div");
+       eventElement.innerHTML = `
+        <div class="gdlr-core-event-item-list gdlr-core-style-widget gdlr-core-item-pdlr clearfix">
+            <span class="gdlr-core-event-item-info gdlr-core-type-start-date-month">
+                <span class="gdlr-core-date">'${year}</span>
+                <span class="gdlr-core-month">${course}</span>
+            </span>
+            <div class="gdlr-core-event-item-content-wrap">
+                <h3 class="gdlr-core-event-item-title">
+                    <a class="event_name">${FullName}</a>
+                </h3>
+               <div class="gdlr-core-event-item-info-wrap">
+           
+            <span class="gdlr-core-event-item-info gdlr-core-type-location">
+                <span class="gdlr-core-head"><i class="icon_pin_alt"></i></span>
+                <span class="gdlr-core-tail event_location"> <b>Current Status: </b>${event.current_status}</span>
+            </span>
+        </div>
+            </div>
+        </div>
+    `;
+        return eventElement;
+      }
+
+      // Function to render events
+      async function renderEvents() {
+        const columns = [
+          document.getElementById("eventColumn1"),
+          document.getElementById("eventColumn2"),
+          document.getElementById("eventColumn3"),
+        ];
+        const events = await fetchEvents();
+
+        if (events.length === 0) {
+          console.log("No events found in the API response.");
+          return;
+        }
+
+        let columnIndex = 0;
+        let rowIndex = 0;
+
+        events.forEach((event, index) => {
+          if (index < 12) {
+            // Create the event element
+            const eventElement = createEventElement(event);
+
+            // Append the event to the current column and row
+            const rowContainer = columns[columnIndex].querySelector(
+              `.row-${rowIndex}`
+            );
+            if (!rowContainer) {
+              const newRow = document.createElement("div");
+              newRow.classList.add(`row-${rowIndex}`);
+              columns[columnIndex].appendChild(newRow);
+              newRow.appendChild(eventElement);
+            } else {
+              rowContainer.appendChild(eventElement);
+            }
+
+            // Update column and row indexes
+            columnIndex = (columnIndex + 1) % columns.length;
+            if (columnIndex === 0) {
+              rowIndex++;
+            }
+          }
+        });
+        document.getElementById("union-events").style.display = "block";
+      }
+
+      // Call the renderEvents function to populate the content
+      renderEvents();
     </script>
     <script type='text/javascript' src='js/plugins.min.js'></script>
 </body>
