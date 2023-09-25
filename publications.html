@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en-US" class="no-js">
-  <!-- Mirrored from max-themes.net/demos/kingster/kingster/singleportfolio.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 09 Mar 2022 06:34:30 GMT -->
+  <!-- Mirrored from max-themes.net/demos/kingster/kingster/blog-grid-4-columns.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 09 Mar 2022 06:34:14 GMT -->
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="shortcut icon" href="/upload/favicon.ico" type="image/x-icon" />
-
-<title>News Details Page | MDCRC</title>
+    <link rel="shortcut icon" href="/upload/favicon.ico" type="image/x-icon" />
+    <title>Publications Page | MDCRC</title>
 
     <link
       rel="stylesheet"
@@ -53,7 +52,30 @@
       media="all"
     />
     <style>
-       .loading-animation {
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 0px;
+      }
+
+      /* Ensure each news item is centered in its column */
+      .gdlr-core-blog-item {
+        display: flex;
+        justify-content: center;
+      }
+
+      /* CSS to style the images with max height and cover */
+      .image_urls {
+        object-fit: cover;
+      }
+
+      /* Media query for smaller screen sizes to adjust image height */
+      @media (max-width: 768px) {
+        .image_urls {
+          max-width: 100% !important;
+        }
+      }
+      .loading-animation {
         border: 4px solid #f3f3f3;
         border-top: 4px solid #3db166;
         border-radius: 50%;
@@ -61,7 +83,6 @@
         height: 60px;
         animation: spin 2s linear infinite;
         margin: 20px auto;
-        margin-top: 100px;
       }
 
       @keyframes spin {
@@ -71,12 +92,6 @@
         100% {
           transform: rotate(360deg);
         }
-      }
-      .image-slides a {
-        margin-right: 10px; /* Adjust the spacing as needed */
-      }
-      .image-slides a:last-child {
-        margin-right: 0; /* Remove margin from the last image */
       }
       .floating-button {
         position: fixed;
@@ -120,64 +135,6 @@
           transform: translateY(-100%);
         }
       }
-      #shareButton {
-  display: none;
-}
-/* Styles for the modal */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-.modal-content {
-  background-color: white;
-  margin: 15% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 60%;
-  text-align: center;
-  border-radius: 5px;
-}
-
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-/* Media query to adjust modal width on smaller screens */
-@media (max-width: 768px) {
-  .modal-content {
-    width: 80%;
-  }
-}
-
-
-/* Show the button when screen width is 768px or less */
-@media (max-width: 768px) {
-  #shareButton {
-    display: block;
-  }
-}
-.kingster-item-pdlr, .gdlr-core-item-pdlr {
-    padding-left: 0px !important;
-    padding-right: 20px;
-}
     </style>
   </head>
   <a
@@ -219,7 +176,7 @@
                 data-slide="right"
               >
                 <ul id="menu-main-navigation" class="m-menu">
-                  <li class="menu-item menu-item-home">
+                  <li class="menu-item menu-item-home current-menu-item">
                     <a href="index.html">Home</a>
                   </li>
                   <li class="menu-item">
@@ -372,9 +329,7 @@
                       </li>
                     </ul>
                   </li>
-                  <li
-                    class="menu-item menu-item-has-children current-menu-item"
-                  >
+                  <li class="menu-item menu-item-has-children">
                     <a>Activities</a>
                     <ul class="sub-menu">
                       <li class="menu-item">
@@ -480,7 +435,7 @@
                 <div class="kingster-main-menu" id="kingster-main-menu">
                   <ul id="menu-main-navigation-1" class="sf-menu">
                     <li
-                      class="menu-item menu-item-home kingster-normal-menu menu-item-has-children"
+                      class="menu-item menu-item-home current-menu-item kingster-normal-menu menu-item-has-children"
                     >
                       <a href="index.html">Home</a>
                       <!-- jassy commented 
@@ -769,9 +724,7 @@
                       </div>
                     </li>
 
-                    <li
-                      class="menu-item current-menu-item kingster-normal-menu"
-                    >
+                    <li class="menu-item kingster-normal-menu">
                       <a>Activities</a>
                       <ul class="sub-menu">
                         <b>
@@ -844,145 +797,47 @@
             </div>
           </div>
         </header>
+
         <div
           class="kingster-page-title-wrap kingster-style-medium kingster-left-align"
-        ></div>
+        >
+          <div class="kingster-header-transparent-substitute"></div>
+          <div class="kingster-page-title-overlay"></div>
+          <div class="kingster-page-title-container kingster-container">
+            <div class="kingster-page-title-content kingster-item-pdlr">
+              <div class="kingster-page-caption">MDCRC</div>
+              <h1 class="kingster-page-title">Publications</h1>
+            </div>
+          </div>
+        </div>
         <div class="kingster-page-wrapper" id="kingster-page-wrapper">
           <div class="gdlr-core-page-builder-body">
-            <div
-              class="gdlr-core-pbf-wrapper"
-              style="padding: 60px 0px 60px 0px"
-            >
-              <div class="gdlr-core-pbf-wrapper-content gdlr-core-js">
-                <div
-                  class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container"
-                > <div class="gdlr-core-pbf-column gdlr-core-column-20 gdlr-core-column-first">
-                    <div
-                      class="gdlr-core-pbf-column-content-margin gdlr-core-js"
-                      style="padding: 10px 0px 0px 20px"
-                    >
-                      <div
-                        class="gdlr-core-pbf-column-content clearfix gdlr-core-js"
-                      >
-                        <div class="gdlr-core-pbf-element">
-                          <div
-                            class="gdlr-core-title-item gdlr-core-item-pdb clearfix gdlr-core-left-align gdlr-core-title-item-caption-top gdlr-core-item-pdlr"
-                          >
-                            <div
-                              class="gdlr-core-title-item-title-wrap clearfix"
-                            >
-                              <h4
-                                class="gdlr-core-title-item-title gdlr-core-skin-title news_subject"
-                                style="
-                                  font-size: 22px;
-                                  font-weight: 700;
-                                  text-transform: none;
-                                "
-                              ></h4>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="gdlr-core-pbf-element">
-                          <div
-                            class="gdlr-core-port-info-item gdlr-core-item-pdb gdlr-core-item-pdlr"
-                            style="padding-bottom: 50px"
-                          >
-                            <div
-                              class="gdlr-core-port-info-wrap gdlr-core-skin-divider gdlr-core-with-border"
-                            >
-                              <div class="gdlr-core-port-info">
-                                <span
-                                  class="gdlr-core-port-info-key gdlr-core-skin-title"
-                                  >Location</span
-                                ><b
-                                  ><span
-                                    class="gdlr-core-port-info-value location"
-                                  ></span
-                                ></b>
-                              </div>
-                              <div class="gdlr-core-port-info">
-                                <span
-                                  class="gdlr-core-port-info-key gdlr-core-skin-title"
-                                  >Date </span
-                                ><b
-                                  ><span
-                                    class="gdlr-core-port-info-value news_date"
-                                  ></span
-                                ></b>
-                              </div>
-                              <div class="gdlr-core-port-info">
-                                <span
-                                  class="gdlr-core-port-info-key gdlr-core-skin-title"
-                                  >Added By</span
-                                ><b
-                                  ><span
-                                    class="gdlr-core-port-info-value staff_name"
-                                  >
-                                  </span
-                                ></b>
-                                Via CONNECT
-                              </div>
-                              <div
-                                class="gdlr-core-button-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-left-align"
-                              style="padding-top: 20px;"
-                              >
-                              <button class="gdlr-core-button  gdlr-core-button-solid gdlr-core-button-no-border" id="shareButton" style="font-size: 14px ;font-weight: 700 ;letter-spacing: 0px ;padding: 13px 29px 18px 32px;text-transform: none ;border-radius: 2px;-moz-border-radius: 2px;-webkit-border-radius: 2px;"><span class="gdlr-core-content" >Share News</span><i class="gdlr-core-pos-right fa fa-external-link" style="font-size: 14px ;"  ></i></button>
-                               <!-- <a class="gdlr-core-button gdlr-core-button-solid gdlr-core-button-no-border" href="#" id="shareButton">
-  <span class="gdlr-core-content">Share News</span>
-  <i class="gdlr-core-pos-right fa fa-external-link" style="font-size: 14px;"></i>
-</a> -->
-
-
-                              </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="gdlr-core-pbf-element">
-                          <div
-                            class="gdlr-core-text-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-left-align"
-                          >
-                            <div class="gdlr-core-text-box-item-content">
-                              <h5
-                                class="gdlr-core-port-info-key gdlr-core-skin-title"
-                              >
-                                News Description
-                              </h5>
-
-                              <span
-                                class="gdlr-core-port-info-value news_content"
-                                style="font-size: larger; line-height: 2em"
-                              >
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  <div
-                    class="gdlr-core-pbf-column gdlr-core-column-40 "
-                  >
-                    <div
-                      class="gdlr-core-pbf-column-content-margin gdlr-core-js"
-                    >
-                      <div
-                        class="gdlr-core-pbf-column-content clearfix gdlr-core-js"
-                      >
-                        <div id="loadingAnimation" class="loading-animation"></div>
-                        <div class="gdlr-core-pbf-element image-container">
-                          <!-- Images will be added here -->
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                 
-                  </div>
+            <div class="gdlr-core-pbf-section">
+              <div
+                class="gdlr-core-pbf-section-container gdlr-core-container clearfix"
+              >
+                <div class="gdlr-core-pbf-element">
+                  <div id="loadingAnimation" class="loading-animation"></div>
+                  <div id="newsContainer" style="display: none"></div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
+        <!-- <div
+                      class="gdlr-core-load-more-wrap gdlr-core-js gdlr-core-center-align gdlr-core-item-pdlr"
+                      data-ajax="gdlr_core_post_ajax"
+                      data-target="gdlr-core-blog-item-holder"
+                      data-target-action="append"
+                    >
+                      <a
+                        href="#"
+                        class="gdlr-core-load-more gdlr-core-button-color"
+                        data-ajax-name="paged"
+                        data-ajax-value="2"
+                        >Load More</a
+                      >
+                    </div> -->
         <footer>
           <div class="kingster-footer-wrapper">
             <div class="kingster-footer-container kingster-container clearfix">
@@ -1173,7 +1028,10 @@
               class="kingster-copyright-container kingster-container clearfix"
             >
               <div class="kingster-copyright-left kingster-item-pdlr">
-                Copyright © 2023 Malabar Dental College | <a  style="color: #fff " href="dept_of_IT.html">Department of IT 💻</a>
+                Copyright © 2023 Malabar Dental College |
+                <a style="color: #fff" href="dept_of_IT.html"
+                  >Department of IT 💻</a
+                >
               </div>
               <div class="kingster-copyright-right kingster-item-pdlr">
                 <div
@@ -1225,15 +1083,6 @@
         </footer>
       </div>
     </div>
-    <div id="shareModal" class="modal">
-  <div class="modal-content">
-    <h2>Share Options</h2>
-    <p>Choose how you want to share:</p>
-    <button id="emailButton">Email</button>
-    <button id="copyButton">Copy Link</button>
-    <span class="close">&times;</span>
-  </div>
-</div>
 
     <script type="text/javascript" src="js/jquery/jquery.js"></script>
     <script
@@ -1244,89 +1093,79 @@
       type="text/javascript"
       src="plugins/goodlayers-core/plugins/combine/script.js"
     ></script>
-    <script type="text/javascript">
-      function getQueryParameter(name) {
-        const urlSearchParams = new URLSearchParams(window.location.search);
-        return urlSearchParams.get(name);
+    <script>
+      // Function to create and append a news item element to the container
+      function createNewsItem(newsData, index) {
+        // Create a new div element with the class "gdlr-core-pbf-element"
+        const newsItemDiv = document.createElement("div");
+        newsItemDiv.className = `gdlr-core-item-list gdlr-core-item-mgb gdlr-core-column-30`;
+        newsItemDiv.style.padding = `0 10px`;
+        const newsDate = new Date(newsData.news_date);
+        const newsId = newsData.id;
+        let img = "upload/clg.jpg";
+        if (newsData.image_urls.length != 0) {
+          img = newsData.image_urls[0];
+        } else {
+          let random = Math.floor(Math.random() * (8 - 1 + 1)) + 1;
+          img = `upload/mdc_pics/mdc${random}.jpg`;
+        }
+        const formattedDate = newsDate.toLocaleDateString("en-US", {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        });
+
+        // Set the HTML content of the news item div based on the provided template
+        newsItemDiv.innerHTML = `
+       <div class="gdlr-core-blog-modern gdlr-core-with-image gdlr-core-hover-overlay-content gdlr-core-opacity-on-hover gdlr-core-zoom-on-hover" >
+        <div class="gdlr-core-blog-modern-inner">
+          <div class="gdlr-core-blog-thumbnail gdlr-core-media-image">
+              <a class="news_subject" href='news-single-page.html?id=${newsId}'><img class="image_urls" src="${img}" style="height:650px;object-fit:fill"  width="1280" height="580" alt=""></a>
+        
+          </div>
+          <div class="gdlr-core-blog-modern-content gdlr-core-center-align">
+            <h3 class="gdlr-core-blog-title gdlr-core-skin-title" style="font-size: 22px; font-weight: 700; letter-spacing: 0px;">
+              <a class="news_subject" href='news-single-page.html?id=${newsId}'>${newsData.news_subject}</a>
+            </h3>
+            <div class="gdlr-core-blog-info-wrapper gdlr-core-skin-divider">
+              <span class="gdlr-core-blog-info gdlr-core-blog-info-font gdlr-core-skin-caption gdlr-core-blog-info-date">
+                <a class="news_date" href='news-single-page.html?id=${newsId}'>${formattedDate}</a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+  `;
+
+        return newsItemDiv;
       }
-    
-      const id = getQueryParameter("id");
-      fetch(`https://app.conext.in/news/api/MdcNewsDetiles/?id=${id}`)
-        .then((response) => response.json())
-        .then((data) => {
-          // Update the image URLs
-          const imageUrls = data.image_urls;
-          const imageContainer = document.querySelector(".image-container");
-          if (imageUrls.length != 0) {
-            for (const imageUrl of imageUrls) {
-              const imageElement = document.createElement("img");
-              imageElement.src = imageUrl;
-              imageElement.width = 1800;
-              imageElement.height = 1201;
-              const anchorElement = document.createElement("a");
-              anchorElement.className =
-                "gdlr-core-lightgallery gdlr-core-js image_urls";
 
-              anchorElement.appendChild(imageElement);
-              const imageContainerDiv = document.createElement("div");
-              imageContainerDiv.className = "gdlr-core-pbf-element";
-              imageContainerDiv.innerHTML = `
-            <div class="gdlr-core-image-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-center-align">
-              <div class="gdlr-core-image-item-wrap gdlr-core-media-image gdlr-core-image-item-style-rectangle" style="border-width: 0px">
-                ${anchorElement.outerHTML}
-                
-              </div>
-            </div>
-          `;
+      // Function to fetch data from the API and render news items in a grid
+      function fetchAndRenderNewsItems() {
+        // Replace 'YOUR_API_URL_HERE' with the actual API endpoint
+        const apiUrl = "https://app.conext.in/news/api/MdcPublicationsListAll/";
+        loadingAnimation.style.display = "block";
+        newsContainer.style.display = "none";
+        fetch(apiUrl)
+          .then((response) => response.json())
+          .then((apiResponse) => {
+            const container = document.getElementById("newsContainer");
 
-              // Append the image container to the imageContainer
-              imageContainer.appendChild(imageContainerDiv);
-            }
-          } else {
-            const imageElement = document.createElement("img");
-            imageElement.src = "upload/clg.jpg";
-            imageElement.width = 1800;
-            imageElement.height = 1201;
-            const anchorElement = document.createElement("a");
-            anchorElement.className =
-              "gdlr-core-lightgallery gdlr-core-js image_urls";
+            apiResponse.forEach((item) => {
+              const newsItemElement = createNewsItem(item);
+              container.appendChild(newsItemElement);
+              loadingAnimation.style.display = "none";
+              newsContainer.style.display = "block";
+            });
+          })
+          .catch((error) => {
+            console.error("Error fetching data from the API:", error);
+            loadingAnimation.style.display = "none";
+          });
+      }
 
-            anchorElement.appendChild(imageElement);
-            const imageContainerDiv = document.createElement("div");
-            imageContainerDiv.className = "gdlr-core-pbf-element";
-            imageContainerDiv.innerHTML = `
-            <div class="gdlr-core-image-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-center-align">
-              <div class="gdlr-core-image-item-wrap gdlr-core-media-image gdlr-core-image-item-style-rectangle" style="border-width: 0px">
-                ${anchorElement.outerHTML}
-                
-              </div>
-            </div>
-          `;
-
-            // Append the image container to the imageContainer
-            imageContainer.appendChild(imageContainerDiv);
-          }
-          // Loop through the image URLs and create the container for each image
-
-          // Update other fields from the API response
-          document.querySelector(".news_subject").textContent =
-            data.news_subject;
-          document.querySelector(".location").textContent = data.location;
-          document.querySelector(".news_date").textContent = data.news_date;
-          document.querySelector(".staff_name").textContent = data.staff_name;
-
-          // Create a temporary div to parse the HTML content
-          let tempDiv = document.createElement("div");
-          tempDiv.innerHTML = data.news_content;
-
-          // Extract the text content from the temporary div
-          let extractedText = tempDiv.textContent;
-
-          // Set the extracted text content to the element with class "news_content"
-          document.querySelector(".news_content").textContent = extractedText;
-           document.getElementById('loadingAnimation').style.display = "none";
-        })
-        .catch((error) => console.error("Error fetching data:", error));
+      // Call the function to fetch and render news items
+      fetchAndRenderNewsItems();
     </script>
     <script>
       // Define the API URL to fetch notification data
@@ -1380,48 +1219,7 @@
         ajax_url: "#",
       };
     </script>
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  const shareButton = document.getElementById('shareButton');
-  const shareModal = document.getElementById('shareModal');
-  const emailButton = document.getElementById('emailButton');
-  const copyButton = document.getElementById('copyButton');
-  const closeButton = shareModal.querySelector('.close');
-
-  shareButton.addEventListener('click', function () {
-    shareModal.style.display = 'block';
-  });
-
-  emailButton.addEventListener('click', function () {
-    const shareData = {
-      subject: 'Check out this news', // Replace with your subject
-      body: 'I thought you might find this news interesting:\n' + window.location.href // Current page URL
-    };
-    window.location.href = `mailto:?subject=${encodeURIComponent(shareData.subject)}&body=${encodeURIComponent(shareData.body)}`;
-  });
-
-  copyButton.addEventListener('click', function () {
-    const url = window.location.href;
-    navigator.clipboard.writeText(url).then(() => {
-      alert('Link copied to clipboard.');
-    }).catch((error) => {
-      console.error('Error copying to clipboard:', error);
-    });
-  });
-
-  closeButton.addEventListener('click', function () {
-    shareModal.style.display = 'none';
-  });
-
-  window.addEventListener('click', function (event) {
-    if (event.target === shareModal) {
-      shareModal.style.display = 'none';
-    }
-  });
-});
-
-</script>
-   <script
+    <script
       type="text/javascript"
       src="plugins/goodlayers-core/include/js/page-builder.js"
     ></script>
@@ -1432,8 +1230,7 @@ document.addEventListener('DOMContentLoaded', function () {
       };
     </script>
     <script type="text/javascript" src="js/plugins.min.js"></script>
-    <script type="text/javascript" src="js/isotope.js"></script>
   </body>
 
-  <!-- Mirrored from max-themes.net/demos/kingster/kingster/singleportfolio.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 09 Mar 2022 06:34:31 GMT -->
+  <!-- Mirrored from max-themes.net/demos/kingster/kingster/blog-grid-4-columns.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 09 Mar 2022 06:34:14 GMT -->
 </html>
