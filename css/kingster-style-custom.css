@@ -30,7 +30,8 @@ input, textarea{ border-bottom-width: 1px; }
 .chairman-achieve{
 	margin-bottom: 0px!important;
 }
-@media only screen and (max-width: 767px) {
+
+@media only screen and (max-width: 567px) {
 
 	.grievance_img {
 			content: " ";
@@ -1158,4 +1159,10 @@ body .gdlr-core-flipbox-item .gdlr-core-flipbox-item-image {
 #span_fd84_0 {
 	font-size: 14px;
 	font-weight: 500;
+}
+@media only screen and (max-width: 567px) {
+
+	.kingster-page-title-wrap.kingster-style-custom .kingster-page-title {
+		font-size: 37px;
+	}
 }
