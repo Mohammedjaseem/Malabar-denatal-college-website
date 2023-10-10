@@ -634,7 +634,7 @@
                 <div class="kingster-page-title-container kingster-container">
                     <div class="kingster-page-title-content kingster-item-pdlr" style="padding-top: 390px ;padding-bottom: 55px ;">
                         <div class="kingster-page-caption" style="font-size: 21px ;font-weight: 400 ;letter-spacing: 0px ;">Dental Department</div>
-                        <h1 class="kingster-page-title" style="font-size: 48px ;font-weight: 700 ;text-transform: none ;letter-spacing: 0px ;">Conservative Dentistry & Endodontics</h1></div>
+                        <h1 class="kingster-page-title" id="dep-title" style="font-weight: 700 ;text-transform: none ;letter-spacing: 0px ;">Conservative Dentistry & Endodontics</h1></div>
                 </div>
             </div>
             <div class="kingster-breadcrumbs">
@@ -1431,6 +1431,22 @@ Malappuram, Dt Pin : 679578</span></p>
         var kingster_script_core = {
             "home_url": "index.html"
         };
+    </script>
+    <script>
+      const element = document.getElementById('dep-title');
+
+// Function to check and remove 'font-size' style
+function removeFontSizeStyle() {
+  if (element.style.fontSize) {
+    // Remove the 'font-size' style property
+    element.style.removeProperty('font-size');
+  }
+}
+
+// Check and remove the style every 100 milliseconds (adjust as needed)
+setInterval(removeFontSizeStyle, 100);
+
+      
     </script>
     <script type='text/javascript' src='js/plugins.min.js'></script>
 </body>
