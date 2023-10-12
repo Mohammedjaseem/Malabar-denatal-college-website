@@ -1166,3 +1166,10 @@ body .gdlr-core-flipbox-item .gdlr-core-flipbox-item-image {
 		font-size: 37px;
 	}
 }
+@media only screen and (min-width: 767px) {
+
+	.dflex-md {
+		display: flex;
+		justify-content: center;
+	}
+}
