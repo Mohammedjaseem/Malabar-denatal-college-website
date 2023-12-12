@@ -178,7 +178,35 @@
     padding-left: 0px !important;
     padding-right: 20px;
 }
-    </style>
+ 
+
+
+  .gdlr-core-image-item {
+    margin-bottom: 10px;
+  }
+
+  .gdlr-core-media-image img {
+    width: 415px; /* Large screen width */
+    height: 310px; /* Large screen height */
+    object-fit: cover; /* Maintain aspect ratio and cover */
+  }
+
+  @media screen and (max-width: 768px) {
+    .gdlr-core-media-image img {
+      width: 210px; /* Medium screen width */
+      height: 210px; /* Medium screen height */
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .gdlr-core-media-image img {
+      width: 210px; /* Small screen width */
+      height: 210px; /* Small screen height */
+    }
+  }
+</style>
+
+    
   </head>
   <a
     href="https://api.whatsapp.com/send?phone=7034555514"
@@ -1257,55 +1285,40 @@
           // Update the image URLs
           const imageUrls = data.image_urls;
           const imageContainer = document.querySelector(".image-container");
-          if (imageUrls.length != 0) {
-            for (const imageUrl of imageUrls) {
-              const imageElement = document.createElement("img");
-              imageElement.src = imageUrl;
-              imageElement.width = 1800;
-              imageElement.height = 1201;
-              const anchorElement = document.createElement("a");
-              anchorElement.className =
-                "gdlr-core-lightgallery gdlr-core-js image_urls";
+         if (imageUrls.length !== 0) {
+  const imageContainerDiv = document.createElement("div");
+  imageContainerDiv.className = "gdlr-core-pbf-element";
+  imageContainerDiv.style.display = "grid";
+  imageContainerDiv.style.gridTemplateColumns = "repeat(2, 1fr)";
+  imageContainerDiv.style.gap = "10px"; // Adjust the gap as needed
 
-              anchorElement.appendChild(imageElement);
-              const imageContainerDiv = document.createElement("div");
-              imageContainerDiv.className = "gdlr-core-pbf-element";
-              imageContainerDiv.innerHTML = `
-            <div class="gdlr-core-image-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-center-align">
-              <div class="gdlr-core-image-item-wrap gdlr-core-media-image gdlr-core-image-item-style-rectangle" style="border-width: 0px">
-                ${anchorElement.outerHTML}
-                
-              </div>
-            </div>
-          `;
+  for (let i = 0; i < imageUrls.length; i++) {
+    const imageElement = document.createElement("img");
+    imageElement.src = imageUrls[i];
+   
 
-              // Append the image container to the imageContainer
-              imageContainer.appendChild(imageContainerDiv);
-            }
-          } else {
-            const imageElement = document.createElement("img");
-            imageElement.src = "upload/clg.jpg";
-            imageElement.width = 1800;
-            imageElement.height = 1201;
-            const anchorElement = document.createElement("a");
-            anchorElement.className =
-              "gdlr-core-lightgallery gdlr-core-js image_urls";
+    const anchorElement = document.createElement("a");
+    anchorElement.className =
+      "gdlr-core-lightgallery gdlr-core-js image_urls";
+    anchorElement.appendChild(imageElement);
 
-            anchorElement.appendChild(imageElement);
-            const imageContainerDiv = document.createElement("div");
-            imageContainerDiv.className = "gdlr-core-pbf-element";
-            imageContainerDiv.innerHTML = `
-            <div class="gdlr-core-image-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-center-align">
-              <div class="gdlr-core-image-item-wrap gdlr-core-media-image gdlr-core-image-item-style-rectangle" style="border-width: 0px">
-                ${anchorElement.outerHTML}
-                
-              </div>
-            </div>
-          `;
+    const imageItemDiv = document.createElement("div");
+    imageItemDiv.className =
+      "gdlr-core-image-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-center-align";
+    imageItemDiv.style.marginBottom = "10px"; // Adjust margin as needed
+    imageItemDiv.innerHTML = `
+      <div class="gdlr-core-image-item-wrap gdlr-core-media-image gdlr-core-image-item-style-rectangle" style="border-width: 0px">
+        ${anchorElement.outerHTML}
+      </div>
+    `;
 
-            // Append the image container to the imageContainer
-            imageContainer.appendChild(imageContainerDiv);
-          }
+    // Append the image item to the imageContainerDiv
+    imageContainerDiv.appendChild(imageItemDiv);
+  }
+
+  // Append the imageContainerDiv to the imageContainer
+  imageContainer.appendChild(imageContainerDiv);
+}
           // Loop through the image URLs and create the container for each image
 
           // Update other fields from the API response
