@@ -1174,18 +1174,29 @@ fetch(apiUrl)
 
        const courseSubTitleSpan = document.createElement("span");
         courseSubTitleSpan.classList.add("gdlr-core-course-item-subtitle", "gdlr-core-skin-caption");
-        courseSubTitleSpan.textContent = 'Last Date: '+courseSubTitle; 
+        courseSubTitleSpan.textContent = 'Last Date: '+courseSubTitle;
+        
+         const iconLinkSubTitle = document.createElement("a");
+iconLinkSubTitle.classList.add("gdlr-core-course-icon-link");
+iconLinkSubTitle.href = `job-details.html?id=${jobId}`;
+iconLinkSubTitle.appendChild(courseSubTitleSpan);
 
       const courseIcon = document.createElement("i");
       courseIcon.classList.add("gdlr-core-course-item-icon", "gdlr-core-skin-icon", "fa", "fa-long-arrow-right");
+      const iconLinkIcon = document.createElement("a");
+iconLinkIcon.classList.add("gdlr-core-course-icon-link");
+iconLinkIcon.href = `job-details.html?id=${jobId}`;
+
+// Append the icon to the new anchor tag
+iconLinkIcon.appendChild(courseIcon);
 
       // Assemble the elements
         courseLink.appendChild(organizationLogoImg);
         courseLink.appendChild(courseTitleSpan);
         courseItemDiv.appendChild(courseLink);
         // Add a line break (space) between the title and subtitle
-        courseItemDiv.appendChild(courseSubTitleSpan); // Add the subtitle span after the line break
-        courseItemDiv.appendChild(courseIcon);
+        courseItemDiv.appendChild(iconLinkSubTitle); // Add the subtitle span after the line break
+        courseItemDiv.appendChild(iconLinkIcon);
         courseContainer.appendChild(courseItemDiv);
     });
      showContent();

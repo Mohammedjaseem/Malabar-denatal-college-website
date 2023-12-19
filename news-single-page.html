@@ -52,6 +52,7 @@
       type="text/css"
       media="all"
     />
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.7/dist/sweetalert2.min.css" />
     <style>
        .loading-animation {
         border: 4px solid #f3f3f3;
@@ -120,60 +121,8 @@
           transform: translateY(-100%);
         }
       }
-      #shareButton {
-  display: none;
-}
-/* Styles for the modal */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.5);
-}
+  
 
-.modal-content {
-  background-color: white;
-  margin: 15% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 60%;
-  text-align: center;
-  border-radius: 5px;
-}
-
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-/* Media query to adjust modal width on smaller screens */
-@media (max-width: 768px) {
-  .modal-content {
-    width: 80%;
-  }
-}
-
-
-/* Show the button when screen width is 768px or less */
-@media (max-width: 768px) {
-  #shareButton {
-    display: block;
-  }
-}
 .kingster-item-pdlr, .gdlr-core-item-pdlr {
     padding-left: 0px !important;
     padding-right: 20px;
@@ -184,7 +133,11 @@
   .gdlr-core-image-item {
     margin-bottom: 10px;
   }
-
+.gdlr-core-pbf-element:only-child .gdlr-core-media-image img {
+  width: 100%;
+  height: 100%;
+   object-fit: fill;
+}
   .gdlr-core-media-image img {
     width: 415px; /* Large screen width */
     height: 310px; /* Large screen height */
@@ -1253,21 +1206,14 @@
         </footer>
       </div>
     </div>
-    <div id="shareModal" class="modal">
-  <div class="modal-content">
-    <h2>Share Options</h2>
-    <p>Choose how you want to share:</p>
-    <button id="emailButton">Email</button>
-    <button id="copyButton">Copy Link</button>
-    <span class="close">&times;</span>
-  </div>
-</div>
 
     <script type="text/javascript" src="js/jquery/jquery.js"></script>
     <script
       type="text/javascript"
       src="js/jquery/jquery-migrate.min.js"
     ></script>
+     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.7/dist/sweetalert2.all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script
       type="text/javascript"
       src="plugins/goodlayers-core/plugins/combine/script.js"
@@ -1289,7 +1235,11 @@
   const imageContainerDiv = document.createElement("div");
   imageContainerDiv.className = "gdlr-core-pbf-element";
   imageContainerDiv.style.display = "grid";
-  imageContainerDiv.style.gridTemplateColumns = "repeat(2, 1fr)";
+   if (imageUrls.length === 1) {
+    imageContainerDiv.style.gridTemplateColumns = "1fr"; // Set to one column if there's only one image
+  } else {
+    imageContainerDiv.style.gridTemplateColumns = "repeat(2, 1fr)"; // Set to two columns for more than one image
+  }
   imageContainerDiv.style.gap = "10px"; // Adjust the gap as needed
 
   for (let i = 0; i < imageUrls.length; i++) {
@@ -1395,17 +1345,57 @@
     </script>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
+
   const shareButton = document.getElementById('shareButton');
-  const shareModal = document.getElementById('shareModal');
-  const emailButton = document.getElementById('emailButton');
-  const copyButton = document.getElementById('copyButton');
-  const closeButton = shareModal.querySelector('.close');
 
   shareButton.addEventListener('click', function () {
-    shareModal.style.display = 'block';
+    
+    Swal.fire({
+  title: "Share Options",
+  html: `Choose how you want to share:`,
+showDenyButton:true,
+ showCloseButton: true,
+  showCancelButton: true,
+  confirmButtonText: "Copy link",
+  cancelButtonText: "Whatsapp",
+  cancelButtonColor: '#7066E0',
+denyButtonText:'Email',
+denyButtonColor:'#7066E0'
+}).then((result) => {
+  /* Read more about isConfirmed, isDenied below */
+  if (result.isConfirmed) { const url = window.location.href;
+    navigator.clipboard.writeText(url).then(() => {
+      Swal.fire("Link copied to clipboard!", "", "success");
+    
+    }).catch((error) => {
+    wal.fire({
+  icon: "error",
+  title: "Oops...",
+  text: `Error copying to clipboard: ${error}`,
+});
+    });
+  } else if (result.isDenied){
+     const shareData = {
+      subject: 'Check out this news', // Replace with your subject
+      body: 'I thought you might find this news interesting:\n' + window.location.href // Current page URL
+    };
+    window.location.href = `mailto:?subject=${encodeURIComponent(shareData.subject)}&body=${encodeURIComponent(shareData.body)}`;
+  }else if(result.dismiss === Swal.DismissReason.cancel){
+const shareDataWhats = {
+  text: 'Check out this news: ' + window.location.href, // Message to be shared
+};
+
+// Create a WhatsApp share link
+const whatsappLink = `https://wa.me/?text=${shareDataWhats.text}`;
+
+// Open the link in a new tab
+window.open(whatsappLink, '_blank');
+  }
+});
   });
 
   emailButton.addEventListener('click', function () {
+
     const shareData = {
       subject: 'Check out this news', // Replace with your subject
       body: 'I thought you might find this news interesting:\n' + window.location.href // Current page URL
