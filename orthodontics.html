@@ -1336,6 +1336,7 @@ setInterval(removeFontSizeStyle, 100);
                   rowDiv.style.display = 'grid';
                   rowDiv.style.gridTemplateColumns = 'repeat(auto-fit, minmax(300px, 1fr))'; // Responsive columns
                   rowDiv.style.gap = '20px';
+                  rowDiv.style.justifyItems = 'center'; // Center the grid items
                   containerDiv.appendChild(rowDiv);
   
                   // Iterate over the staff list and create HTML for each staff member
@@ -1350,10 +1351,10 @@ setInterval(removeFontSizeStyle, 100);
                       columnDiv.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.1)';
                       columnDiv.style.display = 'flex';
                       columnDiv.style.flexDirection = 'column';
-                      columnDiv.style.maxWidth = '100%'; // Ensure it fits within grid cell
-  
-                      // Create the image element
-                      const imageElement = document.createElement('div');
+                      columnDiv.style.width = '300px'; // Fixed width
+                      columnDiv.style.height = '400px'; // Fixed height
+                      columnDiv.style.maxWidth = '100%'; // Responsive max-width
+
                       const img = document.createElement('img');
                       img.src = staff.picture;
                       img.alt = `${staff.name}'s picture`;
@@ -1362,7 +1363,7 @@ setInterval(removeFontSizeStyle, 100);
                       img.style.borderRadius = '8px';
                       img.style.objectFit = 'cover';
                       img.style.maxHeight = '300px';
-                      imageElement.appendChild(img);
+                      img.onclick = function() { window.open(staff.picture, '_blank'); };
   
                       // Create the title element
                       const titleElement = document.createElement('div');
@@ -1387,7 +1388,7 @@ setInterval(removeFontSizeStyle, 100);
                       titleElement.appendChild(span);
   
                       // Append elements to column div
-                      columnDiv.appendChild(imageElement);
+                      columnDiv.appendChild(img);
                       columnDiv.appendChild(titleElement);
   
                       // Append column div to the row div
@@ -1415,7 +1416,6 @@ setInterval(removeFontSizeStyle, 100);
   // Call the function to fetch and display the staff list initially
   fetchAndDisplayStaffList();
 </script>
-  
 </body>
 
 <!-- Mirrored from max-themes.net/demos/kingster/kingster/finance.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 09 Mar 2022 06:34:47 GMT -->
