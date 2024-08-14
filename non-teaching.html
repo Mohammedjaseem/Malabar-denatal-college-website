@@ -1099,25 +1099,27 @@ setInterval(removeFontSizeStyle, 100);
                   // Clear any existing content in the container
                   containerDiv.innerHTML = '';
       
-                  // Group staff by department
+                  // Group staff by department, excluding "Management Group" and "Inceptra 2024"
+                  const excludedDepartments = ["Management Group", "Inceptra 2024" , "Edentu"];
                   const departmentMap = new Map();
                   data.data.forEach(staff => {
-                      if (!departmentMap.has(staff.department)) {
-                          departmentMap.set(staff.department, []);
+                      if (!excludedDepartments.includes(staff.department)) {
+                          if (!departmentMap.has(staff.department)) {
+                              departmentMap.set(staff.department, []);
+                          }
+                          departmentMap.get(staff.department).push(staff);
                       }
-                      departmentMap.get(staff.department).push(staff);
                   });
       
                   // Order departments with priority
-                  const priorityDepartments = ["Management Group", "I T Department","Administration"];
+                  const priorityDepartments = ["I T Department","Administration"];
                   const orderedDepartments = [
                       ...priorityDepartments.filter(dept => departmentMap.has(dept)),
                       ...Array.from(departmentMap.keys()).filter(dept => !priorityDepartments.includes(dept))
                   ];
       
-                  // Define custom sorting for "Management Group" and "I T Department"
+                  // Define custom sorting for "I T Department" and "Administration"
                   const designationOrder = {
-                      "Management Group": ["Vice Chairman", "Vice Chairperson"],
                       "I T Department": ["I T Manager", "Front-End Developer","Graphic Designer"],
                       "Administration": ["Administrative Manager", "Legal Assistant","Executive Assistant","Principal PA"],
                   };
@@ -1228,6 +1230,7 @@ setInterval(removeFontSizeStyle, 100);
       // Call the function to fetch and display the staff list initially
       fetchAndDisplayStaffList();
   </script>
+  
      
               
 </body>
