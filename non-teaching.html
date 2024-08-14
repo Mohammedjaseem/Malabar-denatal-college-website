@@ -6,9 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="shortcut icon" href="/upload/favicon.ico" type="image/x-icon" />
-<link rel="shortcut icon" href="/upload/favicon.ico" type="image/x-icon" />
 
-<title>General Pathology | MDCRC</title>
+    <title>Non-Teaching | MDCRC</title>
 
     <link rel='stylesheet' href='plugins/goodlayers-core/plugins/combine/style.css' type='text/css' media='all' />
     <link rel='stylesheet' href='plugins/goodlayers-core/include/css/page-builder.css' type='text/css' media='all' />
@@ -20,27 +19,27 @@
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2Cregular%2Citalic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CABeeZee%3Aregular%2Citalic&amp;subset=latin%2Clatin-ext%2Cdevanagari&amp;ver=5.0.3' type='text/css' media='all' />
 
 <style>
-       .floating-button {
-        position: fixed;
-        bottom: 30px;
-        right: 30px;
-        background-color: #182847; /* WhatsApp green */
-        color: #fff;
-        width: 70px; /* Set width and height to the same value for a perfect circle */
-        height: 70px;
-        border-radius: 50%; /* Make the button round */
-        cursor: pointer;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 24px; /* Adjust the font size for larger text */
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        z-index: 9999; /* Set a high z-index to appear above other content */
-      }
+   .floating-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #192f59; /* WhatsApp green */
+            color: #fff;
+            width: 70px; /* Set width and height to the same value for a perfect circle */
+            height: 70px;
+            border-radius: 50%; /* Make the button round */
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px; /* Adjust the font size for larger text */
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 9999; /* Set a high z-index to appear above other content */
+        }
 
-      /* Style for WhatsApp logo */
-       .whatsapp-logo {
+        /* Style for WhatsApp logo */
+          .whatsapp-logo {
         width: 36px; /* Adjust the logo size */
         height: 36px; /* Adjust the logo size */
       }
@@ -62,6 +61,35 @@
           transform: translateY(-100%);
         }
       }
+
+    .staff-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive columns */
+        gap: 20px; /* Gap between grid items */
+        justify-items: start; /* Align items to the start for larger screens */
+    }
+
+    @media (max-width: 768px) {
+        .staff-grid {
+            justify-items: center; /* Center items for mobile screens */
+        }
+    }
+
+    .department-title {
+        text-align: left; /* Default alignment */
+        font-size: 1.5rem; /* Default font size */
+        color: #333; /* Default text color */
+        margin-bottom: 15px; /* Margin below title */
+    }
+
+    /* Adjust styling for mobile screens */
+    @media (max-width: 768px) {
+        .department-title {
+            text-align: center; /* Center align text on mobile screens */
+            font-size: 1.25rem; /* Smaller font size on mobile screens */
+            margin-bottom: 10px; /* Adjust margin for mobile screens */
+        }
+    }
     </style>
   </head>
   <a
@@ -73,7 +101,7 @@
   </a>
 
 <body class="home page-template-default page page-id-2039 gdlr-core-body woocommerce-no-js tribe-no-js kingster-body kingster-body-front kingster-full  kingster-with-sticky-navigation  kingster-blockquote-style-1 gdlr-core-link-to-lightbox">
-    <div class="kingster-mobile-header-wrap">
+      <div class="kingster-mobile-header-wrap">
       <div
         class="kingster-mobile-header kingster-header-background kingster-style-slide kingster-sticky-mobile-navigation"
         id="kingster-mobile-header"
@@ -108,7 +136,7 @@
                     <a href="about-us.html">About Us</a>
                   </li>
                   <li
-                    class="menu-item menu-item-has-children current-menu-item"
+                    class="menu-item menu-item-has-children"
                   >
                     <a>Academics</a>
                     <ul class="sub-menu">
@@ -170,7 +198,7 @@
                       </li>
                     </ul>
                   </li>
-                  <li class="menu-item menu-item-has-children">
+                  <li class="menu-item menu-item-has-children  current-menu-item">
                     <a>Departments</a>
                     <ul class="sub-menu">
                       <li class="menu-item menu-item-has-children">
@@ -353,7 +381,7 @@
             </div>
           </div>
         </div>
-            <header class="kingster-header-wrap kingster-header-style-plain  kingster-style-menu-right kingster-sticky-navigation kingster-style-fixed" data-navigation-offset="75px">
+          <header class="kingster-header-wrap kingster-header-style-plain  kingster-style-menu-right kingster-sticky-navigation kingster-style-fixed" data-navigation-offset="75px">
                 <div class="kingster-header-background"></div>
                 <div class="kingster-header-container  kingster-container">
                     <div class="kingster-header-container-inner clearfix">
@@ -573,6 +601,7 @@
                               </li>
                             </ul>
                           </li>
+                          
                           <li
                             class="menu-item menu-item-has-children"
                             data-size="20"
@@ -604,7 +633,23 @@
                               </li>
                             </ul>
                           </li>
+
+                          <!-- <li
+                            class="menu-item menu-item-has-children"
+                            data-size="15"
+                          >
+                            <a href="#" class="sf-with-ul-pre"
+                              >Non-teaching</a
+                            >
+                            <ul class="sub-menu">
+                              <li class="menu-item">
+                                <a
+                                  href="oral-pathology.html"
+                                  >Non-teaching</a
+                                >
+                              </li>
                         </ul>
+                          </li> -->
                       </div>
                     </li>
                                    
@@ -629,14 +674,13 @@
                                         </ul>
                                     </li>
                                     <li class="menu-item menu-item-home "><a href="careers.html">Careers</a>
-                                      <li class="menu-item menu-item-has-children   kingster-normal-menu"><a class="sf-with-ul-pre">Others</a>
-                                        <ul class="sub-menu"><b>
-                                          <li class="menu-item" data-size="60">
-                                            <a href="non-teaching.html">Non-Teaching</a>
-                                          </li> 
-                                        </ul>
-                                      </li>
-                                </ul>
+                                    <li class="menu-item menu-item-has-children   kingster-normal-menu"><a class="sf-with-ul-pre">Others</a>
+                                      <ul class="sub-menu"><b>
+                                        <li class="menu-item" data-size="60">
+                                          <a href="non-teaching.html">Non-Teaching</a>
+                                        </li> 
+                                      </ul>
+                                    </li>
                                 <div class="kingster-navigation-slide-bar" id="kingster-navigation-slide-bar"></div>
                             </div>
                             
@@ -653,224 +697,28 @@
                 <div class="kingster-page-title-bottom-gradient"></div>
                 <div class="kingster-page-title-container kingster-container">
                     <div class="kingster-page-title-content kingster-item-pdlr" style="padding-top: 390px ;padding-bottom: 55px ;">
-                        <div class="kingster-page-caption" style="font-size: 21px ;font-weight: 400 ;letter-spacing: 0px ;">Basic Science Department</div>
-                        <h1 class="kingster-page-title" id="dep-title" style="font-weight: 700 ;text-transform: none ;letter-spacing: 0px ;">General Pathology</h1></div>
+                        <!-- <div class="kingster-page-caption" style="font-size: 21px ;font-weight: 400 ;letter-spacing: 0px ;">Basic Science Department</div> -->
+                        <h1 class="kingster-page-title" id="dep-title" style="font-weight: 700 ;text-transform: none ;letter-spacing: 0px ;">Non Teaching</h1></div>
                 </div>
             </div>
             <div class="kingster-breadcrumbs">
                 <div class="kingster-breadcrumbs-container kingster-container">
                     <div class="kingster-breadcrumbs-item kingster-item-pdlr"> <span property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" title="Go to Kingster." href="index.html" class="home"><span property="name">Home</span></a>
                         <meta property="position" content="1">
-                        </span>&gt;<span property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" title="Go to Bachelor Of Science in Business Administration." class="post post-page"><span property="name">Basic Science Department</span></a>
+                        <!-- </span>&gt;<span property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" title="Go to Bachelor Of Science in Business Administration." class="post post-page"><span property="name">Basic Science Department</span></a> -->
                         <meta property="position" content="2">
-                        </span>&gt;<span property="itemListElement" typeof="ListItem"><span property="name">General Pathology</span>
+                        </span>&gt;<span property="itemListElement" typeof="ListItem"><span property="name">Non Teaching</span>
                         <meta property="position" content="3">
                         </span>
                     </div>
                 </div>
             </div>
-            <div class="kingster-page-wrapper" id="kingster-page-wrapper">
-                <div class="gdlr-core-page-builder-body">
-                    <div class="gdlr-core-pbf-sidebar-wrapper " style="margin: 0px 0px 00px 0px;">
-                        <div class="gdlr-core-pbf-sidebar-container gdlr-core-line-height-0 clearfix gdlr-core-js gdlr-core-container">
-                            <div class="gdlr-core-pbf-sidebar-content  gdlr-core-column-40 gdlr-core-pbf-sidebar-padding gdlr-core-line-height gdlr-core-column-extend-left" style="padding: 30px 0px 30px 0px;">
-                                <div class="gdlr-core-pbf-sidebar-content-inner">
-                                 
-                                    <div class="gdlr-core-pbf-element">
-                                        <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix  gdlr-core-left-align gdlr-core-title-item-caption-top gdlr-core-item-pdlr">
-                                            <div class="gdlr-core-title-item-title-wrap clearfix">
-                                                <h3 class="gdlr-core-title-item-title gdlr-core-skin-title " style="font-size: 27px ;font-weight: 700 ;letter-spacing: 0px ;text-transform: none ;color: #293a5b ;">Department Overview</h3></div>
-                                        </div>
-                                   
-                                        <div class="gdlr-core-text-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-left-align" style="padding-bottom: 10px ;">
-                                            <div class="gdlr-core-text-box-item-content" style="font-size: 16px ;font-weight: 600 ;letter-spacing: 0px ;text-transform: none ;">
-                                                <p>Pathology consists of the abnormalities in normal anatomy and
-normal Physiology owing to disease</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="gdlr-core-pbf-element">
-                                        <div class="gdlr-core-text-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-left-align" style="padding-bottom: 15px ;">
-                                            <div class="gdlr-core-text-box-item-content" style="font-size: 18px ;text-transform: none ;color: #3db166 ;">
-                                                <p>Knowledge and understanding of pathology is essential for all would be
-practitioners of Art of healing and Science because unless they have
-knowledge and understanding of the language and pathologic basis of
-disease they would not be able to Institute appropriate treatment or
-suggest preventive measures to the patient. In our department 2nd
-year BDS students are getting familiar with various techniques in
-general pathology with the help of modern instruments.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="gdlr-core-pbf-element">
-                                        <div class="gdlr-core-divider-item gdlr-core-divider-item-normal gdlr-core-item-pdlr gdlr-core-center-align">
-                                            <div class="gdlr-core-divider-line gdlr-core-skin-divider" style="border-color: #3db166 ;border-bottom-width: 3px ;"></div>
-                                        </div>
-                                    </div>
-                                   
-                                     <div class="gdlr-core-pbf-element">
-                          <div class="gdlr-core-personnel-list-column    gdlr-core-item-pdlr">
-                                                <div class="gdlr-core-personnel-list  clearfix">
-                                                     <div class="gdlr-core-title-item-title-wrap clearfix">
-                                                <h3 class="gdlr-core-title-item-title gdlr-core-skin-title " style="font-size: 30px ;font-weight: 700 ;letter-spacing: 0px ;text-transform: none ;color: #293a5b ;padding-bottom: 20px;padding-top: 15px;">Department Faculty</h3></div>
-                                                    <div class="gdlr-core-personnel-list-image gdlr-core-media-image  gdlr-core-column-30 gdlr-core-column-first gdlr-core-opacity-on-hover gdlr-core-zoom-on-hover" style="margin-right: 40px;">
-                                                        <a ><img src="upload/pathology-1.jpg" alt="" width="500" height="300" title="personnel-1" /></a>
-                                                    </div>
-                                                    <div class="gdlr-core-personnel-list-content-wrap gdlr-core-column-60 gdlr-core-column">
-                                                        
-                                                        <p class="gdlr-core-personnel-list-title" style="font-size: 23px ;font-weight: 700 ;letter-spacing: 0px ;text-transform: none ;margin-bottom: -2px;">Dr. Rajesh S Patil</p><span style="font-size: 16px ;font-weight: 500 ;font-style: normal ;letter-spacing: 0px ;color: #3db166;">Professor and Head Of Department</span>
-                                                        
-                                                       
-                                                        <div class="gdlr-core-personnel-list-content" style="margin-top: 20px;">
-                                                            <p>Dr. Rajesh S Patil is an energetic, vibrant pathologist who has many
-publications under his belt. He has got enormous 17 years of service in
-teaching pathology. He is a consultant pathologist who worked at
-various hospital clinical laboratories. He is a member of Indian
-association of pathologists. Underwent various medical education
-technology training sessions. Has vast experience as blood bank officer
-and has conducted many blood donation camps and has inspired
-people in blood donation and social service.</p>
-                                                        </div>
-                                                       
-                                                    </div>
-                                                </div>
-                                            </div>
-                        </div>
-                                </div>
-                                <div id="staff-list-container" style="max-width: 1200px; margin: 0 auto; padding: 20px;"></div>
-                            </div>
-                            <div class="gdlr-core-pbf-sidebar-right gdlr-core-column-extend-right  kingster-sidebar-area gdlr-core-column-20 gdlr-core-pbf-sidebar-padding  gdlr-core-line-height" style="padding: 30px 0px 30px 0px;">
-                                <div class="gdlr-core-sidebar-item gdlr-core-item-pdlr">
-                                   <div id="text-21" class="widget widget_text kingster-widget">
-                                        <div class="textwidget">
-                                            <div class="gdlr-core-widget-box-shortcode " style="color: #ffffff ;padding: 30px 45px;background-color: #192f59 ;">
-                                                <div class="gdlr-core-widget-box-shortcode-content">
-                                                    </p>
-                                                    <h3 style="font-size: 20px; color: #fff; margin-bottom: 25px;">Department Contact Info</h3>
-                                                    <p><span style="color: #3db166; font-size: 16px; font-weight: 600;">Department of Pathology</span>
-                                                     <br><p><span style="font-size: 15px;">Malabar Dental College
-& Research Centre Manoor,
-Chekanoor Rd, Mudur P.O Edappal,
-Malappuram, Dt Pin : 679578</span></p>   
-                                                    <p><span style="font-size: 15px;">+91 7034555521<br/>info@macity.edu.in</span></p>
-                                                    <p><span style="font-size: 16px; color: #3db166;">Mon &#8211; Fri 8:30A.M. &#8211; 4:00P.M.</span></p> <p style="justify-content: center;display: flex;"> <a class="gdlr-core-button gdlr-core-button-shortcode  gdlr-core-button-gradient gdlr-core-button-no-border" href="upload/MDC Prospectus.pdf" target="_blank" style="padding: 16px 27px 18px;border-radius: 2px;-moz-border-radius: 2px;-webkit-border-radius: 2px;"><span class="gdlr-core-content" >Download Brochure</span> <i class="gdlr-core-pos-right fa fa-file-pdf-o" style="font-size: 14px;"></i></a></p>
-                                                   
-                                                    
-                                                </div>
-                                                
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div id="text-22" class="widget widget_text kingster-widget">
-                                        <div class="textwidget">
-                                            <div class="gdlr-core-widget-box-shortcode  gdlr-core-center-align" style="padding: 55px 0 35px;border: 5px solid #3db166 ;">
-                                                <div class="gdlr-core-widget-box-shortcode-content">
-                                                    <p> <span style="font-size: 17px; font-weight: 600; color: #9ba7bf; text-transform: uppercase;">Join Us Now</span>
-                                                        <br /> <span style="font-size: 20px; font-weight: bold; color: #192f59; text-transform: uppercase;">Malabar Dental College and Research Centre</span>
-                                                        <br /> <span class="gdlr-core-space-shortcode" style="margin-top: 18px ;"></span><span style="font-size: 15px;">Vibrant and illustrious history more than<br/>a decade in the field of academics!</span>
-                                                        <br /> <span class="gdlr-core-space-shortcode" style="margin-top: 5px ;"></span>
-                                                        <br /> <a class="gdlr-core-button gdlr-core-button-shortcode  gdlr-core-button-gradient gdlr-core-button-no-border" href="apply-to-malabar.html" style="padding: 16px 27px 18px;border-radius: 2px;-moz-border-radius: 2px;-webkit-border-radius: 2px;"><span class="gdlr-core-content" >Apply to MDCRC</span></a> </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                         
-                       
-                    </div>
-                </div>
-            </div>
-            <div class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container">
-<div class="gdlr-core-pbf-element " style="margin-bottom: 50px;">
-                          <div
-                            class="gdlr-core-accordion-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-accordion-style-background-title-icon gdlr-core-left-align gdlr-core-icon-pos-right"
-                          >
-                            <div
-                              class="gdlr-core-accordion-item-tab clearfix gdlr-core-active"
-                            >
-                              <div
-                                class="gdlr-core-accordion-item-icon gdlr-core-js gdlr-core-skin-icon"
-                              ></div>
-                              <div class="gdlr-core-title-item-title-wrap clearfix">
-                                                <h3 class="gdlr-core-title-item-title gdlr-core-skin-title " style="font-size: 24px ;font-weight: 700 ;letter-spacing: 0px ;padding-bottom: 20px;text-transform: none ;color: #293a5b ;">Why General Pathology Department is Special ?</h3></div>
-                              <div
-                                class="gdlr-core-accordion-item-content-wrapper"
-                              >
-                                <h4
-                                  class="gdlr-core-accordion-item-title gdlr-core-js gdlr-core-skin-e-background gdlr-core-skin-e-content"
-                                >
-                                 Vision 
-                                </h4>
-                                <div class="gdlr-core-accordion-item-content" style="padding: 10px 30px!important;">
-                                  <p>To make the student competent to apply the scientific study of disease
-process, which results in morphological and functional alteration in cell,
-tissues and organs to the study of pathology and the practice of
-dentistry.</p>
-                                 
-                                </div>
-                              </div>
-                            </div>
-                            <div class="gdlr-core-accordion-item-tab clearfix">
-                              <div
-                                class="gdlr-core-accordion-item-icon gdlr-core-js gdlr-core-skin-icon"
-                              ></div>
-                              <div
-                                class="gdlr-core-accordion-item-content-wrapper"
-                              >
-                                <h4
-                                  class="gdlr-core-accordion-item-title gdlr-core-js gdlr-core-skin-e-background gdlr-core-skin-e-content"
-                                >
-                                  Mission
-                                </h4>
-                                <div class="gdlr-core-accordion-item-content" style="padding: 10px 30px!important;">
-                                 <p>
-                              To demonstrate and analyze pathological changes macroscopically
-explain their observations in terms of disease process.
-                                  </p>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="gdlr-core-accordion-item-tab clearfix">
-                              <div
-                                class="gdlr-core-accordion-item-icon gdlr-core-js gdlr-core-skin-icon"
-                              ></div>
-                              <div
-                                class="gdlr-core-accordion-item-content-wrapper"
-                              >
-                                <h4
-                                  class="gdlr-core-accordion-item-title gdlr-core-js gdlr-core-skin-e-background gdlr-core-skin-e-content"
-                                >
-                                 Department Facilities
-                                
-                                </h4>
-                                <div class="gdlr-core-accordion-item-content" style="padding: 10px 30px!important;">
+           
+            <div id="staff-list-container" style="max-width: 1300px; margin: 0 auto; padding: 20px;"></div>
 
-                               <ul>
-                               
-                                  <li> Under graduate practical hall with 50 student capacity.</li>
-<li> Lecture theatre with LCD projector.</li>
-<li> Department library with adequate number of reference books.</li>
-<li> Department is equipped with adequate number of instruments &amp;
-equipment’s for under graduate, post graduate teaching and
-research activity.</li>
-<li> adequate number of monocular and binocular microscopes of
-best quality.</li>
 
-                               </ul>
-                           
-                                </div>
-                              </div>
-                            </div>
-                            
-                          </div>
-                        </div>
-            </div>
-               
-<div class="gdlr-core-pbf-wrapper " style="margin: 0px auto 0px auto;padding: 0px 0px 0px 0px;max-width: 100% ;">
 
-                            <div class="gdlr-core-pbf-wrapper " id="div_1dd7_107">
+                    <div class="gdlr-core-pbf-wrapper " id="div_1dd7_107">
                         <div class="gdlr-core-pbf-background-wrap" id="div_1dd7_108"></div>
                         <div class="gdlr-core-pbf-wrapper-content gdlr-core-js ">
                             <div class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container-custom" id="div_1dd7_109">
@@ -904,8 +752,9 @@ best quality.</li>
                                 </div>
                             </div>
                         </div>
-                        </div>
-                    </div>
+                </div>
+            </div>
+
 
            <footer>
         <div class="kingster-footer-wrapper">
@@ -1165,9 +1014,16 @@ best quality.</li>
             "ajax_url": "#"
         };
     </script>
+    <script type='text/javascript' src='plugins/goodlayers-core/include/js/page-builder.js'></script>
+    <script type='text/javascript' src='js/jquery/ui/effect.min.js'></script>
+    <script type='text/javascript'>
+        var kingster_script_core = {
+            "home_url": "index.html"
+        };
+    </script>
      <script>
       // Define the API URL to fetch notification data
-      const apiUrlNotification =
+      const apiUrl =
         "https://app.conext.in/Notifications/api/latest-mdc-top-bar-notification/";
 
       // Reference to the notification container
@@ -1182,7 +1038,7 @@ best quality.</li>
       // Function to fetch and update notification data
       async function fetchAndUpdateNotifications() {
         try {
-          const response = await fetch(apiUrlNotification);
+          const response = await fetch(apiUrl);
           notifications = await response.json();
 
           // Call the updateNotification function initially
@@ -1207,14 +1063,6 @@ best quality.</li>
       // Call the fetchAndUpdateNotifications function initially
       fetchAndUpdateNotifications();
     </script>
-    <script type='text/javascript' src='plugins/goodlayers-core/include/js/page-builder.js'></script>
-    <script type='text/javascript' src='js/jquery/ui/effect.min.js'></script>
-    <script type='text/javascript'>
-        var kingster_script_core = {
-            "home_url": "index.html"
-        };
-    </script>
-    <script type='text/javascript' src='js/plugins.min.js'></script>
     <script>
       const element = document.getElementById('dep-title');
 
@@ -1231,123 +1079,157 @@ setInterval(removeFontSizeStyle, 100);
 
       
     </script>
-
-<script>
-  // Define the API URL to fetch staff list data
-  const apiUrlStaffList = "https://conext.in/custom_users/api/staff_list_dep_wise/88";
-  
-  // Function to fetch and display staff list data
-  async function fetchAndDisplayStaffList() {
-      try {
-          const response = await fetch(apiUrlStaffList);
-          const data = await response.json();
-  
-          // Check if the status is true and the staff arrays exist
-          if (data.status && (Array.isArray(data.teaching_staff) || Array.isArray(data.non_teaching_staff))) {
-  
-              // Select the container div where the staff list will be displayed
-              const containerDiv = document.querySelector('#staff-list-container');
-  
-              // Clear any existing content in the container
-              containerDiv.innerHTML = '';
-  
-              // Function to create and append staff columns
-              const createStaffColumns = (staffList, headingText) => {
-                staffList.sort((a, b) => a.name.localeCompare(b.name));
-
-                  // Create a heading for the staff category
-                  const heading = document.createElement('h2');
-                  heading.textContent = headingText;
-                  heading.style.margin = '30px 0'; // Margin top and bottom
-                  heading.style.fontSize = '24px';
-                  heading.style.color = '#333';
-                  containerDiv.appendChild(heading);
-  
-                  // Create a row div to hold the staff columns
-                  const rowDiv = document.createElement('div');
-                  rowDiv.style.display = 'grid';
-                  rowDiv.style.gridTemplateColumns = 'repeat(auto-fit, minmax(300px, 1fr))'; // Responsive columns
-                  rowDiv.style.gap = '20px';
-                  rowDiv.style.justifyItems = 'center'; // Center the grid items
-                  containerDiv.appendChild(rowDiv);
-  
-                  // Iterate over the staff list and create HTML for each staff member
-                  staffList.forEach(staff => {
-                      // Create the column div (card)
-                      const columnDiv = document.createElement('div');
-                      columnDiv.style.boxSizing = 'border-box';
-                      columnDiv.style.padding = '10px';
-                      columnDiv.style.border = '1px solid #ddd';
-                      columnDiv.style.borderRadius = '8px';
-                      columnDiv.style.backgroundColor = '#fff';
-                      columnDiv.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.1)';
-                      columnDiv.style.display = 'flex';
-                      columnDiv.style.flexDirection = 'column';
-                      columnDiv.style.width = '300px'; // Fixed width
-                      columnDiv.style.height = '400px'; // Fixed height
-                      columnDiv.style.maxWidth = '100%'; // Responsive max-width
-
-                      const img = document.createElement('img');
-                      img.src = staff.picture;
-                      img.alt = `${staff.name}'s picture`;
-                      img.style.width = '100%';
-                      img.style.height = 'auto';
-                      img.style.borderRadius = '8px';
-                      img.style.objectFit = 'cover';
-                      img.style.maxHeight = '300px';
-                      img.onclick = function() { window.open(staff.picture, '_blank'); };
-  
-                      // Create the title element
-                      const titleElement = document.createElement('div');
-                      titleElement.style.textAlign = 'center';
-                      titleElement.style.marginTop = '15px';
-  
-                      const h3 = document.createElement('h3');
-                      h3.style.fontSize = '18px';
-                      h3.style.fontWeight = '600';
-                      h3.style.color = '#333';
-                      h3.style.margin = '0';
-                      h3.textContent = staff.name;
-  
-                      const span = document.createElement('span');
-                      span.style.color = '#3db166';
-                      span.style.display = 'block';
-                      span.style.marginTop = '5px';
-                      span.textContent = staff.designation;
-  
-                      // Append title and designation
-                      titleElement.appendChild(h3);
-                      titleElement.appendChild(span);
-  
-                      // Append elements to column div
-                      columnDiv.appendChild(img);
-                      columnDiv.appendChild(titleElement);
-  
-                      // Append column div to the row div
-                      rowDiv.appendChild(columnDiv);
+    <script type='text/javascript' src='js/plugins.min.js'></script>
+    <script>
+      // Define the API URL to fetch staff list data
+      const apiUrlStaffList = "https://conext.in/custom_users/api/staff_list_non_teaching/MDC";
+      
+      // Function to fetch and display staff list data
+      async function fetchAndDisplayStaffList() {
+          try {
+              const response = await fetch(apiUrlStaffList);
+              const data = await response.json();
+      
+              // Check if the status is true and the staff arrays exist
+              if (data.status && Array.isArray(data.data)) {
+      
+                  // Select the container div where the staff list will be displayed
+                  const containerDiv = document.querySelector('#staff-list-container');
+      
+                  // Clear any existing content in the container
+                  containerDiv.innerHTML = '';
+      
+                  // Group staff by department
+                  const departmentMap = new Map();
+                  data.data.forEach(staff => {
+                      if (!departmentMap.has(staff.department)) {
+                          departmentMap.set(staff.department, []);
+                      }
+                      departmentMap.get(staff.department).push(staff);
                   });
-              };
-  
-              // Create and display teaching staff section
-              if (Array.isArray(data.teaching_staff) && data.teaching_staff.length > 0) {
-                  createStaffColumns(data.teaching_staff, 'Teaching Staff');
+      
+                  // Order departments with priority
+                  const priorityDepartments = ["Management Group", "I T Department","Administration"];
+                  const orderedDepartments = [
+                      ...priorityDepartments.filter(dept => departmentMap.has(dept)),
+                      ...Array.from(departmentMap.keys()).filter(dept => !priorityDepartments.includes(dept))
+                  ];
+      
+                  // Define custom sorting for "Management Group" and "I T Department"
+                  const designationOrder = {
+                      "Management Group": ["Vice Chairman", "Vice Chairperson"],
+                      "I T Department": ["I T Manager", "Front-End Developer","Graphic Designer"],
+                      "Administration": ["Administrative Manager", "Legal Assistant","Executive Assistant","Principal PA"],
+                  };
+      
+                  // Function to sort staff by custom designation order then by name
+                  function sortStaffByDesignationAndName(staffList, department) {
+                      return staffList.sort((a, b) => {
+                          const designationOrderList = designationOrder[department] || [];
+                          const aPriority = designationOrderList.indexOf(a.designation);
+                          const bPriority = designationOrderList.indexOf(b.designation);
+      
+                          // Prioritize by custom designation order
+                          if (aPriority !== -1 || bPriority !== -1) {
+                              return (aPriority === -1 ? Number.MAX_VALUE : aPriority) - (bPriority === -1 ? Number.MAX_VALUE : bPriority);
+                          }
+      
+                          // Fallback to alphabetical order
+                          return a.name.localeCompare(b.name);
+                      });
+                  }
+      
+                  // Iterate over each department in the ordered list
+                  orderedDepartments.forEach(department => {
+                      // Display the department name
+                      const departmentTitle = document.createElement('h4');
+                      departmentTitle.textContent = department;
+                      departmentTitle.className = 'department-title'; // Add class name for styling
+                      departmentTitle.style.marginTop = '10px';
+                      containerDiv.appendChild(departmentTitle);
+      
+                      // Create and display the staff columns for this department
+                      const rowDiv = document.createElement('div');
+                      rowDiv.className = 'staff-grid'; // Add CSS class for styling
+                      containerDiv.appendChild(rowDiv);
+      
+                      // Get the staff list for this department
+                      const staffList = departmentMap.get(department);
+      
+                      // Sort the staff list by custom designation order and then alphabetically by name
+                      const sortedStaffList = sortStaffByDesignationAndName(staffList, department);
+      
+                      // Iterate over the sorted staff list and create HTML for each staff member
+                      sortedStaffList.forEach(staff => {
+                          // Create the column div (card)
+                          const columnDiv = document.createElement('div');
+                          columnDiv.style.boxSizing = 'border-box';
+                          columnDiv.style.padding = '10px';
+                          columnDiv.style.border = '1px solid #ddd';
+                          columnDiv.style.borderRadius = '8px';
+                          columnDiv.style.backgroundColor = '#fff';
+                          columnDiv.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.1)';
+                          columnDiv.style.display = 'flex';
+                          columnDiv.style.flexDirection = 'column';
+                          columnDiv.style.width = '300px'; // Fixed width
+                          columnDiv.style.height = '400px'; // Fixed height
+                          columnDiv.style.maxWidth = '100%'; // Responsive max-width
+      
+                          // Create and configure the image element
+                          const img = document.createElement('img');
+                          img.src = staff.picture;
+                          img.alt = `${staff.name}'s picture`;
+                          img.style.width = '100%';
+                          img.style.height = 'auto';
+                          img.style.borderRadius = '8px';
+                          img.style.objectFit = 'cover';
+                          img.style.maxHeight = '300px';
+                          img.onclick = function() { window.open(staff.picture, '_blank'); };
+      
+                          // Create the title element
+                          const titleElement = document.createElement('div');
+                          titleElement.style.textAlign = 'center';
+                          titleElement.style.marginTop = '15px';
+      
+                          const h3 = document.createElement('h3');
+                          h3.style.fontSize = '18px';
+                          h3.style.fontWeight = '600';
+                          h3.style.color = '#333';
+                          h3.style.margin = '0';
+                          h3.textContent = staff.name;
+      
+                          const span = document.createElement('span');
+                          span.style.color = '#3db166';
+                          span.style.display = 'block';
+                          span.style.marginTop = '5px';
+                          span.textContent = staff.designation;
+      
+                          // Append title and designation
+                          titleElement.appendChild(h3);
+                          titleElement.appendChild(span);
+      
+                          // Append image and title elements to the column div
+                          columnDiv.appendChild(img);
+                          columnDiv.appendChild(titleElement);
+      
+                          // Append column div to the row div
+                          rowDiv.appendChild(columnDiv);
+                      });
+                  });
+      
+              } else {
+                  console.error("Unexpected API response format or no staff available.");
               }
-  
-              // Create and display non-teaching staff section
-              if (Array.isArray(data.non_teaching_staff) && data.non_teaching_staff.length > 0) {
-                  createStaffColumns(data.non_teaching_staff, 'Non-Teaching Staff');
-              }
-          } else {
-              console.error("Unexpected API response format or no staff available.");
+          } catch (error) {
+              console.error("Error fetching staff list:", error);
           }
-      } catch (error) {
-          console.error("Error fetching staff list:", error);
       }
-  }
-  
-  // Call the function to fetch and display the staff list initially
-  fetchAndDisplayStaffList();
-</script>
+      
+      // Call the function to fetch and display the staff list initially
+      fetchAndDisplayStaffList();
+  </script>
+     
+              
 </body>
 
 <!-- Mirrored from max-themes.net/demos/kingster/kingster/finance.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 09 Mar 2022 06:34:47 GMT -->
