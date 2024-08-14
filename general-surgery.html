@@ -1153,6 +1153,8 @@ setInterval(removeFontSizeStyle, 100);
   
               // Function to create and append staff columns
               const createStaffColumns = (staffList, headingText) => {
+                staffList.sort((a, b) => a.name.localeCompare(b.name));
+
                   // Create a heading for the staff category
                   const heading = document.createElement('h2');
                   heading.textContent = headingText;
