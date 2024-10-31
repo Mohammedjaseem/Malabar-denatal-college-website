@@ -937,44 +937,39 @@
                             </div>
                           </div>
                         </div>
-                        <div class="gdlr-core-pbf-element">
-                          <div
-                            class="gdlr-core-text-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-left-align"
-                          >
-                            <div class="gdlr-core-text-box-item-content">
-                              <h5
-                                class="gdlr-core-port-info-key gdlr-core-skin-title"
-                              >
-                                News Description
-                              </h5>
-
-                              <span
-                                class="gdlr-core-port-info-value news_content"
-                                style="font-size: larger; line-height: 2em"
-                              >
-                              </span>
+                        
+                      </div>
+                    </div>
+                    <div class="gdlr-core-pbf-column gdlr-core-column-40">
+                      <div class="gdlr-core-pbf-column-content-margin gdlr-core-js">
+                        <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js">
+                          <div id="loadingAnimation" class="loading-animation"></div>
+                    
+                          <!-- Container for the first image -->
+                          <div class="gdlr-core-pbf-element first-image-container">
+                            <!-- First image will be added here -->
+                          </div>
+                    
+                          <!-- News Description Section -->
+                          <div class="gdlr-core-pbf-element">
+                            <div class="gdlr-core-text-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-left-align">
+                              <div class="gdlr-core-text-box-item-content">
+                                <h5 class="gdlr-core-port-info-key gdlr-core-skin-title">News Description</h5>
+                                <span class="gdlr-core-port-info-value news_content" style="font-size: larger; line-height: 2em">
+                                  <!-- News content will be added here -->
+                                </span>
+                              </div>
                             </div>
+                          </div>
+                    
+                          <!-- Container for additional images below description -->
+                          <div class="gdlr-core-pbf-element below-images-container image-container">
+                            <!-- Additional images will be added here -->
                           </div>
                         </div>
                       </div>
                     </div>
-                  <div
-                    class="gdlr-core-pbf-column gdlr-core-column-40 "
-                  >
-                    <div
-                      class="gdlr-core-pbf-column-content-margin gdlr-core-js"
-                    >
-                      <div
-                        class="gdlr-core-pbf-column-content clearfix gdlr-core-js"
-                      >
-                        <div id="loadingAnimation" class="loading-animation"></div>
-                        <div class="gdlr-core-pbf-element image-container">
-                          <!-- Images will be added here -->
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                 
+                                     
                   </div>
                 </div>
               </div>
@@ -1237,7 +1232,7 @@
       src="plugins/goodlayers-core/plugins/combine/script.js"
     ></script>
     <script type="text/javascript">
-     document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
   function getQueryParameter(name) {
     const urlSearchParams = new URLSearchParams(window.location.search);
     return urlSearchParams.get(name);
@@ -1248,22 +1243,28 @@
     .then((response) => response.json())
     .then((data) => {
       const imageUrls = data.image_urls;
-      const imageContainer = document.querySelector(".image-container");
+      const firstImageContainer = document.querySelector(".first-image-container");
+      const belowImagesContainer = document.querySelector(".below-images-container");
 
-      if (imageUrls.length !== 0) {
+      // Display the first image above the description
+      if (imageUrls.length > 0) {
+        const firstImageElement = document.createElement("img");
+        firstImageElement.src = imageUrls[0];
+        firstImageElement.style.width = "100%";
+        firstImageElement.style.height = "100%";
+        firstImageElement.style.objectFit = "fill";
+        firstImageContainer.appendChild(firstImageElement);
+      }
+
+      // Display remaining images below the description
+      if (imageUrls.length > 1) {
         const imageContainerDiv = document.createElement("div");
         imageContainerDiv.className = "gdlr-core-pbf-element";
         imageContainerDiv.style.display = "grid";
-
-        if (imageUrls.length === 1) {
-          imageContainerDiv.style.gridTemplateColumns = "1fr";
-        } else {
-          imageContainerDiv.style.gridTemplateColumns = "repeat(2, 1fr)";
-        }
-
+        imageContainerDiv.style.gridTemplateColumns = "repeat(2, 1fr)";
         imageContainerDiv.style.gap = "10px";
 
-        for (let i = 0; i < imageUrls.length; i++) {
+        for (let i = 1; i < imageUrls.length; i++) {
           const imageElement = document.createElement("img");
           imageElement.src = imageUrls[i];
 
@@ -1285,27 +1286,18 @@
           imageContainerDiv.appendChild(imageItemDiv);
         }
 
-        imageContainer.appendChild(imageContainerDiv);
-        
-        // Apply styles if there is only one child
-        if (imageContainerDiv.children.length === 1) {
-          const singleImage = imageContainerDiv.querySelector("img");
-          if (singleImage) {
-            singleImage.style.width = "100%";
-            singleImage.style.height = "100%";
-            singleImage.style.objectFit = "fill";
-          }
-        }
+        belowImagesContainer.appendChild(imageContainerDiv);
       }
 
+      // Populate news details
       document.querySelector(".news_subject").textContent = data.news_subject;
       document.querySelector(".location").textContent = data.location;
       document.querySelector(".news_date").textContent = data.news_date;
       document.querySelector(".staff_name").textContent = data.staff_name;
 
+      // Parse and display news content
       let tempDiv = document.createElement("div");
       tempDiv.innerHTML = data.news_content;
-
       let extractedText = tempDiv.textContent;
       document.querySelector(".news_content").textContent = extractedText;
       document.getElementById('loadingAnimation').style.display = "none";
