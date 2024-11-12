@@ -286,7 +286,7 @@
       /* Styles for the individual image containers */
       .floating-button {
         position: fixed;
-        bottom: 90px;
+        bottom: 10px;
         right: 20px;
         background-color: #182847; /* WhatsApp green */
         color: #fff;
@@ -4847,12 +4847,12 @@
         </div>
         
 <!-- Chatbot Icon -->
-<div id="chatbotIcon" style="position: fixed; bottom: 16px; right: 20px; background-color: #1D4ED8; color: white; padding: 16px; border-radius: 50%; cursor: pointer; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); z-index: 2000;">
-  <i class="fa fa-comments" style="font-size: 1.5em;"></i>
+<div id="chatbotIcon" style="position: fixed; bottom: 90px; right: 20px; background-color: #1D4ED8; color: white; padding: 16px; border-radius: 50%; cursor: pointer; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); z-index: 2000;">
+  <i class="fa fa-comments" style="font-size: 1.5em;" aria-label="Chatbot"></i>
 </div>
 
 <!-- Chat Sidebar -->
-<div id="chatSidebar" style="position: fixed; bottom: 0; right: 0; width: 100%; max-width: 400px; height: 80vh; max-height: 600px; overflow-y: auto; background-color: white; box-shadow: -2px 0 8px rgba(0, 0, 0, 0.3); transform: translateX(100%); transition: transform 0.3s ease; z-index: 1000; border-radius: 10px;">
+<div id="chatSidebar" style="position: fixed; bottom: 0; right: 0; width: 90%; max-width: 350px; height: 80vh; max-height: 600px; overflow-y: auto; background-color: white; box-shadow: -2px 0 8px rgba(0, 0, 0, 0.3); transform: translateX(100%); transition: transform 0.3s ease; z-index: 1000; border-radius: 10px; font-family: 'Bitter', serif;">
   <button id="closeChat" style="position: absolute; top: 16px; right: 16px; color: #6B7280; background: none; border: none; font-size: 18px; cursor: pointer; z-index: 100;">
       ❌
   </button>
@@ -5284,6 +5284,9 @@
               padding: 8px;
               border-radius: 4px;
               transition: background-color 0.2s;
+              font-family: Arial, sans-serif;
+              font-size: 0.875rem;
+              font-weight: normal;
             `;
             li.textContent = category.category_name;
             li.onclick = () => {
@@ -5323,9 +5326,11 @@
           const subLi = document.createElement("li");
           subLi.style = `
             padding: 8px;
-            // color: #4B5563;
             cursor: pointer;
             transition: background-color 0.2s;
+            font-family: Arial, sans-serif;
+            font-size: 0.875rem;
+            font-weight: normal;
           `;
           subLi.textContent = subcategory.sub_category_name;
           subLi.onmouseover = () => subLi.style.backgroundColor = "#F3F4F6";
@@ -5368,9 +5373,11 @@
           questionDiv.style = `
             padding: 8px;
             border-bottom: 1px solid #E5E7EB;
-            // color: #1F2937;
             cursor: pointer;
             transition: background-color 0.2s;
+            font-family: Arial, sans-serif;
+            font-size: 0.875rem;
+            font-weight: normal;
           `;
           questionDiv.innerHTML = `<strong style="color: black;">Qn:</strong> ${question.question}`;
           questionDiv.onmouseover = () => questionDiv.style.backgroundColor = "#F3F4F6";
@@ -5411,8 +5418,11 @@
       border-radius: 4px;
       margin-top: 8px;
       margin-left: 8px;
+      font-family: Arial, sans-serif;
+      font-size: 0.875rem;
+      font-weight: normal;
     `;
-    answerDiv.innerHTML = `<strong style="color: black;">Ans:</strong> <span style="color: #10B981;">${question.answer}</span> <span style="color: #3182CE; cursor: pointer; font-weight: bold;">More Info</span>`;
+    answerDiv.innerHTML = `<strong style="color: black;">Ans:</strong> <span style="color: #10B981;">${question.answer}</span> <span id="moreInfoToggle" style="color: #3182CE; cursor: pointer; font-weight: bold;">More Info</span>`;
 
     // Contact info hidden initially
     const answerContact = document.createElement("div");
@@ -5424,8 +5434,10 @@
     `;
     answerContact.innerHTML = `<strong>Contact:</strong> ${question.answer_by_name}<br>${question.answer_by_mobile}`;
     answerDiv.appendChild(answerContact);
+
     // Toggle contact info visibility on "More Info" click
-    answerDiv.querySelector("span").onclick = () => {
+    const moreInfoToggle = answerDiv.querySelector("#moreInfoToggle");
+    moreInfoToggle.onclick = () => {
       answerContact.style.display = answerContact.style.display === 'none' ? 'block' : 'none';
     };
 
