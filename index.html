@@ -286,8 +286,8 @@
       /* Styles for the individual image containers */
       .floating-button {
         position: fixed;
-        bottom: 30px;
-        right: 30px;
+        bottom: 90px;
+        right: 20px;
         background-color: #182847; /* WhatsApp green */
         color: #fff;
         width: 70px; /* Set width and height to the same value for a perfect circle */
@@ -356,6 +356,8 @@
   >
     <img src="upload/wsup-logo.png" alt="WhatsApp Logo" class="whatsapp-logo" />
   </a>
+
+  
   <body
     class="home page-template-default page page-id-2039 gdlr-core-body woocommerce-no-js tribe-no-js kingster-body kingster-body-front kingster-full kingster-with-sticky-navigation kingster-blockquote-style-1 gdlr-core-link-to-lightbox"
   >
@@ -4843,252 +4845,33 @@
             </div>
           </div>
         </div>
+        
+<!-- Chatbot Icon -->
+<div id="chatbotIcon" style="position: fixed; bottom: 16px; right: 20px; background-color: #1D4ED8; color: white; padding: 16px; border-radius: 50%; cursor: pointer; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); z-index: 2000;">
+  <i class="fa fa-comments" style="font-size: 1.5em;"></i>
+</div>
+
+<!-- Chat Sidebar -->
+<div id="chatSidebar" style="position: fixed; bottom: 0; right: 0; width: 100%; max-width: 400px; height: 80vh; max-height: 600px; overflow-y: auto; background-color: white; box-shadow: -2px 0 8px rgba(0, 0, 0, 0.3); transform: translateX(100%); transition: transform 0.3s ease; z-index: 1000; border-radius: 10px;">
+  <button id="closeChat" style="position: absolute; top: 16px; right: 16px; color: #6B7280; background: none; border: none; font-size: 18px; cursor: pointer; z-index: 100;">
+      ❌
+  </button>
+  <div style="padding: 16px; position: relative; height: calc(100% - 32px);">
+      <h2 style="font-size: 1.5rem; font-weight: 700; position: sticky; top: 0; background-color: white; padding: 8px 0; margin-bottom: 16px; width: 100%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); z-index: 10;"><img src="/assets/ConnectLogo.jpeg" alt="Bot Icon" style="height: 32px; width: 32px; vertical-align: middle; margin-right: 8px; border-radius: 50%;">Connect Bot</h2>
+      <div style="overflow-y: auto; height: calc(100% - 50px);">
+          <ul id="categoryList" style="margin-bottom: 16px; list-style-type: none; padding: 0;">
+              <!-- Categories will be loaded here -->
+          </ul>
+          <div id="subcategoryList">
+              <!-- Subcategories will be loaded here when a category is clicked -->
+          </div>
+          <div id="questionList" style="margin-top: 16px;"></div>
+          <!-- Questions will be loaded here when a subcategory is clicked -->
       </div>
-      <footer>
-        <div class="kingster-footer-wrapper">
-          <div class="kingster-footer-container kingster-container clearfix">
-            <div
-              class="kingster-footer-column kingster-item-pdlr kingster-column-15"
-            >
-              <div id="text-2" class="widget widget_text kingster-widget">
-                <div class="textwidget">
-                  <p>
-                    <img width="250" src="upload/footer-logo.png" alt="" />
-                    <br />
-                    <span
-                      class="gdlr-core-space-shortcode"
-                      id="span_1dd7_10"
-                    ></span>
-                    <br />
-                    Manoor - Chekanoor Road, <br />
-                    Manoor, Edappal, Malappuram, <br />
-                    Kerala 679578
-                  </p>
-                  <p>
-                    <span id="span_1dd7_11">
-                      Toll free:<a href="tel:18008430066"> 18008430066</a>
-                    </span>
-                    <!-- <br> <span id="span_1dd7_11"> Hospital/Clinic:<a href="tel:0494 269720"> 0494 269720, 21</a> </span> | <span id="span_1dd7_11"> <a href="tel:7034555514">+91 7034555514</a></span> -->
-                    <br />
-                    <span
-                      class="gdlr-core-space-shortcode"
-                      id="span_1dd7_12"
-                    ></span>
+  </div>
+</div>
 
-                    <br />
-                    <a id="a_1dd7_8" href="mailto:admin@kingsteruni.edu"
-                      >info@macity.edu.in</a
-                    >
-                  </p>
-                  <div
-                    class="gdlr-core-divider-item gdlr-core-divider-item-normal gdlr-core-left-align"
-                  >
-                    <div
-                      class="gdlr-core-divider-line gdlr-core-skin-divider"
-                      id="div_1dd7_111"
-                    ></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="kingster-footer-column kingster-item-pdlr kingster-column-15"
-            >
-              <div
-                id="gdlr-core-custom-menu-widget-2"
-                class="widget widget_gdlr-core-custom-menu-widget kingster-widget"
-              >
-                <h3 class="kingster-widget-title">Quick links</h3>
-                <span class="clear"></span>
-                <div class="menu-our-campus-container">
-                  <ul
-                    id="menu-our-campus"
-                    class="gdlr-core-custom-menu-widget gdlr-core-menu-style-plain"
-                  >
-                    <li class="menu-item">
-                      <a href="about-us.html">Academic Calendar</a>
-                    </li>
-
-                    <li class="menu-item">
-                      <a href="about-us.html">About Us</a>
-                    </li>
-                    <li class="menu-item">
-                      <a href="bachelor-of-dental-surgery.html"
-                        >Bachelor of Dental Surgery</a
-                      >
-                    </li>
-                    <li class="menu-item">
-                      <a href="master-of-dental-surgery.html"
-                        >Master of Dental Surgery</a
-                      >
-                    </li>
-                    <li class="menu-item">
-                      <a href="dental-mechanic.html">Dental Mechanic</a>
-                    </li>
-                    <li class="menu-item"><a href="dora.html">DORA</a></li>
-                    <li class="menu-item">
-                      <a href="contact-us.html">Contact</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div
-              class="kingster-footer-column kingster-item-pdlr kingster-column-15"
-            >
-              <div
-                id="gdlr-core-custom-menu-widget-3"
-                class="widget widget_gdlr-core-custom-menu-widget kingster-widget"
-              >
-                <h3 class="kingster-widget-title">Social Life</h3>
-                <span class="clear"></span>
-                <div class="menu-campus-life-container">
-                  <ul
-                    id="menu-campus-life"
-                    class="gdlr-core-custom-menu-widget gdlr-core-menu-style-plain"
-                  >
-                    <li class="menu-item">
-                      <a
-                        target="_blank"
-                        href="https://www.instagram.com/malabar_dental_college/"
-                        >Instagram</a
-                      >
-                    </li>
-                    <li class="menu-item">
-                      <a
-                        target="_blank"
-                        href="https://www.facebook.com/malabarAcademicCity/"
-                        >Facebook</a
-                      >
-                    </li>
-                    <li class="menu-item">
-                      <a
-                        target="_blank"
-                        href="https://in.linkedin.com/school/malabar-dental-college-&-research-center/"
-                        >LinkedIn</a
-                      >
-                    </li>
-                    <li class="menu-item">
-                      <a
-                        target="_blank"
-                        href="https://www.youtube.com/@malabardentalcollege8050"
-                        >Youtube</a
-                      >
-                    </li>
-                    <li class="menu-item">
-                      <a
-                        target="_blank"
-                        href="https://goo.gl/maps/mqi1nkPswEPLQjzv6"
-                        >Google</a
-                      >
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div
-              class="kingster-footer-column kingster-item-pdlr kingster-column-15"
-            >
-              <div
-                id="gdlr-core-custom-menu-widget-4"
-                class="widget widget_gdlr-core-custom-menu-widget kingster-widget"
-              >
-                <h3 class="kingster-widget-title">Location</h3>
-                <span class="clear"></span>
-                <div class="mapouter">
-                  <div class="gmap_canvas">
-                    <iframe
-                      class="gmap_iframe"
-                      frameborder="0"
-                      scrolling="no"
-                      marginheight="0"
-                      marginwidth="0"
-                      src="https://maps.google.com/maps?width=271&amp;height=281&amp;hl=en&amp;q=malabar dental college manoor&amp;t=&amp;z=12&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
-                    ></iframe
-                    ><a href="https://thepasswordgame.com/"
-                      >The Password Game</a
-                    >
-                  </div>
-                  <style>
-                    .mapouter {
-                      position: relative;
-                      text-align: right;
-                      width: 271px;
-                      height: 281px;
-                    }
-                    .gmap_canvas {
-                      overflow: hidden;
-                      background: none !important;
-                      width: 271px;
-                      height: 281px;
-                    }
-                    .gmap_iframe {
-                      width: 271px !important;
-                      height: 281px !important;
-                    }
-                  </style>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="kingster-copyright-wrapper">
-          <div class="kingster-copyright-container kingster-container clearfix">
-            <div class="kingster-copyright-left kingster-item-pdlr">
-              Copyright © 2023 Malabar Dental College |
-              <a style="color: #fff" href="dept_of_IT.html"
-                >Department of IT 💻</a
-              >
-            </div>
-            <div class="kingster-copyright-right kingster-item-pdlr">
-              <div
-                class="gdlr-core-social-network-item gdlr-core-item-pdb gdlr-core-none-align"
-                id="div_1dd7_112"
-                style="color: #3db166"
-              >
-                <a
-                  href="https://www.facebook.com/malabarAcademicCity/"
-                  target="_blank"
-                  class="gdlr-core-social-network-icon"
-                  style="color: #3db166"
-                  title="facebook"
-                >
-                  <i class="fa fa-facebook"></i>
-                </a>
-                <a
-                  href="https://goo.gl/maps/mqi1nkPswEPLQjzv6"
-                  target="_blank"
-                  class="gdlr-core-social-network-icon"
-                  style="color: #3db166"
-                  title="google-plus"
-                >
-                  <i class="fa fa-google-plus"></i>
-                </a>
-                <a
-                  href="https://in.linkedin.com/school/malabar-dental-college-&-research-center/"
-                  target="_blank"
-                  class="gdlr-core-social-network-icon"
-                  style="color: #3db166"
-                  title="linkedin"
-                >
-                  <i class="fa fa-linkedin"></i>
-                </a>
-
-                <a
-                  href="https://www.instagram.com/malabar_dental_college/"
-                  target="_blank"
-                  class="gdlr-core-social-network-icon"
-                  style="color: #3db166"
-                  title="instagram"
-                >
-                  <i class="fa fa-instagram"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
+<!-- footer -->
     </div>
     <div class="background-blur" style="display: none"></div>
     <div class="popup" id="popupContainer" style="display: none">
@@ -5201,6 +4984,213 @@
       } /*]]>*/
     </script>
 
+<script>
+  const chatbotIcon = document.getElementById("chatbotIcon");
+  const chatSidebar = document.getElementById("chatSidebar");
+  const closeChat = document.getElementById("closeChat");
+  const categoryList = document.getElementById("categoryList");
+  const subcategoryList = document.getElementById("subcategoryList");
+  const questionList = document.getElementById("questionList");
+
+  // Show/hide sidebar on icon click
+  chatbotIcon.addEventListener("click", () => {
+    chatSidebar.style.transform = chatSidebar.style.transform === "translateX(100%)" 
+      ? "translateX(0)" 
+      : "translateX(100%)";
+  });
+
+  closeChat.addEventListener("click", () => {
+    chatSidebar.style.transform = "translateX(100%)";
+  });
+
+  // Typing animation
+  function showTypingAnimation() {
+    questionList.innerHTML = '<div class="typing-indicator" style="padding: 16px; text-align: center; color: #6B7280;"><span class="dots">.</span><span class="dots">.</span><span class="dots">.</span></div>';
+    const dots = document.querySelector('.dots');
+    let count = 0;
+    const interval = setInterval(() => {
+      dots.innerHTML = '.'.repeat(++count % 4);
+    }, 500);
+    return interval;
+  }
+
+  function hideTypingAnimation(interval) {
+    clearInterval(interval);
+    questionList.innerHTML = '';
+  }
+
+  let selectedCategoryId, selectedSubcategoryId;
+
+  // Fetch categories
+  async function fetchCategories() {
+    const interval = showTypingAnimation();
+    setTimeout(async () => {
+      try {
+        const response = await fetch('https://conext.in/chat_bot/api/get_categories_by_org/1/');
+        const data = await response.json();
+        categoryList.innerHTML = '';
+        hideTypingAnimation(interval);
+        if (data.status && data.data) {
+          data.data.forEach(category => {
+            const li = document.createElement("li");
+            li.style = `
+              cursor: pointer;
+              padding: 8px;
+              border-radius: 4px;
+              transition: background-color 0.2s;
+            `;
+            li.textContent = category.category_name;
+            li.onclick = () => {
+              selectedCategoryId = category.id;
+              updateSelectedCategory(li);
+              fetchSubcategories(category.id);
+              li.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            };
+            categoryList.appendChild(li);
+          });
+        }
+      } catch (error) {
+        console.error('Error fetching categories:', error);
+        hideTypingAnimation(interval);
+      }
+    }, 2000); // Delay the fetch to simulate 2 seconds before fetching categories
+  }
+
+  // Update the selected category style
+  function updateSelectedCategory(selectedLi) {
+    [...categoryList.children].forEach(li => {
+      li.style.backgroundColor = "";
+    });
+    selectedLi.style.backgroundColor = "#DBEAFE";
+  }
+
+  // Fetch subcategories
+  async function fetchSubcategories(categoryId) {
+    const interval = showTypingAnimation();
+    try {
+      const response = await fetch(`https://conext.in/chat_bot/api/get-subcategories/${categoryId}/`);
+      const data = await response.json();
+      subcategoryList.innerHTML = '';
+      hideTypingAnimation(interval);
+      if (data.data) {
+        data.data.forEach(subcategory => {
+          const subLi = document.createElement("li");
+          subLi.style = `
+            padding: 8px;
+            // color: #4B5563;
+            cursor: pointer;
+            transition: background-color 0.2s;
+          `;
+          subLi.textContent = subcategory.sub_category_name;
+          subLi.onmouseover = () => subLi.style.backgroundColor = "#F3F4F6";
+          subLi.onmouseout = () => subLi.style.backgroundColor = selectedSubcategoryId === subcategory.id ? "#DBEAFE" : "";
+          subLi.onclick = () => {
+            selectedSubcategoryId = subcategory.id;
+            updateSelectedSubcategory(subLi);
+            fetchQuestions(subcategory.id).then(() => {
+              subLi.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+          };
+          subcategoryList.appendChild(subLi);
+        });
+      }
+    } catch (error) {
+      console.error('Error fetching subcategories:', error);
+      hideTypingAnimation(interval);
+    }
+  }
+
+  // Update the selected subcategory style
+  function updateSelectedSubcategory(selectedLi) {
+    [...subcategoryList.children].forEach(li => {
+      li.style.backgroundColor = "";
+    });
+    selectedLi.style.backgroundColor = "#DBEAFE";
+  }
+
+  // Fetch questions
+  async function fetchQuestions(subcategoryId) {
+    const interval = showTypingAnimation();
+    try {
+      const response = await fetch(`https://conext.in/chat_bot/api/get-questions/${subcategoryId}/`);
+      const data = await response.json();
+      questionList.innerHTML = '';
+      hideTypingAnimation(interval);
+      if (data.status && data.data) {
+        data.data.forEach(question => {
+          const questionDiv = document.createElement("div");
+          questionDiv.style = `
+            padding: 8px;
+            border-bottom: 1px solid #E5E7EB;
+            // color: #1F2937;
+            cursor: pointer;
+            transition: background-color 0.2s;
+          `;
+          questionDiv.innerHTML = `<strong style="color: black;">Qn:</strong> ${question.question}`;
+          questionDiv.onmouseover = () => questionDiv.style.backgroundColor = "#F3F4F6";
+          questionDiv.onmouseout = () => questionDiv.style.backgroundColor = selectedQuestionId === question.id ? "#DBEAFE" : "";
+          questionDiv.onclick = () => {
+            selectedQuestionId = question.id;
+            updateSelectedQuestion(questionDiv);
+            displayAnswer(questionDiv, question);
+            questionDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          };
+          questionList.appendChild(questionDiv);
+        });
+      }
+    } catch (error) {
+      console.error('Error fetching questions:', error);
+      hideTypingAnimation(interval);
+    }
+  }
+
+  // Update the selected question style
+  function updateSelectedQuestion(selectedDiv) {
+    [...questionList.children].forEach(div => {
+      div.style.backgroundColor = "";
+    });
+    selectedDiv.style.backgroundColor = "#DBEAFE";
+  }
+
+  // Display answer with "More Info" toggle and ensure only one answer is shown at a time
+  function displayAnswer(questionDiv, question) {
+    // Remove any previous answers
+    [...questionList.querySelectorAll('.answerDiv')].forEach(div => div.remove());
+
+    const answerDiv = document.createElement("div");
+    answerDiv.classList.add('answerDiv');
+    answerDiv.style = `
+      padding: 8px;
+      background-color: #EFF6FF;
+      border-radius: 4px;
+      margin-top: 8px;
+      margin-left: 8px;
+    `;
+    answerDiv.innerHTML = `<strong style="color: black;">Ans:</strong> <span style="color: #10B981;">${question.answer}</span> <span style="color: #3182CE; cursor: pointer; font-weight: bold;">More Info</span>`;
+
+    // Contact info hidden initially
+    const answerContact = document.createElement("div");
+    answerContact.style = `
+      color: #10B981;
+      font-size: 0.875rem;
+      margin-top: 4px;
+      display: none;
+    `;
+    answerContact.innerHTML = `<strong>Contact:</strong> ${question.answer_by_name}<br>${question.answer_by_mobile}`;
+    answerDiv.appendChild(answerContact);
+    // Toggle contact info visibility on "More Info" click
+    answerDiv.querySelector("span").onclick = () => {
+      answerContact.style.display = answerContact.style.display === 'none' ? 'block' : 'none';
+    };
+
+    // Insert the answer directly after the selected question
+    questionDiv.insertAdjacentElement('afterend', answerDiv);
+    answerDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  // Fetch categories on page load
+  fetchCategories();
+</script>
     <script>
       // Define the API URL to fetch notification data
       const apiUrl =
