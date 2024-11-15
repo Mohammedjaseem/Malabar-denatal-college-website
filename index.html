@@ -5477,7 +5477,9 @@ function sendMessage() {
 
         const categoryMessage = document.createElement("div");
         categoryMessage.className = "chat-message bot";
-        categoryMessage.textContent = "Please choose a category:";
+        categoryMessage.innerHTML = "Please choose a category &#x2B07;"; // with this emoji arrow below
+        categoryMessage.style.backgroundColor = "gray"; // Set a separate background color
+        categoryMessage.style.color = "white";
         chatMessages.appendChild(categoryMessage);
 
         if (data?.data?.length > 0) {
@@ -5519,10 +5521,10 @@ function fetchSubcategories(categoryId) {
     .then(data => {
       const chatMessages = document.getElementById("chatMessages");
       if (data?.data?.length > 0) {
-        const subcategoryMessage = document.createElement("div");
-        subcategoryMessage.className = "chat-message bot";
-        subcategoryMessage.textContent = "Please choose a subcategory:";
-        chatMessages.appendChild(subcategoryMessage);
+        // const subcategoryMessage = document.createElement("div");
+        // subcategoryMessage.className = "chat-message bot";
+        // subcategoryMessage.textContent = "Please choose a subcategory:";
+        // chatMessages.appendChild(subcategoryMessage);
 
         data.data.forEach(subcategory => {
           const subcategoryDiv = document.createElement("div");
@@ -5561,10 +5563,10 @@ function fetchQuestions(subcategoryId) {
     .then(data => {
       const chatMessages = document.getElementById("chatMessages");
       if (data?.data?.length > 0) {
-        const questionMessage = document.createElement("div");
-        questionMessage.className = "chat-message bot";
-        questionMessage.textContent = "Please choose a question:";
-        chatMessages.appendChild(questionMessage);
+        // const questionMessage = document.createElement("div");
+        // questionMessage.className = "chat-message bot";
+        // questionMessage.textContent = "Please choose a question:";
+        // chatMessages.appendChild(questionMessage);
 
         data.data.forEach(question => {
           const questionDiv = document.createElement("div");
@@ -5604,13 +5606,13 @@ function displayQuestionAnswer(question) {
   const moreInfoLink = document.createElement("a");
   moreInfoLink.href = "#";
   moreInfoLink.textContent = "More Info";
-  moreInfoLink.onclick = () => displayMoreInfo(question.can_answer_by, question.answer_by_name, question.answer_by_mobile);
+  moreInfoLink.onclick = () => displayMoreInfo(question.can_answer_by, question.answer_by_name, question.answer_by_mobile,question.question);
   answerDiv.appendChild(moreInfoLink);
 
   chatMessages.scrollTop = chatMessages.scrollHeight;
 }
 
-function displayMoreInfo(answerById, answerByName, answerByMobile) {
+function displayMoreInfo(answerById, answerByName, answerByMobile,question) {
   const chatMessages = document.getElementById("chatMessages");
   const infoDiv = document.createElement("div");
   infoDiv.className = "chat-message user";
@@ -5633,7 +5635,7 @@ function displayMoreInfo(answerById, answerByName, answerByMobile) {
   contactInfoDiv.style.display = "flex";
   contactInfoDiv.style.flexDirection = "column";
   contactInfoDiv.style.alignItems = "flex-start";
-  contactInfoDiv.innerHTML = `<span><i class="fa fa-phone" aria-hidden="true"></i> &nbsp;${answerByMobile}</span>`;
+  contactInfoDiv.innerHTML = `<span><i class="fab fa-whatsapp" aria-hidden="true"></i><a href="https://wa.me/${answerByMobile}?text=Hello!%20I%20have%20a%20question%20regarding%20${encodeURIComponent(question)}." target="_blank"> &nbsp;${answerByMobile}</a></span>`;
   contactDiv.appendChild(contactInfoDiv);
 
   chatMessages.appendChild(contactDiv);
