@@ -2378,109 +2378,69 @@ body.ilightbox-noscroll{ overflow: auto; }
 .gdlr-core-widget-box-shortcode .gdlr-core-widget-box-shortcode-content{ overflow: hidden; }
 .gdlr-core-widget-box-shortcode .gdlr-core-widget-box-shortcode-link{ position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; }
 
-/* Sidebar Chatbot */
-.chat-sidebar {
-    position: fixed;
-    right: -100%;
-    top: 0;
-    width: 350px;
-    height: 100%;
-    background-color: #fff;
-    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
-    transition: right 0.3s ease;
-    z-index: 1000;
-    display: flex;
-    flex-direction: column;
-}
-
-.chat-sidebar.open {
-    right: 0;
-}
-
-.chat-header {
-    background-color: #0078D4;
-    color: white;
-    padding: 15px;
-    font-size: 18px;
-    font-weight: bold;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.close-btn {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.chat-box {
-    flex: 1;
-    padding: 10px;
-    overflow-y: auto;
-}
-
+/* Container for chat messages */
 .chat-message {
-    margin-bottom: 10px;
-    display: flex;
-    flex-direction: column;
+	display: flex;
+	padding: 7px;
+	margin: 8px 0;
+	max-width: 100%;
+	border-radius: 12px;
+	word-wrap: break-word;
+	align-items: center;
+	font-family: 'Roboto', 'Segoe UI', sans-serif; /* Updated to a more modern and readable font */
+    font-size: 14px;
+	font-weight: 500;
 }
-
-.user-message {
-    align-self: flex-end;
-    background-color: #0078D4;
-    color: white;
-    padding: 8px;
-    border-radius: 10px;
-    max-width: 75%;
-}
-
-.bot-message {
-    align-self: flex-start;
-    background-color: #f1f0f0;
-    color: #333;
-    padding: 8px;
-    border-radius: 10px;
-    max-width: 75%;
-}
-
-.chat-input {
-    display: flex;
-    border-top: 1px solid #ddd;
-}
-
-.chat-input input {
-    flex: 1;
-    padding: 10px;
-    border: none;
-    outline: none;
-    font-size: 16px;
-}
-
-.chat-input button {
-    padding: 0 15px;
-    background-color: #0078D4;
-    border: none;
-    color: white;
-    cursor: pointer;
-}
-
-.chat-input button:hover {
-    background-color: #005bb5;
-}
-
-/* Chat Icon */
-.chat-icon {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #0078D4;
-    color: white;
-    font-size: 30px;
-    border-radius: 50%;
-    padding: 10px;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
+  
+  /* User's message on the left side */
+  .chat-message.user {
+	align-self: flex-start; /* Left side */
+	background-color: #DBEAFE;
+	color: #1E3A8A;
+	border-top-right-radius: 12px;
+	border-top-left-radius: 0;
+	max-width: max-content; /* Width to fit content */
+  }
+  
+  /* Bot's message on the right side */
+  .chat-message.bot {
+    align-self: flex-end; /* Right side */
+    background-color: #F3F4F6;
+    color: #374151;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 0;
+    margin-left: auto; /* Start from right side */
+    max-width: max-content; /* Width to fit content */
+  }
+  
+  /* Typing indicator (dots) animation */
+  .typing-indicator {
+	display: flex;
+	align-items: center;
+	margin-left: 8px;
+	height: 20px;
+  }
+  
+  .typing-dot {
+	width: 6px;
+	height: 6px;
+	margin: 0 2px;
+	background-color: #6B7280;
+	border-radius: 50%;
+	animation: blink 1s infinite;
+  }
+  
+  .typing-dot:nth-child(2) {
+	animation-delay: 0.2s;
+  }
+  
+  .typing-dot:nth-child(3) {
+	animation-delay: 0.4s;
+  }
+  
+  /* Blink animation for dots */
+  @keyframes blink {
+	0%, 100% { opacity: 0; }
+	50% { opacity: 1; }
+  }
+  

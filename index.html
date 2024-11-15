@@ -300,7 +300,6 @@
         justify-content: center;
         font-size: 24px; /* Adjust the font size for larger text */
         box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        z-index: 9999; /* Set a high z-index to appear above other content */
       }
 
       /* Style for WhatsApp logo */
@@ -353,6 +352,7 @@
     href="https://api.whatsapp.com/send?phone=7034555514"
     target="_blank"
     class="floating-button"
+    style="z-index: 1000;"
   >
     <img src="upload/wsup-logo.png" alt="WhatsApp Logo" class="whatsapp-logo" />
   </a>
@@ -4847,29 +4847,52 @@
         </div>
         
 <!-- Chatbot Icon -->
-<div id="chatbotIcon" style="position: fixed; bottom: 90px; right: 20px; background-color: #1D4ED8; color: white; padding: 16px; border-radius: 50%; cursor: pointer; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); z-index: 2000;">
+<!-- <div id="chatbotIcon" style="position: fixed; bottom: 90px; right: 20px; background-color: #1D4ED8; color: white; padding: 16px; border-radius: 50%; cursor: pointer; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); z-index: 2000;">
+  <i class="fa fa-comments" style="font-size: 1.5em;" aria-label="Chatbot"></i>
+</div> -->
+
+<!-- Chat Sidebar -->
+<!-- <div id="chatSidebar" style="position: fixed; bottom: 0; right: 0; width: 90%; max-width: 350px; height: 80vh; max-height: 600px; overflow-y: auto; background-color: white; box-shadow: -2px 0 8px rgba(0, 0, 0, 0.3); transform: translateX(100%); transition: transform 0.3s ease; z-index: 3000; border-radius: 10px; font-family: 'Bitter', serif;">
+  <button id="closeChat" style="position: absolute; top: 16px; right: 16px; color: #6B7280; background: none; border: none; font-size: 18px; cursor: pointer; z-index: 100;">
+    ❌
+  </button>
+  <div style="padding: 16px; display: flex; flex-direction: column; height: calc(100% - 32px);">
+    <h2 style="font-size: 1.5rem; font-weight: 700; background-color: white; padding: 8px 0; margin-bottom: 16px; display: flex; align-items: center;">
+      <img src="/assets/ConnectLogo.jpeg" alt="Bot Icon" style="height: 32px; width: 32px; margin-right: 8px; border-radius: 50%;">Connect Bot
+    </h2>
+    <div id="chatContent" style="flex-grow: 1; overflow-y: auto; padding-bottom: 10px;"></div>
+    <div style="margin-top: 16px; display: flex;">
+      <input id="userInput" type="text" placeholder="Type a message..." style="flex: 1; padding: 8px; border-radius: 4px; border: 1px solid #D1D5DB; outline: none;">
+      <button id="sendButton" style="margin-left: 8px; padding: 8px 16px; background-color: #1D4ED8; color: white; border: none; border-radius: 4px; cursor: pointer;">Send</button>
+    </div>
+  </div>
+</div> -->
+
+<!-- Chatbot Icon -->
+<div id="chatbotIcon" style="position: fixed; bottom: 90px; right: 20px; background-color: #1D4ED8; color: white; padding: 16px; border-radius: 50%; cursor: pointer; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); z-index: 1000;">
   <i class="fa fa-comments" style="font-size: 1.5em;" aria-label="Chatbot"></i>
 </div>
 
-<!-- Chat Sidebar -->
-<div id="chatSidebar" style="position: fixed; bottom: 0; right: 0; width: 90%; max-width: 350px; height: 80vh; max-height: 600px; overflow-y: auto; background-color: white; box-shadow: -2px 0 8px rgba(0, 0, 0, 0.3); transform: translateX(100%); transition: transform 0.3s ease; z-index: 1000; border-radius: 10px; font-family: 'Bitter', serif;">
-  <button id="closeChat" style="position: absolute; top: 16px; right: 16px; color: #6B7280; background: none; border: none; font-size: 18px; cursor: pointer; z-index: 100;">
+<!-- Chat Sidebar (Hidden initially) -->
+<div id="chatSidebar" style="display: none; position: fixed; bottom: 5px; right: 5px; width: 305px; height: 500px; background-color: #fff; border-radius: 8px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); z-index: 1999;">
+    <button id="closeChat" style="position: absolute; top: 14px; right: 14px; color: #6B7280; background: none; border: none; font-size: 18px; cursor: pointer; z-index: 100;">
       ❌
-  </button>
-  <div style="padding: 16px; position: relative; height: calc(100% - 32px);">
-      <h2 style="font-size: 1.5rem; font-weight: 700; position: sticky; top: 0; background-color: white; padding: 8px 0; margin-bottom: 16px; width: 100%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); z-index: 10;"><img src="/assets/ConnectLogo.jpeg" alt="Bot Icon" style="height: 32px; width: 32px; vertical-align: middle; margin-right: 8px; border-radius: 50%;">Connect Bot</h2>
-      <div style="overflow-y: auto; height: calc(100% - 50px);">
-          <ul id="categoryList" style="margin-bottom: 16px; list-style-type: none; padding: 0;">
-              <!-- Categories will be loaded here -->
-          </ul>
-          <div id="subcategoryList">
-              <!-- Subcategories will be loaded here when a category is clicked -->
-          </div>
-          <div id="questionList" style="margin-top: 16px;"></div>
-          <!-- Questions will be loaded here when a subcategory is clicked -->
-      </div>
+    </button>
+    <div style="padding: 16px; display: flex; flex-direction: column; height: calc(100% - 32px);">
+
+    <h2 style="font-size: 1.2rem; font-weight: 600; background-color: white; padding: 8px 0; margin-bottom: 16px; display: flex; align-items: center; border-bottom: 1px solid #ccc;">
+      <img src="/assets/ConnectLogo.jpeg" alt="Bot Icon" style="height: 32px; width: 32px; margin-right: 8px; border-radius: 50%;">Connect Bot
+    </h2>
+    <div id="chatMessages" style="padding: 10px; overflow-y: auto; height: 80%; position: relative; font-family: 'Arial', sans-serif;"></div>
+    </div>
+    <div style="display: flex; align-items: center; margin: 10px; position: absolute; bottom: 0; width: calc(100% - 20px);">
+      <input type="text" id="userMessage" placeholder="Type a message..." style="flex-grow: 1; padding: 10px; border-radius: 4px; border: 1px solid #ccc;">
+      <button id="sendMessage" style="width: 48px; height: 48px; padding: 0; background-color: #1D4ED8; border: none; border-radius: 50%; margin-left: 10px;">
+        <i class="fa fa-paper-plane" style="color: white; font-size: 24px;"></i>
+      </button>
+    </div>
   </div>
-</div>
+
 
 <!-- footer -->
 <footer>
@@ -5230,226 +5253,395 @@
       } /*]]>*/
     </script>
 
-<script>
-  const chatbotIcon = document.getElementById("chatbotIcon");
-  const chatSidebar = document.getElementById("chatSidebar");
-  const closeChat = document.getElementById("closeChat");
-  const categoryList = document.getElementById("categoryList");
-  const subcategoryList = document.getElementById("subcategoryList");
-  const questionList = document.getElementById("questionList");
+<!-- <script>
+const chatbotIcon = document.getElementById("chatbotIcon");
+const chatSidebar = document.getElementById("chatSidebar");
+const closeChat = document.getElementById("closeChat");
+const chatContent = document.getElementById("chatContent");
+const userInput = document.getElementById("userInput");
+const sendButton = document.getElementById("sendButton");
+const floatingButton = document.querySelector(".floating-button");
+let selectedCategoryId;
 
-  // Show/hide sidebar on icon click
-  chatbotIcon.addEventListener("click", () => {
-    chatSidebar.style.transform = chatSidebar.style.transform === "translateX(100%)" 
-      ? "translateX(0)" 
-      : "translateX(100%)";
-  });
-
-  closeChat.addEventListener("click", () => {
+// Show/hide chat sidebar
+chatbotIcon.addEventListener("click", () => {
+  if (chatSidebar.style.transform === "translateX(100%)") {
+    chatSidebar.style.transform = "translateX(0)";
+    floatingButton.style.zIndex = "-1"; // Hide floating button by changing z-index
+  } else {
     chatSidebar.style.transform = "translateX(100%)";
-  });
-
-  // Typing animation
-  function showTypingAnimation() {
-    questionList.innerHTML = '<div class="typing-indicator" style="padding: 16px; text-align: center; color: #6B7280;"><span class="dots">.</span><span class="dots">.</span><span class="dots">.</span></div>';
-    const dots = document.querySelector('.dots');
-    let count = 0;
-    const interval = setInterval(() => {
-      dots.innerHTML = '.'.repeat(++count % 4);
-    }, 500);
-    return interval;
+    floatingButton.style.zIndex = "9999"; // Show floating button by restoring z-index
   }
+});
 
-  function hideTypingAnimation(interval) {
-    clearInterval(interval);
-    questionList.innerHTML = '';
+closeChat.addEventListener("click", () => {
+  chatSidebar.style.transform = "translateX(100%)";
+  floatingButton.style.zIndex = "9999"; // Restore z-index when chat is closed
+});
+
+// Send message and show categories after the first message
+sendButton.addEventListener("click", () => {
+  const message = userInput.value.trim();
+  if (message) {
+    addUserMessage(message);
+    userInput.value = "";
+    fetchCategories();
   }
+});
 
-  let selectedCategoryId, selectedSubcategoryId;
+// Function to add user message to chat
+function addUserMessage(message) {
+  const messageDiv = document.createElement("div");
+  messageDiv.classList.add("chat-message", "user");  // Add user class for styling
+  messageDiv.textContent = message;
+  chatContent.appendChild(messageDiv);
+  chatContent.scrollTop = chatContent.scrollHeight; // Scroll to bottom
+}
 
-  // Fetch categories
-  async function fetchCategories() {
-    const interval = showTypingAnimation();
-    setTimeout(async () => {
-      try {
-        const response = await fetch('https://conext.in/chat_bot/api/get_categories_by_org/1/');
-        const data = await response.json();
-        categoryList.innerHTML = '';
-        hideTypingAnimation(interval);
-        if (data.status && data.data) {
-          data.data.forEach(category => {
-            const li = document.createElement("li");
-            li.style = `
-              cursor: pointer;
-              padding: 8px;
-              border-radius: 4px;
-              transition: background-color 0.2s;
-              font-family: Arial, sans-serif;
-              font-size: 0.875rem;
-              font-weight: normal;
-            `;
-            li.textContent = category.category_name;
-            li.onclick = () => {
-              selectedCategoryId = category.id;
-              updateSelectedCategory(li);
-              fetchSubcategories(category.id);
-              li.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            };
-            categoryList.appendChild(li);
-          });
-        }
-      } catch (error) {
-        console.error('Error fetching categories:', error);
-        hideTypingAnimation(interval);
-      }
-    }, 2000); // Delay the fetch to simulate 2 seconds before fetching categories
-  }
-
-  // Update the selected category style
-  function updateSelectedCategory(selectedLi) {
-    [...categoryList.children].forEach(li => {
-      li.style.backgroundColor = "";
-    });
-    selectedLi.style.backgroundColor = "#DBEAFE";
-  }
-
-  // Fetch subcategories
-  async function fetchSubcategories(categoryId) {
-    const interval = showTypingAnimation();
-    try {
-      const response = await fetch(`https://conext.in/chat_bot/api/get-subcategories/${categoryId}/`);
-      const data = await response.json();
-      subcategoryList.innerHTML = '';
-      hideTypingAnimation(interval);
-      if (data.data) {
-        data.data.forEach(subcategory => {
-          const subLi = document.createElement("li");
-          subLi.style = `
-            padding: 8px;
-            cursor: pointer;
-            transition: background-color 0.2s;
-            font-family: Arial, sans-serif;
-            font-size: 0.875rem;
-            font-weight: normal;
-          `;
-          subLi.textContent = subcategory.sub_category_name;
-          subLi.onmouseover = () => subLi.style.backgroundColor = "#F3F4F6";
-          subLi.onmouseout = () => subLi.style.backgroundColor = selectedSubcategoryId === subcategory.id ? "#DBEAFE" : "";
-          subLi.onclick = () => {
-            selectedSubcategoryId = subcategory.id;
-            updateSelectedSubcategory(subLi);
-            fetchQuestions(subcategory.id).then(() => {
-              subLi.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            });
-          };
-          subcategoryList.appendChild(subLi);
-        });
-      }
-    } catch (error) {
-      console.error('Error fetching subcategories:', error);
-      hideTypingAnimation(interval);
+// Fetch categories and display them in chat
+async function fetchCategories() {
+  try {
+    const response = await fetch('https://conext.in/chat_bot/api/get_categories_by_org/1/');
+    const data = await response.json();
+    if (data.status && data.data) {
+      addBotMessage("Please select a category:");
+      data.data.forEach(category => {
+        const categoryDiv = document.createElement("div");
+        categoryDiv.classList.add("chat-message", "bot");  // Add bot class for styling
+        categoryDiv.style.cursor = "pointer";
+        categoryDiv.textContent = category.category_name;
+        categoryDiv.onclick = () => {
+          selectedCategoryId = category.id;
+          addUserMessage(category.category_name);
+          fetchSubcategories(category.id);
+        };
+        chatContent.appendChild(categoryDiv);
+      });
+      chatContent.scrollTop = chatContent.scrollHeight; // Scroll to bottom
     }
+  } catch (error) {
+    console.error('Error fetching categories:', error);
   }
+}
 
-  // Update the selected subcategory style
-  function updateSelectedSubcategory(selectedLi) {
-    [...subcategoryList.children].forEach(li => {
-      li.style.backgroundColor = "";
-    });
-    selectedLi.style.backgroundColor = "#DBEAFE";
+// Fetch subcategories and display them in chat
+async function fetchSubcategories(categoryId) {
+  try {
+    const response = await fetch(`https://conext.in/chat_bot/api/get-subcategories/${categoryId}/`);
+    const data = await response.json();
+    if (data.data) {
+      addBotMessage("Please select a subcategory:");
+      data.data.forEach(subcategory => {
+        const subcategoryDiv = document.createElement("div");
+        subcategoryDiv.classList.add("chat-message", "bot");
+        subcategoryDiv.style.cursor = "pointer";
+        subcategoryDiv.textContent = subcategory.sub_category_name;
+        subcategoryDiv.onclick = () => {
+          addUserMessage(subcategory.sub_category_name);
+          fetchQuestions(subcategory.id);
+        };
+        chatContent.appendChild(subcategoryDiv);
+      });
+      chatContent.scrollTop = chatContent.scrollHeight; // Scroll to bottom
+    }
+  } catch (error) {
+    console.error('Error fetching subcategories:', error);
   }
+}
 
-  // Fetch questions
-  async function fetchQuestions(subcategoryId) {
-    const interval = showTypingAnimation();
-    try {
-      const response = await fetch(`https://conext.in/chat_bot/api/get-questions/${subcategoryId}/`);
-      const data = await response.json();
-      questionList.innerHTML = '';
-      hideTypingAnimation(interval);
-      if (data.status && data.data) {
+// Fetch questions and display them in chat
+async function fetchQuestions(subcategoryId) {
+  try {
+    const response = await fetch(`https://conext.in/chat_bot/api/get-questions/${subcategoryId}/`);
+    const data = await response.json();
+    if (data.status && data.data) {
+      addBotMessage("Here are some frequently asked questions:");
+      data.data.forEach(question => {
+        const questionDiv = document.createElement("div");
+        questionDiv.classList.add("chat-message", "bot");
+        questionDiv.style.cursor = "pointer";
+        questionDiv.textContent = `Q: ${question.question}`;
+        questionDiv.onclick = () => displayAnswer(questionDiv, question);
+        chatContent.appendChild(questionDiv);
+      });
+      chatContent.scrollTop = chatContent.scrollHeight; // Scroll to bottom
+    }
+  } catch (error) {
+    console.error('Error fetching questions:', error);
+  }
+}
+
+// Display answer in chat
+function displayAnswer(questionDiv, question) {
+  const answerDiv = document.createElement("div");
+  answerDiv.classList.add("chat-message", "bot");  // Add bot class for styling
+  answerDiv.innerHTML = `<strong>Ans:</strong> ${question.answer}`;
+  questionDiv.insertAdjacentElement('afterend', answerDiv);
+  chatContent.scrollTop = chatContent.scrollHeight; // Scroll to bottom
+}
+
+// Function to add bot message to chat with typing indicator
+function addBotMessage(message) {
+  const botMessageDiv = document.createElement("div");
+  botMessageDiv.classList.add("chat-message", "bot");
+  botMessageDiv.textContent = message;
+  
+  // Add typing indicator
+  const typingIndicator = document.createElement("div");
+  typingIndicator.classList.add("typing-indicator");
+  typingIndicator.innerHTML = `
+    <div class="typing-dot"></div>
+    <div class="typing-dot"></div>
+    <div class="typing-dot"></div>
+  `;
+  botMessageDiv.appendChild(typingIndicator);
+
+  chatContent.appendChild(botMessageDiv);
+  chatContent.scrollTop = chatContent.scrollHeight; // Scroll to bottom
+
+  // Remove typing indicator after a delay (simulate response time)
+  setTimeout(() => {
+    typingIndicator.remove(); // Remove typing dots
+    botMessageDiv.textContent = message; // Update with the actual bot message
+    botMessageDiv.appendChild(typingIndicator);  // Re-append typing indicator
+  }, 2000); // Simulate bot reply delay (2 seconds)
+}
+  
+  </script>
+   -->
+  
+
+   <script>
+// Open chat sidebar when the icon is clicked
+document.getElementById("chatbotIcon").addEventListener("click", function() {
+  var chatSidebar = document.getElementById("chatSidebar");
+  var floatingButton = document.querySelector(".floating-button");
+  if (chatSidebar.style.display === "none" || chatSidebar.style.display === "") {
+    chatSidebar.style.display = "block";
+    floatingButton.style.zIndex = ""; // Remove z-index from floating button when sidebar is open
+  } else {
+    chatSidebar.style.display = "none";
+    floatingButton.style.zIndex = "1000"; // Restore z-index for floating button when sidebar is closed
+  }
+});
+
+// Close chat sidebar when the close button is clicked
+document.getElementById("closeChat").addEventListener("click", function() {
+  var chatSidebar = document.getElementById("chatSidebar");
+  var floatingButton = document.querySelector(".floating-button");
+  chatSidebar.style.display = "none";
+  floatingButton.style.zIndex = "1000"; // Restore z-index for floating button when sidebar is closed
+});
+
+// Send a message when the send button is clicked or enter key is pressed
+document.getElementById("sendMessage").addEventListener("click", sendMessage);
+document.getElementById("userMessage").addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault(); // Prevent default to avoid any form submission
+    sendMessage();
+  }
+});
+
+function sendMessage() {
+  var userMessage = document.getElementById("userMessage").value;
+  if (userMessage.trim()) {
+    var chatMessages = document.getElementById("chatMessages");
+
+    var userMessageElement = document.createElement("div");
+    userMessageElement.className = "chat-message user";
+    userMessageElement.innerText = userMessage;
+    chatMessages.appendChild(userMessageElement);
+
+    document.getElementById("userMessage").value = "";
+
+    var typingElement = document.createElement("div");
+    typingElement.className = "typing-indicator chat-message bot";
+    typingElement.innerHTML = `
+      <div class="typing-dot"></div>
+      <div class="typing-dot"></div>
+      <div class="typing-dot"></div>
+    `;
+    chatMessages.appendChild(typingElement);
+
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+
+    // Fetch categories from the bot API and display them with a greeting
+    fetch('https://conext.in/chat_bot/api/get_categories_by_org/1/')
+      .then(response => response.json())
+      .then(data => {
+        chatMessages.removeChild(typingElement); // Remove typing indicator
+        const welcomeMessage = document.createElement("div");
+        welcomeMessage.className = "chat-message bot";
+        welcomeMessage.innerHTML = "Hello! 👋 Welcome to Connect Bot";
+        chatMessages.appendChild(welcomeMessage);
+
+        const categoryMessage = document.createElement("div");
+        categoryMessage.className = "chat-message bot";
+        categoryMessage.textContent = "Please choose a category:";
+        chatMessages.appendChild(categoryMessage);
+
+        if (data?.data?.length > 0) {
+          data.data.forEach(category => {
+            const categoryDiv = document.createElement("div");
+            categoryDiv.className = "chat-message bot";
+            categoryDiv.textContent = category.category_name;
+            categoryDiv.style.cursor = "pointer"; // Add cursor pointer
+            categoryDiv.onclick = () => {
+              selectCategory(category.id, category.category_name);
+            };
+            chatMessages.appendChild(categoryDiv);
+          });
+        } else {
+          const noCategoryDiv = document.createElement("div");
+          noCategoryDiv.className = "chat-message bot";
+          noCategoryDiv.textContent = "No categories available.";
+          chatMessages.appendChild(noCategoryDiv);
+        }
+        chatMessages.scrollTop = chatMessages.scrollHeight; // Scroll to bottom
+      })
+      .catch(error => console.error('Error fetching categories:', error));
+  }
+}
+
+function selectCategory(categoryId, categoryName) {
+  const chatMessages = document.getElementById("chatMessages");
+  const selectedCategoryDiv = document.createElement("div");
+  selectedCategoryDiv.className = "chat-message user";
+  selectedCategoryDiv.textContent = categoryName;
+  chatMessages.appendChild(selectedCategoryDiv);
+
+  fetchSubcategories(categoryId);
+}
+
+function fetchSubcategories(categoryId) {
+  fetch(`https://conext.in/chat_bot/api/get-subcategories/${categoryId}/`)
+    .then(response => response.json())
+    .then(data => {
+      const chatMessages = document.getElementById("chatMessages");
+      if (data?.data?.length > 0) {
+        const subcategoryMessage = document.createElement("div");
+        subcategoryMessage.className = "chat-message bot";
+        subcategoryMessage.textContent = "Please choose a subcategory:";
+        chatMessages.appendChild(subcategoryMessage);
+
+        data.data.forEach(subcategory => {
+          const subcategoryDiv = document.createElement("div");
+          subcategoryDiv.className = "chat-message bot";
+          subcategoryDiv.textContent = subcategory.sub_category_name;
+          subcategoryDiv.style.cursor = "pointer";
+          subcategoryDiv.onclick = () => {
+            selectSubcategory(subcategory.id, subcategory.sub_category_name);
+          };
+          chatMessages.appendChild(subcategoryDiv);
+        });
+      } else {
+        const noSubcategoryDiv = document.createElement("div");
+        noSubcategoryDiv.className = "chat-message bot";
+        noSubcategoryDiv.textContent = "No subcategories available.";
+        chatMessages.appendChild(noSubcategoryDiv);
+      }
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    })
+    .catch(error => console.error('Error fetching subcategories:', error));
+}
+
+function selectSubcategory(subcategoryId, subcategoryName) {
+  const chatMessages = document.getElementById("chatMessages");
+  const selectedSubcategoryDiv = document.createElement("div");
+  selectedSubcategoryDiv.className = "chat-message user";
+  selectedSubcategoryDiv.textContent = subcategoryName;
+  chatMessages.appendChild(selectedSubcategoryDiv);
+
+  fetchQuestions(subcategoryId);
+}
+
+function fetchQuestions(subcategoryId) {
+  fetch(`https://conext.in/chat_bot/api/get-questions/${subcategoryId}/`)
+    .then(response => response.json())
+    .then(data => {
+      const chatMessages = document.getElementById("chatMessages");
+      if (data?.data?.length > 0) {
+        const questionMessage = document.createElement("div");
+        questionMessage.className = "chat-message bot";
+        questionMessage.textContent = "Please choose a question:";
+        chatMessages.appendChild(questionMessage);
+
         data.data.forEach(question => {
           const questionDiv = document.createElement("div");
-          questionDiv.style = `
-            padding: 8px;
-            border-bottom: 1px solid #E5E7EB;
-            cursor: pointer;
-            transition: background-color 0.2s;
-            font-family: Arial, sans-serif;
-            font-size: 0.875rem;
-            font-weight: normal;
-          `;
-          questionDiv.innerHTML = `<strong style="color: black;">Qn:</strong> ${question.question}`;
-          questionDiv.onmouseover = () => questionDiv.style.backgroundColor = "#F3F4F6";
-          questionDiv.onmouseout = () => questionDiv.style.backgroundColor = selectedQuestionId === question.id ? "#DBEAFE" : "";
+          questionDiv.className = "chat-message bot";
+          questionDiv.textContent = question.question;
+          questionDiv.style.cursor = "pointer";
           questionDiv.onclick = () => {
-            selectedQuestionId = question.id;
-            updateSelectedQuestion(questionDiv);
-            displayAnswer(questionDiv, question);
-            questionDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            displayQuestionAnswer(question);
           };
-          questionList.appendChild(questionDiv);
+          chatMessages.appendChild(questionDiv);
         });
+      } else {
+        const noQuestionDiv = document.createElement("div");
+        noQuestionDiv.className = "chat-message bot";
+        noQuestionDiv.textContent = "No questions available.";
+        chatMessages.appendChild(noQuestionDiv);
       }
-    } catch (error) {
-      console.error('Error fetching questions:', error);
-      hideTypingAnimation(interval);
-    }
-  }
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    })
+    .catch(error => console.error('Error fetching questions:', error));
+}
 
-  // Update the selected question style
-  function updateSelectedQuestion(selectedDiv) {
-    [...questionList.children].forEach(div => {
-      div.style.backgroundColor = "";
-    });
-    selectedDiv.style.backgroundColor = "#DBEAFE";
-  }
+function displayQuestionAnswer(question) {
+  const chatMessages = document.getElementById("chatMessages");
+  const questionDiv = document.createElement("div");
+  questionDiv.className = "chat-message user";
+  questionDiv.innerHTML = `${question.question}`;
+  chatMessages.appendChild(questionDiv);
 
-  // Display answer with "More Info" toggle and ensure only one answer is shown at a time
-  function displayAnswer(questionDiv, question) {
-    // Remove any previous answers
-    [...questionList.querySelectorAll('.answerDiv')].forEach(div => div.remove());
+  const answerDiv = document.createElement("div");
+  answerDiv.className = "chat-message bot";
+  answerDiv.style.display = "flex";
+  answerDiv.style.flexDirection = "column";
+  answerDiv.innerHTML = `${question.answer}`;
+  chatMessages.appendChild(answerDiv);
 
-    const answerDiv = document.createElement("div");
-    answerDiv.classList.add('answerDiv');
-    answerDiv.style = `
-      padding: 8px;
-      background-color: #EFF6FF;
-      border-radius: 4px;
-      margin-top: 8px;
-      margin-left: 8px;
-      font-family: Arial, sans-serif;
-      font-size: 0.875rem;
-      font-weight: normal;
-    `;
-    answerDiv.innerHTML = `<strong style="color: black;">Ans:</strong> <span style="color: #10B981;">${question.answer}</span> <span id="moreInfoToggle" style="color: #3182CE; cursor: pointer; font-weight: bold;">More Info</span>`;
+  const moreInfoLink = document.createElement("a");
+  moreInfoLink.href = "#";
+  moreInfoLink.textContent = "More Info";
+  moreInfoLink.onclick = () => displayMoreInfo(question.can_answer_by, question.answer_by_name, question.answer_by_mobile);
+  answerDiv.appendChild(moreInfoLink);
 
-    // Contact info hidden initially
-    const answerContact = document.createElement("div");
-    answerContact.style = `
-      color: #10B981;
-      font-size: 0.875rem;
-      margin-top: 4px;
-      display: none;
-    `;
-    answerContact.innerHTML = `<strong>Contact:</strong> ${question.answer_by_name}<br>${question.answer_by_mobile}`;
-    answerDiv.appendChild(answerContact);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}
 
-    // Toggle contact info visibility on "More Info" click
-    const moreInfoToggle = answerDiv.querySelector("#moreInfoToggle");
-    moreInfoToggle.onclick = () => {
-      answerContact.style.display = answerContact.style.display === 'none' ? 'block' : 'none';
-    };
+function displayMoreInfo(answerById, answerByName, answerByMobile) {
+  const chatMessages = document.getElementById("chatMessages");
+  const infoDiv = document.createElement("div");
+  infoDiv.className = "chat-message user";
+  infoDiv.textContent = "More Info";
+  chatMessages.appendChild(infoDiv);
 
-    // Insert the answer directly after the selected question
-    questionDiv.insertAdjacentElement('afterend', answerDiv);
-    answerDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  }
+  const contactDiv = document.createElement("div");
+  contactDiv.className = "chat-message bot";
+  contactDiv.style.display = "flex";
+  contactDiv.style.flexDirection = "column";
 
-  // Fetch categories on page load
-  fetchCategories();
+  const answerByDiv = document.createElement("div");
+  answerByDiv.style.display = "flex";
+  answerByDiv.style.flexDirection = "column";
+  answerByDiv.style.alignItems = "flex-start";
+  answerByDiv.innerHTML = `<span><i class="fa fa-user" aria-hidden="true"></i> &nbsp;${answerByName}</span>`;
+  contactDiv.appendChild(answerByDiv);
+
+  const contactInfoDiv = document.createElement("div");
+  contactInfoDiv.style.display = "flex";
+  contactInfoDiv.style.flexDirection = "column";
+  contactInfoDiv.style.alignItems = "flex-start";
+  contactInfoDiv.innerHTML = `<span><i class="fa fa-phone" aria-hidden="true"></i> &nbsp;${answerByMobile}</span>`;
+  contactDiv.appendChild(contactInfoDiv);
+
+  chatMessages.appendChild(contactDiv);
+
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}
 </script>
-    <script>
+<script>
       // Define the API URL to fetch notification data
       const apiUrl =
         "https://app.conext.in/Notifications/api/latest-mdc-top-bar-notification/";
